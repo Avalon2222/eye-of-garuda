@@ -63,7 +63,7 @@ export class PelacakKapal {
 
   /** Menit sejak snapshot diambil. */
   umurMenit(t: number): number | null {
-    if (!this.snapshot) return null;
+    if (!this.snapshot || this.snapshot.kapal.length === 0) return null;
     return Math.max(0, Math.round((t - Date.parse(this.snapshot.diambil)) / 60000));
   }
 

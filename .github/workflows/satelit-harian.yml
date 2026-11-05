@@ -1,0 +1,27 @@
+name: Katalog satelit harian
+
+# Membangun ulang satelit.json (TLE terbaru + kelas GCAT) dan menyimpannya ke cabang `data`.
+on:
+  schedule:
+    - cron: "41 23 * * *"   # 23:41 UTC = 06:41 WIB, setelah snapshot TLE who-watches-indonesia
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cabang-data
+  cancel-in-progress: false
+
+jobs:
+  bangun:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet -r scripts/requirements.txt
+      - run: python scripts/bangun_satelit.py --keluar keluar/satelit.json
+      - run: bash scripts/simpan_cabang_data.sh keluar/satelit.json

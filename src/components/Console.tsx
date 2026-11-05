@@ -83,6 +83,7 @@ export default function Console() {
   const bootRef = useRef(boot);
   bootRef.current = boot;
   const petaSiapCallback = useRef<(() => void) | null>(null);
+  const petaSudahLoad = useRef(false);
 
   const tampilkanToast = useCallback((t: string) => {
     setToast(t);
@@ -290,6 +291,7 @@ export default function Console() {
       mapRef.current = m;
       (window as unknown as { __eog?: MapLibre }).__eog = m;
       m.on("load", () => {
+        petaSudahLoad.current = true;
         pasangSemuaLapisan(m);
         for (const l of LAPISAN) setVisibilitas(m, l.id, aktifRef.current.has(l.id));
         if (sat) terapkanSat(m, true);
@@ -348,8 +350,7 @@ export default function Console() {
     const terbang = () => {
       mapRef.current?.flyTo({ center: [t.lon, t.lat], zoom: t.zoom, bearing: t.bearing, pitch: t.pitch, duration: 4200, essential: true, curve: 1.3 });
     };
-    if (m && m.loaded()) terbang();
-    else if (m) m.once("load", terbang);
+    if (m && petaSudahLoad.current) terbang();
     else petaSiapCallback.current = terbang;
   }, [awalUrl]);
 
