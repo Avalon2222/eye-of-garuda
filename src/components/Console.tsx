@@ -12,7 +12,7 @@ import { TOUR } from "@/lib/tour";
 import { PelacakPesawat, type CakupanPesawat } from "@/lib/live/pesawat";
 import { PelacakSatelit } from "@/lib/live/satelit";
 import { PelacakKapal } from "@/lib/live/kapal";
-import { muatAnalisis } from "@/lib/analisis";
+import { muatAnalisis, langkahBusur, type DataSipri } from "@/lib/analisis";
 import type { Pilihan, PanelId, StatusLive } from "@/lib/types";
 import BootScreen from "./BootScreen";
 import Hud, { JamZulu } from "./Hud";
@@ -23,6 +23,8 @@ import SearchPalette, { type EntriCari } from "./SearchPalette";
 import HelpOverlay from "./HelpOverlay";
 import TourOverlay from "./TourOverlay";
 import DataPanel from "./DataPanel";
+import TimelineStrip from "./TimelineStrip";
+import SipriLegend from "./SipriLegend";
 
 const TAMPILAN_JAUH = { center: [118, -2] as [number, number], zoom: 1.3, pitch: 0, bearing: 0 };
 const KOSONG: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
@@ -60,6 +62,8 @@ export default function Console() {
   const [toast, setToast] = useState<string | null>(null);
   const [online, setOnline] = useState(true);
   const [cakupan, setCakupan] = useState<CakupanPesawat>("kawasan");
+  const [sipri, setSipri] = useState<DataSipri | null>(null);
+  const [insiden, setInsiden] = useState<GeoJSON.FeatureCollection | null>(null);
   const [live, setLive] = useState<StatusLive>({
     pesawat: { jumlah: 0, totalDunia: 0, galat: null, terakhir: 0 },
     satelit: { jumlah: 0, epoch: "", galat: null },
@@ -160,8 +164,10 @@ export default function Console() {
     for (const l of LAPISAN) if (l.jenis === "live") ada.add(l.id);
     // lapisan analisis fase 3
     try {
-      const an = await muatAnalisis(m, dataStatis.current.get("tni") ?? KOSONG);
-      for (const [id, fc] of Object.entries(an)) {
+      const an = await muatAnalisis(m);
+      setSipri(an.sipri);
+      setInsiden(an.fitur.insiden ?? null);
+      for (const [id, fc] of Object.entries(an.fitur)) {
         if (!fc) continue;
         hasil[id as LayerId] = fc.features.length;
         ada.add(id as LayerId);
@@ -234,7 +240,7 @@ export default function Console() {
   // loop animasi: pesawat tiap frame, satelit tiap 250 ms, kapal tiap 2 s
   useEffect(() => {
     let raf = 0;
-    let tSat = 0, tKapal = 0, tStatus = 0;
+    let tSat = 0, tKapal = 0, tStatus = 0, tBusur = 0, langkah = 0;
     const tik = () => {
       const m = mapRef.current;
       const now = Date.now();
@@ -252,6 +258,10 @@ export default function Console() {
         if (a.has("kapal") && kapal.current && now - tKapal > 2000) {
           tKapal = now;
           setDataSource(m, "kapal", kapal.current.hitung(now));
+        }
+        if (a.has("sipri") && now - tBusur > 70) {
+          tBusur = now;
+          langkahBusur(m, langkah++);
         }
         if (now - tStatus > 30_000 && kapal.current) {
           tStatus = now;
@@ -585,6 +595,28 @@ export default function Console() {
       {pilihan && tour < 0 && <DetailPanel lang={lang} pilihan={pilihan} onTutup={() => pilih(null)} onTerbang={(lon, lat) => mapRef.current?.flyTo({ center: [lon, lat], zoom: Math.max(mapRef.current.getZoom(), 7), duration: 1500 })} />}
 
       {tour >= 0 && <TourOverlay lang={lang} langkah={tour} onStop={() => setTour(-1)} onLanjut={() => setTour((t) => (t + 1 < TOUR.length ? t + 1 : -1))} />}
+
+      {aktif.has("insiden") && insiden && tour < 0 && (
+        <TimelineStrip
+          lang={lang}
+          data={insiden}
+          terpilih={pilihan?.lapisan === "insiden" ? String(pilihan.props.id) : null}
+          onPilih={(f) => {
+            const [lon, lat] = (f.geometry as GeoJSON.Point).coordinates;
+            pilih({ lapisan: "insiden", props: (f.properties ?? {}) as Record<string, unknown>, lon, lat }, true);
+          }}
+        />
+      )}
+      {aktif.has("sipri") && sipri && tour < 0 && !pilihan && (
+        <SipriLegend
+          lang={lang}
+          data={sipri}
+          onPilih={(negara) => {
+            const e = indeks.current.find((x) => x.lapisan === "sipri" && x.props.negara === negara);
+            if (e) pilih({ lapisan: e.lapisan, props: e.props, lon: e.lon, lat: e.lat }, false);
+          }}
+        />
+      )}
 
       <Ticker lang={lang} item={tickerItem} />
 

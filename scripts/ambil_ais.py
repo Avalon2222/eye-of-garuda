@@ -133,13 +133,25 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--durasi", type=int, default=90)
     ap.add_argument("--keluar", default="public/data/kapal.json")
+    ap.add_argument("--statis", help="cache data statis kapal (nama/tipe/tujuan per MMSI) dari snapshot sebelumnya")
     args = ap.parse_args()
     kunci = os.environ.get("AISSTREAM_API_KEY", "").strip()
     if not kunci:
         print("AISSTREAM_API_KEY belum diatur; snapshot dilewati.", file=sys.stderr)
         return 2
 
-    posisi, statis = asyncio.run(simak(kunci, args.durasi))
+    posisi, statis_baru = asyncio.run(simak(kunci, args.durasi))
+    # ShipStaticData hanya dipancarkan tiap ~6 menit, jadi nama/tipe dikumpulkan lintas snapshot
+    statis: dict[int, dict] = {}
+    if args.statis and Path(args.statis).exists():
+        try:
+            statis = {int(k): v for k, v in json.loads(Path(args.statis).read_text(encoding="utf-8")).items()}
+        except (ValueError, OSError):
+            statis = {}
+    statis.update(statis_baru)
+    if args.statis:
+        Path(args.statis).parent.mkdir(parents=True, exist_ok=True)
+        Path(args.statis).write_text(json.dumps({str(k): v for k, v in statis.items()}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     sanksi = muat_sanksi()
     kapal = []
     for mmsi, p in posisi.items():
@@ -179,7 +191,7 @@ def main() -> int:
     keluar = Path(args.keluar)
     keluar.parent.mkdir(parents=True, exist_ok=True)
     keluar.write_text(json.dumps(hasil, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    print(f"{len(kapal)} kapal ({hasil['tersanksi']} tersanksi) -> {keluar}")
+    print(f"{len(kapal)} kapal ({hasil['tersanksi']} tersanksi, {sum(1 for k in kapal if k['tipe'] is not None)} dengan tipe) -> {keluar}")
     return 0
 
 

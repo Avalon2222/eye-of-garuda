@@ -148,7 +148,17 @@ function barisUntuk(p: Pilihan, lang: Lang): { judul: string; sub: string; baris
         url: pr.norad ? `https://www.n2yo.com/satellite/?s=${s(pr.norad)}` : undefined,
       };
     case "zee":
-      return { judul: s(pr.nama), sub: s(pr.jenis).replace(/_/g, " "), baris: [[t("detail_notes"), s(pr.keterangan)], [t("source"), s(pr.sumber)]], catatan: "eez_caveat", url };
+      return {
+        judul: s(pr.nama),
+        sub: s(pr.tipe_garis) || s(pr.jenis).replace(/_/g, " "),
+        baris: [
+          ...(pr.tetangga ? ([[t("detail_border"), s(pr.tetangga)]] as Baris[]) : []),
+          [t("detail_notes"), s(pr.keterangan)],
+          [t("source"), s(pr.sumber)],
+        ],
+        catatan: "eez_caveat",
+        url,
+      };
     case "radius":
       return {
         judul: s(pr.nama),

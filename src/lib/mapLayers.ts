@@ -344,8 +344,13 @@ function pasangZee(map: MapLibre) {
     id: "zee-garis",
     type: "line",
     source: "zee",
-    filter: ["==", ["get", "jenis"], "zee"],
-    paint: { "line-color": "#f472b6", "line-width": 1.5, "line-opacity": 0.9 },
+    filter: ["==", ["get", "jenis"], "batas"],
+    paint: {
+      "line-color": "#f472b6",
+      "line-width": ["match", ["get", "tipe_garis"], "Treaty", 2, 1.4],
+      "line-opacity": 0.9,
+      "line-dasharray": ["match", ["get", "tipe_garis"], "Treaty", ["literal", [1, 0]], ["literal", [3, 2]]],
+    },
   }, "zee");
   daftar(map, {
     id: "zee-sembilan",
@@ -371,7 +376,7 @@ function pasangRadius(map: MapLibre) {
     id: "radius-buta",
     type: "fill",
     source: "radius-buta",
-    paint: { "fill-color": "#e879f9", "fill-opacity": 0.1, "fill-outline-color": "#e879f9" },
+    paint: { "fill-color": "#e879f9", "fill-opacity": 0.07, "fill-outline-color": "#e879f9" },
   }, "radius");
   daftar(map, {
     id: "radius-isi",

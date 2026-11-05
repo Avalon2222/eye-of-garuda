@@ -1,6 +1,6 @@
 name: Snapshot AIS
 
-# Menyimak aisstream.io ~90 detik lalu menyimpan posisi kapal ke cabang `data` (kapal.json).
+# Menyimak aisstream.io ~4 menit lalu menyimpan posisi kapal ke cabang `data` (kapal.json).
 # Browser membaca berkas itu lewat raw.githubusercontent.com, jadi tidak perlu deploy ulang.
 on:
   schedule:
@@ -27,6 +27,9 @@ jobs:
       - name: Simak AIS
         env:
           AISSTREAM_API_KEY: ${{ secrets.AISSTREAM_API_KEY }}
-        run: python scripts/ambil_ais.py --durasi 90 --keluar keluar/kapal.json
+        run: |
+          mkdir -p keluar
+          curl -sf "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/data/kapal_statis.json" -o keluar/kapal_statis.json || true
+          python scripts/ambil_ais.py --durasi 240 --keluar keluar/kapal.json --statis keluar/kapal_statis.json
       - name: Simpan ke cabang data
-        run: bash scripts/simpan_cabang_data.sh keluar/kapal.json
+        run: bash scripts/simpan_cabang_data.sh keluar/kapal.json keluar/kapal_statis.json
