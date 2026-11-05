@@ -12,6 +12,13 @@
 
 **Live:** https://eye-of-garuda.vercel.app
 
+![Eye of Garuda](docs/screenshots/hero.png)
+
+<p align="center">
+  <img src="docs/screenshots/natuna.png" width="49%" alt="ZEE, sembilan garis putus, dan radius tempur di sekitar Natuna" />
+  <img src="docs/screenshots/sipri.png" width="49%" alt="Busur impor senjata SIPRI" />
+</p>
+
 ## 🇬🇧 In English
 
 **A dark, smooth, Osiris-style defense console for Indonesia, rendered on a WebGL globe.** Every entity is a
