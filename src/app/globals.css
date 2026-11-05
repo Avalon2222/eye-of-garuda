@@ -1,0 +1,285 @@
+@import "tailwindcss";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+:root {
+  --bg: #05080f;
+  --panel: rgba(7, 11, 20, 0.72);
+  --panel-solid: #0a0f1c;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --text: #e5e7eb;
+  --muted: #8b95a7;
+  --dim: #5b6475;
+  --accent: #ff5a3c;
+  --accent-soft: rgba(255, 90, 60, 0.18);
+  --gold: #f2c66d;
+  --ok: #4ade80;
+  --warn: #fbbf24;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-accent: var(--accent);
+  --color-gold: var(--gold);
+  --color-muted: var(--muted);
+  --color-dim: var(--dim);
+  --font-mono: var(--font-mono);
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+@layer components {
+/* panel kaca */
+.glass {
+  background: var(--panel);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* sudut braket ala HUD */
+.braket {
+  position: relative;
+}
+.braket::before,
+.braket::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--accent);
+  border-style: solid;
+  opacity: 0.8;
+  pointer-events: none;
+}
+.braket::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+.braket::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1px 1px 0;
+}
+
+.label-kecil {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tombol-hud {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  transition: color 120ms, border-color 120ms, background 120ms;
+}
+.tombol-hud:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.05);
+}
+.tombol-hud.aktif {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.tombol-ikon {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  transition: color 120ms, border-color 120ms, background 120ms;
+}
+.tombol-ikon:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.06);
+}
+.tombol-ikon.aktif {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.kbd {
+  display: inline-block;
+  min-width: 20px;
+  padding: 1px 5px;
+  font-size: 10px;
+  text-align: center;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* titik status berdenyut */
+.denyut {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--ok);
+}
+.denyut::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  border: 1px solid var(--ok);
+  animation: denyut 1.8s ease-out infinite;
+}
+@keyframes denyut {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+}
+
+/* garis pindai halus di atas peta */
+.pindai {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 3px);
+  mix-blend-mode: overlay;
+}
+.vinyet {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+@layer components {
+/* ticker */
+.ticker-jalur {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: ticker 60s linear infinite;
+}
+.ticker-jalur:hover {
+  animation-play-state: paused;
+}
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* boot */
+.kursor::after {
+  content: "▌";
+  animation: kedip 1s steps(1) infinite;
+  color: var(--accent);
+}
+@keyframes kedip {
+  50% {
+    opacity: 0;
+  }
+}
+.muncul {
+  animation: muncul 300ms ease-out both;
+}
+@keyframes muncul {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.geser-kanan {
+  animation: geser-kanan 260ms ease-out both;
+}
+@keyframes geser-kanan {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* scrollbar tipis */
+.gulir {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+.gulir::-webkit-scrollbar {
+  width: 6px;
+}
+.gulir::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+}
+
+/* maplibre */
+.maplibregl-ctrl-attrib {
+  font-family: var(--font-mono) !important;
+  font-size: 9px !important;
+  background: rgba(5, 8, 15, 0.6) !important;
+  color: var(--dim) !important;
+}
+.maplibregl-ctrl-attrib a {
+  color: var(--muted) !important;
+}
+.maplibregl-canvas:focus {
+  outline: none;
+}
