@@ -89,7 +89,8 @@ function pisahkanAksi(teks: string, indeks: EntriCari[]): { teks: string; terban
   const baris = teks.split("\n").filter((b) => {
     const m = b.match(/^\s*@?(terbang|fly)\s*:\s*(.+)$/i);
     if (m) {
-      terbang = terbang ?? cariEntri(indeks, m[2].replace(/[*_`"]/g, ""));
+      const nama = m[2].replace(/[*_`"]/g, "");
+      terbang = terbang ?? cariEntri(indeks, nama) ?? petunjukEntitas(indeks, nama)[0];
       return false;
     }
     const l = b.match(/^\s*@?(lapisan|layer)\s*:\s*([a-z]+)/i);
