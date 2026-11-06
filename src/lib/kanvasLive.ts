@@ -13,6 +13,8 @@
 import type { Map as MapLibre } from "maplibre-gl";
 import { PelacakSatelit, warnaSatelit, namaSatelit, type SatAktif, type PosisiSatelit } from "./live/satelit";
 import { PelacakPesawat } from "./live/pesawat";
+import { type FaseSkenario, type Aktor, posisiJalur, jejakJalur } from "./skenario";
+import { lingkaran } from "./geo";
 
 export type JenisKanvas = "satelit" | "pesawat";
 
@@ -84,6 +86,8 @@ export class KanvasLive {
   tampilSatelit = false;
   tampilPesawat = false;
   pilihan: { jenis: JenisKanvas; id: string } | null = null;
+  /** fase skenario yang sedang dimainkan (lihat skenario.ts) */
+  skenario: { fase: FaseSkenario; mulai: number } | null = null;
   /** jumlah satelit yang tergambar pada frame terakhir */
   terlihatSatelit = 0;
 
@@ -212,12 +216,13 @@ export class KanvasLive {
     ctx.clearRect(0, 0, w, h);
     this.hits = [];
     this.terlihatSatelit = 0;
-    if (!this.tampilSatelit && !this.tampilPesawat) return;
+    if (!this.tampilSatelit && !this.tampilPesawat && !this.skenario) return;
     const mulai = performance.now();
     const p = this.proyektor();
     const zoom = this.map.getZoom();
     if (this.tampilSatelit && this.satelit) this.gambarSatelit(ctx, p, zoom, now);
     if (this.tampilPesawat && this.pesawat) this.gambarPesawat(ctx, p, zoom, now);
+    if (this.skenario) this.gambarSkenario(ctx, p, zoom, now);
     this.lamaGambarMs = performance.now() - mulai;
   }
 
@@ -358,6 +363,206 @@ export class KanvasLive {
         this.teks(ctx, a.callsign, t.x + 16, t.y - 2, "#ffffff");
       } else if (zoom >= 4) this.teks(ctx, a.callsign, t.x + ukuran * 0.7 + 3, t.y, "#fde68a");
     }
+  }
+
+  // ---------- skenario ----------
+  private warnaPihak(pihak: Aktor["pihak"]): string {
+    return pihak === "tni" ? "#4ade80" : pihak === "lawan" ? "#ef4444" : "#e2e8f0";
+  }
+
+  /** Polyline permukaan (dipotong di balik bumi / loncatan). */
+  private garisPermukaan(ctx: CanvasRenderingContext2D, p: Proyektor, titik: [number, number][]): void {
+    const t: TitikLayar = { x: 0, y: 0, terlihat: true };
+    let buka = false;
+    let xLama = 0;
+    for (const [lon, lat] of titik) {
+      const ok = this.proyeksi(p, lon, lat, 0, t) && t.terlihat;
+      if (!ok) {
+        buka = false;
+        continue;
+      }
+      if (buka && Math.abs(t.x - xLama) > p.w * 0.45) buka = false;
+      if (!buka) {
+        ctx.moveTo(t.x, t.y);
+        buka = true;
+      } else ctx.lineTo(t.x, t.y);
+      xLama = t.x;
+    }
+  }
+
+  private gambarSkenario(ctx: CanvasRenderingContext2D, p: Proyektor, zoom: number, now: number): void {
+    const { fase, mulai } = this.skenario!;
+    const lewat = now - mulai;
+    const bearing = this.map.getBearing();
+    const t: TitikLayar = { x: 0, y: 0, terlihat: true };
+    ctx.font = FONT;
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "left";
+    // lingkaran jangkauan
+    for (const l of fase.lingkaran ?? []) {
+      ctx.save();
+      ctx.beginPath();
+      this.garisPermukaan(ctx, p, lingkaran(l.pusat[0], l.pusat[1], l.radiusKm, 120));
+      ctx.strokeStyle = l.warna;
+      ctx.globalAlpha = 0.85;
+      ctx.lineWidth = 1.4;
+      ctx.setLineDash([6, 4]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.globalAlpha = 0.08;
+      ctx.fillStyle = l.warna;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      ctx.restore();
+      // label di titik utara lingkaran
+      const utara = lingkaran(l.pusat[0], l.pusat[1], l.radiusKm, 4)[0];
+      if (this.proyeksi(p, utara[0], utara[1], 0, t) && t.terlihat) {
+        ctx.textAlign = "center";
+        this.teks(ctx, l.label.id, t.x, t.y - 8, l.warna);
+        ctx.textAlign = "left";
+      }
+    }
+    const ukuran = Math.min(18, Math.max(10, 6 + zoom * 1.6));
+    for (const a of fase.aktor) {
+      let f = (lewat - a.mulai) / Math.max(1, a.durasi);
+      if (f < 0) continue;
+      const selesai = f >= 1;
+      if (selesai && !a.tinggal && a.jenis !== "rudal") continue;
+      if (a.jenis === "rudal") {
+        this.gambarRudal(ctx, p, a, Math.min(1, f), selesai ? (lewat - a.mulai - a.durasi) : 0);
+        continue;
+      }
+      f = Math.min(1, f);
+      const pos = posisiJalur(a.jalur, f);
+      const warna = this.warnaPihak(a.pihak);
+      // jejak
+      if (a.jalur.length > 1 && a.durasi > 1) {
+        ctx.save();
+        ctx.beginPath();
+        this.garisPermukaan(ctx, p, jejakJalur(a.jalur, f, 48));
+        ctx.strokeStyle = warna;
+        ctx.globalAlpha = 0.45;
+        ctx.lineWidth = 1.2;
+        ctx.setLineDash([3, 3]);
+        ctx.stroke();
+        ctx.restore();
+      }
+      if (!this.proyeksi(p, pos.lon, pos.lat, 0, t) || !t.terlihat) continue;
+      const sudut = (pos.haluan - bearing) * RAD;
+      if (a.jenis === "pesawat") this.ikonPesawat(ctx, t.x, t.y, ukuran, sudut, warna);
+      else this.ikonKapal(ctx, t.x, t.y, ukuran * 0.8, sudut, warna);
+      // cahaya halus
+      ctx.beginPath();
+      ctx.arc(t.x, t.y, ukuran * 0.9, 0, Math.PI * 2);
+      ctx.strokeStyle = warna;
+      ctx.globalAlpha = 0.35;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+      this.teks(ctx, a.label.id, t.x + ukuran * 0.8 + 4, t.y, warna);
+    }
+  }
+
+  private gambarRudal(ctx: CanvasRenderingContext2D, p: Proyektor, a: Aktor, f: number, sejakTiba: number): void {
+    const awal: TitikLayar = { x: 0, y: 0, terlihat: true };
+    const akhir: TitikLayar = { x: 0, y: 0, terlihat: true };
+    const asal = a.jalur[0];
+    const sasaran = a.jalur[a.jalur.length - 1];
+    if (!this.proyeksi(p, asal[0], asal[1], 0, awal) || !this.proyeksi(p, sasaran[0], sasaran[1], 0, akhir)) return;
+    if (!awal.terlihat && !akhir.terlihat) return;
+    const warna = this.warnaPihak(a.pihak);
+    const dx = akhir.x - awal.x;
+    const dy = akhir.y - awal.y;
+    const jarak = Math.hypot(dx, dy);
+    if (jarak > p.w) return;
+    // kendali bezier: titik tengah diangkat ke "atas layar" (lintasan balistik ilustratif)
+    const cx = (awal.x + akhir.x) / 2;
+    const cy = (awal.y + akhir.y) / 2 - Math.max(30, jarak * 0.38);
+    const bez = (u: number): [number, number] => [
+      (1 - u) * (1 - u) * awal.x + 2 * (1 - u) * u * cx + u * u * akhir.x,
+      (1 - u) * (1 - u) * awal.y + 2 * (1 - u) * u * cy + u * u * akhir.y,
+    ];
+    ctx.save();
+    if (sejakTiba > 0) {
+      // ledakan / dampak: cincin melebar lalu pudar
+      const d = Math.min(1, sejakTiba / 1600);
+      if (d < 1) {
+        ctx.beginPath();
+        ctx.arc(akhir.x, akhir.y, 4 + d * 34, 0, Math.PI * 2);
+        ctx.strokeStyle = warna;
+        ctx.lineWidth = 2.5 * (1 - d);
+        ctx.globalAlpha = 1 - d;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(akhir.x, akhir.y, 10 * (1 - d) + 2, 0, Math.PI * 2);
+        ctx.fillStyle = "#fff7ed";
+        ctx.globalAlpha = 0.9 * (1 - d);
+        ctx.fill();
+      }
+      ctx.restore();
+      return;
+    }
+    // lintasan yang sudah ditempuh
+    ctx.beginPath();
+    const n = 40;
+    for (let i = 0; i <= n; i++) {
+      const [x, y] = bez((f * i) / n);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = warna;
+    ctx.globalAlpha = 0.35;
+    ctx.lineWidth = 1;
+    ctx.setLineDash([2, 3]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    // ekor menyala
+    ctx.beginPath();
+    const u0 = Math.max(0, f - 0.18);
+    for (let i = 0; i <= 12; i++) {
+      const [x, y] = bez(u0 + ((f - u0) * i) / 12);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = "#fdba74";
+    ctx.globalAlpha = 0.8;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    // kepala
+    const [hx, hy] = bez(f);
+    ctx.beginPath();
+    ctx.arc(hx, hy, 6, 0, Math.PI * 2);
+    ctx.fillStyle = warna;
+    ctx.globalAlpha = 0.25;
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(hx, hy, 2.6, 0, Math.PI * 2);
+    ctx.fillStyle = "#fff7ed";
+    ctx.globalAlpha = 1;
+    ctx.fill();
+    if (f < 0.5) this.teks(ctx, a.label.id, hx + 9, hy - 6, warna);
+    ctx.restore();
+  }
+
+  private ikonKapal(ctx: CanvasRenderingContext2D, x: number, y: number, s: number, sudut: number, warna: string): void {
+    const u = s / 32;
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(sudut);
+    ctx.translate(-16 * u, -16 * u);
+    ctx.beginPath();
+    ctx.moveTo(16 * u, 2 * u);
+    ctx.lineTo(24 * u, 14 * u);
+    ctx.lineTo(24 * u, 30 * u);
+    ctx.lineTo(8 * u, 30 * u);
+    ctx.lineTo(8 * u, 14 * u);
+    ctx.closePath();
+    ctx.fillStyle = warna;
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#05080f";
+    ctx.stroke();
+    ctx.restore();
   }
 
   private ikonPesawat(ctx: CanvasRenderingContext2D, x: number, y: number, s: number, sudut: number, warna: string): void {

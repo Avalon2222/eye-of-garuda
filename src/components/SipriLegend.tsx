@@ -7,7 +7,7 @@ export default function SipriLegend({ lang, data, onPilih }: { lang: Lang; data:
   const urut = [...data.pemasok].sort((a, b) => b.tiv_juta - a.tiv_juta);
   const maks = urut[0]?.tiv_juta ?? 1;
   return (
-    <div className="glass braket pointer-events-auto absolute bottom-[44px] right-3 z-20 hidden w-[300px] sm:block">
+    <div className="glass braket pointer-events-auto absolute bottom-[44px] right-[58px] z-20 hidden w-[300px] sm:block">
       <div className="border-b border-white/10 px-3 py-2">
         <div className="label-kecil text-[9px]" style={{ color: "#c084fc" }}>
           SIPRI · {data.periode}

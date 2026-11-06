@@ -4,9 +4,11 @@ import { X } from "lucide-react";
 import { terjemah, type Lang } from "@/lib/i18n";
 import Logo from "./Logo";
 
-const PINTASAN: [string, "help_k" | "help_t" | "help_f" | "help_r" | "help_l" | "help_s" | "help_g" | "help_num" | "help_esc" | "help_q"][] = [
+const PINTASAN: [string, "help_k" | "help_t" | "help_f" | "help_r" | "help_l" | "help_s" | "help_g" | "help_num" | "help_esc" | "help_q" | "help_w" | "help_c"][] = [
   ["Ctrl K", "help_k"],
   ["T", "help_t"],
+  ["W", "help_w"],
+  ["C", "help_c"],
   ["F", "help_f"],
   ["R", "help_r"],
   ["L", "help_l"],

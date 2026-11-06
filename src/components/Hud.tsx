@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Search, HelpCircle, Maximize2, Minimize2, Share2, Play, Square, BarChart3, Globe2, Map as MapIcon, Satellite, Languages, LocateFixed } from "lucide-react";
+import { Search, HelpCircle, Maximize2, Minimize2, Share2, Play, Square, BarChart3, Globe2, Map as MapIcon, Satellite, Languages, LocateFixed, Swords } from "lucide-react";
 import Logo from "./Logo";
 import { terjemah, type Lang } from "@/lib/i18n";
 
@@ -24,6 +24,8 @@ interface Props {
   onData: () => void;
   onFullscreen: () => void;
   onReset: () => void;
+  onSkenario: () => void;
+  skenarioAktif: boolean;
 }
 
 function pad(n: number) {
@@ -123,6 +125,9 @@ export default function Hud(p: Props) {
           </button>
           <button className={`tombol-ikon ${p.tourAktif ? "aktif" : ""}`} onClick={p.onTour} title={`${terjemah(p.lang, "tour")} (T)`}>
             {p.tourAktif ? <Square size={15} /> : <Play size={15} />}
+          </button>
+          <button className={`tombol-ikon ${p.skenarioAktif ? "aktif" : ""}`} onClick={p.onSkenario} title={`${terjemah(p.lang, "scenario")} (W)`}>
+            <Swords size={15} />
           </button>
           <button className="tombol-ikon" onClick={p.onData} title={terjemah(p.lang, "data_panel")}>
             <BarChart3 size={15} />

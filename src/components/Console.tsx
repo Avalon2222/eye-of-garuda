@@ -26,6 +26,9 @@ import TourOverlay from "./TourOverlay";
 import DataPanel from "./DataPanel";
 import TimelineStrip from "./TimelineStrip";
 import SipriLegend from "./SipriLegend";
+import SkenarioOverlay from "./SkenarioOverlay";
+import ChatWidget from "./ChatWidget";
+import { SKENARIO } from "@/lib/skenario";
 
 const TAMPILAN_JAUH = { center: [118, -2] as [number, number], zoom: 1.3, pitch: 0, bearing: 0 };
 const KOSONG: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
@@ -58,6 +61,9 @@ export default function Console() {
   const [pilihan, setPilihan] = useState<Pilihan | null>(null);
   const [panel, setPanel] = useState<PanelId>("none");
   const [tour, setTour] = useState(-1);
+  const [obrolan, setObrolan] = useState(false);
+  /** indeks fase skenario yang sedang dimainkan, -1 = tidak aktif */
+  const [skenario, setSkenario] = useState(-1);
   const [jumlah, setJumlah] = useState<Partial<Record<LayerId, number>>>({});
   const [tersedia, setTersedia] = useState<Set<LayerId>>(new Set());
   const [toast, setToast] = useState<string | null>(null);
@@ -79,6 +85,8 @@ export default function Console() {
   aktifRef.current = aktif;
   const tourRef = useRef(tour);
   tourRef.current = tour;
+  const skenarioRef = useRef(skenario);
+  skenarioRef.current = skenario;
   const pesawat = useRef<PelacakPesawat | null>(null);
   const satelit = useRef<PelacakSatelit | null>(null);
   const kapal = useRef<PelacakKapal | null>(null);
@@ -474,7 +482,53 @@ export default function Console() {
     else document.documentElement.requestFullscreen?.();
   }, []);
 
-  const toggleTour = useCallback(() => setTour((t) => (t >= 0 ? -1 : 0)), []);
+  const toggleTour = useCallback(() => {
+    setSkenario(-1);
+    setTour((t) => (t >= 0 ? -1 : 0));
+  }, []);
+  const toggleSkenario = useCallback(() => {
+    setTour(-1);
+    setSkenario((f) => (f >= 0 ? -1 : 0));
+  }, []);
+
+  // jalankan fase skenario
+  useEffect(() => {
+    const k = kanvas.current;
+    if (skenario < 0) {
+      if (k) k.skenario = null;
+      return;
+    }
+    const m = mapRef.current;
+    const sk = SKENARIO[0];
+    const f = sk.fase[skenario];
+    if (!m || !f) {
+      setSkenario(-1);
+      return;
+    }
+    pilih(null);
+    setPanel("none");
+    if (f.nyalakan) {
+      setAktif((a) => {
+        const b = new Set(a);
+        for (const id of f.nyalakan!) {
+          if (!b.has(id)) {
+            b.add(id);
+            setVisibilitas(m, id, true);
+            if (LAPISAN.find((x) => x.id === id)?.jenis === "live") mulaiLive(id);
+          }
+        }
+        return b;
+      });
+    }
+    m.flyTo({ center: f.kamera.center, zoom: f.kamera.zoom, pitch: f.kamera.pitch, bearing: f.kamera.bearing, duration: f.kamera.durasi, essential: true, curve: 1.2 });
+    if (k) k.skenario = { fase: f, mulai: Date.now() + Math.min(1200, f.kamera.durasi * 0.4) };
+    const terakhir = skenario >= sk.fase.length - 1;
+    const id = terakhir ? 0 : window.setTimeout(() => setSkenario((x) => (x === skenario ? skenario + 1 : x)), f.kamera.durasi + f.tahan);
+    return () => {
+      if (id) clearTimeout(id);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [skenario]);
 
   // jalankan langkah tour
   useEffect(() => {
@@ -526,6 +580,7 @@ export default function Console() {
           if (bootRef.current) selesaiBoot();
           else if (panel !== "none") setPanel("none");
           else if (tourRef.current >= 0) setTour(-1);
+          else if (skenarioRef.current >= 0) setSkenario(-1);
           else pilih(null);
           break;
         case "?":
@@ -545,6 +600,9 @@ export default function Console() {
         case "t":
           toggleTour();
           break;
+        case "w":
+          toggleSkenario();
+          break;
         case "l":
           toggleLang();
           break;
@@ -557,6 +615,9 @@ export default function Console() {
         case "d":
           setPanel((p) => (p === "data" ? "none" : "data"));
           break;
+        case "c":
+          setObrolan((o) => !o);
+          break;
         default: {
           const l = LAPISAN.find((x) => x.tombol === e.key);
           if (l && tersedia.has(l.id)) toggleLapisan(l.id);
@@ -565,7 +626,7 @@ export default function Console() {
     };
     window.addEventListener("keydown", h);
     return () => window.removeEventListener("keydown", h);
-  }, [panel, tersedia, selesaiBoot, pilih, fullscreen, reset, toggleTour, toggleLang, toggleSat, toggleDatar, toggleLapisan]);
+  }, [panel, tersedia, selesaiBoot, pilih, fullscreen, reset, toggleTour, toggleSkenario, toggleLang, toggleSat, toggleDatar, toggleLapisan]);
 
   // ---------- turunan ----------
   const jumlahEntitas = useMemo(() => [...aktif].reduce((n, id) => n + (jumlah[id] ?? 0), 0), [aktif, jumlah]);
@@ -613,6 +674,8 @@ export default function Console() {
         onData={() => setPanel("data")}
         onFullscreen={fullscreen}
         onReset={reset}
+        onSkenario={toggleSkenario}
+        skenarioAktif={skenario >= 0}
       />
 
       <LayerRail lang={lang} aktif={aktif} jumlah={jumlah} onToggle={toggleLapisan} tersedia={tersedia} />
@@ -636,11 +699,23 @@ export default function Console() {
         </div>
       )}
 
-      {pilihan && tour < 0 && <DetailPanel lang={lang} pilihan={pilihan} onTutup={() => pilih(null)} onTerbang={(lon, lat) => mapRef.current?.flyTo({ center: [lon, lat], zoom: Math.max(mapRef.current.getZoom(), 7), duration: 1500 })} />}
+      {pilihan && tour < 0 && skenario < 0 && <DetailPanel lang={lang} pilihan={pilihan} onTutup={() => pilih(null)} onTerbang={(lon, lat) => mapRef.current?.flyTo({ center: [lon, lat], zoom: Math.max(mapRef.current.getZoom(), 7), duration: 1500 })} />}
+
+      {skenario >= 0 && (
+        <SkenarioOverlay
+          lang={lang}
+          skenario={SKENARIO[0]}
+          fase={skenario}
+          onStop={() => setSkenario(-1)}
+          onLanjut={() => setSkenario((f) => Math.min(SKENARIO[0].fase.length - 1, f + 1))}
+          onMundur={() => setSkenario((f) => Math.max(0, f - 1))}
+          onUlang={() => setSkenario(0)}
+        />
+      )}
 
       {tour >= 0 && <TourOverlay lang={lang} langkah={tour} onStop={() => setTour(-1)} onLanjut={() => setTour((t) => (t + 1 < TOUR.length ? t + 1 : -1))} />}
 
-      {aktif.has("insiden") && insiden && tour < 0 && (
+      {aktif.has("insiden") && insiden && tour < 0 && skenario < 0 && (
         <TimelineStrip
           lang={lang}
           data={insiden}
@@ -651,13 +726,33 @@ export default function Console() {
           }}
         />
       )}
-      {aktif.has("sipri") && sipri && tour < 0 && !pilihan && (
+      {aktif.has("sipri") && sipri && tour < 0 && skenario < 0 && !pilihan && !obrolan && (
         <SipriLegend
           lang={lang}
           data={sipri}
           onPilih={(negara) => {
             const e = indeks.current.find((x) => x.lapisan === "sipri" && x.props.negara === negara);
             if (e) pilih({ lapisan: e.lapisan, props: e.props, lon: e.lon, lat: e.lat }, false);
+          }}
+        />
+      )}
+
+      {!boot && tour < 0 && skenario < 0 && (
+        <ChatWidget
+          lang={lang}
+          terbuka={obrolan}
+          onToggle={() => setObrolan((o) => !o)}
+          indeks={indeks.current}
+          aktif={aktif}
+          jumlah={jumlah}
+          pilihan={pilihan}
+          onLapisan={(id) => {
+            if (!aktif.has(id)) toggleLapisan(id);
+          }}
+          onTerbang={(e) => {
+            if (!aktif.has(e.lapisan)) toggleLapisan(e.lapisan);
+            pilih({ lapisan: e.lapisan, props: e.props, lon: e.lon, lat: e.lat }, true);
+            setObrolan(false);
           }}
         />
       )}

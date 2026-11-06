@@ -7,9 +7,11 @@ kawasan, bukan data operasional. Tiap baris data statis menyimpan kolom `sumber`
 
 | Berkas | Isi | Sumber |
 |---|---|---|
-| `markas_tni.csv` | 65 markas: Mabes TNI, Kogabwilhan, Kodam, Lantamal, Koarmada, Lanud (tipe A/B yang paling dikenal) | Wikipedia ID/EN per satuan |
+| `markas_tni.csv` | 198 markas: Mabes TNI/AD/AL/AU, Kogabwilhan, semua Kodam & Korem, Lantamal & Lanal, Koarmada, Lanud, Kopassus, Kostrad, Marinir, Puspenerbad/Puspenerbal, akademi. Korem dan Lanal memakai koordinat pusat kota/pelabuhan (ditandai "perkiraan" di kolom keterangan) | Wikipedia ID/EN per satuan, Wikidata, OurAirports (Lanud) |
 | `pulau_terluar_perbatasan.csv` | 15 pulau terluar, 6 PLBN, 3 wilayah rawan (titik tengah ilustratif) | Keppres 6/2017, Wikipedia |
-| `pangkalan_asing.csv` | 37 pangkalan/pos negara lain di kawasan (AS, Australia, China, India, tetangga) | Wikipedia, CSIS AMTI, RAAF, US Navy, liputan ABC/Reuters |
+| `pangkalan_asing.csv` + `sumber/wikidata_militer.json` | 211 pangkalan/pos negara lain di kawasan: 37 kurasi manual (kolom `kurasi=1`) + instalasi militer dari Wikidata (pangkalan udara/laut, markas; benteng dan situs bersejarah dibuang; belum diverifikasi satu per satu) | Wikipedia, CSIS AMTI, RAAF, US Navy, liputan ABC/Reuters; Wikidata (CC0) |
+| `sumber/ourairports_kawasan.csv` → `bandara.geojson` | 507 bandara besar/sedang di kawasan + lapangan udara militer berdasarkan nama (`scripts/bangun_fasilitas.py`) | OurAirports (public domain) |
+| `sumber/wikidata_pelabuhan.json` → `pelabuhan.geojson` | 606 pelabuhan laut per negara di kawasan (`scripts/bangun_fasilitas.py`) | Wikidata (CC0) |
 | `alki.csv` | ALKI I/II/III sebagai garis tengah ilustratif 6 titik | PP No. 37 Tahun 2002 |
 | `anggaran_indonesia.csv` | Pagu APBN Kemhan 2015–2026 (bukan realisasi) | Kemenkeu / Nota Keuangan, Kompas, CNBC Indonesia |
 | `anggaran_kawasan.csv` | Belanja militer 2024 negara kawasan | SIPRI Milex 2024, IISS Military Balance |
