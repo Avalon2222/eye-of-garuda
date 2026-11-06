@@ -1,0 +1,4248 @@
+{
+"sumber": "Wikidata (CC0), kelas: port / seaport / harbour",
+"diambil": "2026-11-06",
+"pelabuhan": [
+{
+"qid": "Q111386777",
+"nama": "Thursday Island",
+"negara": "Australia",
+"lat": -10.58333,
+"lon": 142.21667
+},
+{
+"qid": "Q111386672",
+"nama": "Cape Flattery Harbor",
+"negara": "Australia",
+"lat": -14.95,
+"lon": 145.35
+},
+{
+"qid": "Q111387497",
+"nama": "Flying Fish Cove",
+"negara": "Australia",
+"lat": -10.41667,
+"lon": 105.7
+},
+{
+"qid": "Q22330172",
+"nama": "Port Darwin",
+"negara": "Australia",
+"lat": -12.47083,
+"lon": 130.84833
+},
+{
+"qid": "Q67089675",
+"nama": "Muara Port",
+"negara": "Brunei",
+"lat": 5.02485,
+"lon": 115.07299
+},
+{
+"qid": "Q111387598",
+"nama": "Muara Harbor",
+"negara": "Brunei",
+"lat": 5.03333,
+"lon": 115.06667
+},
+{
+"qid": "Q111386751",
+"nama": "Kuala Belait",
+"negara": "Brunei",
+"lat": 4.63333,
+"lon": 114.2
+},
+{
+"qid": "Q111387597",
+"nama": "Seria Oil Loading Terminal",
+"negara": "Brunei",
+"lat": 4.61667,
+"lon": 114.31667
+},
+{
+"qid": "Q1000035",
+"nama": "Port of Zhuhai",
+"negara": "China",
+"lat": 22.23333,
+"lon": 113.58333
+},
+{
+"qid": "Q10989720",
+"nama": "Hengqin Port",
+"negara": "China",
+"lat": 22.13892,
+"lon": 113.54811
+},
+{
+"qid": "Q16898745",
+"nama": "Port of Zhongshan",
+"negara": "China",
+"lat": 22.5144,
+"lon": 113.189
+},
+{
+"qid": "Q111387305",
+"nama": "SHAN T OU",
+"negara": "China",
+"lat": 23.36667,
+"lon": 116.68333
+},
+{
+"qid": "Q19582661",
+"nama": "Wutong Ferry Terminal",
+"negara": "China",
+"lat": 24.5333,
+"lon": 118.1884
+},
+{
+"qid": "Q117450420",
+"nama": "Port of Beibu Gulf",
+"negara": "China",
+"lat": 21.70167,
+"lon": 108.61306
+},
+{
+"qid": "Q6347393",
+"nama": "Ká-Hó Port",
+"negara": "China",
+"lat": 22.13432,
+"lon": 113.58459
+},
+{
+"qid": "Q7231306",
+"nama": "Port of Zhanjiang",
+"negara": "China",
+"lat": 21.1771,
+"lon": 110.4153
+},
+{
+"qid": "Q7231250",
+"nama": "Port of Quanzhou",
+"negara": "China",
+"lat": 24.81667,
+"lon": 118.66667
+},
+{
+"qid": "Q11528208",
+"nama": "Dongxing Port",
+"negara": "China",
+"lat": 21.55007,
+"lon": 108.00574
+},
+{
+"qid": "Q16898724",
+"nama": "Port of Shantou",
+"negara": "China",
+"lat": 23.3386,
+"lon": 116.749
+},
+{
+"qid": "Q16898722",
+"nama": "Porto Interior",
+"negara": "China",
+"lat": 22.19806,
+"lon": 113.53361
+},
+{
+"qid": "Q7702671",
+"nama": "Terminal Marítimo de Passageiros do Porto Interior",
+"negara": "China",
+"lat": 22.19478,
+"lon": 113.53533
+},
+{
+"qid": "Q16898730",
+"nama": "Port of Humen",
+"negara": "China",
+"lat": 22.8642,
+"lon": 113.408
+},
+{
+"qid": "Q16898737",
+"nama": "Port of Huizhou",
+"negara": "China",
+"lat": 22.8642,
+"lon": 113.408
+},
+{
+"qid": "Q30326154",
+"nama": "Xinhai Port",
+"negara": "China",
+"lat": 20.05454,
+"lon": 110.15616
+},
+{
+"qid": "Q7231299",
+"nama": "Port of Yangpu",
+"negara": "China",
+"lat": 19.73065,
+"lon": 109.19873
+},
+{
+"qid": "Q1572975",
+"nama": "Port of Guangzhou",
+"negara": "China",
+"lat": 23.09387,
+"lon": 113.43779
+},
+{
+"qid": "Q5972135",
+"nama": "Shatoujiao Port",
+"negara": "China",
+"lat": 22.55205,
+"lon": 114.2229
+},
+{
+"qid": "Q16898740",
+"nama": "Port of Yangjiang",
+"negara": "China",
+"lat": 21.7083,
+"lon": 111.811
+},
+{
+"qid": "Q7365675",
+"nama": "Rongqi Port",
+"negara": "China",
+"lat": 22.78028,
+"lon": 113.28722
+},
+{
+"qid": "Q3398486",
+"nama": "Port of Gaolan",
+"negara": "China",
+"lat": 21.9463,
+"lon": 113.231
+},
+{
+"qid": "Q16898738",
+"nama": "Port of Maoming",
+"negara": "China",
+"lat": 21.6425,
+"lon": 111.073
+},
+{
+"qid": "Q29620904",
+"nama": "Huangpu Gang",
+"negara": "China",
+"lat": 23.08306,
+"lon": 113.43306
+},
+{
+"qid": "Q5639147",
+"nama": "Haikou Xiuying Port",
+"negara": "China",
+"lat": 20.03581,
+"lon": 110.28439
+},
+{
+"qid": "Q1572723",
+"nama": "Port of Hong Kong",
+"negara": "China",
+"lat": 22.33333,
+"lon": 114.11667
+},
+{
+"qid": "Q111386960",
+"nama": "Qinzhou",
+"negara": "China",
+"lat": 21.73333,
+"lon": 108.58333
+},
+{
+"qid": "Q111386957",
+"nama": "Sanya",
+"negara": "China",
+"lat": 18.31667,
+"lon": 109.45
+},
+{
+"qid": "Q7505045",
+"nama": "Shunde Port",
+"negara": "China",
+"lat": 22.8053,
+"lon": 113.34
+},
+{
+"qid": "Q7568262",
+"nama": "South Port",
+"negara": "China",
+"lat": 20.04047,
+"lon": 110.15543
+},
+{
+"qid": "Q111387065",
+"nama": "Chaozhou",
+"negara": "China",
+"lat": 23.61667,
+"lon": 117.08333
+},
+{
+"qid": "Q111387375",
+"nama": "Lon Shui Terminal",
+"negara": "China",
+"lat": 20.83333,
+"lon": 115.68333
+},
+{
+"qid": "Q5639144",
+"nama": "Haikou Xin Port",
+"negara": "China",
+"lat": 20.04994,
+"lon": 110.31914
+},
+{
+"qid": "Q111386959",
+"nama": "Shui Dong",
+"negara": "China",
+"lat": 21.48333,
+"lon": 111.08333
+},
+{
+"qid": "Q3531754",
+"nama": "Kwai Tsing Container Terminals",
+"negara": "China",
+"lat": 22.34139,
+"lon": 114.12472
+},
+{
+"qid": "Q3398592",
+"nama": "Port of Xiamen",
+"negara": "China",
+"lat": 24.50226,
+"lon": 118.08453
+},
+{
+"qid": "Q111386958",
+"nama": "Chiwan",
+"negara": "China",
+"lat": 19.96667,
+"lon": 110.03333
+},
+{
+"qid": "Q111387374",
+"nama": "Basuo",
+"negara": "China",
+"lat": 19.1,
+"lon": 108.61667
+},
+{
+"qid": "Q111387372",
+"nama": "Fang-Cheng",
+"negara": "China",
+"lat": 21.75,
+"lon": 108.35
+},
+{
+"qid": "Q55718688",
+"nama": "Nansha Passenger Port",
+"negara": "China",
+"lat": 22.77274,
+"lon": 113.60729
+},
+{
+"qid": "Q6725823",
+"nama": "Macun Port",
+"negara": "China",
+"lat": 19.954,
+"lon": 110.023
+},
+{
+"qid": "Q116234512",
+"nama": "Xiamen International Cruise Terminal",
+"negara": "China",
+"lat": 24.48514,
+"lon": 118.07013
+},
+{
+"qid": "Q1116518",
+"nama": "Port of Shenzhen",
+"negara": "China",
+"lat": 22.5,
+"lon": 113.88333
+},
+{
+"qid": "Q111387067",
+"nama": "Dongshan",
+"negara": "China",
+"lat": 23.75,
+"lon": 117.51667
+},
+{
+"qid": "Q111387257",
+"nama": "Port of Lhokseumawe",
+"negara": "Indonesia",
+"lat": 5.20857,
+"lon": 97.05119
+},
+{
+"qid": "Q111387309",
+"nama": "Ardjuna Oil Field",
+"negara": "Indonesia",
+"lat": -5.88333,
+"lon": 107.71667
+},
+{
+"qid": "Q111387496",
+"nama": "Sungaipakning",
+"negara": "Indonesia",
+"lat": 1.35,
+"lon": 102.16667
+},
+{
+"qid": "Q111387319",
+"nama": "Cinta Oil Terminal",
+"negara": "Indonesia",
+"lat": -5.5,
+"lon": 106.23333
+},
+{
+"qid": "Q111387335",
+"nama": "Parepare",
+"negara": "Indonesia",
+"lat": -4.0,
+"lon": 119.61667
+},
+{
+"qid": "Q111387332",
+"nama": "Jabung Batanghari Marine Terminal",
+"negara": "Indonesia",
+"lat": -0.91667,
+"lon": 104.06667
+},
+{
+"qid": "Q111387255",
+"nama": "Sabang",
+"negara": "Indonesia",
+"lat": 5.88333,
+"lon": 95.31667
+},
+{
+"qid": "Q111387311",
+"nama": "Tanjunguban",
+"negara": "Indonesia",
+"lat": 1.06667,
+"lon": 104.21667
+},
+{
+"qid": "Q111387464",
+"nama": "Senipah Oil Terminal",
+"negara": "Indonesia",
+"lat": -0.95,
+"lon": 117.16667
+},
+{
+"qid": "Q111387489",
+"nama": "Pontianak",
+"negara": "Indonesia",
+"lat": -0.01667,
+"lon": 109.33333
+},
+{
+"qid": "Q111387351",
+"nama": "Tanjungpandan",
+"negara": "Indonesia",
+"lat": -2.75,
+"lon": 107.63333
+},
+{
+"qid": "Q111387314",
+"nama": "Pulau Sambu",
+"negara": "Indonesia",
+"lat": 1.16667,
+"lon": 103.9
+},
+{
+"qid": "Q111387091",
+"nama": "Widuri Marine Terminal",
+"negara": "Indonesia",
+"lat": -4.66667,
+"lon": 106.65
+},
+{
+"qid": "Q111387284",
+"nama": "Bengkulu",
+"negara": "Indonesia",
+"lat": -3.78333,
+"lon": 102.25
+},
+{
+"qid": "Q111387389",
+"nama": "Larantuka",
+"negara": "Indonesia",
+"lat": -8.35,
+"lon": 122.98333
+},
+{
+"qid": "Q111387313",
+"nama": "Kijang",
+"negara": "Indonesia",
+"lat": 0.85,
+"lon": 104.6
+},
+{
+"qid": "Q111387490",
+"nama": "Manado",
+"negara": "Indonesia",
+"lat": 1.5,
+"lon": 124.83333
+},
+{
+"qid": "Q111387316",
+"nama": "Toboali",
+"negara": "Indonesia",
+"lat": -3.01667,
+"lon": 106.45
+},
+{
+"qid": "Q111387338",
+"nama": "Tanjung Benete",
+"negara": "Indonesia",
+"lat": -8.9,
+"lon": 116.75
+},
+{
+"qid": "Q111387312",
+"nama": "Tanjungpinang",
+"negara": "Indonesia",
+"lat": 0.91667,
+"lon": 104.45
+},
+{
+"qid": "Q111387428",
+"nama": "Rembang",
+"negara": "Indonesia",
+"lat": -6.7,
+"lon": 111.35
+},
+{
+"qid": "Q111387352",
+"nama": "Palembang",
+"negara": "Indonesia",
+"lat": -2.98333,
+"lon": 104.76667
+},
+{
+"qid": "Q111387337",
+"nama": "Belida Marine Terminal",
+"negara": "Indonesia",
+"lat": 4.13333,
+"lon": 105.13333
+},
+{
+"qid": "Q111387318",
+"nama": "Pangkalpinang",
+"negara": "Indonesia",
+"lat": -2.11667,
+"lon": 106.13333
+},
+{
+"qid": "Q111387425",
+"nama": "Tegal",
+"negara": "Indonesia",
+"lat": -6.85,
+"lon": 109.13333
+},
+{
+"qid": "Q111387483",
+"nama": "Gunung Batu Besar",
+"negara": "Indonesia",
+"lat": -2.61667,
+"lon": 116.3
+},
+{
+"qid": "Q111387334",
+"nama": "Lalang Marine Terminal",
+"negara": "Indonesia",
+"lat": 1.18333,
+"lon": 102.21667
+},
+{
+"qid": "Q111387468",
+"nama": "Lawi Lawi Oil Terminal",
+"negara": "Indonesia",
+"lat": -1.45,
+"lon": 116.76667
+},
+{
+"qid": "Q111387262",
+"nama": "Dumai",
+"negara": "Indonesia",
+"lat": 1.68333,
+"lon": 101.45
+},
+{
+"qid": "Q111387317",
+"nama": "Muntok",
+"negara": "Indonesia",
+"lat": -2.06667,
+"lon": 105.16667
+},
+{
+"qid": "Q111387470",
+"nama": "Balikpapan",
+"negara": "Indonesia",
+"lat": -1.25,
+"lon": 116.81667
+},
+{
+"qid": "Q111387254",
+"nama": "Uleelheue",
+"negara": "Indonesia",
+"lat": 5.56667,
+"lon": 95.28333
+},
+{
+"qid": "Q111387315",
+"nama": "Dabo",
+"negara": "Indonesia",
+"lat": -0.5,
+"lon": 104.56667
+},
+{
+"qid": "Q111387427",
+"nama": "Semarang",
+"negara": "Indonesia",
+"lat": -6.95,
+"lon": 110.41667
+},
+{
+"qid": "Q111387429",
+"nama": "Surabaya",
+"negara": "Indonesia",
+"lat": -7.2,
+"lon": 112.73333
+},
+{
+"qid": "Q111387349",
+"nama": "Blinyu",
+"negara": "Indonesia",
+"lat": -1.63333,
+"lon": 105.78333
+},
+{
+"qid": "Q111387480",
+"nama": "Kumai",
+"negara": "Indonesia",
+"lat": -2.75,
+"lon": 111.71667
+},
+{
+"qid": "Q111387386",
+"nama": "Benoa",
+"negara": "Indonesia",
+"lat": 8.72187,
+"lon": 115.11357
+},
+{
+"qid": "Q111387473",
+"nama": "Kota Baru",
+"negara": "Indonesia",
+"lat": -3.23333,
+"lon": 116.21667
+},
+{
+"qid": "Q111387388",
+"nama": "Labuhanhaji",
+"negara": "Indonesia",
+"lat": -8.7,
+"lon": 116.56667
+},
+{
+"qid": "Q111387090",
+"nama": "Udang Oilfield",
+"negara": "Indonesia",
+"lat": 4.03333,
+"lon": 106.48333
+},
+{
+"qid": "Q111387434",
+"nama": "Tuban",
+"negara": "Indonesia",
+"lat": -6.73333,
+"lon": 112.15
+},
+{
+"qid": "Q111387494",
+"nama": "Anyer Lor",
+"negara": "Indonesia",
+"lat": -6.05,
+"lon": 105.91667
+},
+{
+"qid": "Q111387430",
+"nama": "Panarukan",
+"negara": "Indonesia",
+"lat": -7.7,
+"lon": 113.93333
+},
+{
+"qid": "Q111387258",
+"nama": "Pangkalansusu",
+"negara": "Indonesia",
+"lat": 4.11667,
+"lon": 98.21667
+},
+{
+"qid": "Q111387498",
+"nama": "Tanjung Sekong",
+"negara": "Indonesia",
+"lat": -5.91667,
+"lon": 106.0
+},
+{
+"qid": "Q111387253",
+"nama": "Sibolga",
+"negara": "Indonesia",
+"lat": 1.73333,
+"lon": 98.76667
+},
+{
+"qid": "Q111387333",
+"nama": "Kuala Kapus",
+"negara": "Indonesia",
+"lat": 3.0,
+"lon": 114.36667
+},
+{
+"qid": "Q111387390",
+"nama": "Ende",
+"negara": "Indonesia",
+"lat": -8.83333,
+"lon": 121.65
+},
+{
+"qid": "Q111387391",
+"nama": "Tarempah",
+"negara": "Indonesia",
+"lat": 3.21667,
+"lon": 106.21667
+},
+{
+"qid": "Q111387502",
+"nama": "Port of Ciwandan",
+"negara": "Indonesia",
+"lat": -6.01776,
+"lon": 105.95204
+},
+{
+"qid": "Q111387426",
+"nama": "Pekalongan",
+"negara": "Indonesia",
+"lat": -6.85,
+"lon": 109.7
+},
+{
+"qid": "Q111387492",
+"nama": "Kolonodale",
+"negara": "Indonesia",
+"lat": -1.98333,
+"lon": 121.33333
+},
+{
+"qid": "Q111387320",
+"nama": "Panjang",
+"negara": "Indonesia",
+"lat": -5.46667,
+"lon": 105.31667
+},
+{
+"qid": "Q111387475",
+"nama": "Banjarmasin",
+"negara": "Indonesia",
+"lat": -3.33333,
+"lon": 114.58333
+},
+{
+"qid": "Q137484927",
+"nama": "Pelabuhan Telukdalam",
+"negara": "Indonesia",
+"lat": 0.60603,
+"lon": 97.93519
+},
+{
+"qid": "Q137394230",
+"nama": "Pelabuhan Penyeberangan Uebone",
+"negara": "Indonesia",
+"lat": -0.91278,
+"lon": 121.65943
+},
+{
+"qid": "Q111387594",
+"nama": "Mangkasa Oil Terminal",
+"negara": "Indonesia",
+"lat": -2.73333,
+"lon": 121.06667
+},
+{
+"qid": "Q137484930",
+"nama": "Pelabuhan Carocok Terusan",
+"negara": "Indonesia",
+"lat": -1.24024,
+"lon": 100.45163
+},
+{
+"qid": "Q133215255",
+"nama": "Pelabuhan Penyeberangan Batulicin",
+"negara": "Indonesia",
+"lat": -3.45011,
+"lon": 116.00855
+},
+{
+"qid": "Q124304085",
+"nama": "Port of Ulee Lheue",
+"negara": "Indonesia",
+"lat": 5.56486,
+"lon": 95.29382
+},
+{
+"qid": "Q124304002",
+"nama": "Pondokdadap Port",
+"negara": "Indonesia",
+"lat": -8.43373,
+"lon": 112.68394
+},
+{
+"qid": "Q111387568",
+"nama": "Tanjungredeb",
+"negara": "Indonesia",
+"lat": 2.15,
+"lon": 117.48333
+},
+{
+"qid": "Q132745479",
+"nama": "Sibolga Old Port",
+"negara": "Indonesia",
+"lat": 1.74095,
+"lon": 98.77417
+},
+{
+"qid": "Q137462972",
+"nama": "Muara Siberut Fishing Port",
+"negara": "Indonesia",
+"lat": -1.64784,
+"lon": 99.23221
+},
+{
+"qid": "Q137484916",
+"nama": "Pelabuhan Gunungsitoli",
+"negara": "Indonesia",
+"lat": 1.33172,
+"lon": 97.54602
+},
+{
+"qid": "Q111387641",
+"nama": "Donggala",
+"negara": "Indonesia",
+"lat": -0.65,
+"lon": 119.73333
+},
+{
+"qid": "Q116149026",
+"nama": "Labuan Bajo Seaport",
+"negara": "Indonesia",
+"lat": -8.4851,
+"lon": 119.87811
+},
+{
+"qid": "Q111387572",
+"nama": "Bontang LNG Terminal",
+"negara": "Indonesia",
+"lat": 0.1,
+"lon": 117.48333
+},
+{
+"qid": "Q127964636",
+"nama": "Pelabuhan Teluk Batang",
+"negara": "Indonesia",
+"lat": -1.00661,
+"lon": 109.76872
+},
+{
+"qid": "Q137499684",
+"nama": "Pelabuhan Maidi",
+"negara": "Indonesia",
+"lat": 0.12435,
+"lon": 127.70146
+},
+{
+"qid": "Q111387590",
+"nama": "Manokwari Road",
+"negara": "Indonesia",
+"lat": -0.86667,
+"lon": 134.08333
+},
+{
+"qid": "Q137499295",
+"nama": "Port of Tembilahan",
+"negara": "Indonesia",
+"lat": 0.32966,
+"lon": 103.15493
+},
+{
+"qid": "Q137485000",
+"nama": "Pelabuhan Surantih",
+"negara": "Indonesia",
+"lat": -1.57662,
+"lon": 100.64309
+},
+{
+"qid": "Q111387644",
+"nama": "Raha Roadstead",
+"negara": "Indonesia",
+"lat": -4.85,
+"lon": 122.73333
+},
+{
+"qid": "Q137484857",
+"nama": "Sikakap",
+"negara": "Indonesia",
+"lat": -2.77491,
+"lon": 100.20452
+},
+{
+"qid": "Q137504243",
+"nama": "Pelabuhan Sungai Duku",
+"negara": "Indonesia",
+"lat": 0.55322,
+"lon": 101.46455
+},
+{
+"qid": "Q137472969",
+"nama": "Tobelo Port",
+"negara": "Indonesia",
+"lat": 1.76694,
+"lon": 127.98258
+},
+{
+"qid": "Q137464144",
+"nama": "Port of Alas",
+"negara": "Indonesia",
+"lat": -8.49587,
+"lon": 117.01133
+},
+{
+"qid": "Q111387646",
+"nama": "Ternate",
+"negara": "Indonesia",
+"lat": 0.78333,
+"lon": 127.38333
+},
+{
+"qid": "Q137393035",
+"nama": "Waara Ferry Port",
+"negara": "Indonesia",
+"lat": -5.42712,
+"lon": 122.60034
+},
+{
+"qid": "Q137484961",
+"nama": "Pelabuhan Teluk Tapang",
+"negara": "Indonesia",
+"lat": 0.2103,
+"lon": 99.26658
+},
+{
+"qid": "Q111387602",
+"nama": "Namlea",
+"negara": "Indonesia",
+"lat": -3.28333,
+"lon": 127.08333
+},
+{
+"qid": "Q137484900",
+"nama": "Pelabuhan Tua Pejat",
+"negara": "Indonesia",
+"lat": -2.03,
+"lon": 99.59392
+},
+{
+"qid": "Q124304065",
+"nama": "Muntok Harbour",
+"negara": "Indonesia",
+"lat": -2.07012,
+"lon": 105.16223
+},
+{
+"qid": "Q137484861",
+"nama": "Krueng Geukueh Port",
+"negara": "Indonesia",
+"lat": 5.24087,
+"lon": 97.03682
+},
+{
+"qid": "Q111387654",
+"nama": "Labuha",
+"negara": "Indonesia",
+"lat": -0.63333,
+"lon": 127.46667
+},
+{
+"qid": "Q124303912",
+"nama": "Tanjung Gudang Belinyu Port",
+"negara": "Indonesia",
+"lat": -1.62961,
+"lon": 105.73295
+},
+{
+"qid": "Q125055779",
+"nama": "Sanur Port",
+"negara": "Indonesia",
+"lat": -8.6697,
+"lon": 115.26086
+},
+{
+"qid": "Q137482621",
+"nama": "Pasapuat Port",
+"negara": "Indonesia",
+"lat": -2.53969,
+"lon": 100.03601
+},
+{
+"qid": "Q133874177",
+"nama": "Pelabuhan Sei Jepun",
+"negara": "Indonesia",
+"lat": 4.0775,
+"lon": 117.73194
+},
+{
+"qid": "Q137484947",
+"nama": "Pelabuhan Sasak",
+"negara": "Indonesia",
+"lat": 0.00901,
+"lon": 99.70753
+},
+{
+"qid": "Q137393236",
+"nama": "Pelabuhan Penyeberangan Waai",
+"negara": "Indonesia",
+"lat": -3.55732,
+"lon": 128.32727
+},
+{
+"qid": "Q137484968",
+"nama": "Pelabuhan Air Haji",
+"negara": "Indonesia",
+"lat": -1.9345,
+"lon": 100.87759
+},
+{
+"qid": "Q133846577",
+"nama": "Tanjung Serdang Ferry Port",
+"negara": "Indonesia",
+"lat": -3.47189,
+"lon": 116.04289
+},
+{
+"qid": "Q137500003",
+"nama": "Port of Boom Baru",
+"negara": "Indonesia",
+"lat": -2.97963,
+"lon": 104.77431
+},
+{
+"qid": "Q111387576",
+"nama": "Lingkas",
+"negara": "Indonesia",
+"lat": 3.28333,
+"lon": 117.6
+},
+{
+"qid": "Q137500651",
+"nama": "Port of Dwikora",
+"negara": "Indonesia",
+"lat": 0.01728,
+"lon": 109.32435
+},
+{
+"qid": "Q137497760",
+"nama": "Port of Malahayati",
+"negara": "Indonesia",
+"lat": 5.59591,
+"lon": 95.52332
+},
+{
+"qid": "Q133874200",
+"nama": "Port of Munte",
+"negara": "Indonesia",
+"lat": 1.69778,
+"lon": 125.01444
+},
+{
+"qid": "Q137493011",
+"nama": "Pelabuhan Trikora Tidore",
+"negara": "Indonesia",
+"lat": 0.68002,
+"lon": 127.45561
+},
+{
+"qid": "Q111387651",
+"nama": "Pomalaa",
+"negara": "Indonesia",
+"lat": -4.16667,
+"lon": 121.6
+},
+{
+"qid": "Q134787247",
+"nama": "Ajibata Harbour",
+"negara": "Indonesia",
+"lat": 2.65464,
+"lon": 98.934
+},
+{
+"qid": "Q111387567",
+"nama": "TANJUNG ARANG  (BUNYU)",
+"negara": "Indonesia",
+"lat": 3.46667,
+"lon": 117.83333
+},
+{
+"qid": "Q137484920",
+"nama": "Pelabuhan Sirombu",
+"negara": "Indonesia",
+"lat": 0.96606,
+"lon": 97.46876
+},
+{
+"qid": "Q137430203",
+"nama": "Port of Larat",
+"negara": "Indonesia",
+"lat": -7.15092,
+"lon": 131.71524
+},
+{
+"qid": "Q134786077",
+"nama": "Ambarita Harbour",
+"negara": "Indonesia",
+"lat": 2.68019,
+"lon": 98.83331
+},
+{
+"qid": "Q137487587",
+"nama": "Pelabuhan Penyeberangan Tobaku",
+"negara": "Indonesia",
+"lat": -3.41475,
+"lon": 120.88792
+},
+{
+"qid": "Q137504665",
+"nama": "Pelabuhan Perawang",
+"negara": "Indonesia",
+"lat": 0.68349,
+"lon": 101.65135
+},
+{
+"qid": "Q113993432",
+"nama": "Port of Tanjung Kalian",
+"negara": "Indonesia",
+"lat": -2.08389,
+"lon": 105.13278
+},
+{
+"qid": "Q137498632",
+"nama": "Port of Pekanbaru",
+"negara": "Indonesia",
+"lat": 0.53954,
+"lon": 100.86626
+},
+{
+"qid": "Q137484165",
+"nama": "Port Labuhan Bajau",
+"negara": "Indonesia",
+"lat": -0.92992,
+"lon": 98.91182
+},
+{
+"qid": "Q137488585",
+"nama": "Pelabuhan Lirung",
+"negara": "Indonesia",
+"lat": 3.93967,
+"lon": 126.69401
+},
+{
+"qid": "Q115929257",
+"nama": "Pelabuhan Gili Mas",
+"negara": "Indonesia",
+"lat": -8.74095,
+"lon": 116.06403
+},
+{
+"qid": "Q137501304",
+"nama": "Port of Talang Duku",
+"negara": "Indonesia",
+"lat": 1.53406,
+"lon": 103.65751
+},
+{
+"qid": "Q137504540",
+"nama": "Pelabuhan Buton",
+"negara": "Indonesia",
+"lat": 0.96749,
+"lon": 102.25223
+},
+{
+"qid": "Q124303894",
+"nama": "Pelabuhan Tegal",
+"negara": "Indonesia",
+"lat": -6.8524,
+"lon": 109.13695
+},
+{
+"qid": "Q111387642",
+"nama": "Baubau",
+"negara": "Indonesia",
+"lat": -5.46667,
+"lon": 122.61667
+},
+{
+"qid": "Q111387660",
+"nama": "Ujung Pandang",
+"negara": "Indonesia",
+"lat": -5.13333,
+"lon": 119.4
+},
+{
+"qid": "Q137484869",
+"nama": "Pelabuhan Perikanan Pantai Sikakap",
+"negara": "Indonesia",
+"lat": -2.77564,
+"lon": 100.21057
+},
+{
+"qid": "Q111387596",
+"nama": "Kasim Terminal",
+"negara": "Indonesia",
+"lat": -1.3,
+"lon": 131.01667
+},
+{
+"qid": "Q137484943",
+"nama": "Pelabuhan Air Bangis",
+"negara": "Indonesia",
+"lat": 0.19932,
+"lon": 99.38252
+},
+{
+"qid": "Q133954920",
+"nama": "Pelabuhan Penyeberangan Teluk Bungus",
+"negara": "Indonesia",
+"lat": -1.03,
+"lon": 100.39944
+},
+{
+"qid": "Q111387655",
+"nama": "Sailolof",
+"negara": "Indonesia",
+"lat": -1.25,
+"lon": 130.75
+},
+{
+"qid": "Q111387606",
+"nama": "Port of Serui",
+"negara": "Indonesia",
+"lat": -1.8874,
+"lon": 136.24599
+},
+{
+"qid": "Q111387577",
+"nama": "Tanjung Santan",
+"negara": "Indonesia",
+"lat": -0.1,
+"lon": 117.53333
+},
+{
+"qid": "Q122728524",
+"nama": "Segintung Harbor",
+"negara": "Indonesia",
+"lat": -3.5515,
+"lon": 112.61908
+},
+{
+"qid": "Q137503792",
+"nama": "Pelabuhan Pelindo I Pekanbaru",
+"negara": "Indonesia",
+"lat": 0.53684,
+"lon": 101.4432
+},
+{
+"qid": "Q111387666",
+"nama": "Salawati",
+"negara": "Indonesia",
+"lat": -1.35,
+"lon": 130.98333
+},
+{
+"qid": "Q137484981",
+"nama": "Pelabuhan Panasahan Painan",
+"negara": "Indonesia",
+"lat": -1.36529,
+"lon": 100.56948
+},
+{
+"qid": "Q111387595",
+"nama": "Saumlaki",
+"negara": "Indonesia",
+"lat": -7.98333,
+"lon": 131.3
+},
+{
+"qid": "Q137401465",
+"nama": "Leok",
+"negara": "Indonesia",
+"lat": 1.19187,
+"lon": 121.42153
+},
+{
+"qid": "Q133892660",
+"nama": "Pelabuhan Batulicin",
+"negara": "Indonesia",
+"lat": -3.43203,
+"lon": 116.00746
+},
+{
+"qid": "Q111387662",
+"nama": "Bula",
+"negara": "Indonesia",
+"lat": -3.1,
+"lon": 130.5
+},
+{
+"qid": "Q14221414",
+"nama": "Krui",
+"negara": "Indonesia",
+"lat": -5.166,
+"lon": 103.941
+},
+{
+"qid": "Q137506251",
+"nama": "Port of Ahmad Yani",
+"negara": "Indonesia",
+"lat": 0.77225,
+"lon": 127.34901
+},
+{
+"qid": "Q109437219",
+"nama": "Pelabuhan Yos Soedarso",
+"negara": "Indonesia",
+"lat": -3.69409,
+"lon": 128.17597
+},
+{
+"qid": "Q12504185",
+"nama": "Ujung Harbour, Surabaya",
+"negara": "Indonesia",
+"lat": -7.19844,
+"lon": 112.73493
+},
+{
+"qid": "Q137507246",
+"nama": "Pelabuhan Batu Panjang",
+"negara": "Indonesia",
+"lat": 1.76431,
+"lon": 101.71884
+},
+{
+"qid": "Q110886718",
+"nama": "Port of Gresik",
+"negara": "Indonesia",
+"lat": -7.15565,
+"lon": 112.66379
+},
+{
+"qid": "Q111386699",
+"nama": "North Pulau Laut Coal Terminal",
+"negara": "Indonesia",
+"lat": -3.2,
+"lon": 116.28333
+},
+{
+"qid": "Q4739448",
+"nama": "Amamapare",
+"negara": "Indonesia",
+"lat": -4.88333,
+"lon": 136.8
+},
+{
+"qid": "Q137505599",
+"nama": "Port of Merauke",
+"negara": "Indonesia",
+"lat": -8.47805,
+"lon": 140.39038
+},
+{
+"qid": "Q137525176",
+"nama": "Port of Pulau Sebesi",
+"negara": "Indonesia",
+"lat": 5.93594,
+"lon": 105.51266
+},
+{
+"qid": "Q137507181",
+"nama": "Pelabuhan Roro Bengkalis",
+"negara": "Indonesia",
+"lat": 1.52108,
+"lon": 102.00433
+},
+{
+"qid": "Q137507297",
+"nama": "Port of Tanjung Redeb",
+"negara": "Indonesia",
+"lat": 2.15718,
+"lon": 117.49455
+},
+{
+"qid": "Q137514862",
+"nama": "Port of Sipinggan Nainggolan",
+"negara": "Indonesia",
+"lat": 2.43506,
+"lon": 98.89827
+},
+{
+"qid": "Q137508840",
+"nama": "Port of Kendari",
+"negara": "Indonesia",
+"lat": -3.97406,
+"lon": 122.611
+},
+{
+"qid": "Q137507356",
+"nama": "Port of Bontang",
+"negara": "Indonesia",
+"lat": 0.16535,
+"lon": 117.48624
+},
+{
+"qid": "Q137515633",
+"nama": "Port of Marunda Center",
+"negara": "Indonesia",
+"lat": -6.0987,
+"lon": 106.9556
+},
+{
+"qid": "Q137506774",
+"nama": "Port of Dumai",
+"negara": "Indonesia",
+"lat": 1.69685,
+"lon": 101.41811
+},
+{
+"qid": "Q111386575",
+"nama": "Stagen",
+"negara": "Indonesia",
+"lat": -3.3,
+"lon": 116.15
+},
+{
+"qid": "Q12504179",
+"nama": "Port of Tanjung Api-Api",
+"negara": "Indonesia",
+"lat": -2.3725,
+"lon": 104.80556
+},
+{
+"qid": "Q137515976",
+"nama": "Port of Jangkar",
+"negara": "Indonesia",
+"lat": -7.71672,
+"lon": 114.21185
+},
+{
+"qid": "Q66813922",
+"nama": "Port of Belawan",
+"negara": "Indonesia",
+"lat": 3.78306,
+"lon": 98.69056
+},
+{
+"qid": "Q97205804",
+"nama": "Batu Ampar Port",
+"negara": "Indonesia",
+"lat": 1.29902,
+"lon": 103.97461
+},
+{
+"qid": "Q107587925",
+"nama": "Pelabuhan Kamal",
+"negara": "Indonesia",
+"lat": -7.17401,
+"lon": 112.72345
+},
+{
+"qid": "Q25278479",
+"nama": "Pelabuhan Pehe",
+"negara": "Indonesia",
+"lat": 2.75361,
+"lon": 125.36389
+},
+{
+"qid": "Q137507148",
+"nama": "Port of Laurentius Say Maumere",
+"negara": "Indonesia",
+"lat": -8.61461,
+"lon": 122.21981
+},
+{
+"qid": "Q111386838",
+"nama": "Merauke",
+"negara": "Indonesia",
+"lat": -8.48333,
+"lon": 140.38333
+},
+{
+"qid": "Q26730864",
+"nama": "Pelabuhan Marapokot",
+"negara": "Indonesia",
+"lat": -8.515,
+"lon": 121.32861
+},
+{
+"qid": "Q1286686",
+"nama": "Sunda Kelapa",
+"negara": "Indonesia",
+"lat": -6.12387,
+"lon": 106.80861
+},
+{
+"qid": "Q137504676",
+"nama": "Pelabuhan Siak Indrapura",
+"negara": "Indonesia",
+"lat": 0.79609,
+"lon": 102.04693
+},
+{
+"qid": "Q7231116",
+"nama": "Port of Cirebon",
+"negara": "Indonesia",
+"lat": -6.70972,
+"lon": 108.57278
+},
+{
+"qid": "Q63107107",
+"nama": "Port of Tanjungpura",
+"negara": "Indonesia",
+"lat": 0.51614,
+"lon": 108.91365
+},
+{
+"qid": "Q25299156",
+"nama": "Tolitoli Ferry Port",
+"negara": "Indonesia",
+"lat": 1.03833,
+"lon": 120.80667
+},
+{
+"qid": "Q137509992",
+"nama": "Port of Canti",
+"negara": "Indonesia",
+"lat": -5.80007,
+"lon": 105.58441
+},
+{
+"qid": "Q137515678",
+"nama": "Port of Poto Tano",
+"negara": "Indonesia",
+"lat": -8.52116,
+"lon": 116.83244
+},
+{
+"qid": "Q137525781",
+"nama": "Port of Tanjung Gading",
+"negara": "Indonesia",
+"lat": 3.03778,
+"lon": 107.3175
+},
+{
+"qid": "Q104845863",
+"nama": "Port of Dobo",
+"negara": "Indonesia",
+"lat": -5.75,
+"lon": 134.21666
+},
+{
+"qid": "Q137525802",
+"nama": "Port of Tanjung Pandan",
+"negara": "Indonesia",
+"lat": -2.74615,
+"lon": 107.62863
+},
+{
+"qid": "Q137507216",
+"nama": "Port of Ende Ippi",
+"negara": "Indonesia",
+"lat": -8.85493,
+"lon": 121.6634
+},
+{
+"qid": "Q137508515",
+"nama": "Port of Bojonegara",
+"negara": "Indonesia",
+"lat": -5.91071,
+"lon": 106.09147
+},
+{
+"qid": "Q137507259",
+"nama": "Pelabuhan Pelindo Batam Tembilahan",
+"negara": "Indonesia",
+"lat": -0.32619,
+"lon": 103.16187
+},
+{
+"qid": "Q19751592",
+"nama": "Port of Depapre",
+"negara": "Indonesia",
+"lat": -2.46145,
+"lon": 140.36793
+},
+{
+"qid": "Q137507224",
+"nama": "Pelabuhan Pelindo I Bengkalis",
+"negara": "Indonesia",
+"lat": 1.52932,
+"lon": 101.99609
+},
+{
+"qid": "Q111386700",
+"nama": "Tanjung Sangata",
+"negara": "Indonesia",
+"lat": 0.36667,
+"lon": 117.56667
+},
+{
+"qid": "Q6355348",
+"nama": "Kamal",
+"negara": "Indonesia",
+"lat": -7.16778,
+"lon": 112.71917
+},
+{
+"qid": "Q12504170",
+"nama": "Port of Kalianget",
+"negara": "Indonesia",
+"lat": -7.0568,
+"lon": 113.94271
+},
+{
+"qid": "Q137507252",
+"nama": "Port of Kumai",
+"negara": "Indonesia",
+"lat": -2.73912,
+"lon": 111.72844
+},
+{
+"qid": "Q137506989",
+"nama": "Port of Balohan",
+"negara": "Indonesia",
+"lat": 5.82661,
+"lon": 95.34726
+},
+{
+"qid": "Q56413546",
+"nama": "Pulau Baai",
+"negara": "Indonesia",
+"lat": -3.91667,
+"lon": 102.28333
+},
+{
+"qid": "Q26730955",
+"nama": "Pelabuhan Waingapu",
+"negara": "Indonesia",
+"lat": -9.64139,
+"lon": 120.25361
+},
+{
+"qid": "Q137507916",
+"nama": "Port of Luwuk",
+"negara": "Indonesia",
+"lat": -0.9529,
+"lon": 122.79576
+},
+{
+"qid": "Q97307193",
+"nama": "Pelabuhan Angin Gunungsitoli",
+"negara": "Indonesia",
+"lat": 1.30583,
+"lon": 97.61036
+},
+{
+"qid": "Q137510558",
+"nama": "Port of Sei Menggaris",
+"negara": "Indonesia",
+"lat": 4.19556,
+"lon": 117.3175
+},
+{
+"qid": "Q28111665",
+"nama": "Palabuhanratu Regional Feeder Seaport",
+"negara": "Indonesia",
+"lat": -6.98181,
+"lon": 106.54058
+},
+{
+"qid": "Q97205837",
+"nama": "Tanjung Pandan Harbour",
+"negara": "Indonesia",
+"lat": -2.74618,
+"lon": 107.62863
+},
+{
+"qid": "Q137506269",
+"nama": "Port of Yos Soedarso",
+"negara": "Indonesia",
+"lat": -3.69409,
+"lon": 128.17597
+},
+{
+"qid": "Q137507284",
+"nama": "Port of Sangkulirang",
+"negara": "Indonesia",
+"lat": 0.91808,
+"lon": 117.98485
+},
+{
+"qid": "Q19752398",
+"nama": "Tondasi Seaport",
+"negara": "Indonesia",
+"lat": -4.73864,
+"lon": 122.37384
+},
+{
+"qid": "Q137524760",
+"nama": "Port of Muara Baru",
+"negara": "Indonesia",
+"lat": 6.1121,
+"lon": 106.8012
+},
+{
+"qid": "Q25272436",
+"nama": "Pelabuhan Tahuna",
+"negara": "Indonesia",
+"lat": 3.60333,
+"lon": 125.50083
+},
+{
+"qid": "Q137515608",
+"nama": "Port of Kuala Bubon",
+"negara": "Indonesia",
+"lat": 4.20854,
+"lon": 96.03885
+},
+{
+"qid": "Q137507230",
+"nama": "Pelabuhan Ketam Putih Bengkalis",
+"negara": "Indonesia",
+"lat": 1.46342,
+"lon": 102.40533
+},
+{
+"qid": "Q137507237",
+"nama": "Pelabuhan Roro Tanjung Kapal",
+"negara": "Indonesia",
+"lat": 1.77597,
+"lon": 101.29841
+},
+{
+"qid": "Q110286720",
+"nama": "Tanah Ampo International Port",
+"negara": "Indonesia",
+"lat": -8.50848,
+"lon": 115.51913
+},
+{
+"qid": "Q137524777",
+"nama": "Port of Manado",
+"negara": "Indonesia",
+"lat": 1.49857,
+"lon": 124.83905
+},
+{
+"qid": "Q19746903",
+"nama": "Port of Panjang",
+"negara": "Indonesia",
+"lat": -5.46886,
+"lon": 105.31972
+},
+{
+"qid": "Q26754103",
+"nama": "Pelabuhan Sirawarong",
+"negara": "Indonesia",
+"lat": -8.20083,
+"lon": 122.80889
+},
+{
+"qid": "Q97307194",
+"nama": "Pelabuhan Sibolga",
+"negara": "Indonesia",
+"lat": 1.72938,
+"lon": 98.7857
+},
+{
+"qid": "Q32168441",
+"nama": "Padangbai Harbour",
+"negara": "Indonesia",
+"lat": -8.53361,
+"lon": 115.50944
+},
+{
+"qid": "Q111386519",
+"nama": "Jayapura",
+"negara": "Indonesia",
+"lat": -2.53333,
+"lon": 140.71667
+},
+{
+"qid": "Q137524827",
+"nama": "Port of Tarakan",
+"negara": "Indonesia",
+"lat": 3.28333,
+"lon": 117.59528
+},
+{
+"qid": "Q137509587",
+"nama": "Pelabuhan Kota Agung",
+"negara": "Indonesia",
+"lat": -5.49972,
+"lon": 104.61992
+},
+{
+"qid": "Q28563777",
+"nama": "Patimban Deep Sea Port",
+"negara": "Indonesia",
+"lat": -6.24403,
+"lon": 107.90407
+},
+{
+"qid": "Q39087949",
+"nama": "Port of Kuala Tanjung",
+"negara": "Indonesia",
+"lat": 3.36094,
+"lon": 99.4492
+},
+{
+"qid": "Q2182905",
+"nama": "Bangsal",
+"negara": "Indonesia",
+"lat": -8.39526,
+"lon": 116.09903
+},
+{
+"qid": "Q137507125",
+"nama": "Port of Lamteng Pulo Aceh",
+"negara": "Indonesia",
+"lat": 5.64129,
+"lon": 95.15619
+},
+{
+"qid": "Q137507188",
+"nama": "Pelabuhan Internasional Bandar Sri Setia Raja Bengkalis",
+"negara": "Indonesia",
+"lat": 1.6309,
+"lon": 102.40808
+},
+{
+"qid": "Q111386577",
+"nama": "Sampit",
+"negara": "Indonesia",
+"lat": -2.51667,
+"lon": 113.0
+},
+{
+"qid": "Q26743047",
+"nama": "Pelabuhan Batuampar",
+"negara": "Indonesia",
+"lat": 1.16639,
+"lon": 104.00444
+},
+{
+"qid": "Q111386702",
+"nama": "Sekupang",
+"negara": "Indonesia",
+"lat": 1.13333,
+"lon": 103.91667
+},
+{
+"qid": "Q111386513",
+"nama": "Gresik",
+"negara": "Indonesia",
+"lat": -7.15,
+"lon": 112.65
+},
+{
+"qid": "Q111386509",
+"nama": "Pelabuhan Penyeberangan Wahai",
+"negara": "Indonesia",
+"lat": -2.79443,
+"lon": 129.51531
+},
+{
+"qid": "Q137525691",
+"nama": "Port of Tanjung Selor",
+"negara": "Indonesia",
+"lat": 2.83644,
+"lon": 117.36173
+},
+{
+"qid": "Q137515490",
+"nama": "Port of Tapaktuan",
+"negara": "Indonesia",
+"lat": 3.25106,
+"lon": 97.17722
+},
+{
+"qid": "Q111386745",
+"nama": "Sungaigerong",
+"negara": "Indonesia",
+"lat": -2.98333,
+"lon": 104.83333
+},
+{
+"qid": "Q111386703",
+"nama": "Tanjung Gerem",
+"negara": "Indonesia",
+"lat": -5.96667,
+"lon": 105.98333
+},
+{
+"qid": "Q97242625",
+"nama": "Port of Semayang",
+"negara": "Indonesia",
+"lat": -1.27332,
+"lon": 116.80541
+},
+{
+"qid": "Q19747116",
+"nama": "Pelabuhan Gorontalo",
+"negara": "Indonesia",
+"lat": 0.51,
+"lon": 123.06194
+},
+{
+"qid": "Q38251098",
+"nama": "Port of Makassar",
+"negara": "Indonesia",
+"lat": -5.122,
+"lon": 119.408
+},
+{
+"qid": "Q137525434",
+"nama": "Port of Poso",
+"negara": "Indonesia",
+"lat": -1.38119,
+"lon": 120.75302
+},
+{
+"qid": "Q137508325",
+"nama": "Harbour Bay Port",
+"negara": "Indonesia",
+"lat": 1.15345,
+"lon": 103.99678
+},
+{
+"qid": "Q111386572",
+"nama": "Port of Ampenan",
+"negara": "Indonesia",
+"lat": -8.56667,
+"lon": 116.06667
+},
+{
+"qid": "Q137505812",
+"nama": "Port of Jayapura",
+"negara": "Indonesia",
+"lat": -2.54479,
+"lon": 140.71147
+},
+{
+"qid": "Q804267",
+"nama": "Port of Bakauheni",
+"negara": "Indonesia",
+"lat": -5.86944,
+"lon": 105.75333
+},
+{
+"qid": "Q137507208",
+"nama": "Pelabuhan Roro Sei Pakning",
+"negara": "Indonesia",
+"lat": 1.44145,
+"lon": 102.24328
+},
+{
+"qid": "Q83640685",
+"nama": "Port of Merak",
+"negara": "Indonesia",
+"lat": -5.92917,
+"lon": 105.99583
+},
+{
+"qid": "Q111386522",
+"nama": "Kupang",
+"negara": "Indonesia",
+"lat": -10.16667,
+"lon": 123.58333
+},
+{
+"qid": "Q26729561",
+"nama": "Pelabuhan Kayangan",
+"negara": "Indonesia",
+"lat": -8.485,
+"lon": 116.67444
+},
+{
+"qid": "Q7231165",
+"nama": "Port of Tanjung Priok",
+"negara": "Indonesia",
+"lat": -6.104,
+"lon": 106.8865
+},
+{
+"qid": "Q26751666",
+"nama": "Port of Kalabahi",
+"negara": "Indonesia",
+"lat": -8.22139,
+"lon": 124.5125
+},
+{
+"qid": "Q32168268",
+"nama": "Port of Badas",
+"negara": "Indonesia",
+"lat": -8.46333,
+"lon": 117.37333
+},
+{
+"qid": "Q111386748",
+"nama": "Poleng Oil Field",
+"negara": "Indonesia",
+"lat": -6.65,
+"lon": 112.91667
+},
+{
+"qid": "Q137515397",
+"nama": "Kabil Harbour",
+"negara": "Indonesia",
+"lat": 1.07303,
+"lon": 104.13871
+},
+{
+"qid": "Q19730552",
+"nama": "Sekupang Port",
+"negara": "Indonesia",
+"lat": 1.12746,
+"lon": 103.92354
+},
+{
+"qid": "Q100272561",
+"nama": "Tanjung Bara (East Kalimantan port)",
+"negara": "Indonesia",
+"lat": 0.58602,
+"lon": 117.70371
+},
+{
+"qid": "Q137525805",
+"nama": "Port of Tanjung Ru",
+"negara": "Indonesia",
+"lat": 2.93694,
+"lon": 107.53052
+},
+{
+"qid": "Q12503043",
+"nama": "Pelabuhan Paotere",
+"negara": "Indonesia",
+"lat": -5.10948,
+"lon": 119.42171
+},
+{
+"qid": "Q137515239",
+"nama": "Port of Tanjung Saronggi",
+"negara": "Indonesia",
+"lat": -7.12621,
+"lon": 113.89326
+},
+{
+"qid": "Q137507717",
+"nama": "Port of Nunukan",
+"negara": "Indonesia",
+"lat": 4.15384,
+"lon": 117.90605
+},
+{
+"qid": "Q26736980",
+"nama": "Pelabuhan Wayame",
+"negara": "Indonesia",
+"lat": -3.6625,
+"lon": 128.1725
+},
+{
+"qid": "Q2667200",
+"nama": "Teluk Bayur",
+"negara": "Indonesia",
+"lat": -0.99806,
+"lon": 100.376
+},
+{
+"qid": "Q137510083",
+"nama": "Port of Dungkek",
+"negara": "Indonesia",
+"lat": -6.9784,
+"lon": 114.09731
+},
+{
+"qid": "Q107213238",
+"nama": "Port of Celukan Bawang",
+"negara": "Indonesia",
+"lat": -8.1908,
+"lon": 114.8364
+},
+{
+"qid": "Q19730550",
+"nama": "Port of Gilimanuk",
+"negara": "Indonesia",
+"lat": -8.16167,
+"lon": 114.43639
+},
+{
+"qid": "Q137507272",
+"nama": "Sausapor Harbour",
+"negara": "Indonesia",
+"lat": -0.50823,
+"lon": 132.08309
+},
+{
+"qid": "Q12504181",
+"nama": "Port of Tanjung Emas",
+"negara": "Indonesia",
+"lat": -6.947,
+"lon": 110.424
+},
+{
+"qid": "Q137525030",
+"nama": "Port of Tanjung Nyato Petaling",
+"negara": "Indonesia",
+"lat": -2.88929,
+"lon": 107.47584
+},
+{
+"qid": "Q65204019",
+"nama": "Pelabuhan Muncar",
+"negara": "Indonesia",
+"lat": -8.43911,
+"lon": 114.34627
+},
+{
+"qid": "Q137516141",
+"nama": "Port of Nusa Penida",
+"negara": "Indonesia",
+"lat": -8.67714,
+"lon": 115.48863
+},
+{
+"qid": "Q12504174",
+"nama": "Pangkal Balam Harbour",
+"negara": "Indonesia",
+"lat": -2.099,
+"lon": 106.12991
+},
+{
+"qid": "Q137515723",
+"nama": "Senimba Bay International Port",
+"negara": "Indonesia",
+"lat": 1.0793,
+"lon": 103.93618
+},
+{
+"qid": "Q137507243",
+"nama": "Port of Sampit",
+"negara": "Indonesia",
+"lat": -2.53817,
+"lon": 112.96418
+},
+{
+"qid": "Q137515457",
+"nama": "Port of Singkil",
+"negara": "Indonesia",
+"lat": 2.26808,
+"lon": 97.81001
+},
+{
+"qid": "Q137515250",
+"nama": "Pelabuhan Batu Ampar Batam",
+"negara": "Indonesia",
+"lat": 1.17288,
+"lon": 104.01829
+},
+{
+"qid": "Q12504183",
+"nama": "Port of Trisakti",
+"negara": "Indonesia",
+"lat": -3.3312,
+"lon": 114.558
+},
+{
+"qid": "Q137515561",
+"nama": "Port of Susoh",
+"negara": "Indonesia",
+"lat": 3.72014,
+"lon": 96.80937
+},
+{
+"qid": "Q12504175",
+"nama": "Port of Nongsapura",
+"negara": "Indonesia",
+"lat": 1.18838,
+"lon": 104.0949
+},
+{
+"qid": "Q12504172",
+"nama": "Port of Ketapang",
+"negara": "Indonesia",
+"lat": -8.14215,
+"lon": 114.40107
+},
+{
+"qid": "Q111386510",
+"nama": "Miei",
+"negara": "Indonesia",
+"lat": -2.73333,
+"lon": 134.5
+},
+{
+"qid": "Q12504167",
+"nama": "Batu Guluk Port",
+"negara": "Indonesia",
+"lat": -6.84083,
+"lon": 115.23037
+},
+{
+"qid": "Q111386611",
+"nama": "Probolinggo",
+"negara": "Indonesia",
+"lat": -7.71667,
+"lon": 113.21667
+},
+{
+"qid": "Q97205816",
+"nama": "Port of Lembar",
+"negara": "Indonesia",
+"lat": -8.72962,
+"lon": 116.07171
+},
+{
+"qid": "Q19752135",
+"nama": "Port of Kariangau",
+"negara": "Indonesia",
+"lat": -1.15971,
+"lon": 116.7839
+},
+{
+"qid": "Q25272661",
+"nama": "Pelabuhan Poso",
+"negara": "Indonesia",
+"lat": 2.73222,
+"lon": 125.41583
+},
+{
+"qid": "Q111386701",
+"nama": "Tanjung Balai Karimun",
+"negara": "Indonesia",
+"lat": 0.98333,
+"lon": 103.43333
+},
+{
+"qid": "Q111386507",
+"nama": "Teluk Beo",
+"negara": "Indonesia",
+"lat": 4.23333,
+"lon": 126.78333
+},
+{
+"qid": "Q111386508",
+"nama": "Patani",
+"negara": "Indonesia",
+"lat": 0.36667,
+"lon": 128.75
+},
+{
+"qid": "Q25470164",
+"nama": "Port of Sorong",
+"negara": "Indonesia",
+"lat": -0.88793,
+"lon": 131.26797
+},
+{
+"qid": "Q97205851",
+"nama": "Pelabuhan Tarempa",
+"negara": "Indonesia",
+"lat": 3.21788,
+"lon": 106.21753
+},
+{
+"qid": "Q137525613",
+"nama": "Port of Sunda Kelapa",
+"negara": "Indonesia",
+"lat": 6.12206,
+"lon": 106.80858
+},
+{
+"qid": "Q111386749",
+"nama": "Ramba",
+"negara": "Indonesia",
+"lat": -2.61667,
+"lon": 104.13333
+},
+{
+"qid": "Q25468986",
+"nama": "Port of Bitung",
+"negara": "Indonesia",
+"lat": 1.44306,
+"lon": 125.1975
+},
+{
+"qid": "Q137506842",
+"nama": "Port of Calang",
+"negara": "Indonesia",
+"lat": 4.63382,
+"lon": 95.58181
+},
+{
+"qid": "Q97308051",
+"nama": "Teluk Lamong",
+"negara": "Indonesia",
+"lat": -7.20417,
+"lon": 112.66889
+},
+{
+"qid": "Q14236384",
+"nama": "Telaga Punggur Harbour",
+"negara": "Indonesia",
+"lat": 1.03523,
+"lon": 104.1334
+},
+{
+"qid": "Q138719629",
+"nama": "Category:Paciran Port",
+"negara": "Indonesia",
+"lat": -6.86767,
+"lon": 112.36658
+},
+{
+"qid": "Q137531190",
+"nama": "Tajungan Beach Bridge Port",
+"negara": "Indonesia",
+"lat": -6.99936,
+"lon": 114.16147
+},
+{
+"qid": "Q137847883",
+"nama": "Pelabuhan Sampit",
+"negara": "Indonesia",
+"lat": -2.54076,
+"lon": 112.96461
+},
+{
+"qid": "Q137531173",
+"nama": "Talabbung Harbor",
+"negara": "Indonesia",
+"lat": -7.13198,
+"lon": 113.87369
+},
+{
+"qid": "Q137536949",
+"nama": "Port of Adikarto",
+"negara": "Indonesia",
+"lat": 7.91655,
+"lon": 110.08576
+},
+{
+"qid": "Q137537382",
+"nama": "Pelabuhan Kayan II Tanjung Selor",
+"negara": "Indonesia",
+"lat": 2.87225,
+"lon": 117.3763
+},
+{
+"qid": "Q137540123",
+"nama": "Sigapiton Harbour",
+"negara": "Indonesia",
+"lat": 2.60039,
+"lon": 98.92866
+},
+{
+"qid": "Q137531189",
+"nama": "Accem King's Harbor",
+"negara": "Indonesia",
+"lat": -7.15848,
+"lon": 114.67427
+},
+{
+"qid": "Q137531180",
+"nama": "Ghost Pier Harbor",
+"negara": "Indonesia",
+"lat": -7.21744,
+"lon": 113.7554
+},
+{
+"qid": "Q137533052",
+"nama": "Port of Tamanjaya",
+"negara": "Indonesia",
+"lat": -6.78145,
+"lon": 105.50305
+},
+{
+"qid": "Q137531185",
+"nama": "Talon Harbor",
+"negara": "Indonesia",
+"lat": -7.11012,
+"lon": 114.37439
+},
+{
+"qid": "Q137537812",
+"nama": "Pelabuhan Biak",
+"negara": "Indonesia",
+"lat": -1.18408,
+"lon": 136.07564
+},
+{
+"qid": "Q137531183",
+"nama": "Sokaramme Port",
+"negara": "Indonesia",
+"lat": -7.07817,
+"lon": 114.27795
+},
+{
+"qid": "Q137529505",
+"nama": "Pelabuhan Pulau Baai",
+"negara": "Indonesia",
+"lat": -3.90759,
+"lon": 102.30614
+},
+{
+"qid": "Q137533087",
+"nama": "Batu Balai Kota Agung Port",
+"negara": "Indonesia",
+"lat": -5.55479,
+"lon": 104.7287
+},
+{
+"qid": "Q137534783",
+"nama": "Port of Suralaya",
+"negara": "Indonesia",
+"lat": 5.88574,
+"lon": 106.0288
+},
+{
+"qid": "Q137538400",
+"nama": "Tongging Harbour",
+"negara": "Indonesia",
+"lat": 2.89683,
+"lon": 98.52823
+},
+{
+"qid": "Q137531188",
+"nama": "Ra'as Harbor",
+"negara": "Indonesia",
+"lat": -7.1541,
+"lon": 114.62484
+},
+{
+"qid": "Q137531176",
+"nama": "Kedatim Village Harbor",
+"negara": "Indonesia",
+"lat": -7.09246,
+"lon": 113.8627
+},
+{
+"qid": "Q137529423",
+"nama": "Pelabuhan Perintis Letung",
+"negara": "Indonesia",
+"lat": 2.98835,
+"lon": 105.69539
+},
+{
+"qid": "Q137531182",
+"nama": "Tarebung Harbor",
+"negara": "Indonesia",
+"lat": -7.09418,
+"lon": 114.27118
+},
+{
+"qid": "Q139438568",
+"nama": "Pelabuhan Dumai",
+"negara": "Indonesia",
+"lat": 1.68704,
+"lon": 101.45782
+},
+{
+"qid": "Q137538194",
+"nama": "Muara Ferry Port",
+"negara": "Indonesia",
+"lat": 2.33863,
+"lon": 98.90373
+},
+{
+"qid": "Q137530155",
+"nama": "Port of Tanjung Batu",
+"negara": "Indonesia",
+"lat": -1.76755,
+"lon": 107.46086
+},
+{
+"qid": "Q137538922",
+"nama": "Silalahi Harbour",
+"negara": "Indonesia",
+"lat": 2.85715,
+"lon": 98.52728
+},
+{
+"qid": "Q137529615",
+"nama": "Pelabuhan Pulo Breuh",
+"negara": "Indonesia",
+"lat": 5.57245,
+"lon": 95.32512
+},
+{
+"qid": "Q137531177",
+"nama": "Talango Port",
+"negara": "Indonesia",
+"lat": -7.06009,
+"lon": 113.94288
+},
+{
+"qid": "Q137529767",
+"nama": "Bintang 99 Port",
+"negara": "Indonesia",
+"lat": 1.16087,
+"lon": 103.99556
+},
+{
+"qid": "Q137537797",
+"nama": "Tigaras Harbour",
+"negara": "Indonesia",
+"lat": 2.79827,
+"lon": 98.789
+},
+{
+"qid": "Q137537599",
+"nama": "Pelabuhan Kayan I Tanjung Selor",
+"negara": "Indonesia",
+"lat": 2.83607,
+"lon": 117.36176
+},
+{
+"qid": "Q137529402",
+"nama": "Pelabuhan Sri Lakang Kuala Maras",
+"negara": "Indonesia",
+"lat": 2.90902,
+"lon": 105.80363
+},
+{
+"qid": "Q137537363",
+"nama": "Pelabuhan Fakfak",
+"negara": "Indonesia",
+"lat": -2.93118,
+"lon": 132.30998
+},
+{
+"qid": "Q137531175",
+"nama": "Cangkareman Bluto Harbor",
+"negara": "Indonesia",
+"lat": -7.12449,
+"lon": 113.79541
+},
+{
+"qid": "Q137531184",
+"nama": "Somor Tase Harbor",
+"negara": "Indonesia",
+"lat": -7.1614,
+"lon": 114.39875
+},
+{
+"qid": "Q137532039",
+"nama": "Port of Kepuh",
+"negara": "Indonesia",
+"lat": -6.06782,
+"lon": 105.88848
+},
+{
+"qid": "Q137530175",
+"nama": "Tarahan Harbour",
+"negara": "Indonesia",
+"lat": -5.50924,
+"lon": 105.34277
+},
+{
+"qid": "Q137531178",
+"nama": "Cang-cang Harbor",
+"negara": "Indonesia",
+"lat": -7.21228,
+"lon": 113.79879
+},
+{
+"qid": "Q137531179",
+"nama": "Tanggak Harbor",
+"negara": "Indonesia",
+"lat": -7.21122,
+"lon": 113.78511
+},
+{
+"qid": "Q137529562",
+"nama": "Pelabuhan Ferry Pulau Banyak",
+"negara": "Indonesia",
+"lat": 2.29853,
+"lon": 97.41029
+},
+{
+"qid": "Q137532852",
+"nama": "Legundi Harbour",
+"negara": "Indonesia",
+"lat": -5.75212,
+"lon": 105.79911
+},
+{
+"qid": "Q137533031",
+"nama": "Way Batang Harbour",
+"negara": "Indonesia",
+"lat": -4.96664,
+"lon": 103.65867
+},
+{
+"qid": "Q137531186",
+"nama": "Ketupat Harbor",
+"negara": "Indonesia",
+"lat": -7.13505,
+"lon": 114.49577
+},
+{
+"qid": "Q137530860",
+"nama": "Port of Kaliadem",
+"negara": "Indonesia",
+"lat": -6.10468,
+"lon": 106.77099
+},
+{
+"qid": "Q137539366",
+"nama": "Onan Runggu Harbour",
+"negara": "Indonesia",
+"lat": 2.45391,
+"lon": 98.97855
+},
+{
+"qid": "Q137538036",
+"nama": "Pelabuhan SDF Kota Tarakan",
+"negara": "Indonesia",
+"lat": 3.28948,
+"lon": 117.5851
+},
+{
+"qid": "Q34964062",
+"nama": "Port Anson",
+"negara": "India",
+"lat": 12.3,
+"lon": 92.73333
+},
+{
+"qid": "Q55886132",
+"nama": "Port Blair Port",
+"negara": "India",
+"lat": 11.67409,
+"lon": 92.73131
+},
+{
+"qid": "Q7230566",
+"nama": "Port Cornwallis",
+"negara": "India",
+"lat": 13.28333,
+"lon": 93.08333
+},
+{
+"qid": "Q15958728",
+"nama": "Port of Phnom Penh",
+"negara": "Kamboja",
+"lat": 11.58306,
+"lon": 104.92333
+},
+{
+"qid": "Q111387244",
+"nama": "Kampong Saom",
+"negara": "Kamboja",
+"lat": 10.63333,
+"lon": 103.5
+},
+{
+"qid": "Q111387187",
+"nama": "Moulmein Harbor",
+"negara": "Myanmar",
+"lat": 16.48333,
+"lon": 97.61667
+},
+{
+"qid": "Q111386436",
+"nama": "Yetagun Marine Terminal",
+"negara": "Myanmar",
+"lat": 13.05,
+"lon": 96.85
+},
+{
+"qid": "Q111387186",
+"nama": "Rangoon",
+"negara": "Myanmar",
+"lat": 16.76667,
+"lon": 96.16667
+},
+{
+"qid": "Q7532118",
+"nama": "Sittwe Port",
+"negara": "Myanmar",
+"lat": 20.13917,
+"lon": 92.90083
+},
+{
+"qid": "Q7784170",
+"nama": "Thilawa Port",
+"negara": "Myanmar",
+"lat": 16.6614,
+"lon": 96.2575
+},
+{
+"qid": "Q30674119",
+"nama": "Lumut Port",
+"negara": "Malaysia",
+"lat": 4.23333,
+"lon": 100.63333
+},
+{
+"qid": "Q111387601",
+"nama": "Lutong",
+"negara": "Malaysia",
+"lat": 4.46667,
+"lon": 114.0
+},
+{
+"qid": "Q111386927",
+"nama": "TG. MANI",
+"negara": "Malaysia",
+"lat": 2.15,
+"lon": 111.35
+},
+{
+"qid": "Q46349553",
+"nama": "Port of Penang",
+"negara": "Malaysia",
+"lat": 5.4157,
+"lon": 100.36603
+},
+{
+"qid": "Q34963967",
+"nama": "Pelabuhan Pasir Gudang",
+"negara": "Malaysia",
+"lat": 1.435,
+"lon": 103.90194
+},
+{
+"qid": "Q4209714",
+"nama": "Kuantan Port",
+"negara": "Malaysia",
+"lat": 3.97,
+"lon": 103.43889
+},
+{
+"qid": "Q111387330",
+"nama": "Teluk Anson",
+"negara": "Malaysia",
+"lat": 4.01667,
+"lon": 101.01667
+},
+{
+"qid": "Q111386744",
+"nama": "Malong Marine Terminal",
+"negara": "Malaysia",
+"lat": 4.63333,
+"lon": 104.81667
+},
+{
+"qid": "Q111386723",
+"nama": "Sapangar Bay",
+"negara": "Malaysia",
+"lat": 6.08333,
+"lon": 116.11667
+},
+{
+"qid": "Q111387551",
+"nama": "Kudat",
+"negara": "Malaysia",
+"lat": 6.88333,
+"lon": 116.85
+},
+{
+"qid": "Q111387236",
+"nama": "Kuala Trengganu",
+"negara": "Malaysia",
+"lat": 5.35,
+"lon": 103.13333
+},
+{
+"qid": "Q112300358",
+"nama": "Kuala Belait Port",
+"negara": "Malaysia",
+"lat": 4.58189,
+"lon": 114.19043
+},
+{
+"qid": "Q127789171",
+"nama": "Port of Port Klang",
+"negara": "Malaysia",
+"lat": 3.0,
+"lon": 101.4
+},
+{
+"qid": "Q111386753",
+"nama": "Pelabuhan Sungai Udang",
+"negara": "Malaysia",
+"lat": 2.25,
+"lon": 102.13333
+},
+{
+"qid": "Q6386846",
+"nama": "Kemaman Port",
+"negara": "Malaysia",
+"lat": 4.25,
+"lon": 103.417
+},
+{
+"qid": "Q111386724",
+"nama": "Port Langkawi",
+"negara": "Malaysia",
+"lat": 6.43333,
+"lon": 99.76667
+},
+{
+"qid": "Q111386925",
+"nama": "Kemaman Harbor",
+"negara": "Malaysia",
+"lat": 4.25,
+"lon": 103.46667
+},
+{
+"qid": "Q111387500",
+"nama": "Sibu",
+"negara": "Malaysia",
+"lat": 2.28333,
+"lon": 111.81667
+},
+{
+"qid": "Q18392681",
+"nama": "Port of Kuala Sungai Linggi",
+"negara": "Malaysia",
+"lat": 2.275,
+"lon": 101.98333
+},
+{
+"qid": "Q111387495",
+"nama": "Sarikei",
+"negara": "Malaysia",
+"lat": 2.13333,
+"lon": 111.53333
+},
+{
+"qid": "Q111387259",
+"nama": "Muar",
+"negara": "Malaysia",
+"lat": 2.05,
+"lon": 102.56667
+},
+{
+"qid": "Q111387565",
+"nama": "Pelabuhan Sandakan",
+"negara": "Malaysia",
+"lat": 5.83333,
+"lon": 118.11667
+},
+{
+"qid": "Q111387329",
+"nama": "Tawa",
+"negara": "Malaysia",
+"lat": 4.25,
+"lon": 117.88333
+},
+{
+"qid": "Q821014",
+"nama": "Port of Tanjung Pelepas",
+"negara": "Malaysia",
+"lat": 1.36635,
+"lon": 103.54837
+},
+{
+"qid": "Q111386924",
+"nama": "Mostyn",
+"negara": "Malaysia",
+"lat": 4.68333,
+"lon": 118.25
+},
+{
+"qid": "Q111387235",
+"nama": "Kirteh Oil Terminal",
+"negara": "Malaysia",
+"lat": 4.56667,
+"lon": 103.46667
+},
+{
+"qid": "Q111387192",
+"nama": "Port Klang",
+"negara": "Malaysia",
+"lat": 3.0,
+"lon": 101.4
+},
+{
+"qid": "Q4209004",
+"nama": "Johor Port",
+"negara": "Malaysia",
+"lat": 1.43881,
+"lon": 103.90578
+},
+{
+"qid": "Q111387237",
+"nama": "Tapis Marine Terminal A",
+"negara": "Malaysia",
+"lat": 5.51667,
+"lon": 105.01667
+},
+{
+"qid": "Q111387194",
+"nama": "Port Dickson",
+"negara": "Malaysia",
+"lat": 2.53333,
+"lon": 101.78333
+},
+{
+"qid": "Q7570938",
+"nama": "Southpoint, Malaysia",
+"negara": "Malaysia",
+"lat": 2.99621,
+"lon": 101.39628
+},
+{
+"qid": "Q139970657",
+"nama": "Bakapit",
+"negara": "Malaysia",
+"lat": 4.95,
+"lon": 118.58333
+},
+{
+"qid": "Q111387569",
+"nama": "Lahad Datu",
+"negara": "Malaysia",
+"lat": 5.01667,
+"lon": 118.31667
+},
+{
+"qid": "Q111387047",
+"nama": "Melaka port",
+"negara": "Malaysia",
+"lat": 2.19101,
+"lon": 102.2452
+},
+{
+"qid": "Q111387600",
+"nama": "Miri",
+"negara": "Malaysia",
+"lat": 4.38333,
+"lon": 113.96667
+},
+{
+"qid": "Q34963976",
+"nama": "Pelabuhan Pending",
+"negara": "Malaysia",
+"lat": 1.55472,
+"lon": 110.38944
+},
+{
+"qid": "Q7683422",
+"nama": "Tanjung Langsat Port",
+"negara": "Malaysia",
+"lat": 1.44333,
+"lon": 104.006
+},
+{
+"qid": "Q111386765",
+"nama": "Kavieng Harbor",
+"negara": "Papua Nugini",
+"lat": -2.58333,
+"lon": 150.8
+},
+{
+"qid": "Q111386841",
+"nama": "Port Moresby",
+"negara": "Papua Nugini",
+"lat": -9.46667,
+"lon": 147.13333
+},
+{
+"qid": "Q111386845",
+"nama": "Suloga Harbor",
+"negara": "Papua Nugini",
+"lat": -9.21667,
+"lon": 152.76667
+},
+{
+"qid": "Q34953522",
+"nama": "Anewa Bay",
+"negara": "Papua Nugini",
+"lat": -6.18694,
+"lon": 155.55028
+},
+{
+"qid": "Q111386851",
+"nama": "Oro Bay",
+"negara": "Papua Nugini",
+"lat": -8.88333,
+"lon": 148.48333
+},
+{
+"qid": "Q111387169",
+"nama": "Wewak Harbor",
+"negara": "Papua Nugini",
+"lat": -3.56667,
+"lon": 143.63333
+},
+{
+"qid": "Q111387107",
+"nama": "Kimbe",
+"negara": "Papua Nugini",
+"lat": -5.13333,
+"lon": 150.53333
+},
+{
+"qid": "Q111386844",
+"nama": "Samarai",
+"negara": "Papua Nugini",
+"lat": -10.61667,
+"lon": 150.66667
+},
+{
+"qid": "Q111386843",
+"nama": "Alotoa",
+"negara": "Papua Nugini",
+"lat": -10.31667,
+"lon": 150.45
+},
+{
+"qid": "Q111387106",
+"nama": "Kokopo",
+"negara": "Papua Nugini",
+"lat": -4.33333,
+"lon": 152.26667
+},
+{
+"qid": "Q111387167",
+"nama": "Longan Island",
+"negara": "Papua Nugini",
+"lat": -1.21667,
+"lon": 144.3
+},
+{
+"qid": "Q111386776",
+"nama": "Vanimo",
+"negara": "Papua Nugini",
+"lat": -2.68333,
+"lon": 141.13333
+},
+{
+"qid": "Q111386766",
+"nama": "Rabaul",
+"negara": "Papua Nugini",
+"lat": -4.2,
+"lon": 152.18333
+},
+{
+"qid": "Q111386848",
+"nama": "Discovery Bay",
+"negara": "Papua Nugini",
+"lat": -10.41667,
+"lon": 150.41667
+},
+{
+"qid": "Q111387105",
+"nama": "Hamburg Harbor",
+"negara": "Papua Nugini",
+"lat": -1.63333,
+"lon": 149.96667
+},
+{
+"qid": "Q7521102",
+"nama": "Simpson Harbour",
+"negara": "Papua Nugini",
+"lat": -4.21667,
+"lon": 152.16667
+},
+{
+"qid": "Q111386673",
+"nama": "Bialla",
+"negara": "Papua Nugini",
+"lat": -5.3,
+"lon": 150.98333
+},
+{
+"qid": "Q111386670",
+"nama": "Queen Carola Harbor",
+"negara": "Papua Nugini",
+"lat": -5.16667,
+"lon": 154.55
+},
+{
+"qid": "Q111386839",
+"nama": "Daru",
+"negara": "Papua Nugini",
+"lat": -9.06667,
+"lon": 143.2
+},
+{
+"qid": "Q111387109",
+"nama": "Kieta",
+"negara": "Papua Nugini",
+"lat": -6.21667,
+"lon": 155.63333
+},
+{
+"qid": "Q111386854",
+"nama": "Madang",
+"negara": "Papua Nugini",
+"lat": -5.21667,
+"lon": 145.81667
+},
+{
+"qid": "Q111387360",
+"nama": "MARIVELES",
+"negara": "Filipina",
+"lat": 14.43333,
+"lon": 120.48333
+},
+{
+"qid": "Q31475737",
+"nama": "Port Languyan",
+"negara": "Filipina",
+"lat": 5.26444,
+"lon": 120.08167
+},
+{
+"qid": "Q102021474",
+"nama": "Port of Dipolog",
+"negara": "Filipina",
+"lat": 8.55972,
+"lon": 123.32806
+},
+{
+"qid": "Q111387365",
+"nama": "Guiuan",
+"negara": "Filipina",
+"lat": 11.03333,
+"lon": 125.71667
+},
+{
+"qid": "Q31831659",
+"nama": "Port Isabela",
+"negara": "Filipina",
+"lat": 6.7,
+"lon": 121.96667
+},
+{
+"qid": "Q23048156",
+"nama": "Port of Cebu",
+"negara": "Filipina",
+"lat": 10.30639,
+"lon": 123.92611
+},
+{
+"qid": "Q111387371",
+"nama": "Tacloban",
+"negara": "Filipina",
+"lat": 11.25,
+"lon": 125.0
+},
+{
+"qid": "Q111387366",
+"nama": "Port Borongan",
+"negara": "Filipina",
+"lat": 11.6,
+"lon": 125.43333
+},
+{
+"qid": "Q25248077",
+"nama": "Port of Roxas, Oriental Mindoro",
+"negara": "Filipina",
+"lat": 12.65,
+"lon": 121.55
+},
+{
+"qid": "Q31475971",
+"nama": "Port of Poctoy",
+"negara": "Filipina",
+"lat": 12.41667,
+"lon": 121.98333
+},
+{
+"qid": "Q111387358",
+"nama": "SANTA CRUZ (MARINDUQUE ISL)",
+"negara": "Filipina",
+"lat": 13.5,
+"lon": 122.06667
+},
+{
+"qid": "Q111387369",
+"nama": "Catbalogan",
+"negara": "Filipina",
+"lat": 11.76667,
+"lon": 124.88333
+},
+{
+"qid": "Q111387362",
+"nama": "San Fernando Harbor",
+"negara": "Filipina",
+"lat": 16.61667,
+"lon": 120.31667
+},
+{
+"qid": "Q111387418",
+"nama": "Tagbilaran",
+"negara": "Filipina",
+"lat": 9.65,
+"lon": 123.85
+},
+{
+"qid": "Q111387472",
+"nama": "Santa Clara",
+"negara": "Filipina",
+"lat": 7.78333,
+"lon": 122.68333
+},
+{
+"qid": "Q31475821",
+"nama": "Port Masinloc",
+"negara": "Filipina",
+"lat": 15.53333,
+"lon": 119.93333
+},
+{
+"qid": "Q111387481",
+"nama": "Siasi",
+"negara": "Filipina",
+"lat": 5.55,
+"lon": 120.81667
+},
+{
+"qid": "Q111387361",
+"nama": "Port Romblon",
+"negara": "Filipina",
+"lat": 12.58333,
+"lon": 122.26667
+},
+{
+"qid": "Q111387223",
+"nama": "Virac",
+"negara": "Filipina",
+"lat": 13.58333,
+"lon": 124.25
+},
+{
+"qid": "Q111387419",
+"nama": "Tubigan",
+"negara": "Filipina",
+"lat": 9.95,
+"lon": 123.96667
+},
+{
+"qid": "Q111387354",
+"nama": "Maasin",
+"negara": "Filipina",
+"lat": 10.13333,
+"lon": 124.83333
+},
+{
+"qid": "Q111387516",
+"nama": "Surigao City",
+"negara": "Filipina",
+"lat": 9.7824,
+"lon": 125.5009
+},
+{
+"qid": "Q111387420",
+"nama": "San Carlos",
+"negara": "Filipina",
+"lat": 10.48333,
+"lon": 123.41667
+},
+{
+"qid": "Q111387524",
+"nama": "Mati",
+"negara": "Filipina",
+"lat": 6.95,
+"lon": 126.21667
+},
+{
+"qid": "Q111387422",
+"nama": "Lazi",
+"negara": "Filipina",
+"lat": 9.13333,
+"lon": 123.63333
+},
+{
+"qid": "Q111387528",
+"nama": "Hinatuan",
+"negara": "Filipina",
+"lat": 8.36667,
+"lon": 126.33333
+},
+{
+"qid": "Q111387416",
+"nama": "Ormoc Port",
+"negara": "Filipina",
+"lat": 11.0,
+"lon": 124.6
+},
+{
+"qid": "Q111387155",
+"nama": "Tanauan",
+"negara": "Filipina",
+"lat": 11.1,
+"lon": 125.01667
+},
+{
+"qid": "Q111387474",
+"nama": "Margosatubig",
+"negara": "Filipina",
+"lat": 7.58333,
+"lon": 123.16667
+},
+{
+"qid": "Q31521182",
+"nama": "Buyabod Port 2",
+"negara": "Filipina",
+"lat": 13.47583,
+"lon": 122.05361
+},
+{
+"qid": "Q111387279",
+"nama": "Hondagua",
+"negara": "Filipina",
+"lat": 13.95,
+"lon": 122.23333
+},
+{
+"qid": "Q111387525",
+"nama": "Nasipit Port",
+"negara": "Filipina",
+"lat": 8.98333,
+"lon": 125.33333
+},
+{
+"qid": "Q31475635",
+"nama": "Port Ciego",
+"negara": "Filipina",
+"lat": 8.06667,
+"lon": 116.98333
+},
+{
+"qid": "Q111387278",
+"nama": "Aparri",
+"negara": "Filipina",
+"lat": 18.36667,
+"lon": 121.63333
+},
+{
+"qid": "Q31478163",
+"nama": "Balanacan Port",
+"negara": "Filipina",
+"lat": 13.53278,
+"lon": 121.86444
+},
+{
+"qid": "Q31475717",
+"nama": "Port Irene",
+"negara": "Filipina",
+"lat": 18.38222,
+"lon": 122.10917
+},
+{
+"qid": "Q31475863",
+"nama": "Port Sambulauan",
+"negara": "Filipina",
+"lat": 7.54972,
+"lon": 123.38
+},
+{
+"qid": "Q111387523",
+"nama": "Mangagoy",
+"negara": "Filipina",
+"lat": 8.23333,
+"lon": 126.31667
+},
+{
+"qid": "Q111387482",
+"nama": "BASILIAN CITY (ISABELA)",
+"negara": "Filipina",
+"lat": 6.71667,
+"lon": 121.96667
+},
+{
+"qid": "Q111387515",
+"nama": "Pagadian",
+"negara": "Filipina",
+"lat": 7.83333,
+"lon": 123.43333
+},
+{
+"qid": "Q7231243",
+"nama": "Port of Puerto Princesa",
+"negara": "Filipina",
+"lat": 9.73333,
+"lon": 118.717
+},
+{
+"qid": "Q7231160",
+"nama": "Port of Iloilo",
+"negara": "Filipina",
+"lat": 10.69,
+"lon": 122.583
+},
+{
+"qid": "Q111387478",
+"nama": "Bugo",
+"negara": "Filipina",
+"lat": 8.51667,
+"lon": 124.75
+},
+{
+"qid": "Q7231123",
+"nama": "Port of Davao",
+"negara": "Filipina",
+"lat": 7.06667,
+"lon": 125.61667
+},
+{
+"qid": "Q111387488",
+"nama": "Jimenez",
+"negara": "Filipina",
+"lat": 8.33333,
+"lon": 123.86667
+},
+{
+"qid": "Q31475759",
+"nama": "Port Lebak",
+"negara": "Filipina",
+"lat": 6.54417,
+"lon": 124.04306
+},
+{
+"qid": "Q111387152",
+"nama": "Gingoog",
+"negara": "Filipina",
+"lat": 8.83333,
+"lon": 125.1
+},
+{
+"qid": "Q111387355",
+"nama": "Baybay",
+"negara": "Filipina",
+"lat": 10.68333,
+"lon": 124.8
+},
+{
+"qid": "Q111387307",
+"nama": "Basco",
+"negara": "Filipina",
+"lat": 20.45,
+"lon": 121.96667
+},
+{
+"qid": "Q15831592",
+"nama": "Port of Zamboanga",
+"negara": "Filipina",
+"lat": 6.9,
+"lon": 122.06667
+},
+{
+"qid": "Q23582270",
+"nama": "Port of San Jose, Occidental Mindoro",
+"negara": "Filipina",
+"lat": 12.33194,
+"lon": 121.08611
+},
+{
+"qid": "Q111387424",
+"nama": "Pulupandan",
+"negara": "Filipina",
+"lat": 10.51667,
+"lon": 122.8
+},
+{
+"qid": "Q31457634",
+"nama": "Paganaman Port",
+"negara": "Filipina",
+"lat": 20.79222,
+"lon": 121.82917
+},
+{
+"qid": "Q111387486",
+"nama": "Jolo",
+"negara": "Filipina",
+"lat": 6.05,
+"lon": 121.0
+},
+{
+"qid": "Q102022122",
+"nama": "Port of Dapitan",
+"negara": "Filipina",
+"lat": 8.63611,
+"lon": 123.38194
+},
+{
+"qid": "Q111387521",
+"nama": "General Santos",
+"negara": "Filipina",
+"lat": 6.11667,
+"lon": 125.18333
+},
+{
+"qid": "Q23581545",
+"nama": "Port of Abra de Ilog",
+"negara": "Filipina",
+"lat": 13.46732,
+"lon": 120.77254
+},
+{
+"qid": "Q111387364",
+"nama": "Laoang",
+"negara": "Filipina",
+"lat": 12.56667,
+"lon": 125.01667
+},
+{
+"qid": "Q31475905",
+"nama": "Port Talaguilong",
+"negara": "Filipina",
+"lat": 8.69222,
+"lon": 123.39806
+},
+{
+"qid": "Q112078087",
+"nama": "Port of Hilongos",
+"negara": "Filipina",
+"lat": 10.36958,
+"lon": 124.742
+},
+{
+"qid": "Q111387226",
+"nama": "Tabaco Port",
+"negara": "Filipina",
+"lat": 13.36667,
+"lon": 123.73333
+},
+{
+"qid": "Q31475841",
+"nama": "Port Matalvis",
+"negara": "Filipina",
+"lat": 15.47917,
+"lon": 119.92639
+},
+{
+"qid": "Q23581630",
+"nama": "Port of Calapan",
+"negara": "Filipina",
+"lat": 13.43,
+"lon": 121.19667
+},
+{
+"qid": "Q137777629",
+"nama": "Manila South Harbor",
+"negara": "Filipina",
+"lat": 14.5833,
+"lon": 120.9667
+},
+{
+"qid": "Q31475801",
+"nama": "Port Maricaban",
+"negara": "Filipina",
+"lat": 13.68583,
+"lon": 120.83306
+},
+{
+"qid": "Q111387531",
+"nama": "Polloc",
+"negara": "Filipina",
+"lat": 7.35,
+"lon": 124.21667
+},
+{
+"qid": "Q111387469",
+"nama": "Port Ozamis",
+"negara": "Filipina",
+"lat": 8.13333,
+"lon": 123.85
+},
+{
+"qid": "Q111387421",
+"nama": "Dumaguete",
+"negara": "Filipina",
+"lat": 9.31667,
+"lon": 123.3
+},
+{
+"qid": "Q31475593",
+"nama": "Port Binanga",
+"negara": "Filipina",
+"lat": 14.73917,
+"lon": 120.26222
+},
+{
+"qid": "Q111387363",
+"nama": "Port of Masbate",
+"negara": "Filipina",
+"lat": 12.36667,
+"lon": 123.61667
+},
+{
+"qid": "Q104876099",
+"nama": "Port of Dumaguete",
+"negara": "Filipina",
+"lat": 9.3125,
+"lon": 123.31056
+},
+{
+"qid": "Q39060632",
+"nama": "Port of Ozamiz",
+"negara": "Filipina",
+"lat": 8.14497,
+"lon": 123.84355
+},
+{
+"qid": "Q111387417",
+"nama": "Palompon",
+"negara": "Filipina",
+"lat": 11.05,
+"lon": 124.38333
+},
+{
+"qid": "Q15831585",
+"nama": "Port of Batangas",
+"negara": "Filipina",
+"lat": 13.75432,
+"lon": 121.04339
+},
+{
+"qid": "Q31831690",
+"nama": "Port San Vicente",
+"negara": "Filipina",
+"lat": 18.50417,
+"lon": 122.14528
+},
+{
+"qid": "Q111387356",
+"nama": "Sorsogon",
+"negara": "Filipina",
+"lat": 12.96667,
+"lon": 124.0
+},
+{
+"qid": "Q111387224",
+"nama": "Jose Panganiban",
+"negara": "Filipina",
+"lat": 14.28333,
+"lon": 122.68333
+},
+{
+"qid": "Q31481634",
+"nama": "Balogo Port",
+"negara": "Filipina",
+"lat": 13.50639,
+"lon": 122.05028
+},
+{
+"qid": "Q111387353",
+"nama": "Port Capiz",
+"negara": "Filipina",
+"lat": 11.6,
+"lon": 122.71667
+},
+{
+"qid": "Q111387479",
+"nama": "Villanueva",
+"negara": "Filipina",
+"lat": 8.58333,
+"lon": 124.76667
+},
+{
+"qid": "Q7231272",
+"nama": "Port of Subic",
+"negara": "Filipina",
+"lat": 14.8346,
+"lon": 120.2507
+},
+{
+"qid": "Q111387357",
+"nama": "Nasugbu",
+"negara": "Filipina",
+"lat": 14.08333,
+"lon": 120.61667
+},
+{
+"qid": "Q34966131",
+"nama": "Punggol Fishing Port",
+"negara": "Singapura",
+"lat": 1.40417,
+"lon": 103.91833
+},
+{
+"qid": "Q6315376",
+"nama": "Jurong Port",
+"negara": "Singapura",
+"lat": 1.31861,
+"lon": 103.72167
+},
+{
+"qid": "Q34966516",
+"nama": "Tanjong Pagar Terminal",
+"negara": "Singapura",
+"lat": 1.2675,
+"lon": 103.85139
+},
+{
+"qid": "Q7522945",
+"nama": "Singapore Cruise Centre",
+"negara": "Singapura",
+"lat": 1.26197,
+"lon": 103.81878
+},
+{
+"qid": "Q111386678",
+"nama": "Jurong Island",
+"negara": "Singapura",
+"lat": 1.28333,
+"lon": 103.73333
+},
+{
+"qid": "Q111386733",
+"nama": "Serangoon Harbor",
+"negara": "Singapura",
+"lat": 1.4,
+"lon": 103.95
+},
+{
+"qid": "Q34966506",
+"nama": "Tanah Merah Port",
+"negara": "Singapura",
+"lat": 1.2632,
+"lon": 103.69321
+},
+{
+"qid": "Q34954381",
+"nama": "Keppel Terminal",
+"negara": "Singapura",
+"lat": 1.265,
+"lon": 103.82528
+},
+{
+"qid": "Q111387393",
+"nama": "Pulau Bukom",
+"negara": "Singapura",
+"lat": 1.23333,
+"lon": 103.76667
+},
+{
+"qid": "Q7352123",
+"nama": "Robertson Quay",
+"negara": "Singapura",
+"lat": 1.29028,
+"lon": 103.84
+},
+{
+"qid": "Q1421994",
+"nama": "Port of Singapore",
+"negara": "Singapura",
+"lat": 1.26556,
+"lon": 103.835
+},
+{
+"qid": "Q34963657",
+"nama": "Marina Terminal",
+"negara": "Singapura",
+"lat": 1.26833,
+"lon": 103.83611
+},
+{
+"qid": "Q34966595",
+"nama": "Tha Ruea Laem Sing",
+"negara": "Thailand",
+"lat": 12.48167,
+"lon": 102.06139
+},
+{
+"qid": "Q48880885",
+"nama": "Laem Chabang",
+"negara": "Thailand",
+"lat": 13.08333,
+"lon": 100.88333
+},
+{
+"qid": "Q111387239",
+"nama": "Ko Si Chang Terminal",
+"negara": "Thailand",
+"lat": 13.16667,
+"lon": 100.81667
+},
+{
+"qid": "Q34966606",
+"nama": "Map Ta Phut Port",
+"negara": "Thailand",
+"lat": 12.66488,
+"lon": 101.14459
+},
+{
+"qid": "Q111387189",
+"nama": "Phuket",
+"negara": "Thailand",
+"lat": 7.83333,
+"lon": 98.4
+},
+{
+"qid": "Q111387326",
+"nama": "Petchburi Terminal",
+"negara": "Thailand",
+"lat": 13.16667,
+"lon": 100.15
+},
+{
+"qid": "Q111386929",
+"nama": "Pattani",
+"negara": "Thailand",
+"lat": 6.95,
+"lon": 101.3
+},
+{
+"qid": "Q111386937",
+"nama": "Si Racha Port",
+"negara": "Thailand",
+"lat": 13.16667,
+"lon": 100.91667
+},
+{
+"qid": "Q111387191",
+"nama": "Kantang Harbor",
+"negara": "Thailand",
+"lat": 7.4,
+"lon": 99.51667
+},
+{
+"qid": "Q111387286",
+"nama": "Songkhla Harbor",
+"negara": "Thailand",
+"lat": 7.21667,
+"lon": 100.58333
+},
+{
+"qid": "Q6578896",
+"nama": "Bangkok Port",
+"negara": "Thailand",
+"lat": 13.70374,
+"lon": 100.57545
+},
+{
+"qid": "Q111387328",
+"nama": "Siam Seaport",
+"negara": "Thailand",
+"lat": 13.13333,
+"lon": 100.88333
+},
+{
+"qid": "Q111386934",
+"nama": "Erawan Terminal",
+"negara": "Thailand",
+"lat": 9.1,
+"lon": 101.35
+},
+{
+"qid": "Q111387327",
+"nama": "Rayong TPI Terminal",
+"negara": "Thailand",
+"lat": 12.63333,
+"lon": 101.3
+},
+{
+"qid": "Q34966651",
+"nama": "Na Kluea port",
+"negara": "Thailand",
+"lat": 12.99806,
+"lon": 100.91972
+},
+{
+"qid": "Q111386930",
+"nama": "Tantawan Marine Terminal",
+"negara": "Thailand",
+"lat": 10.08333,
+"lon": 101.41667
+},
+{
+"qid": "Q34966661",
+"nama": "Tha Thiap Ruea Sanam Ying Puen",
+"negara": "Thailand",
+"lat": 12.93083,
+"lon": 100.78889
+},
+{
+"qid": "Q34966617",
+"nama": "Tha Thiap Ruea Kan Thongthiao Haeng Prathet Thai",
+"negara": "Thailand",
+"lat": 12.92667,
+"lon": 100.77444
+},
+{
+"qid": "Q111387240",
+"nama": "Si Racha Terminal",
+"negara": "Thailand",
+"lat": 13.11667,
+"lon": 100.88333
+},
+{
+"qid": "Q111386932",
+"nama": "Khanom",
+"negara": "Thailand",
+"lat": 9.2,
+"lon": 99.9
+},
+{
+"qid": "Q34966629",
+"nama": "Tha Thiap Ruea Ko Lan",
+"negara": "Thailand",
+"lat": 12.92306,
+"lon": 100.78917
+},
+{
+"qid": "Q34966640",
+"nama": "Tha Thiap Ruea Na Kluea",
+"negara": "Thailand",
+"lat": 12.97194,
+"lon": 100.89722
+},
+{
+"qid": "Q111386521",
+"nama": "Dili",
+"negara": "Timor-Leste",
+"lat": -8.53333,
+"lon": 125.58333
+},
+{
+"qid": "Q11057247",
+"nama": "Tsoying Harbor",
+"negara": "Taiwan",
+"lat": 22.69778,
+"lon": 120.26806
+},
+{
+"qid": "Q10259753",
+"nama": "Fugang Fishery Harbor",
+"negara": "Taiwan",
+"lat": 22.7917,
+"lon": 121.192
+},
+{
+"qid": "Q89993249",
+"nama": "Magong first fishing harbor",
+"negara": "Taiwan",
+"lat": 23.56306,
+"lon": 119.56821
+},
+{
+"qid": "Q104601229",
+"nama": "Magong Fishing Harbor",
+"negara": "Taiwan",
+"lat": 23.56354,
+"lon": 119.57174
+},
+{
+"qid": "Q713449",
+"nama": "Port of Kaohsiung",
+"negara": "Taiwan",
+"lat": 22.61333,
+"lon": 120.27917
+},
+{
+"qid": "Q15911678",
+"nama": "Wushi Harbor",
+"negara": "Taiwan",
+"lat": 24.86778,
+"lon": 121.83772
+},
+{
+"qid": "Q19853303",
+"nama": "Green Island Nanliao Harbor",
+"negara": "Taiwan",
+"lat": 22.65889,
+"lon": 121.475
+},
+{
+"qid": "Q17019434",
+"nama": "Shuitou Pier",
+"negara": "Taiwan",
+"lat": 24.41802,
+"lon": 118.29133
+},
+{
+"qid": "Q7231281",
+"nama": "Port of Taichung",
+"negara": "Taiwan",
+"lat": 24.28469,
+"lon": 120.53119
+},
+{
+"qid": "Q11179992",
+"nama": "Gushan Fishing Port",
+"negara": "Taiwan",
+"lat": 22.61885,
+"lon": 120.2722
+},
+{
+"qid": "Q3847201",
+"nama": "Port of Hualien",
+"negara": "Taiwan",
+"lat": 23.98639,
+"lon": 121.62639
+},
+{
+"qid": "Q11175345",
+"nama": "Mailiao Industrial Port",
+"negara": "Taiwan",
+"lat": 23.78667,
+"lon": 120.16611
+},
+{
+"qid": "Q104601096",
+"nama": "Magong second fishing harbor",
+"negara": "Taiwan",
+"lat": 23.56518,
+"lon": 119.57065
+},
+{
+"qid": "Q10412681",
+"nama": "Wanggong Fishing Port",
+"negara": "Taiwan",
+"lat": 23.9692,
+"lon": 120.324
+},
+{
+"qid": "Q108405019",
+"nama": "Kinmen Port",
+"negara": "Taiwan",
+"lat": 24.4367,
+"lon": 118.3722
+},
+{
+"qid": "Q49096217",
+"nama": "Penghu Bay",
+"negara": "Taiwan",
+"lat": 23.6,
+"lon": 119.53333
+},
+{
+"qid": "Q15913027",
+"nama": "Port of Suao",
+"negara": "Taiwan",
+"lat": 24.59703,
+"lon": 121.85789
+},
+{
+"qid": "Q107550815",
+"nama": "Fenniaolin Fishing Port",
+"negara": "Taiwan",
+"lat": 24.49753,
+"lon": 121.84309
+},
+{
+"qid": "Q32177107",
+"nama": "Cảng Cửa Lò",
+"negara": "Vietnam",
+"lat": 18.82778,
+"lon": 105.70972
+},
+{
+"qid": "Q2636675",
+"nama": "Da Nang Port",
+"negara": "Vietnam",
+"lat": 16.06667,
+"lon": 108.23333
+},
+{
+"qid": "Q10812145",
+"nama": "Sa Ky Port",
+"negara": "Vietnam",
+"lat": 15.21511,
+"lon": 108.91447
+},
+{
+"qid": "Q10752281",
+"nama": "Cảng Tiên Sa",
+"negara": "Vietnam",
+"lat": 16.12,
+"lon": 108.21722
+},
+{
+"qid": "Q10801323",
+"nama": "Ninh Chữ",
+"negara": "Vietnam",
+"lat": 11.59278,
+"lon": 109.04861
+},
+{
+"qid": "Q111387287",
+"nama": "Dai Hang",
+"negara": "Vietnam",
+"lat": 8.48333,
+"lon": 108.68333
+},
+{
+"qid": "Q32177123",
+"nama": "Cảng Hải Phòng",
+"negara": "Vietnam",
+"lat": 20.86778,
+"lon": 106.69167
+},
+{
+"qid": "Q32175939",
+"nama": "Cát Lở",
+"negara": "Vietnam",
+"lat": 10.4125,
+"lon": 107.12694
+},
+{
+"qid": "Q111387289",
+"nama": "Phu My",
+"negara": "Vietnam",
+"lat": 10.58333,
+"lon": 107.03333
+},
+{
+"qid": "Q111387288",
+"nama": "Mui Vung Tau",
+"negara": "Vietnam",
+"lat": 10.31667,
+"lon": 107.06667
+},
+{
+"qid": "Q111387178",
+"nama": "Hon Gai",
+"negara": "Vietnam",
+"lat": 20.95,
+"lon": 107.06667
+},
+{
+"qid": "Q2509890",
+"nama": "Van Phong Port",
+"negara": "Vietnam",
+"lat": 12.66667,
+"lon": 109.28333
+},
+{
+"qid": "Q111387242",
+"nama": "Duong Dong",
+"negara": "Vietnam",
+"lat": 10.21667,
+"lon": 103.96667
+},
+{
+"qid": "Q111387061",
+"nama": "Thanh Hoa",
+"negara": "Vietnam",
+"lat": 10.81667,
+"lon": 106.76667
+},
+{
+"qid": "Q32177163",
+"nama": "Cảng Đồng Tâm",
+"negara": "Vietnam",
+"lat": 10.34194,
+"lon": 106.28917
+},
+{
+"qid": "Q32175837",
+"nama": "Cà Ná",
+"negara": "Vietnam",
+"lat": 11.32056,
+"lon": 108.91
+},
+{
+"qid": "Q31909430",
+"nama": "Cảng Mỹ Thới",
+"negara": "Vietnam",
+"lat": 10.33972,
+"lon": 105.47722
+},
+{
+"qid": "Q111387227",
+"nama": "Cam Pha",
+"negara": "Vietnam",
+"lat": 21.03333,
+"lon": 107.36667
+},
+{
+"qid": "Q4460627",
+"nama": "Port of Thi Nai",
+"negara": "Vietnam",
+"lat": 13.779,
+"lon": 109.247
+},
+{
+"qid": "Q137778533",
+"nama": "Saigon Premier Container Terminal",
+"negara": "Vietnam",
+"lat": 10.6358,
+"lon": 106.7583
+},
+{
+"qid": "Q111387062",
+"nama": "Nghe Tinh",
+"negara": "Vietnam",
+"lat": 18.76667,
+"lon": 105.76667
+},
+{
+"qid": "Q1076388",
+"nama": "Saigon Port",
+"negara": "Vietnam",
+"lat": 10.6475,
+"lon": 106.745
+},
+{
+"qid": "Q111387063",
+"nama": "Cat Lai",
+"negara": "Vietnam",
+"lat": 10.75,
+"lon": 106.78333
+},
+{
+"qid": "Q7273046",
+"nama": "Quy Nhon Port",
+"negara": "Vietnam",
+"lat": 13.76667,
+"lon": 109.23333
+},
+{
+"qid": "Q7943661",
+"nama": "Vung Tau Port",
+"negara": "Vietnam",
+"lat": 10.386,
+"lon": 107.085
+},
+{
+"qid": "Q111387179",
+"nama": "Nha Trang",
+"negara": "Vietnam",
+"lat": 12.25,
+"lon": 109.23333
+},
+{
+"qid": "Q11072051",
+"nama": "Vinh Cam Ranh",
+"negara": "Vietnam",
+"lat": 11.88333,
+"lon": 109.16667
+},
+{
+"qid": "Q31909425",
+"nama": "Cảng Hải Thịnh",
+"negara": "Vietnam",
+"lat": 20.02417,
+"lon": 106.20417
+}
+]
+}

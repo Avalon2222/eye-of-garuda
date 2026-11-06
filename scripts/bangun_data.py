@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 from datetime import date
 from pathlib import Path
 
@@ -97,9 +98,87 @@ def bangun_perbatasan() -> dict:
     return {"type": "FeatureCollection", "features": fitur}
 
 
+JENIS_WIKIDATA = {
+    "airbase": "udara",
+    "naval base": "laut",
+    "naval station": "laut",
+    "Mobile Naval Air Base": "laut",
+    "naval arsenal": "laut",
+    "military base": "darat",
+    "military installation": "darat",
+    "barracks": "darat",
+    "cantonment": "darat",
+    "military radar station": "radar",
+}
+# nama yang hampir pasti historis / bukan pangkalan aktif (benteng kuno, kamp Perang Vietnam, fasilitas pendukung)
+POLA_BUANG = re.compile(
+    r"\bfort\b|\bdurg\b|qila|\bcamp\b|firebase|base camp|\bRAF\b|royal air force|arsenal|golf|housing|hospital|tank|"
+    r"communication|reserve|annex|\bpark\b|consulate|airfield|\bformer\b|\bold\b|landing ground|"
+    r"fire support|combat base|\bLZ\b|hill \d|jail|base area|railway|\barch\b|mallala|nabiac|uranquinty|tocumwal|evans head",
+    re.I,
+)
+POLA_AUSTRALIA = re.compile(r"RAAF Base|HMAS |Barracks|Army|Naval|Navy|Air Base|Air Force|Defence|Training Area|Joint", re.I)
+
+
+def jarak_derajat(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
+    return ((lat1 - lat2) ** 2 + ((lon1 - lon2) * 0.99) ** 2) ** 0.5
+
+
+def pangkalan_asing_wikidata(kurasi: list[dict]) -> list[dict]:
+    """Pangkalan militer negara-negara kawasan dari Wikidata, dipakai untuk melengkapi daftar kurasi."""
+    d = json.loads((DATA / "sumber" / "wikidata_militer.json").read_text(encoding="utf-8"))
+    hasil = []
+    for f in d["fasilitas"]:
+        if f["negara"] == "Indonesia":
+            continue
+        if f["jenis"] not in JENIS_WIKIDATA:
+            continue
+        if POLA_BUANG.search(f["nama"]):
+            continue
+        if f["negara"] == "Australia" and not POLA_AUSTRALIA.search(f["nama"]):
+            continue
+        if f["negara"] in ("Taiwan", "Vietnam") and f["jenis"] not in ("airbase", "naval base"):
+            continue
+        # Hong Kong: barak era kolonial, lewati
+        if 22.1 < f["lat"] < 22.6 and 113.8 < f["lon"] < 114.5:
+            continue
+        # sudah ada di daftar kurasi (jarak < ~3 km)?
+        if any(jarak_derajat(f["lat"], f["lon"], angka(k["lat"]) or 0, angka(k["lon"]) or 0) < 0.03 for k in kurasi):
+            continue
+        hasil.append(f)
+    # buang duplikat nama yang sama berdekatan
+    unik: list[dict] = []
+    for f in hasil:
+        if any(u["nama"] == f["nama"] and jarak_derajat(u["lat"], u["lon"], f["lat"], f["lon"]) < 0.05 for u in unik):
+            continue
+        unik.append(f)
+    return unik
+
+
 def bangun_pangkalan_asing() -> dict:
     fitur = []
-    for b in baca_csv("pangkalan_asing.csv"):
+    kurasi = baca_csv("pangkalan_asing.csv")
+    for f in pangkalan_asing_wikidata(kurasi):
+        fitur.append(
+            {
+                "type": "Feature",
+                "properties": {
+                    "id": f"asing-{f['qid']}",
+                    "nama": f["nama_id"] or f["nama"],
+                    "operator": f["negara"],
+                    "operator_utama": f["negara"],
+                    "tuan_rumah": f["negara"],
+                    "jenis": JENIS_WIKIDATA[f["jenis"]],
+                    "status": "menurut Wikidata",
+                    "keterangan": f"{f['jenis']}" + (f"; operator: {f['operator']}" if f["operator"] else "") + ". Data Wikidata, status operasional tidak diverifikasi.",
+                    "sumber": "Wikidata",
+                    "url": f"https://www.wikidata.org/wiki/{f['qid']}",
+                    "kurasi": False,
+                },
+                "geometry": {"type": "Point", "coordinates": [f["lon"], f["lat"]]},
+            }
+        )
+    for b in kurasi:
         fitur.append(
             titik(
                 b,
@@ -114,9 +193,12 @@ def bangun_pangkalan_asing() -> dict:
                     "keterangan": b["keterangan"],
                     "sumber": b["sumber"],
                     "url": b["url_sumber"],
+                    "kurasi": True,
                 },
             )
         )
+    # kurasi digambar paling atas (urutan fitur = urutan gambar)
+    fitur.sort(key=lambda f: f["properties"]["kurasi"])
     return {"type": "FeatureCollection", "features": fitur}
 
 

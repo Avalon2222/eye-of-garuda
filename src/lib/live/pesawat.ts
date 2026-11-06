@@ -30,6 +30,17 @@ interface StatusPesawat extends FixPesawat {
 
 export type CakupanPesawat = "kawasan" | "dunia";
 
+export interface PesawatTampil {
+  hex: string;
+  callsign: string;
+  lon: number;
+  lat: number;
+  track: number;
+  jejak: [number, number][];
+  props: Record<string, unknown>;
+}
+
+
 const LAMA_KOREKSI_MS = 1500;
 const HAPUS_SETELAH_MS = 150_000;
 const MAKS_JEJAK = 40;
@@ -103,6 +114,37 @@ export class PelacakPesawat {
 
   cari(hex: string): StatusPesawat | undefined {
     return this.status.get(hex);
+  }
+
+  /** Daftar pesawat dengan posisi terekstrapolasi untuk digambar di kanvas. */
+  daftar(t: number): PesawatTampil[] {
+    const hasil: PesawatTampil[] = [];
+    for (const s of this.status.values()) {
+      const [lon, lat] = this.posisiTampil(s, t);
+      hasil.push({
+        hex: s.hex,
+        callsign: s.callsign || s.reg || s.hex.toUpperCase(),
+        lon,
+        lat,
+        track: s.track ?? 0,
+        jejak: s.jejak,
+        props: {
+          id: `pesawat-${s.hex}`,
+          hex: s.hex,
+          callsign: s.callsign || s.reg || s.hex.toUpperCase(),
+          reg: s.reg,
+          tipe: s.tipe,
+          alt: s.alt,
+          gs: s.gs,
+          track: s.track ?? 0,
+          squawk: s.squawk,
+          dilihat: s.dilihat,
+          lon,
+          lat,
+        },
+      });
+    }
+    return hasil;
   }
 
   /** GeoJSON titik (dengan posisi terekstrapolasi) dan jejak untuk waktu t. */

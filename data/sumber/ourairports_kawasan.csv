@@ -1,0 +1,508 @@
+ident,type,name,latitude_deg,longitude_deg,iso_country,municipality,icao_code,iata_code,wikipedia_link
+AGGM,medium_airport,Munda Airport,-8.32797,157.263,SB,Munda,AGGM,MUA,https://en.wikipedia.org/wiki/Munda_Airport
+AU-0421,small_airport,Fenton Airfield (RAAF),-13.620818,131.33853,AU,,,,
+AU-0635,small_airport,Gorrie Airfield (RAAF),-15.485858,133.179274,AU,,,,https://en.wikipedia.org/wiki/Gorrie_Airfield
+AU-0796,medium_airport,Nackeroo Airfield,-15.578026,130.475993,AU,,YNKR,,https://en.wikipedia.org/wiki/Nackeroo_Airfield
+AYBA,medium_airport,Baimuru Airport,-7.496955,144.821756,PG,Baimuru,AYBA,VMU,https://en.wikipedia.org/wiki/Baimuru_Airport
+AYBK,medium_airport,Buka Airport,-5.422299,154.672698,PG,Buka Island,AYBK,BUA,https://en.wikipedia.org/wiki/Buka_Airport
+AYBM,medium_airport,Balimo Airport,-8.05000019073,142.932998657,PG,Balimo,AYBM,OPU,https://en.wikipedia.org/wiki/Balimo_Airport
+AYCH,medium_airport,Chimbu Airport,-6.024290084838867,144.9709930419922,PG,Kundiawa,AYCH,CMU,https://en.wikipedia.org/wiki/Chimbu_Airport
+AYDU,medium_airport,Daru Airport,-9.08676,143.207993,PG,Daru,AYDU,DAU,https://en.wikipedia.org/wiki/Daru_Airport
+AYGA,medium_airport,Goroka Airport,-6.081689834590001,145.391998291,PG,Goronka,AYGA,GKA,https://en.wikipedia.org/wiki/Goroka_Airport
+AYGN,medium_airport,Gurney Airport,-10.3114995956,150.333999634,PG,Gurney,AYGN,GUR,https://en.wikipedia.org/wiki/Gurney_Airport
+AYGR,medium_airport,Girua Airport,-8.80453968048,148.309005737,PG,Popondetta,AYGR,PNP,https://en.wikipedia.org/wiki/Girua_Airport
+AYHK,medium_airport,Hoskins Airport,-5.463846,150.407327,PG,Kimbe,AYHK,HKN,https://en.wikipedia.org/wiki/Hoskins_Airport
+AYKM,medium_airport,Kerema Airport,-7.96361017227,145.770996094,PG,Kerema,AYKM,KMA,https://en.wikipedia.org/wiki/Kerema_Airport
+AYKV,medium_airport,Kavieng Airport,-2.57940006256,150.807998657,PG,Kavieng,AYKV,KVG,https://en.wikipedia.org/wiki/Kavieng_Airport
+AYMD,medium_airport,Madang Airport,-5.20707988739,145.789001465,PG,Madang,AYMD,MAG,https://en.wikipedia.org/wiki/Madang_Airport
+AYMH,medium_airport,Mount Hagen Kagamuga Airport,-5.828212,144.299412,PG,Mount Hagen,AYMH,HGU,https://en.wikipedia.org/wiki/Mount_Hagen_Airport
+AYMN,medium_airport,Mendi Airport,-6.14774,143.656998,PG,Mendi,AYMN,MDU,https://en.wikipedia.org/wiki/Mendi_Airport
+AYMO,medium_airport,Momote Airport,-2.06189,147.423996,PG,Manus Island,AYMO,MAS,https://en.wikipedia.org/wiki/Momote_Airport
+AYNZ,large_airport,Nadzab Tomodachi International Airport,-6.567995,146.726544,PG,Lae,AYNZ,LAE,https://en.wikipedia.org/wiki/Lae_Nadzab_Airport
+AYPY,large_airport,Port Moresby Jacksons International Airport,-9.443380355834961,147.22000122070312,PG,Port Moresby,AYPY,POM,https://en.wikipedia.org/wiki/Jacksons_International_Airport
+AYTK,medium_airport,Tokua Airport,-4.34046,152.380005,PG,Kokopo,AYTK,RAB,https://en.wikipedia.org/wiki/Rabaul_Airport
+AYVN,medium_airport,Vanimo Airport,-2.6926,141.3028,PG,Vanimo,AYVN,VAI,https://en.wikipedia.org/wiki/Vanimo_Airport
+AYWD,medium_airport,Wapenamanda Airport,-5.635293,143.892231,PG,Wapenamanda,AYWD,WBM,https://en.wikipedia.org/wiki/Wapenamanda_Airport
+AYWK,medium_airport,Wewak International Airport,-3.58383011818,143.669006348,PG,Wewak,AYWK,WWK,https://en.wikipedia.org/wiki/Wewak_International_Airport
+BTZ,medium_airport,Betong International Airport,5.79,101.15,TH,Betong,VTSY,BTZ,https://en.wikipedia.org/wiki/Betong_Airport
+CN-0029,small_airport,Yongshu Jiao (Fiery Cross Reef) Air Base,9.551747,112.887697,CN,Sansha (Yongshu Jiao / Fiery Cross Reef),,,
+CN-0041,medium_airport,Luliang Air Base,24.988192,103.642833,CN,Qujing (Luliang),,,
+CN-0043,medium_airport,Honghe Mengzi Airport / Mengzi Air Base,23.3953,103.334,CN,Honghe,,,
+CN-0048,medium_airport,Wenshan Air Base,23.715599060058594,103.8270034790039,CN,,,,
+CN-0049,medium_airport,Xiangyun Midu Air Base,25.445299,100.735001,CN,Dali (Xiangyun),,,
+CN-0053,medium_airport,Baihe Ningming Air Base,22.120481,107.125046,CN,Ningming,,,
+CN-0057,medium_airport,Foluo Northeast Air Base,18.6922,109.161003,CN,Ledong (Da'anzhen),,,
+CN-0063,medium_airport,Guiping Mengxu Air Base,23.330799,110.009003,CN,Guiping (Guigang),,,
+CN-0066,small_airport,Guiyang Air Base,26.40994,106.532264,CN,Guiyang (Huaxi),,,
+CN-0069,medium_airport,Jialaishi Air Base,19.697201,109.725998,CN,Lingao (Jialai),,,
+CN-0071,medium_airport,Leiyang Air Base,26.587200164794922,112.89199829101562,CN,,,,
+CN-0072,medium_airport,Lingshui Air Base,18.4944,109.987999,CN,Lingshui (Huayuan),,,
+CN-0079,medium_airport,Shaoguan Danxia Airport,24.9786,113.420998,CN,Shaoguan,ZGSG,HSC,https://en.wikipedia.org/wiki/Shaoguan_Danxia_Airport
+CN-0080,medium_airport,Suixi Air Base,21.3958,110.199997,CN,Zhanjiang (Suixi),,,
+CN-0081,medium_airport,Jinggangshan Airport,26.856899,114.737,CN,Ji'an,ZSGS,JGS,https://en.wikipedia.org/wiki/Ji%27an_Jinggangshan_Airport
+CN-0108,small_airport,Zhubi Jiao (Subi Reef) Air Base,10.923926,114.070648,CN,Sansha (Zhubi Jiao / Subi Reef),,,
+CN-0110,small_airport,Meiji Jiao (Mischief Reef) Air Base,9.92102,115.5059,CN,Sansha (Meiji Jiao / Mischief Reef),,,
+CN-0138,medium_airport,Xincheng Air Base,25.5483,114.619003,CN,Ganzhou,,,
+CN-0149,medium_airport,Fuzhou Air Base,26.003857,119.312832,CN,Fuzhou (Cangshan),,,
+CN-0152,medium_airport,Huian Air Base,25.0261,118.806999,CN,Quanzhou (Huian),,,
+CN-0158,medium_airport,Longtian Air Base,25.5728,119.459999,CN,Fuzhou (Fuqing),,,
+CN-0290,medium_airport,Sanya Air Base,18.28754,109.46372,CN,Sanya (Tianya),,,
+CN-0331,medium_airport,Jiuzhou Airport,26.99838,107.759041,CN,Jiuzhou,,,
+CN-0374,small_airport,Zhangpu Air Base,24.0452,117.8497,CN,Zhangzhou (Zhangpu),,,
+CN-0469,small_airport,Shuimen Airbase,26.941602,120.077384,CN,Shuimen,,,https://en.wikipedia.org/wiki/Shuimen_Air_Base
+ID-0238,heliport,Pandanwangi Air Force Heliport,-8.263041,113.192074,ID,Lumajang,,,
+ID-0239,heliport,Jatimulyo Air Force Heliport,-8.27823,113.2216,ID,Jatimulyo,,,
+ID-0277,medium_airport,Dhoho International Airport,-7.749527,111.946831,ID,Kediri,WARD,DHX,https://en.wikipedia.org/wiki/Dhoho_International_Airport
+ID-0339,medium_airport,Old Nabire Airport,-3.368586,135.496702,ID,Nabire,,,
+ID-0340,medium_airport,Tabing Airport,-0.874989,100.351997,ID,Padang,,,https://en.wikipedia.org/wiki/Tabing_Airport
+ID-0341,medium_airport,Susilo Airport,0.063851,111.473572,ID,Sintang,,,https://en.wikipedia.org/wiki/Susilo_Airport
+ID-0350,heliport,Pacitan Air Base,-8.21185,111.08605,ID,Pacitan,,,
+ID-ZGP,medium_airport,Bilorai Airport,-3.739503,137.031183,ID,Bilogai,,UGU,
+IN-0308,medium_airport,Itanagar Donyi Polo Hollongi Airport,26.96683,93.638792,IN,Hollongi,VEHO,HGI,https://en.wikipedia.org/wiki/Itanagar_Airport
+KH-0001,large_airport,Dara Sakor International Airport,10.914244,103.226652,KH,Ta Noun,VDDS,DSY,https://en.wikipedia.org/wiki/Dara_Sakor_International_Airport
+KH-0002,large_airport,Techo International Airport,11.359987,104.921272,KH,Phnom Penh (Boeng Khyang),VDTI,KTI,https://en.wikipedia.org/wiki/Techo_International_Airport_(Cambodia)
+LA-0006,medium_airport,Bokeo International Airport,20.323986,100.165392,LA,Ton Phueng,VLBK,BOR,https://en.wikipedia.org/wiki/Bokeo_International_Airport
+PGRO,large_airport,Rota International Airport,14.173267,145.241103,MP,Rota Island,PGRO,ROP,https://en.wikipedia.org/wiki/Rota_International_Airport
+PGSN,medium_airport,Saipan International Airport,15.119384,145.728848,MP,"I Fadang, Saipan",PGSN,SPN,https://en.wikipedia.org/wiki/Saipan_International_Airport
+PGUA,medium_airport,Andersen Air Force Base,13.584,144.929998,GU,Yigo,PGUA,UAM,https://en.wikipedia.org/wiki/Andersen_Air_Force_Base
+PGUM,large_airport,Antonio B. Won Pat International Airport,13.485,144.797282,GU,Hagåtña,PGUM,GUM,https://en.wikipedia.org/wiki/Antonio_B._Won_Pat_International_Airport
+PGWT,medium_airport,Francisco Manglona Borja / Tinian International Airport,14.999207,145.619355,MP,Tinian Island,PGWT,TIQ,https://en.wikipedia.org/wiki/Tinian_International_Airport
+PH-0075,small_airport,Jose Paredes Airbase,18.402542,120.666339,PH,Agaga,,,
+PH-0078,heliport,Lieutenant Cesar Base Air Base Heliport,14.981586,120.49371,PH,Floridablanca,,,https://en.wikipedia.org/wiki/Basa_Air_Base
+PH-0109,small_airport,San Vicente Naval Airstrip,18.503785,122.148979,PH,Santa Ana,,,https://en.wikipedia.org/wiki/List_of_airports_in_the_Philippines#Military_airfields
+PH-0158,heliport,Wallace Air Force Station Heliport,16.619112,120.282509,PH,Poro Point (San Fernando),RPLW,,https://en.wikipedia.org/wiki/Naval_Station_Ernesto_Ogbinar#Wallace_Drone_Launch_Facility
+PH-0162,heliport,Edwin Andrews Air Force Base Heliport,6.924595,122.065895,PH,Zamboanga,,,http://wikimapia.org/2159949/Edwin-Andrews-Air-Base-Heliport
+PH-0462,medium_airport,Central Mindanao Airport,6.91229,124.92446,PH,M'lang,,,
+PTKK,large_airport,Chuuk International Airport,7.46187,151.843002,FM,Weno Island,PTKK,TKK,https://en.wikipedia.org/wiki/Chuuk_International_Airport
+PTPN,medium_airport,Pohnpei International Airport,6.985082,158.20992,FM,Pohnpei Island,PTPN,PNI,https://en.wikipedia.org/wiki/Pohnpei_International_Airport
+PTRO,large_airport,Roman Tmetuchl International Airport,7.366965,134.544085,PW,Babelthuap Island,PTRO,ROR,https://en.wikipedia.org/wiki/Palau_International_Airport
+PTYA,large_airport,Yap International Airport,9.49891,138.082993,FM,Yap Island,PTYA,YAP,https://en.wikipedia.org/wiki/Yap_International_Airport
+RCAY,medium_airport,Gangshan Air Force Base,22.782499,120.263,TW,Kaohsiung (Gangshan),RCAY,,
+RCBS,medium_airport,Kinmen Airport,24.4279,118.359001,TW,Shang-I,RCBS,KNH,https://en.wikipedia.org/wiki/Kinmen_Airport
+RCDC,medium_airport,Pingtung Air Force Base,22.672579,120.461712,TW,Pingtung,RCDC,,https://en.wikipedia.org/wiki/Pingtung_Airport
+RCDI,heliport,Longtan Air Base,24.854922,121.237468,TW,Longtan,,,
+RCFG,medium_airport,Matsu Nangan Airport,26.159656,119.958376,TW,Matsu (Nangan),RCFG,LZN,https://en.wikipedia.org/wiki/Matsu_Nangan_Airport
+RCFN,medium_airport,Taitung Airport,22.754856,121.101794,TW,Taitung City,RCFN,TTT,https://en.wikipedia.org/wiki/Taitung_Airport
+RCKH,large_airport,Kaohsiung International Airport,22.577101,120.349998,TW,Kaohsiung (Xiaogang),RCKH,KHH,https://en.wikipedia.org/wiki/Kaohsiung_International_Airport
+RCKU,medium_airport,Chiayi Airport,23.462577,120.390544,TW,Shuishang,RCKU,CYI,https://en.wikipedia.org/wiki/Chiayi_Airport
+RCKW,medium_airport,Hengchun Airport,22.0411,120.730003,TW,Hengchun,RCKW,HCN,https://en.wikipedia.org/wiki/Hengchun_Airport
+RCLY,medium_airport,Lanyu Airport,22.027000427246094,121.53500366210938,TW,Orchid Island,RCLY,KYD,https://en.wikipedia.org/wiki/Lanyu_Airport
+RCMQ,large_airport,Taichung International Airport / Ching Chuang Kang Air Base,24.2647,120.621002,TW,Taichung (Qingshui),RCMQ,RMQ,https://en.wikipedia.org/wiki/Taichung_Airport
+RCMT,medium_airport,Matsu Beigan Airport,26.22414,120.002679,TW,Matsu (Beigan),RCMT,MFK,https://en.wikipedia.org/wiki/Matsu_Beigan_Airport
+RCNN,large_airport,Tainan International Airport / Tainan Air Base,22.950399,120.206001,TW,Tainan (Rende),RCNN,TNN,https://en.wikipedia.org/wiki/Tainan_Airport
+RCPO,medium_airport,Hsinchu Air Base,24.8180007935,120.939002991,TW,Hsinchu City,RCPO,HSZ,https://en.wikipedia.org/wiki/Hsinchu_Air_Base
+RCQC,large_airport,Penghu Magong Airport,23.568701,119.627998,TW,Huxi,RCQC,MZG,https://en.wikipedia.org/wiki/Penghu_Airport
+RCQS,medium_airport,Chihhang Air Base,22.7931,121.181999,TW,Taitung City,RCQS,,https://en.wikipedia.org/wiki/Chihhang_Air_Base
+RCSQ,medium_airport,Pingtung Air Force Base North,22.700199,120.482002,TW,Pingtung,RCSQ,,https://en.wikipedia.org/wiki/Pingtung_Airport
+RCSS,large_airport,Taipei Songshan International Airport,25.067244,121.552822,TW,Taipei (Songshan),RCSS,TSA,https://en.wikipedia.org/wiki/Taipei_Songshan_Airport
+RCTP,large_airport,Taiwan Taoyuan International Airport,25.0777,121.233002,TW,Taoyuan,RCTP,TPE,https://zh.wikipedia.org/wiki/%E8%87%BA%E7%81%A3%E6%A1%83%E5%9C%92%E5%9C%8B%E9%9A%9B%E6%A9%9F%E5%A0%B4
+RCYU,large_airport,Hualien Chiashan Airport,24.023163,121.617991,TW,Hualien City,RCYU,HUN,https://en.wikipedia.org/wiki/Hualien_Airport
+RJAM,small_airport,JMSDF Minami Torishima Air Base,24.2897,153.979004,JP,Ogasawara,RJAM,MUS,https://en.wikipedia.org/wiki/Minami_Torishima_Airport
+RJAW,medium_airport,Ioto (Iwo Jima) Airbase,24.784153,141.32261,JP,Ogasawara,RJAW,IWO,https://en.wikipedia.org/wiki/Central_Field_(Iwo_Jima)
+ROAH,large_airport,Naha International Airport,26.192437,127.639804,JP,Naha,ROAH,OKA,https://en.wikipedia.org/wiki/Naha_Airport
+RODE,small_airport,Iejima Auxiliary Air Base,26.725953,127.765217,JP,Ie,,,https://en.wikipedia.org/wiki/Ie_Shima_Airfield
+RODN,large_airport,Kadena Air Base,26.351667,127.769444,JP,Okinawa,RODN,DNA,https://en.wikipedia.org/wiki/Kadena_Air_Base
+ROIG,medium_airport,New Ishigaki Airport,24.396389,124.245,JP,Ishigaki,ROIG,ISG,https://en.wikipedia.org/wiki/New_Ishigaki_Airport
+ROKJ,medium_airport,Kumejima Airport,26.363445,126.71384,JP,Kumejima,ROKJ,UEO,https://en.wikipedia.org/wiki/Kumejima_Airport
+ROMD,medium_airport,Minamidaito Airport,25.8465,131.263,JP,Minamidaito,ROMD,MMD,https://en.wikipedia.org/wiki/Minami-Daito_Airport#Airlines
+ROMY,medium_airport,Miyako Airport,24.782801,125.294998,JP,Miyakojima,ROMY,MMY,https://en.wikipedia.org/wiki/Miyako_Airport
+RORE,medium_airport,Iejima Airport,26.722537,127.786801,JP,Ie,RORE,IEJ,https://en.wikipedia.org/wiki/Iejima_Airport
+RORK,medium_airport,Kitadaito Airport,25.9447002411,131.32699585,JP,Kitadaitōjima,RORK,KTD,https://en.wikipedia.org/wiki/Kitadaito_Airport
+RORS,medium_airport,Shimojishima Airport,24.8267,125.144997,JP,Miyakojima,RORS,SHI,https://en.wikipedia.org/wiki/Shimojishima_Airport
+RORT,medium_airport,Tarama Airport,24.653793,124.675453,JP,Tarama,RORT,TRA,https://en.wikipedia.org/wiki/Tarama_Airport
+ROTM,medium_airport,Futenma Marine Corps Air Station,26.2743,127.755997,JP,,,,https://en.wikipedia.org/wiki/Marine_Corps_Air_Station_Futenma
+ROYN,medium_airport,Yonaguni Airport,24.467298,122.979827,JP,Yonaguni,ROYN,OGN,https://en.wikipedia.org/wiki/Yonaguni_Airport
+RPLB,large_airport,Subic Bay International Airport / Naval Air Station Cubi Point,14.794833,120.271883,PH,Olongapo,RPLB,SFS,https://en.wikipedia.org/wiki/Subic_Bay_International_Airport
+RPLC,large_airport,Clark International Airport / Clark Air Base,15.186,120.559998,PH,Mabalacat,RPLC,CRK,https://en.wikipedia.org/wiki/Clark_International_Airport
+RPLH,medium_airport,Cagayan North International Airport,18.182388,121.746223,PH,Lal-lo,RPLH,LLC,https://en.wikipedia.org/wiki/Cagayan_North_International_Airport
+RPLI,large_airport,Laoag International Airport,18.175089,120.531006,PH,Laoag City,RPLI,LAO,https://en.wikipedia.org/wiki/Laoag_International_Airport
+RPLK,large_airport,Bicol International Airport,13.111915,123.676829,PH,Legazpi,RPLK,DRP,https://en.wikipedia.org/wiki/Bicol_International_Airport
+RPLL,large_airport,Ninoy Aquino International Airport,14.5086,121.019997,PH,Manila (Pasay),RPLL,MNL,https://en.wikipedia.org/wiki/Ninoy_Aquino_International_Airport
+RPLQ,small_airport,Colonel Ernesto Rabina Air Base,15.317683,120.422891,PH,Capas,RPLQ,,https://en.wikipedia.org/wiki/Colonel_Ernesto_Rabina_Air_Base
+RPLS,medium_airport,Danilo Atienza Air Base,14.4954,120.903999,PH,Cavite,RPLS,SGL,https://en.wikipedia.org/wiki/Danilo_Atienza_Air_Base
+RPLT,medium_airport,Itbayat Jorge Abad Airport,20.722521,121.809969,PH,Itbayat,RPLT,,https://en.wikipedia.org/wiki/Jorge_Abad_Airport
+RPLU,medium_airport,Lubang Airport,13.8554,120.105003,PH,Lubang,RPLU,LBX,https://en.wikipedia.org/wiki/Lubang_Airport
+RPMA,medium_airport,Allah Valley Airport,6.367903,124.752431,PH,Surallah,RPMA,AAV,https://en.wikipedia.org/wiki/Allah_Valley_Airport
+RPMB,medium_airport,Rajah Buayan Air Base,6.105476,125.234882,PH,General Santos City,RPMB,,https://en.wikipedia.org/wiki/Rajah_Buayan_Air_Station
+RPMC,medium_airport,Cotabato (Awang) Airport,7.164753,124.209938,PH,Datu Odin Sinsuat,RPMC,CBO,https://en.wikipedia.org/wiki/Cotabato_Airport
+RPMD,large_airport,Francisco Bangoy International Airport,7.12552,125.646004,PH,Davao,RPMD,DVO,https://en.wikipedia.org/wiki/Francisco_Bangoy_International_Airport
+RPME,medium_airport,Bancasi Airport,8.9515,125.4788,PH,Butuan,RPME,BXU,https://en.wikipedia.org/wiki/Bancasi_Airport
+RPMF,medium_airport,Bislig Airport,8.195052,126.321015,PH,Bislig,RPMF,BPH,https://en.wikipedia.org/wiki/Bislig_Airport
+RPMG,medium_airport,Dipolog Airport,8.601983,123.341875,PH,Dipolog,RPMG,DPL,https://en.wikipedia.org/wiki/Dipolog_Airport
+RPMH,medium_airport,Camiguin Airport,9.253894,124.709115,PH,Mambajao,RPMH,CGM,https://en.wikipedia.org/wiki/Camiguin_Airport
+RPMJ,medium_airport,Jolo Airport,6.05367,121.011002,PH,Jolo,RPMJ,JOL,https://en.wikipedia.org/wiki/Jolo_Airport
+RPMN,medium_airport,Sanga Sanga Airport,5.048196,119.743338,PH,Bongao,RPMN,TWT,https://en.wikipedia.org/wiki/Sanga-Sanga_Airport
+RPMO,medium_airport,Labo Airport,8.17851,123.842003,PH,Ozamiz,RPMO,OZC,https://en.wikipedia.org/wiki/Labo_Airport
+RPMP,medium_airport,Pagadian Airport,7.825632,123.459635,PH,Pagadian,RPMP,PAG,https://en.wikipedia.org/wiki/Pagadian_Airport
+RPMQ,medium_airport,Mati National Airport,6.949091,126.27368,PH,Mati,RPMQ,MXI,https://en.wikipedia.org/wiki/Mati_Airport
+RPMR,large_airport,General Santos International Airport,6.057208,125.096243,PH,General Santos,RPMR,GES,https://en.wikipedia.org/wiki/General_Santos_International_Airport
+RPMS,medium_airport,Surigao Airport,9.755838325629998,125.480947495,PH,Surigao City,RPMS,SUG,https://en.wikipedia.org/wiki/Surigao_Airport
+RPMW,medium_airport,Tandag Airport,9.072002,126.17132,PH,Tandag,RPMW,TDG,https://en.wikipedia.org/wiki/Tandag_Airport
+RPMY,large_airport,Laguindingan International Airport,8.612203,124.456496,PH,Laguindingan,RPMY,CGY,https://en.wikipedia.org/wiki/Laguindingan_International_Airport
+RPMZ,large_airport,Zamboanga International Airport,6.92242,122.059998,PH,Zamboanga,RPMZ,ZAM,https://en.wikipedia.org/wiki/Zamboanga_International_Airport
+RPSP,large_airport,Bohol-Panglao International Airport,9.573045,123.770143,PH,Panglao,RPSP,TAG,https://en.wikipedia.org/wiki/Bohol%E2%80%93Panglao_International_Airport
+RPUB,medium_airport,Loakan Airport,16.375034,120.619949,PH,Baguio,RPUB,BAG,https://en.wikipedia.org/wiki/Loakan_Airport
+RPUD,medium_airport,Daet Airport,14.1292,122.980003,PH,Daet,RPUD,DTE,https://en.wikipedia.org/wiki/Bagasbas_Airport
+RPUF,small_airport,Basa Air Base,14.98724,120.492554,PH,Floridablanca,,,https://en.wikipedia.org/wiki/Basa_Air_Base
+RPUH,medium_airport,San Jose Airport,12.361499786399998,121.04699707,PH,San Jose,RPUH,SJI,https://en.wikipedia.org/wiki/McGuire_Field
+RPUL,small_airport,Basilio Fernando Air Base,13.955,121.125,PH,Lipa,,,https://en.wikipedia.org/wiki/Basilio_Fernando_Air_Base
+RPUM,medium_airport,Mamburao Airport,13.208048,120.605457,PH,Mamburao,RPUM,MBO,https://en.wikipedia.org/wiki/Mamburao_Airport
+RPUN,medium_airport,Naga Airport,13.58489990234375,123.2699966430664,PH,Naga,RPUN,WNP,https://en.wikipedia.org/wiki/Naga_Airport
+RPUO,medium_airport,Basco Airport,20.4513,121.980003,PH,Basco,RPUO,BSO,https://en.wikipedia.org/wiki/Basco_Airport
+RPUR,medium_airport,Dr. Juan C. Angara Airport,15.729309,121.500034,PH,Baler,RPUR,BQA,https://en.wikipedia.org/wiki/Dr._Juan_C._Angara_Airport
+RPUS,medium_airport,San Fernando Airport,16.5956,120.303001,PH,San Fernando,RPUS,SFE,https://en.wikipedia.org/wiki/San_Fernando_Airport
+RPUT,medium_airport,Tuguegarao Airport,17.6433676823,121.733150482,PH,Tuguegarao City,RPUT,TUG,https://en.wikipedia.org/wiki/Tuguegarao_Airport
+RPUV,medium_airport,Virac Airport,13.576399803161621,124.20600128173828,PH,Virac,RPUV,VRC,https://en.wikipedia.org/wiki/Virac_Airport
+RPUW,medium_airport,Marinduque Airport,13.361000061035156,121.82599639892578,PH,Gasan,RPUW,MRQ,https://en.wikipedia.org/wiki/Marinduque_Airport
+RPUY,medium_airport,Cauayan Airport,16.9298992157,121.752998352,PH,Cauayan City,RPUY,CYZ,https://en.wikipedia.org/wiki/Cauayan_Airport
+RPVA,medium_airport,Daniel Z. Romualdez Airport,11.227761,125.027783,PH,Tacloban City,RPVA,TAC,https://en.wikipedia.org/wiki/Daniel_Z._Romualdez_Airport
+RPVB,large_airport,Bacolod-Silay International Airport,10.776237,123.018879,PH,Bacolod City,RPVB,BCD,https://en.wikipedia.org/wiki/Bacolod%E2%80%93Silay_Airport
+RPVC,medium_airport,Calbayog Airport,12.072574,124.54508,PH,Calbayog City,RPVC,CYP,https://en.wikipedia.org/wiki/Calbayog_Airport
+RPVD,medium_airport,Sibulan Airport,9.334183,123.30191,PH,Dumaguete City,RPVD,DGT,https://en.wikipedia.org/wiki/Sibulan_Airport
+RPVE,medium_airport,Godofredo P. Ramos Airport,11.9245,121.954002,PH,Caticlan,RPVE,MPH,https://en.wikipedia.org/wiki/Godofredo_P._Ramos_Airport
+RPVF,medium_airport,Catarman National Airport,12.50161,124.635258,PH,Catarman,RPVF,CRM,https://en.wikipedia.org/wiki/Catarman_National_Airport
+RPVI,large_airport,Iloilo International Airport,10.833017,122.493358,PH,Cabatuan,RPVI,ILO,https://en.wikipedia.org/wiki/Iloilo_International_Airport
+RPVJ,medium_airport,Moises R. Espinosa Airport,12.369682,123.630095,PH,Masbate,RPVJ,MBT,https://en.wikipedia.org/wiki/Masbate_Airport
+RPVK,large_airport,Kalibo International Airport,11.6794,122.375999,PH,Kalibo,RPVK,KLO,https://en.wikipedia.org/wiki/Kalibo_International_Airport
+RPVM,large_airport,Mactan Cebu International Airport,10.309261,123.97974,PH,Cebu City/Lapu-Lapu City,RPVM,CEB,https://en.wikipedia.org/wiki/Mactan-Cebu_International_Airport
+RPVO,medium_airport,Ormoc Airport,11.057715,124.565622,PH,Ormoc City,RPVO,OMC,https://en.wikipedia.org/wiki/Ormoc_Airport
+RPVP,large_airport,Puerto Princesa International Airport / PAF Antonio Bautista Air Base,9.742044,118.75911,PH,Puerto Princesa,RPVP,PPS,https://en.wikipedia.org/wiki/Puerto_Princesa_Airport
+RPVR,medium_airport,Roxas Airport,11.597700119018555,122.75199890136719,PH,Roxas City,RPVR,RXS,https://en.wikipedia.org/wiki/Roxas_Airport
+RPVS,medium_airport,Evelio Javier Airport,10.766644,121.932506,PH,San Jose,RPVS,EUQ,https://en.wikipedia.org/wiki/Evelio_Javier_Airport
+RPVU,medium_airport,Tugdan Airport,12.3109998703,122.084999084,PH,Tablas Island,RPVU,TBH,https://en.wikipedia.org/wiki/Tugdan_Airport
+RPVV,medium_airport,Francisco B. Reyes (Busuanga) Airport,12.121865,120.100801,PH,Coron,RPVV,USU,https://en.wikipedia.org/wiki/Busuanga_Airport
+SG-0002,small_airport,Pulau Sudong Military Airstrip,1.20532,103.719002,SG,Western Islands,,,
+TW-0004,medium_airport,Zuoying Naval Airfield,22.705,120.280998,TW,Kaohsiung (Zuoying),,,
+TW-0006,small_airport,Hualien (Chiashan) Air Base,24.026161,121.589897,TW,Xiulin,,,
+TW-0011,heliport,Hsinchu Air Force Hospital Heliport,24.816245,120.96203,TW,Hsinchu,,,
+VDBG,medium_airport,Battambang Airport,13.0956,103.223999,KH,Battambang,VDBG,BBM,https://en.wikipedia.org/wiki/Battambang_Airport
+VDPP,large_airport,Phnom Penh International Airport,11.547155,104.844699,KH,Phnom Penh (Pou Senchey),VDPP,PNH,https://en.wikipedia.org/wiki/Phnom_Penh_International_Airport
+VDRK,medium_airport,Ratanakiri Airport,13.729999542236328,106.98699951171875,KH,Ratanakiri,VDRK,RBE,https://en.wikipedia.org/wiki/Ratanankiri_Airport
+VDSA,large_airport,Siem Reap-Angkor International Airport,13.36974,104.223831,KH,Siem Reap,VDSA,SAI,https://en.wikipedia.org/wiki/Siem_Reap–Angkor_International_Airport
+VDSV,large_airport,Sihanouk International Airport,10.570557,103.632067,KH,Preah Sihanouk,VDSV,KOS,https://en.wikipedia.org/wiki/Sihanoukville_International_Airport
+VEAT,medium_airport,Agartala - Maharaja Bir Bikram Airport,23.886999,91.240402,IN,Agartala,VEAT,IXA,https://en.wikipedia.org/wiki/Agartala_Airport
+VEBD,large_airport,Bagdogra Airport,26.6812,88.328598,IN,Siliguri,VEBD,IXB,https://en.wikipedia.org/wiki/Bagdogra_Airport
+VEBI,medium_airport,Shillong Airport,25.70359992980957,91.97869873046875,IN,Shillong,VEBI,SHL,https://en.wikipedia.org/wiki/Shillong_Airport
+VECC,large_airport,Netaji Subhash Chandra Bose International Airport,22.654012,88.44765,IN,Kolkata,VECC,CCU,https://en.wikipedia.org/wiki/Netaji_Subhash_Chandra_Bose_International_Airport
+VEGT,large_airport,Lokpriya Gopinath Bordoloi International Airport,26.106654,91.585226,IN,Guwahati,VEGT,GAU,https://en.wikipedia.org/wiki/Lokpriya_Gopinath_Bordoloi_International_Airport
+VEHX,medium_airport,Hashimara Air Force Station,26.698299,89.369102,IN,Jalpaiguri,VEHX,,https://en.wikipedia.org/wiki/Hasimara_Air_Force_Station
+VEIM,large_airport,Bir Tikendrajit International Airport,24.76,93.896698,IN,Imphal,VEIM,IMF,https://en.wikipedia.org/wiki/Imphal_Airport
+VEJT,medium_airport,Jorhat Airport,26.730456,94.175416,IN,Jorhat,VEJT,JRH,https://en.wikipedia.org/wiki/Jorhat_Airport
+VEKR,medium_airport,Kailashahar Airport,24.308657,92.00768,IN,Kailashahar,VEKR,IXH,https://en.wikipedia.org/wiki/Kailashahar_Airport
+VEKU,medium_airport,Silchar Airport,24.9129009247,92.97869873050001,IN,Silchar,VEKU,IXS,https://en.wikipedia.org/wiki/Silchar_Airport
+VELP,medium_airport,Lengpui Airport,23.840599,92.619698,IN,Aizawl (Lengpui),VELP,AJL,https://en.wikipedia.org/wiki/Lengpui_Airport
+VEMR,medium_airport,Dimapur Airport,25.883899688699998,93.77110290530001,IN,Dimapur,VEMR,DMU,https://en.wikipedia.org/wiki/Dimapur_Airport
+VEPI,small_airport,Barrackpore Air Force Station,22.7810001373,88.3591995239,IN,Barrackpore,,,
+VETZ,medium_airport,Tezpur Airport,26.7091007232666,92.78469848632812,IN,,VETZ,TEZ,https://en.wikipedia.org/wiki/Tezpur_Airport
+VGBR,medium_airport,Barisal Airport,22.801001,90.301201,BD,Barisal,VGBR,BZL,https://en.wikipedia.org/wiki/Barisal_Airport
+VGCB,medium_airport,Cox's Bazar Airport,21.457517,91.963263,BD,Cox's Bazar,VGCB,CXB,https://en.wikipedia.org/wiki/Cox's_Bazar_Airport
+VGEG,large_airport,Shah Amanat International Airport,22.249599,91.813301,BD,Chattogram (Chittagong),VGEG,CGP,https://en.wikipedia.org/wiki/Shah_Amanat_International_Airport
+VGHS,large_airport,Hazrat Shahjalal International Airport,23.843347,90.397783,BD,Dhaka,VGHS,DAC,https://www.linkedin.com/in/md-shamim-islam-109925358/
+VGIS,medium_airport,Ishurdi Airport,24.1525,89.0494,BD,Ishurdi,VGIS,IRD,https://en.wikipedia.org/wiki/Ishwardi_Airport
+VGJR,medium_airport,Jessore Airport,23.1838,89.160797,BD,Jashore (Jessore),VGJR,JSR,https://en.wikipedia.org/wiki/Jessore_Airport
+VGRJ,medium_airport,Shah Makhdum Airport,24.437201,88.616501,BD,Rajshahi,VGRJ,RJH,https://en.wikipedia.org/wiki/Shah_Makhdum_Airport
+VGSD,medium_airport,Saidpur Airport,25.759199,88.908897,BD,Saidpur,VGSD,SPD,https://en.wikipedia.org/wiki/Saidpur_Airport
+VGSY,large_airport,Osmany International Airport,24.963993,91.864749,BD,Sylhet,VGSY,ZYL,https://en.wikipedia.org/wiki/Osmani_International_Airport
+VHHH,large_airport,Hong Kong International Airport,22.31184,113.914862,HK,Hong Kong,VHHH,HKG,https://en.wikipedia.org/wiki/Hong_Kong_International_Airport
+VHSK,medium_airport,Shek Kong Air Base,22.4366,114.080002,HK,Islands,VHSK,,https://en.wikipedia.org/wiki/Shek_Kong_Airfield
+VLLB,large_airport,Luang Phabang International Airport,19.904273,102.167191,LA,Luang Phabang,VLLB,LPQ,https://en.wikipedia.org/wiki/Luang_Prabang_International_Airport
+VLPS,large_airport,Pakse International Airport,15.133973,105.779871,LA,Pakse,VLPS,PKZ,https://en.wikipedia.org/wiki/Pakse_Airport
+VLSK,medium_airport,Savannakhet Airport,16.55660057067871,104.76000213623047,LA,,VLSK,ZVK,https://en.wikipedia.org/wiki/Savannakhet_Airport
+VLSN,medium_airport,Sam Neua Airport,20.4184,104.067001,LA,,VLSN,NEU,https://en.wikipedia.org/wiki/Nathong_Airport
+VLVT,large_airport,Wattay International Airport,17.985052,102.566692,LA,Vientiane,VLVT,VTE,https://en.wikipedia.org/wiki/Wattay_International_Airport
+VMMC,large_airport,Macau International Airport,22.149599,113.592003,MO,Nossa Senhora do Carmo,VMMC,MFM,https://en.wikipedia.org/wiki/Macau_International_Airport
+VN-0004,small_airport,Yen Bai Air Base,21.732873,104.853601,VN,Yen Bai,,,https://en.wikipedia.org/wiki/Y%C3%AAn_B%C3%A1i_Air_Base
+VN-0018,large_airport,Long Thanh International Airport (Under Construction),10.772842,107.040596,VN,Ho Chi Minh City (Long Thanh),VVLT,LTH,https://en.wikipedia.org/wiki/Long_Thanh_International_Airport
+VN-0080,heliport,Military Hospital Heliport,10.817729,106.680027,VN,Ho Chi Minh City,,,
+VO94,medium_airport,Campbell Bay Airport / INS Baaz,7.01304,93.922798,IN,Campbell Bay,,,
+VOCX,medium_airport,Car Nicobar Air Force Base,9.153056,92.819273,IN,IAF Camp,VOCX,CBD,https://en.wikipedia.org/wiki/Car_Nicobar_Air_Force_Base
+VOPB,large_airport,Veer Savarkar International Airport / INS Utkrosh,11.640194,92.72902,IN,Port Blair,VOPB,IXZ,https://en.wikipedia.org/wiki/Veer_Savarkar_International_Airport
+VQGP,medium_airport,Gelephu Airport,26.88456,90.46412,BT,Gelephu,VQGP,GLU,https://en.wikipedia.org/wiki/Gelephu_Airport
+VTBD,large_airport,Don Mueang International Airport,13.9126,100.607002,TH,Bangkok,VTBD,DMK,https://en.wikipedia.org/wiki/Don_Mueang_International_Airport
+VTBK,medium_airport,Kamphaeng Saen Airport,14.1020002365,99.9171981812,TH,Nakhon Pathom,VTBK,KDT,
+VTBL,medium_airport,Khok Kathiam Airport,14.87462,100.663397,TH,Lop Buri,VTBL,KKM,https://en.wikipedia.org/wiki/Khok_Kathiam_Air_Force_Base
+VTBO,medium_airport,Trat Airport,12.2746,102.319,TH,Laem Ngop,VTBO,TDX,https://en.wikipedia.org/wiki/Trat_Airport
+VTBS,large_airport,Suvarnabhumi Airport,13.6811,100.747002,TH,Bangkok,VTBS,BKK,https://en.wikipedia.org/wiki/Suvarnabhumi_Airport
+VTBU,large_airport,U-Tapao–Rayong–Pattaya International Airport,12.6799,101.004997,TH,Rayong,VTBU,UTP,https://en.wikipedia.org/wiki/U-Tapao_International_Airport
+VTCC,large_airport,Chiang Mai International Airport,18.766799926799997,98.962600708,TH,Chiang Mai,VTCC,CNX,https://en.wikipedia.org/wiki/Chiang_Mai_International_Airport
+VTCH,medium_airport,Mae Hong Son Airport,19.3013,97.9758,TH,Mae Hong Son,VTCH,HGN,https://en.wikipedia.org/wiki/Mae_Hong_Son_Airport
+VTCL,medium_airport,Lampang Airport,18.27090072631836,99.50420379638672,TH,,VTCL,LPT,https://en.wikipedia.org/wiki/Lampang_Airport
+VTCN,medium_airport,Nan Airport,18.807899475097656,100.78299713134766,TH,,VTCN,NNT,https://en.wikipedia.org/wiki/Nan_Airport
+VTCP,medium_airport,Phrae Airport,18.1322,100.165001,TH,,VTCP,PRH,https://en.wikipedia.org/wiki/Phrae_Airport
+VTCT,large_airport,Mae Fah Luang - Chiang Rai International Airport,19.952299,99.882896,TH,Chiang Rai,VTCT,CEI,https://en.wikipedia.org/wiki/Chiang_Rai_International_Airport
+VTED,small_airport,Udorn Air Base,17.382999,102.800003,TH,Ban Mak Khaen,,,https://en.wikipedia.org/wiki/Udorn_Royal_Thai_Air_Force_Base
+VTPB,medium_airport,Phetchabun Airport,16.6760005951,101.194999695,TH,,VTPB,PHY,https://en.wikipedia.org/wiki/Phetchabun_Airport
+VTPH,medium_airport,Hua Hin Airport,12.6361999512,99.951499939,TH,Hua Hin,VTPH,HHQ,https://en.wikipedia.org/wiki/Hua_Hin_Airport
+VTPI,medium_airport,Takhli Royal Thai Air Force Base,15.2773,100.295998,TH,Takhli,VTPI,TKH,https://en.wikipedia.org/wiki/Takhli_Royal_Thai_Air_Force_Base
+VTPM,medium_airport,Mae Sot Airport,16.699899673461914,98.54509735107422,TH,,VTPM,MAQ,https://en.wikipedia.org/wiki/Mae_Sot_Airport
+VTPO,medium_airport,Sukhothai Airport,17.238000869750977,99.81819915771484,TH,,VTPO,THS,https://en.wikipedia.org/wiki/Sukhothai_Airport
+VTPP,medium_airport,Phitsanulok Airport,16.7829,100.278999,TH,Phitsanulok,VTPP,PHS,https://en.wikipedia.org/wiki/Phitsanulok_Airport
+VTPT,medium_airport,Tak Airport,16.896,99.253304,TH,,VTPT,TKT,https://en.wikipedia.org/wiki/Tak_Airport
+VTSB,medium_airport,Surat Thani Airport,9.13259983063,99.135597229,TH,Surat Thani,VTSB,URT,https://en.wikipedia.org/wiki/Surat_Thani_Airport
+VTSC,medium_airport,Narathiwat Airport,6.5199198722839355,101.74299621582031,TH,,VTSC,NAW,https://en.wikipedia.org/wiki/Narathiwat_Airport
+VTSE,medium_airport,Chumphon Airport,10.7112,99.361702,TH,Chumphon,VTSE,CJM,https://en.wikipedia.org/wiki/Chumphon_Airport
+VTSF,medium_airport,Nakhon Si Thammarat Airport,8.539620399475098,99.9447021484375,TH,Nakhon Si Thammarat,VTSF,NST,https://en.wikipedia.org/wiki/Nakhon_Si_Thammarat_Airport
+VTSG,large_airport,Krabi International Airport,8.095591,98.988955,TH,Krabi,VTSG,KBV,https://en.wikipedia.org/wiki/Krabi_International_Airport
+VTSH,medium_airport,Songkhla Airport,7.186560153961182,100.60800170898438,TH,,VTSH,SGZ,
+VTSK,medium_airport,Pattani Airport,6.78546,101.153999,TH,,VTSK,PAN,https://en.wikipedia.org/wiki/Pattani_Airport
+VTSM,large_airport,Samui International Airport,9.54779,100.061996,TH,Na Thon (Ko Samui Island),VTSM,USM,https://en.wikipedia.org/wiki/Samui_Airport
+VTSN,medium_airport,Cha Eian Airport,8.47115,99.955597,TH,Nakhon Si Thammarat,VTSN,,https://en.wikipedia.org/wiki/Cha_Eian_Airport
+VTSP,large_airport,Phuket International Airport,8.113257,98.3174,TH,Phuket,VTSP,HKT,https://en.wikipedia.org/wiki/Phuket_International_Airport
+VTSR,medium_airport,Ranong Airport,9.77762,98.585503,TH,Ranong,VTSR,UNN,https://en.wikipedia.org/wiki/Ranong_Airport
+VTSS,large_airport,Hat Yai International Airport,6.93321,100.392998,TH,Hat Yai,VTSS,HDY,https://en.wikipedia.org/wiki/Hat_Yai_International_Airport
+VTST,medium_airport,Trang Airport,7.50874,99.6166,TH,Trang,VTST,TST,https://en.wikipedia.org/wiki/Trang_Airport
+VTUD,large_airport,Udon Thani International Airport,17.386186,102.788577,TH,Udon Thani,VTUD,UTH,https://en.wikipedia.org/wiki/Udon_Thani_International_Airport
+VTUI,medium_airport,Sakon Nakhon Airport,17.195100784301758,104.11900329589844,TH,,VTUI,SNO,https://en.wikipedia.org/wiki/Sakon_Nakhon_Airport
+VTUJ,medium_airport,Surin Airport,14.868300437927,103.49800109863,TH,Surin,VTUJ,PXR,https://en.wikipedia.org/wiki/Surin_Airport
+VTUK,medium_airport,Khon Kaen Airport,16.466600418099997,102.783996582,TH,Khon Kaen,VTUK,KKC,https://en.wikipedia.org/wiki/Khon_Kaen_Airport
+VTUL,medium_airport,Loei Airport,17.43910026550293,101.72200012207031,TH,,VTUL,LOE,https://en.wikipedia.org/wiki/Loei_Airport
+VTUO,medium_airport,Buri Ram Airport,15.2295,103.252998,TH,Buriram,VTUO,BFV,https://en.wikipedia.org/wiki/Buriram_Airport
+VTUQ,medium_airport,Nakhon Ratchasima Airport,14.9495,102.313004,TH,Chaloem Phra Kiat,VTUQ,NAK,https://en.wikipedia.org/wiki/Nakhon_Ratchasima_Airport
+VTUU,medium_airport,Ubon Ratchathani Airport,15.2512998581,104.870002747,TH,Ubon Ratchathani,VTUU,UBP,https://en.wikipedia.org/wiki/Ubon_Ratchathani_Airport
+VTUV,medium_airport,Roi Et Airport,16.1168,103.774002,TH,Roi Et,VTUV,ROI,https://en.wikipedia.org/wiki/Roi_Et_Airport
+VTUW,medium_airport,Nakhon Phanom Airport,17.383801,104.642998,TH,Nakhon Phanom,VTUW,KOP,https://en.wikipedia.org/wiki/Nakhon_Phanom_Airport
+VV02,small_airport,Bien Hoa Air Base,10.9766998291,106.818000793,VN,Bien Hoa,,,https://en.wikipedia.org/wiki/Bien_Hoa_Air_Base
+VVBM,medium_airport,Buon Ma Thuot Airport,12.668299675,108.120002747,VN,Buon Ma Thuot,VVBM,BMV,https://en.wikipedia.org/wiki/Buon_Ma_Thuot_Airport
+VVCI,large_airport,Cat Bi International Airport,20.817428,106.724315,VN,Haiphong (Hai An),VVCI,HPH,https://en.wikipedia.org/wiki/Cat_Bi_Airport
+VVCM,medium_airport,Cà Mau Airport,9.177667,105.177778,VN,Ca Mau City,VVCM,CAH,https://en.wikipedia.org/wiki/C%C3%A0_Mau_Airport
+VVCR,large_airport,Cam Ranh International Airport / Cam Ranh Air Base,11.9982,109.219002,VN,Nha Trang/nha Trang aiurportCam Ranh,VVCR,CXR,https://en.wikipedia.org/wiki/Cam_Ranh_International_Airport
+VVCS,medium_airport,Con Dao Airport,8.73183,106.633003,VN,Con Dao,VVCS,VCS,https://en.wikipedia.org/wiki/Con_Dao_Airport
+VVCT,large_airport,Can Tho International Airport,10.083397,105.709371,VN,Can Tho,VVCT,VCA,https://en.wikipedia.org/wiki/Can_Tho_International_Airport
+VVDB,medium_airport,Dien Bien Phu Airport,21.3974990845,103.008003235,VN,Dien Bien Phu,VVDB,DIN,https://en.wikipedia.org/wiki/Dien_Bien_Phu_Airport
+VVDH,medium_airport,Dong Hoi Airport,17.515,106.590556,VN,Dong Hoi,VVDH,VDH,https://en.wikipedia.org/wiki/Dong_Hoi_Airport
+VVDL,medium_airport,Lien Khuong Airport,11.750556,108.366997,VN,Da Lat,VVDL,DLI,https://en.wikipedia.org/wiki/Lien_Khuong_Airport
+VVDN,large_airport,Da Nang International Airport,16.0439,108.198997,VN,Da Nang,VVDN,DAD,https://en.wikipedia.org/wiki/Da_Nang_International_Airport
+VVGL,medium_airport,Gia Lam Air Base,21.040501,105.886002,VN,Hanoi  (Long Bien),,,https://en.wikipedia.org/wiki/Gia_Lam_Airbase
+VVKP,small_airport,Kep Air Base,21.3946,106.261002,VN,Kep,,,https://en.wikipedia.org/wiki/K%C3%A9p_Air_Base
+VVNB,large_airport,Noi Bai International Airport,21.221201,105.806999,VN,Hanoi (Soc Son),VVNB,HAN,https://en.wikipedia.org/wiki/Noi_Bai_International_Airport
+VVPB,large_airport,Phu Bai International Airport,16.400581,107.704094,VN,Huế,VVPB,HUI,https://en.wikipedia.org/wiki/Phu_Bai_International_Airport
+VVPC,medium_airport,Phu Cat Airport,13.955,109.042,VN,Quy Nohn,VVPC,UIH,https://en.wikipedia.org/wiki/Phu_Cat_Airport
+VVPK,medium_airport,Pleiku Airport,14.004500389099121,108.01699829101562,VN,Pleiku,VVPK,PXU,https://en.wikipedia.org/wiki/Pleiku_Air_Base
+VVPQ,large_airport,Phú Quốc International Airport,10.169783,103.99353,VN,Phu Quoc Island,VVPQ,PQC,https://en.wikipedia.org/wiki/Phu_Quoc_International_Airport
+VVRG,medium_airport,Rach Gia Airport,9.95802997234,105.132379532,VN,Rach Gia,VVRG,VKG,https://en.wikipedia.org/wiki/Rach_Gia_Airport
+VVTH,medium_airport,Dong Tac Airport,13.0496,109.334,VN,Tuy Hoa,VVTH,TBB,https://en.wikipedia.org/wiki/%C4%90%C3%B4ng_T%C3%A1c_(Tuy_Hoa)_Airport
+VVTS,large_airport,Tan Son Nhat International Airport,10.8188,106.652,VN,Ho Chi Minh City,VVTS,SGN,https://en.wikipedia.org/wiki/Tan_Son_Nhat_International_Airport
+VVVD,medium_airport,Van Don International Airport,21.120693,107.41539,VN,Van Don,VVVD,VDO,https://en.wikipedia.org/wiki/Van_Don_International_Airport
+VVVH,medium_airport,Vinh Airport,18.7376003265,105.67099762,VN,Vinh,VVVH,VII,https://en.wikipedia.org/wiki/Vinh_Airport
+VYDW,medium_airport,Dawei Airport,14.1039,98.203598,MM,Dawei,VYDW,TVY,https://en.wikipedia.org/wiki/Dawei_Airport
+VYHB,small_airport,Hmawbi Air Base,17.11669921875,96.06670379638672,MM,Hmawbi,,,
+VYHH,medium_airport,Heho Airport,20.74714,96.792029,MM,Heho,VYHH,HEH,https://en.wikipedia.org/wiki/Heho_Airport
+VYKG,medium_airport,Kengtung Airport,21.301599502563477,99.63600158691406,MM,Kengtung,VYKG,KET,https://en.wikipedia.org/wiki/Kengtung_Airport
+VYKP,medium_airport,Kyaukpyu Airport,19.42639923095703,93.53479766845703,MM,Kyaukpyu,VYKP,KYP,https://en.wikipedia.org/wiki/Kyaukpyu_Airport
+VYKT,medium_airport,Kawthoung Airport,10.049300193786621,98.53800201416016,MM,Kawthoung,VYKT,KAW,https://en.wikipedia.org/wiki/Kawthaung_Airport
+VYLK,medium_airport,Loikaw Airport,19.691499710083008,97.21479797363281,MM,Loikaw,VYLK,LIW,https://en.wikipedia.org/wiki/Loikaw_Airport
+VYLS,medium_airport,Lashio Airport,22.9778995513916,97.752197265625,MM,Lashio,VYLS,LSH,https://en.wikipedia.org/wiki/Lashio_Airport
+VYMD,large_airport,Mandalay International Airport,21.702199935913086,95.97789764404297,MM,Mandalay,VYMD,MDL,https://en.wikipedia.org/wiki/Mandalay_International_Airport
+VYME,medium_airport,Myeik Airport,12.439800262451172,98.62149810791016,MM,Mkeik,VYME,MGZ,https://en.wikipedia.org/wiki/Myeik_Airport
+VYMK,medium_airport,Myitkyina Airport,25.3836,97.351898,MM,Myitkyina,VYMK,MYT,https://en.wikipedia.org/wiki/Myitkyina_Airport
+VYML,medium_airport,Meiktila Air Base,20.88640022277832,95.89279174804688,MM,Meiktila,,,
+VYMO,medium_airport,Momeik Airport,23.092500686645508,96.64530181884766,MM,,VYMO,MOE,
+VYMS,medium_airport,Mong Hsat Airport,20.516799926757812,99.25679779052734,MM,Mong Hsat,VYMS,MOG,https://en.wikipedia.org/wiki/Monghsat_Airport
+VYNP,medium_airport,Nampong Air Base,25.354400634799998,97.2951965332,MM,Myitkyina,,,https://en.wikipedia.org/wiki/Nampong_Air_Force_Base
+VYNS,medium_airport,Namsang Airport,20.890499114990234,97.73590087890625,MM,Namsang,VYNS,NMS,
+VYNT,large_airport,Nay Pyi Taw International Airport,19.623501,96.200996,MM,Naypyitaw,VYNT,NYT,https://en.wikipedia.org/wiki/Nay_Pyi_Taw_International_Airport
+VYST,medium_airport,Shante Air Base,20.941699981689453,95.91449737548828,MM,Meiktila,,,
+VYSW,medium_airport,Sittwe Airport,20.133165,92.870693,MM,Sittwe,VYSW,AKY,https://en.wikipedia.org/wiki/Sittwe_Airport
+VYTD,medium_airport,Thandwe Airport,18.4606990814209,94.30010223388672,MM,Thandwe,VYTD,SNW,https://en.wikipedia.org/wiki/Thandwe_Airport
+VYTL,medium_airport,Tachileik Airport,20.483800888061523,99.9354019165039,MM,Tachileik,VYTL,THL,https://en.wikipedia.org/wiki/Tachilek_Airport
+VYYY,large_airport,Yangon International Airport,16.907300949099998,96.1332015991,MM,Yangon,VYYY,RGN,https://en.wikipedia.org/wiki/Yangon_International_Airport
+WAAA,large_airport,Sultan Hasanuddin International Airport,-5.075539,119.553702,ID,Makassar,WAAA,UPG,https://en.wikipedia.org/wiki/Sultan_Hasanuddin_International_Airport
+WABB,medium_airport,Frans Kaisiepo Airport,-1.19002,136.108002,ID,Biak,WABB,BIK,https://en.wikipedia.org/wiki/Frans_Kaisiepo_Airport
+WABI,medium_airport,Douw Aturure Airport,-3.397973,135.393071,ID,Nabire,WABI,NBX,https://en.wikipedia.org/wiki/Douw_Aturure_Airport
+WABO,medium_airport,Stevanus Rumbewas Airport,-1.82842,136.062402,ID,Serui,WABO,ZRI,https://en.wikipedia.org/wiki/Stevanus_Rumbewas_Airport
+WABP,medium_airport,Mozes Kilangin Airport,-4.52978,136.887388,ID,Timika,WAYY,TIM,https://en.wikipedia.org/wiki/Mozes_Kilangin_Airport
+WADB,medium_airport,Sultan Muhammad Salahuddin Airport,-8.537184,118.685002,ID,Bima,WADB,BMU,https://en.wikipedia.org/wiki/Bima_Airport
+WADD,large_airport,Denpasar I Gusti Ngurah Rai International Airport,-8.748409,115.167123,ID,"Kuta, Badung",WADD,DPS,https://en.wikipedia.org/wiki/Ngurah_Rai_International_Airport
+WADL,large_airport,Lombok International Airport,-8.759962,116.278169,ID,"Mataram (Pujut, Lombok Tengah)",WADL,LOP,https://en.wikipedia.org/wiki/Lombok_International_Airport
+WAEE,medium_airport,Sultan Babullah Airport,0.831012,127.381611,ID,Ternate,WAEE,TTE,https://en.wikipedia.org/wiki/Sultan_Babullah_Airport
+WAEW,medium_airport,Pitu Airport,2.04599,128.324997,ID,Gotalalamo-Morotai Island,,OTI,https://en.wikipedia.org/wiki/Pitu_Airport
+WAFB,medium_airport,Toraja Airport,-3.184359,119.919104,ID,Toraja,WAFB,TRT,https://en.wikipedia.org/wiki/Toraja_Airport
+WAFF,medium_airport,Mutiara - SIS Al-Jufrie Airport,-0.916462,119.908647,ID,Palu,WAFF,PLW,https://en.wikipedia.org/wiki/Mutiara_Airport
+WAFP,medium_airport,Kasiguncu Airport,-1.414121,120.659241,ID,Poso-Celebes Island,,PSJ,https://en.wikipedia.org/wiki/Kasiguncu_Airport
+WAFW,medium_airport,Syukuran Aminuddin Amir Airport,-1.035893,122.773934,ID,Luwok,WAFW,LUW,https://en.wikipedia.org/wiki/Syukuran_Aminuddin_Amir_Airport
+WAGG,medium_airport,Tjilik Riwut Airport,-2.227146,113.943388,ID,Palangkaraya,WAGG,PKY,https://en.wikipedia.org/wiki/Tjilik_Riwut_Airport
+WAHI,large_airport,Yogyakarta International Airport,-7.905338,110.057264,ID,Yogyakarta,WAHI,YIA,https://en.wikipedia.org/wiki/Yogyakarta_International_Airport
+WAHL,medium_airport,Tunggul Wulung Airport,-7.64506,109.033997,ID,Cilacap,WAHL,CXP,https://en.wikipedia.org/wiki/Tunggul_Wulung_Airport
+WAJJ,large_airport,Dortheys Hiyo Eluay International Airport,-2.579627,140.519857,ID,Sentani,WAJJ,DJJ,https://en.wikipedia.org/wiki/Dortheys_Hiyo_Eluay_International_Airport
+WAJO,medium_airport,Oksibil Airport,-4.9071,140.6277,ID,Oksibil,WAJO,OKL,https://id.wikipedia.org/wiki/Bandar_Udara_Oksibil
+WAKK,medium_airport,Mopah International Airport,-8.523898,140.419693,ID,Merauke,WAKK,MKQ,https://en.wikipedia.org/wiki/Mopah_International_Airport
+WAKT,medium_airport,Tanah Merah Airport,-6.09669,140.303521,ID,Tanah Merah,WAKT,TMH,https://en.wikipedia.org/wiki/Tanah_Merah_Airport
+WALK,medium_airport,Nusantara International Airport,-1.16053,116.71193,ID,Nusantara,WALK,IVD,https://en.wikipedia.org/wiki/Nusantara_International_Airport
+WALL,large_airport,Sultan Aji Muhammad Sulaiman Sepinggan International Airport,-1.268342,116.89452,ID,Balikpapan,WALL,BPN,https://en.wikipedia.org/wiki/Sultan_Aji_Muhamad_Sulaiman_Airport
+WALR,medium_airport,Juwata International Airport / Suharnoko Harbani AFB,3.325145,117.564169,ID,Tarakan,WAQQ,TRK,https://en.wikipedia.org/wiki/Juwata_Airport
+WALS,medium_airport,Aji Pangeran Tumenggung Pranoto International Airport,-0.374478,117.250128,ID,Samarinda,WALS,AAP,https://en.wikipedia.org/wiki/Aji_Pangeran_Tumenggung_Pranoto_International_Airport
+WAMH,medium_airport,Naha Airport,3.68478,125.527162,ID,"Tabukan Utara, Sangihe Islands",WAMH,NAH,https://en.wikipedia.org/wiki/Naha_Airport_(Indonesia)
+WAMM,large_airport,Sam Ratulangi International Airport,1.548591,124.92625,ID,Manado,WAMM,MDC,https://en.wikipedia.org/wiki/Sam_Ratulangi_Airport
+WAON,medium_airport,Warukin Airport,-2.21656,115.435997,ID,Tanta-Tabalong,WAON,TJG,http://id.wikipedia.org/wiki/Bandar_Udara_Warukin
+WAOO,large_airport,Syamsudin Noor International Airport,-3.440112,114.761209,ID,Banjarbaru,WAOO,BDJ,https://en.wikipedia.org/wiki/Syamsudin_Noor_Airport
+WAPF,medium_airport,Karel Sadsuitubun Airport,-5.760278,132.759444,ID,Langgur,WAPF,LUV,https://en.wikipedia.org/wiki/Karel_Sadsuitubun_Airport
+WAPN,medium_airport,Namniwel Airport,-3.143159,126.976469,ID,Namniwel,WAPN,NAM,
+WAPP,large_airport,Pattimura International Airport,-3.71026,128.089005,ID,Ambon,WAPP,AMQ,https://en.wikipedia.org/wiki/Pattimura_Airport
+WAQT,medium_airport,Kalimarau Airport,2.14776,117.430705,ID,Tanjung Redeb - Borneo Island,WAQT,BEJ,https://en.wikipedia.org/wiki/Kalimarau_Airport
+WARA,medium_airport,Abdul Rachman Saleh Airport,-7.929099,112.714233,ID,Malang,WARA,MLG,https://en.wikipedia.org/wiki/Abdul_Rachman_Saleh_Airport
+WARI,small_airport,Iswahjudi Air Base,-7.61577,111.433998,ID,Magetan,,,https://en.wikipedia.org/wiki/Iswahjudi_Air_Force_Base
+WARJ,medium_airport,Adisutjipto International Airport,-7.78818,110.431999,ID,Yogyakarta,WAHH,JOG,https://en.wikipedia.org/wiki/Adisutjipto_Airport
+WARQ,large_airport,Adisoemarmo International Airport,-7.516044,110.757492,ID,Surakarta,WAHQ,SOC,https://en.wikipedia.org/wiki/Adisumarmo_Airport
+WARR,large_airport,Juanda International Airport,-7.37983,112.787003,ID,Surabaya,WARR,SUB,https://en.wikipedia.org/wiki/Juanda_International_Airport
+WARS,large_airport,Jenderal Ahmad Yani Airport,-6.970732,110.373244,ID,Semarang,WAHS,SRG,https://en.wikipedia.org/wiki/Achmad_Yani_Airport
+WASF,medium_airport,Fakfak Airport,-2.920508,132.267011,ID,Fakfak,WASF,FKQ,https://en.wikipedia.org/wiki/Fakfak_Airport
+WASK,medium_airport,Utarom Airport,-3.6446,133.695116,ID,Kaimana,WASK,KNG,https://en.wikipedia.org/wiki/Kaimana_Airport
+WASO,medium_airport,Babo Airport,-2.53224,133.438995,ID,Babo,WASO,BXB,https://en.wikipedia.org/wiki/Babo_Airport
+WASR,medium_airport,Rendani Airport,-0.891833,134.048996,ID,Manokwari,WAUU,MKW,https://en.wikipedia.org/wiki/Rendani_Airport
+WASS,medium_airport,Domine Eduard Osok Airport,-0.894,131.287,ID,Sorong,WASS,SOQ,https://en.wikipedia.org/wiki/Domine_Eduard_Osok_Airport
+WATT,medium_airport,El Tari Airport,-10.1716,123.670998,ID,Kupang,WATT,KOE,https://en.wikipedia.org/wiki/El_Tari_Airport
+WAVV,medium_airport,Wamena Airport,-4.097324,138.952417,ID,Wamena,WAVV,WMX,https://en.wikipedia.org/wiki/Wamena_Airport
+WAWD,medium_airport,Matahora Airport,-5.292123,123.636233,ID,Wangi-wangi Island,WAWD,WNI,https://en.wikipedia.org/wiki/Matahora_Airport
+WAWP,medium_airport,Sangia Nibandera Airport,-4.338158,121.524047,ID,Kolaka,WAWP,KXB,https://en.wikipedia.org/wiki/Sangia_Nibandera_Airport
+WBGB,medium_airport,Bintulu Airport,3.12385010719,113.019996643,MY,Bintulu,WBGB,BTU,https://en.wikipedia.org/wiki/Bintulu_Airport
+WBGG,large_airport,Kuching International Airport,1.487364,110.352859,MY,Kuching,WBGG,KCH,https://en.wikipedia.org/wiki/Kuching_International_Airport
+WBGJ,medium_airport,Limbang Airport,4.808300018310547,115.01000213623047,MY,Limbang,WBGJ,LMN,https://en.wikipedia.org/wiki/Limbang_Airport
+WBGK,medium_airport,Mukah Airport,2.881944,112.043333,MY,Mukah,WBGK,MKM,https://en.wikipedia.org/wiki/Mukah_Airport
+WBGM,medium_airport,Marudi Airport,4.178734,114.330318,MY,Marudi,WBGM,MUR,https://en.wikipedia.org/wiki/Marudi_Airport
+WBGR,medium_airport,Miri Airport,4.32201,113.987,MY,Miri,WBGR,MYY,https://en.wikipedia.org/wiki/Miri_Airport
+WBGS,medium_airport,Sibu Airport,2.2616,111.985001,MY,Sibu,WBGS,SBW,https://en.wikipedia.org/wiki/Sibu_Airport
+WBGZ,medium_airport,Bario Airport,3.734648,115.478548,MY,Bario,WBGZ,BBN,https://en.wikipedia.org/wiki/Bario_Airport
+WBKD,medium_airport,Lahad Datu Airport,5.03241,118.32376,MY,Lahad Datu,WBKD,LDU,https://en.wikipedia.org/wiki/Lahad_Datu_Airport
+WBKK,large_airport,Kota Kinabalu International Airport,5.932743,116.049324,MY,Kota Kinabalu,WBKK,BKI,https://en.wikipedia.org/wiki/Kota_Kinabalu_International_Airport
+WBKL,medium_airport,Labuan Airport,5.301667,115.248333,MY,Labuan,WBKL,LBU,https://en.wikipedia.org/wiki/Labuan_Airport
+WBKS,medium_airport,Sandakan Airport,5.900899887084961,118.05899810791016,MY,Sandakan,WBKS,SDK,https://en.wikipedia.org/wiki/Sandakan_Airport
+WBKW,medium_airport,Tawau Airport,4.31338,118.12152,MY,Tawau,WBKW,TWU,https://en.wikipedia.org/wiki/Tawau_Airport
+WBMU,medium_airport,Mulu Airport,4.048329830169678,114.80500030517578,MY,Mulu,WBMU,MZV,https://en.wikipedia.org/wiki/Mulu_Airport
+WBSB,large_airport,Brunei International Airport,4.9442,114.928001,BN,Bandar Seri Begawan,WBSB,BWN,https://en.wikipedia.org/wiki/Brunei_International_Airport
+WIBB,medium_airport,Sultan Syarif Kasim II International Airport / Roesmin Nurjadin AFB,0.458647,101.444321,ID,Pekanbaru,WIBB,PKU,https://en.wikipedia.org/wiki/Sultan_Syarif_Qasim_II_International_Airport
+WIBD,medium_airport,Pinang Kampai Airport,1.609026,101.433493,ID,Dumai,WIBD,DUM,https://en.wikipedia.org/wiki/Pinang_Kampai_Airport
+WIBJ,medium_airport,Japura Airport,-0.352808,102.334999,ID,Rengat-Sumatra Island,WIBJ,RGT,https://en.wikipedia.org/wiki/Japura_Airport
+WICA,medium_airport,Kertajati International Airport,-6.647384,108.165561,ID,Kertajati,WICA,KJT,https://en.wikipedia.org/wiki/Kertajati_International_Airport
+WICC,medium_airport,Husein Sastranegara International Airport,-6.90063,107.575996,ID,Bandung,WICC,BDO,https://en.wikipedia.org/wiki/Husein_Sastranegara_International_Airport
+WIDD,large_airport,Hang Nadim International Airport,1.12103,104.119003,ID,Batam,WIDD,BTH,https://en.wikipedia.org/wiki/Hang_Nadim_Airport
+WIDN,medium_airport,Raja Haji Fisabilillah International Airport,0.92397,104.53341,ID,Tanjung Pinang-Bintan Island,WIDN,TNJ,https://en.wikipedia.org/wiki/Raja_Haji_Fisabilillah_Airport
+WIHH,large_airport,Halim Perdanakusuma International Airport,-6.266989,106.890318,ID,Jakarta,WIHH,HLP,https://en.wikipedia.org/wiki/Halim_Perdanakusuma_International_Airport
+WIHP,small_airport,Pondok Cabe Air Base,-6.3369598388671875,106.76499938964844,ID,Jakarta,WIHP,PCB,https://en.wikipedia.org/wiki/Pondok_Cabe_Airport
+WIII,large_airport,Soekarno-Hatta International Airport,-6.12557,106.655998,ID,Jakarta,WIII,CGK,https://en.wikipedia.org/wiki/Soekarno-Hatta_International_Airport
+WILL,medium_airport,Radin Inten II International Airport,-5.246803,105.182531,ID,Bandar Lampung,WILL,TKG,https://en.wikipedia.org/wiki/Radin_Inten_II_International_Airport
+WIMB,medium_airport,Binaka Airport,1.166275,97.705196,ID,Gunungsitoli,WIMB,GNS,https://en.wikipedia.org/wiki/Binaka_Airport
+WIME,medium_airport,Aek Godang Airport,1.4001,99.430496,ID,Padang Sidempuan,WIME,AEG,https://en.wikipedia.org/wiki/Aek_Godang_Airport
+WIMK,medium_airport,Soewondo Air Force Base,3.558425,98.672275,ID,Medan,WIMK,MES,https://en.wikipedia.org/wiki/Soewondo_Air_Force_Base
+WIMM,large_airport,Kualanamu International Airport,3.637847,98.870566,ID,Beringin,WIMM,KNO,https://en.wikipedia.org/wiki/Kualanamu_International_Airport
+WIMS,medium_airport,Dr. Ferdinand Lumban Tobing Airport,1.557127,98.887145,ID,Sibolga (Pinangsori),WIMS,FLZ,https://en.wikipedia.org/wiki/Ferdinand_Lumban_Tobing_Airport
+WIMU,medium_airport,Alas Leuser Airport,3.391456,97.863726,ID,Kutacane,WIMU,LSR,https://en.wikipedia.org/wiki/Alas_Leuser_Airport
+WIOG,medium_airport,Nanga Pinoh Airport,-0.34864,111.746155,ID,Nanga Pinoh-Borneo Island,WIOG,NPO,https://en.wikipedia.org/wiki/Nanga_Pinoh_Airport
+WIOK,medium_airport,Rahadi Osman Airport,-1.817165,109.963469,ID,Ketapang,WIOK,KTG,https://en.wikipedia.org/wiki/Rahadi_Osman_Airport
+WION,medium_airport,Ranai Airport,3.90871,108.388,ID,Ranai-Natuna Besar Island,WIDO,NTX,https://en.wikipedia.org/wiki/Ranai_Airport
+WIOO,large_airport,Supadio International Airport,-0.152258,109.404493,ID,Pontianak,WIOO,PNK,https://en.wikipedia.org/wiki/Supadio_Airport
+WIOP,medium_airport,Pangsuma Airport,0.834579,112.940217,ID,Putussibau-Borneo Island,WIOP,PSU,https://en.wikipedia.org/wiki/Pangsuma_Airport
+WIOS,medium_airport,Tebelian Airport,-0.045214,111.458049,ID,Sintang,WIOS,SQG,https://en.wikipedia.org/wiki/Tebelian_Airport
+WIPK,medium_airport,Depati Amir Airport,-2.1622,106.139,ID,Pangkal Pinang,WIKK,PGK,https://en.wikipedia.org/wiki/Pangkalpinang_Airport
+WIPL,medium_airport,Fatmawati Soekarno Airport,-3.8637,102.338997,ID,Bengkulu,WIGG,BKS,https://en.wikipedia.org/wiki/Fatmawati_Soekarno_Airport
+WIPP,medium_airport,Sultan Mahmud Badaruddin II Airport,-2.897653,104.698147,ID,Palembang,WIPP,PLM,https://en.wikipedia.org/wiki/Sultan_Mahmud_Badaruddin_II_Airport
+WIPQ,medium_airport,Pendopo Airport,-3.2860701084136963,103.87999725341797,ID,Talang Gudang-Sumatra Island,WIPQ,PDO,
+WIPT,large_airport,Minangkabau International Airport,-0.785964,100.280384,ID,Padang (Katapiang),WIEE,PDG,https://en.wikipedia.org/wiki/Minangkabau_International_Airport
+WITC,medium_airport,Cut Nyak Dhien Airport,4.040998,96.253312,ID,Kuala Pesisir,WITC,MEQ,https://en.wikipedia.org/wiki/Cut_Nyak_Dhien_Airport
+WITK,medium_airport,Rembele Airport,4.72113,96.851943,ID,Takengon,WITK,TXE,https://en.wikipedia.org/wiki/Rembele_Airport
+WITL,medium_airport,Lhok Sukon Airport,5.06951,97.259201,ID,Lhok Sukon-Sumatra Island,WITL,LSX,https://id.wikipedia.org/wiki/Bandar_Udara_Lhok_Sukon
+WITT,large_airport,Sultan Iskandar Muda International Airport,5.525087,95.41997,ID,Banda Aceh,WITT,BTJ,https://en.wikipedia.org/wiki/Sultan_Iskandar_Muda_International_Airport
+WMAP,medium_airport,Kluang Airport,2.04138994217,103.306999207,MY,Kluang,,,https://en.wikipedia.org/wiki/Kluang_Airport
+WMBT,medium_airport,Tioman Airport,2.81818,104.160004,MY,Tioman Island,WMBT,TOD,https://en.wikipedia.org/wiki/Tioman_Airport
+WMKA,medium_airport,Sultan Abdul Halim Airport,6.189670085906982,100.39800262451172,MY,Alor Satar,WMKA,AOR,https://en.wikipedia.org/wiki/Sultan_Abdul_Halim_Airport
+WMKB,medium_airport,RMAF Butterworth Air Base,5.46592,100.390999,MY,Butterworth,WMKB,BWH,https://en.wikipedia.org/wiki/RMAF_Butterworth_Air_Base
+WMKC,medium_airport,Sultan Ismail Petra Airport,6.1668500900268555,102.29299926757812,MY,Kota Baharu,WMKC,KBR,https://en.wikipedia.org/wiki/Sultan_Ismail_Petra_Airport
+WMKD,medium_airport,Kuantan Airport,3.7753899097442627,103.20899963378906,MY,Kuantan,WMKD,KUA,https://en.wikipedia.org/wiki/Sultan_Haji_Ahmad_Shah_Airport
+WMKE,medium_airport,Kerteh Airport,4.53722,103.427002,MY,Kerteh,WMKE,KTE,https://en.wikipedia.org/wiki/Kerteh_Airport
+WMKI,large_airport,Sultan Azlan Shah Airport,4.56733,101.091643,MY,Ipoh,WMKI,IPH,https://en.wikipedia.org/wiki/Sultan_Azlan_Shah_Airport
+WMKJ,large_airport,Senai International Airport,1.64131,103.669998,MY,Johor Bahru,WMKJ,JHB,https://en.wikipedia.org/wiki/Senai_International_Airport
+WMKK,large_airport,Kuala Lumpur International Airport,2.74558,101.709999,MY,Sepang,WMKK,KUL,https://en.wikipedia.org/wiki/Kuala_Lumpur_International_Airport
+WMKL,large_airport,Langkawi International Airport,6.32973,99.728699,MY,Langkawi,WMKL,LGK,https://en.wikipedia.org/wiki/Langkawi_International_Airport
+WMKM,medium_airport,Malacca International Airport,2.265613,102.252778,MY,Malacca,WMKM,MKZ,https://en.wikipedia.org/wiki/Malacca_International_Airport
+WMKN,medium_airport,Sultan Mahmud Airport,5.3826398849487305,103.10299682617188,MY,Kuala Terengganu,WMKN,TGG,https://en.wikipedia.org/wiki/Sultan_Mahmud_Airport
+WMKP,large_airport,Penang International Airport,5.296303,100.276185,MY,Penang,WMKP,PEN,https://en.wikipedia.org/wiki/Penang_International_Airport
+WMSA,large_airport,Sultan Abdul Aziz Shah International Airport,3.13058,101.549004,MY,Subang,WMSA,SZB,https://en.wikipedia.org/wiki/Sultan_Abdul_Aziz_Shah_Airport
+WPDB,medium_airport,"Commander in Chief of FALINTIL, Kay Rala Xanana Gusmão, International Airport",-9.301856,125.286302,TL,Suai,WPDB,UAI,https://en.wikipedia.org/wiki/Suai_Airport
+WPDL,large_airport,Presidente Nicolau Lobato International Airport,-8.546562,125.524507,TL,Dili,WPDL,DIL,https://en.wikipedia.org/wiki/Presidente_Nicolau_Lobato_International_Airport
+WPEC,medium_airport,Baucau Airport,-8.486479,126.399981,TL,Baucau,WPEC,BCH,https://en.wikipedia.org/wiki/Cakung_Airport
+WPOC,large_airport,Oecusse Route of the Sandalwood International Airport,-9.198419,124.337873,TL,Oecussi-Ambeno,WPOC,OEC,https://en.wikipedia.org/wiki/Oecussi_Airport
+WSAC,medium_airport,Changi Air Base (East),1.3441400528,104.009002686,SG,Singapore,,,https://en.wikipedia.org/wiki/Changi_Air_Base
+WSAG,medium_airport,Sembawang Air Base,1.42526,103.813004,SG,Sembawang,,,https://en.wikipedia.org/wiki/Sembawang_Air_Base
+WSAP,medium_airport,Paya Lebar Air Base,1.36042,103.910004,SG,Paya Lebar,WSAP,QPG,https://en.wikipedia.org/wiki/Paya_Lebar_Airbase
+WSAT,medium_airport,Tengah Air Base,1.387561,103.708291,SG,Western Water Catchment,WSAT,TGA,https://en.wikipedia.org/wiki/Tengah_Air_Base
+WSSL,medium_airport,Seletar Airport,1.41555,103.86673,SG,Seletar,WSSL,XSP,https://en.wikipedia.org/wiki/Seletar_Airport
+WSSS,large_airport,Singapore Changi Airport,1.35019,103.994003,SG,Singapore,WSSS,SIN,https://en.wikipedia.org/wiki/Singapore_Changi_Airport
+XP-0002,small_airport,Zhongjian Dao (Triton Island) Air Base,15.783471,111.20274,XP,Triton Island,,,
+XP-0003,small_airport,Yongxing Dao (Woody Island) Air Base,16.8328,112.344002,XP,Woody Island,,,https://en.wikipedia.org/wiki/Woody_Island%2C_South_China_Sea
+YBCS,large_airport,Cairns International Airport,-16.878921,145.74948,AU,Cairns,YBCS,CNS,https://en.wikipedia.org/wiki/Cairns_International_Airport
+YBRM,large_airport,Broome International Airport,-17.949194,122.2283,AU,Broome,YBRM,BME,https://en.wikipedia.org/wiki/Broome_International_Airport
+YBSG,small_airport,RAAF Base Scherger,-12.6239,142.087006,AU,Mission River,,,https://en.wikipedia.org/wiki/RAAF_Scherger
+YBTI,medium_airport,Bathurst Island Airport,-11.764966,130.615774,AU,Wurrumiyanga,YBTI,BRT,https://en.wikipedia.org/wiki/Bathurst_Island_Airport
+YBTL,medium_airport,Townsville Airport / RAAF Base Townsville,-19.252904,146.766512,AU,Townsville,YBTL,TSV,https://en.wikipedia.org/wiki/Townsville_Airport
+YBWP,medium_airport,Weipa Airport,-12.677493,141.922618,AU,Weipa,YBWP,WEI,https://en.wikipedia.org/wiki/Weipa_Airport
+YCIN,medium_airport,RAAF Base Curtin,-17.581389,123.828333,AU,Derby,YCIN,DCN,https://en.wikipedia.org/wiki/RAAF_Curtin
+YCKN,medium_airport,Cooktown Airport,-15.443649,145.183221,AU,,YCKN,CTN,https://en.wikipedia.org/wiki/Cooktown_Airport
+YCOE,medium_airport,Coen Airport,-13.761133,143.113311,AU,Coen,YCOE,CUQ,https://en.wikipedia.org/wiki/Coen_Airport
+YDBY,medium_airport,Derby Airport,-17.37193,123.66221,AU,Derby,YDBY,DRB,https://en.wikipedia.org/wiki/Derby_Airport_(Australia)
+YELD,medium_airport,Elcho Island Airport,-12.019399642899998,135.570999146,AU,Elcho Island,YELD,ELC,https://en.wikipedia.org/wiki/Elcho_Island_Airport
+YFTZ,medium_airport,Fitzroy Crossing Airport,-18.183596,125.559783,AU,,YFTZ,FIZ,https://en.wikipedia.org/wiki/Fitzroy_Crossing_Airport
+YGPT,medium_airport,Garden Point Airport,-11.399686,130.425568,AU,Pirlangimpi,YGPT,GPN,https://en.wikipedia.org/wiki/Garden_Point_Airport
+YGTE,medium_airport,Groote Eylandt Airport,-13.972405,136.458553,AU,Groote Eylandt,YGTE,GTE,https://en.wikipedia.org/wiki/Groote_Eylandt_Airport
+YHID,medium_airport,Horn Island Airport,-10.585636,142.29277,AU,Horn,YHID,HID,https://en.wikipedia.org/wiki/Horn_Island_Airport
+YHLC,medium_airport,Halls Creek Airport,-18.2339,127.669998,AU,,YHLC,HCQ,https://en.wikipedia.org/wiki/Halls_Creek_Airport
+YKOW,medium_airport,Kowanyama Airport,-15.485369,141.752572,AU,Kowanyama,YKOW,KWM,https://en.wikipedia.org/wiki/Kowanyama_Airport
+YLHR,medium_airport,Lockhart River Airport,-12.7869,143.304993,AU,Lockhart River,YLHR,IRG,https://en.wikipedia.org/wiki/Lockhart_River_Airport
+YLVK,small_airport,Lavarack (Military) Airport,-19.318602,146.770674,AU,Townsville,,,https://en.wikipedia.org/wiki/Lavarack_Barracks
+YMBA,medium_airport,Mareeba Airport,-17.070277,145.424228,AU,Mareeba,YMBA,MRG,https://en.wikipedia.org/wiki/Mareeba_Airfield
+YMGD,medium_airport,Maningrida Airport,-12.0560998917,134.23399353,AU,Maningrida,YMGD,MNG,https://en.wikipedia.org/wiki/Maningrida_Airport
+YNGU,medium_airport,Ngukurr Airport,-14.7228,134.746994,AU,Roper River,YNGU,RPM,https://en.wikipedia.org/wiki/Ngukurr_Airport
+YNTN,medium_airport,Normanton Airport,-17.68409,141.069664,AU,Normanton,YNTN,NTN,https://en.wikipedia.org/wiki/Normanton_Airport
+YPCC,large_airport,Cocos (Keeling) Islands Airport,-12.192218,96.834103,CC,West Island,YPCC,CCK,https://en.wikipedia.org/wiki/Cocos_(Keeling)_Island_International_Airport
+YPDN,large_airport,Darwin International Airport / RAAF Darwin,-12.41497,130.88185,AU,Darwin,YPDN,DRW,https://en.wikipedia.org/wiki/Darwin_International_Airport
+YPGV,medium_airport,Gove Airport,-12.269399642899998,136.817993164,AU,Nhulunbuy,YPGV,GOV,https://en.wikipedia.org/wiki/Gove_Airport
+YPKT,medium_airport,Port Keats Airport,-14.249701,129.529538,AU,Wadeye,,PKT,https://en.wikipedia.org/wiki/Port_Keats_Airfield
+YPKU,medium_airport,East Kimberley Regional (Kununurra) Airport,-15.7781,128.707993,AU,Kununurra,YPKU,KNX,https://en.wikipedia.org/wiki/Kununurra_Airport
+YPTN,medium_airport,Tindal Airport,-14.521100044250488,132.3780059814453,AU,,YPTN,KTR,https://en.wikipedia.org/wiki/RAAF_Base_Tindal
+YPXM,medium_airport,Christmas Island International Airport,-10.450387,105.6911,CX,Flying Fish Cove,YPXM,XCH,https://en.wikipedia.org/wiki/Christmas_Island_Airport
+YSNB,medium_airport,Snake Bay Airport,-11.417674,130.648481,AU,Milikapiti,YSNK,SNB,https://en.wikipedia.org/wiki/Snake_Bay_Airport
+YTNK,medium_airport,Tennant Creek Airport,-19.6343994140625,134.18299865722656,AU,Tennant Creek,YTNK,TCA,https://en.wikipedia.org/wiki/Tennant_Creek_Airport
+ZGBH,medium_airport,Beihai Fucheng Airport,21.538659,109.293683,CN,Beihai,ZGBH,BHY,https://en.wikipedia.org/wiki/Beihai_Fucheng_Airport
+ZGBS,medium_airport,Baise (Bose) Bama Airport,23.7206,106.959999,CN,Baise (Tianyang),ZGBS,AEB,https://en.wikipedia.org/wiki/Baise_Youjiang_Airport
+ZGCZ,medium_airport,Chenzhou Beihu Airport,25.753419,112.845404,CN,Chenzhou,ZGCZ,HCZ,https://en.wikipedia.org/wiki/Chenzhou_Beihu_Airport
+ZGFS,medium_airport,Foshan Shadi Airport,23.0825,113.070833,CN,Foshan (Nanhai),ZGFS,FUO,https://en.wikipedia.org/wiki/Foshan_Shadi_Airport
+ZGGG,large_airport,Guangzhou Baiyun International Airport,23.392401,113.299004,CN,Guangzhou (Huadu),ZGGG,CAN,https://en.wikipedia.org/wiki/Guangzhou_Baiyun_International_Airport
+ZGHC,medium_airport,Hechi Jinchengjiang Airport,24.804344,107.710819,CN,Hechi (Jinchengjiang),ZGHC,HCJ,https://en.wikipedia.org/wiki/Hechi_Jinchengjiang_Airport
+ZGHY,medium_airport,Hengyang Nanyue Airport,26.72208,112.617958,CN,Hengyang,ZGHY,HNY,https://en.wikipedia.org/wiki/Hengyang_Nanyue_Airport
+ZGHZ,medium_airport,Huizhou Pingtan Airport,23.049999,114.599998,CN,Huizhou (Pingtan),ZGHZ,HUZ,https://en.wikipedia.org/wiki/Huizhou_Airport
+ZGKL,large_airport,Guilin Liangjiang International Airport,25.219828,110.039553,CN,Guilin (Lingui),ZGKL,KWL,https://en.wikipedia.org/wiki/Guilin_Liangjiang_International_Airport
+ZGLG,medium_airport,Yongzhou Lingling Airport,26.338661,111.610043,CN,Yongzhou,ZGLG,LLF,https://en.wikipedia.org/wiki/Yongzhou_Lingling_Airport
+ZGNN,large_airport,Nanning Wuxu International Airport,22.598071,108.181922,CN,Nanning (Jiangnan),ZGNN,NNG,https://en.wikipedia.org/wiki/Nanning_Wuxu_International_Airport
+ZGOW,large_airport,Jieyang Chaoshan International Airport,23.552,116.5033,CN,Jieyang (Rongcheng),ZGOW,SWA,https://en.wikipedia.org/wiki/Jieyang_Chaoshan_International_Airport
+ZGSD,large_airport,Zhuhai Jinwan Airport,22.006399,113.375999,CN,Zhuhai (Jinwan),ZGSD,ZUH,https://en.wikipedia.org/wiki/Zhuhai_Jinwan_Airport
+ZGSY,medium_airport,Shaoyang Wugang Airport,26.806123,110.641042,CN,Shaoyang (Wugang),ZGSY,WGN,https://en.wikipedia.org/wiki/Shaoyang_Wugang_Airport
+ZGSZ,large_airport,Shenzhen Bao'an International Airport,22.639474,113.803262,CN,Shenzhen,ZGSZ,SZX,https://en.wikipedia.org/wiki/Shenzhen_Bao'an_International_Airport
+ZGWZ,medium_airport,Wuzhou Xijiang Airport,23.40316,111.09331,CN,Tangbu,ZGWZ,WUZ,https://en.wikipedia.org/wiki/Wuzhou_Xijiang_Airport
+ZGXN,small_airport,Xingning Air Base,24.1492,115.758003,CN,Meizhou (Xingning),ZGXN,XIN,https://en.wikipedia.org/wiki/Xingning_Air_Base
+ZGYL,medium_airport,Yulin Fumian Airport,22.433042,110.119996,CN,Yulin,ZGYL,YLX,https://en.wikipedia.org/wiki/Yulin_Fumian_Airport
+ZGZH,medium_airport,Liuzhou Bailian Airport / Bailian Air Base,24.2075,109.390999,CN,Liuzhou (Liujiang),ZGZH,LZH,https://en.wikipedia.org/wiki/Liuzhou_Bailian_Airport
+ZGZJ,large_airport,Zhanjiang Wuchuan International Airport,21.481667,110.590278,CN,Zhanjiang,ZGZJ,ZHA,https://en.wikipedia.org/wiki/Zhanjiang_Wuchuan_Airport
+ZJHK,large_airport,Haikou Meilan International Airport,19.9349,110.459,CN,Haikou (Meilan),ZJHK,HAK,https://en.wikipedia.org/wiki/Haikou_Meilan_International_Airport
+ZJQH,medium_airport,Qionghai Bo'ao Airport,19.140951,110.452766,CN,Qionghai (Basuo),ZJQH,BAR,https://en.wikipedia.org/wiki/Qionghai_Bo%27ao_Airport
+ZJSY,large_airport,Sanya Phoenix International Airport,18.3029,109.412003,CN,Sanya (Tianya),ZJSY,SYX,https://en.wikipedia.org/wiki/Sanya_Phoenix_International_Airport
+ZPBS,medium_airport,Baoshan Yunrui Airport,25.053301,99.168297,CN,Baoshan (Longyang),ZPBS,BSD,https://en.wikipedia.org/wiki/Baoshan_Yunrui_Airport
+ZPCW,medium_airport,Cangyuan Washan Airport,23.276331,99.373169,CN,Lincang (Cangyuan),ZPCW,CWJ,https://en.wikipedia.org/wiki/Cangyuan_Washan_Airport
+ZPDL,medium_airport,Dali Fengyi Airport,25.649401,100.319,CN,Dali (Xiaguan),ZPDL,DLU,https://en.wikipedia.org/wiki/Dali_Airport
+ZPJH,large_airport,Xishuangbanna Gasa International Airport,21.974648,100.762224,CN,Jinghong (Gasa),ZPJH,JHG,https://en.wikipedia.org/wiki/Xishuangbanna_Gasa_International_Airport
+ZPJM,medium_airport,Lancang Jingmai Airport,22.417733,99.784012,CN,Pu'er (Lancang),ZPJM,JMJ,https://en.wikipedia.org/wiki/Lancang_Jingmai_Airport
+ZPLC,medium_airport,Lincang Boshang Airport,23.7381,100.025002,CN,Lincang,ZPLC,LNJ,https://en.wikipedia.org/wiki/Lincang_Airport
+ZPLJ,large_airport,Lijiang Sanyi International Airport,26.677483,100.244944,CN,Lijiang,ZPLJ,LJG,https://en.wikipedia.org/wiki/Lijiang_Sanyi_Airport
+ZPMS,medium_airport,Dehong Mangshi International Airport,24.4011,98.5317,CN,Dehong (Mangshi),ZPMS,LUM,https://en.wikipedia.org/wiki/Dehong_Mangshi_Airport
+ZPPP,large_airport,Kunming Changshui International Airport,25.110313,102.936743,CN,Kunming,ZPPP,KMG,https://en.wikipedia.org/wiki/Kunming_Changshui_International_Airport
+ZPYM,medium_airport,Yuanmou Air Base,25.737499,101.882004,CN,Chuxiong (Yuanmou),ZPYM,YUA,
+ZSAM,large_airport,Xiamen Gaoqi International Airport,24.543889,118.127454,CN,Xiamen,ZSAM,XMN,https://en.wikipedia.org/wiki/Xiamen_Gaoqi_International_Airport
+ZSFZ,large_airport,Fuzhou Changle International Airport,25.929254,119.672524,CN,Fuzhou (Changle),ZSFZ,FOC,https://en.wikipedia.org/wiki/Fuzhou_Changle_International_Airport
+ZSLO,medium_airport,Liancheng Guanzhishan Airport,25.67592,116.745907,CN,Longyan (Liancheng),ZSLO,LCX,https://en.wikipedia.org/wiki/Liancheng_Guanzhishan_Airport
+ZSQZ,large_airport,Quanzhou Jinjiang International Airport,24.795855,118.588599,CN,Quanzhou,ZSQZ,JJN,https://en.wikipedia.org/wiki/Quanzhou_Jinjiang_International_Airport
+ZSSM,medium_airport,Sanming Shaxian Airport,26.4263,117.8336,CN,Sanming (Sha),ZSSM,SQJ,https://en.wikipedia.org/wiki/Sanming_Shaxian_Airport
+ZUAS,medium_airport,Anshun Huangguoshu Airport,26.260556,105.873333,CN,Anshun (Xixiu),ZUAS,AVA,https://en.wikipedia.org/wiki/Anshun_Huangguoshu_Airport
+ZUGY,large_airport,Guiyang Longdongbao International Airport,26.541805,106.80402,CN,Guiyang (Nanming),ZUGY,KWE,https://en.wikipedia.org/wiki/Guiyang_Longdongbao_Airport
+ZUKJ,medium_airport,Kaili Huangping Airport,26.972,107.988,CN,Kaili  (Huangping),ZUKJ,KJH,https://en.wikipedia.org/wiki/Kaili_Huangping_Airport
+ZUNP,medium_airport,Liping Airport,26.32217,109.1499,CN,Liping,ZUNP,HZH,https://en.wikipedia.org/wiki/Liping_Airport
+ZUPS,medium_airport,Liupanshui Yuezhao Airport,26.609417,104.979,CN,Liupanshui (Zhongshan),ZUPS,LPF,https://en.wikipedia.org/wiki/Liupanshui_Yuezhao_Airport
+ZUTC,medium_airport,Tengchong Tuofeng Airport,24.938056,98.485833,CN,Baoshan (Tengchong),ZPTC,TCZ,https://en.wikipedia.org/wiki/Tengchong_Tuofeng_Airport
+ZUYI,medium_airport,Xingyi Wanfenglin Airport,25.083423,104.960804,CN,Xingyi,ZUYI,ACX,https://en.wikipedia.org/wiki/Xingyi_Wanfenglin_Airport
+ZUZH,medium_airport,Panzhihua Bao'anying Airport,26.54,101.79852,CN,Panzhihua (Renhe),ZUZH,PZI,https://en.wikipedia.org/wiki/Panzhihua_Bao'anying_Airport

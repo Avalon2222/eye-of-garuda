@@ -1,0 +1,4556 @@
+{
+"sumber": "Wikidata (CC0), kelas: military base, airbase, naval base, barracks, military installation",
+"diambil": "2026-11-06",
+"fasilitas": [
+{
+"qid": "Q5630298",
+"nama": "HMAS Carpentaria",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Australia",
+"operator": "",
+"lat": -10.57889,
+"lon": 142.22
+},
+{
+"qid": "Q5630451",
+"nama": "HMAS Maitland",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Australia",
+"operator": "",
+"lat": -32.92333,
+"lon": 151.80111
+},
+{
+"qid": "Q5630473",
+"nama": "HMAS Melville",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Australia",
+"operator": "",
+"lat": -12.4667,
+"lon": 130.84014
+},
+{
+"qid": "Q66976688",
+"nama": "Wyalkatchem Railway Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -31.18151,
+"lon": 117.37986
+},
+{
+"qid": "Q14935588",
+"nama": "Victoria Barracks, Brisbane",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -27.4647,
+"lon": 153.015
+},
+{
+"qid": "Q8033326",
+"nama": "Woodside Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -34.97056,
+"lon": 138.885
+},
+{
+"qid": "Q7274971",
+"nama": "RAAF Gingin",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -31.465,
+"lon": 115.86333
+},
+{
+"qid": "Q17607",
+"nama": "Bathurst Island Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -11.7692,
+"lon": 130.62
+},
+{
+"qid": "Q7274985",
+"nama": "RAAF Station Schofields",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -33.715,
+"lon": 150.86778
+},
+{
+"qid": "Q14935822",
+"nama": "Irwin Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -31.96517,
+"lon": 115.79702
+},
+{
+"qid": "Q14935678",
+"nama": "Katherine Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -14.44529,
+"lon": 132.27231
+},
+{
+"qid": "Q6489785",
+"nama": "Larrakeyah Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -12.45861,
+"lon": 130.82167
+},
+{
+"qid": "Q3274819",
+"nama": "Gawler Aerodrome",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -34.6,
+"lon": 138.719
+},
+{
+"qid": "Q6816449",
+"nama": "Menangle Park Paceway",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -34.1029,
+"lon": 150.742
+},
+{
+"qid": "Q3206850",
+"nama": "Holsworthy Barracks",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -33.995,
+"lon": 150.95167
+},
+{
+"qid": "Q4938156",
+"nama": "Bohle River Aerodrome",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -19.2828,
+"lon": 146.699
+},
+{
+"qid": "Q14935673",
+"nama": "Gorrie Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -15.48709,
+"lon": 133.18023
+},
+{
+"qid": "Q4774878",
+"nama": "Anthil Plains Aerodrome",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -19.4433,
+"lon": 146.825
+},
+{
+"qid": "Q5263320",
+"nama": "Derwent Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -42.8194,
+"lon": 147.294
+},
+{
+"qid": "Q2371958",
+"nama": "RAAF Base Wagga",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -35.16528,
+"lon": 147.46639
+},
+{
+"qid": "Q7195107",
+"nama": "Pine Creek Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -13.8252,
+"lon": 131.845
+},
+{
+"qid": "Q5050576",
+"nama": "Castlereagh Aerodrome",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -33.6769,
+"lon": 150.688
+},
+{
+"qid": "Q6920501",
+"nama": "Mount Druitt Aerodrome",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -33.756,
+"lon": 150.817
+},
+{
+"qid": "Q20449806",
+"nama": "Laverton Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -37.86361,
+"lon": 144.74583
+},
+{
+"qid": "Q955757",
+"nama": "RAAF Base Amberley",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -27.64,
+"lon": 152.71167
+},
+{
+"qid": "Q5242313",
+"nama": "Dawes Point Battery",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -33.8549,
+"lon": 151.209
+},
+{
+"qid": "Q6495139",
+"nama": "Latchford Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -36.1325,
+"lon": 147.001
+},
+{
+"qid": "Q105759457",
+"nama": "Warrane Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -42.864,
+"lon": 147.377
+},
+{
+"qid": "Q7963077",
+"nama": "Wallgrove Army Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Australia",
+"operator": "",
+"lat": -33.8043,
+"lon": 150.849
+},
+{
+"qid": "Q7963076",
+"nama": "Wallgrove Aerodrome",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -33.7854,
+"lon": 150.871
+},
+{
+"qid": "Q1403609",
+"nama": "RAAF Base Richmond",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -33.59833,
+"lon": 150.76778
+},
+{
+"qid": "Q7434339",
+"nama": "Scone Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -32.03167,
+"lon": 150.83444
+},
+{
+"qid": "Q1577600",
+"nama": "Hyde Park Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -33.86961,
+"lon": 151.21281
+},
+{
+"qid": "Q7161499",
+"nama": "Pell Landing Ground",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -13.147,
+"lon": 131.107
+},
+{
+"qid": "Q15103",
+"nama": "Port Pirie Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -33.23889,
+"lon": 137.995
+},
+{
+"qid": "Q7274960",
+"nama": "RAAF Base Mallala",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -34.415,
+"lon": 138.505
+},
+{
+"qid": "Q6721809",
+"nama": "MacDonald Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -13.7498,
+"lon": 131.718
+},
+{
+"qid": "Q5443607",
+"nama": "Fenton Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -13.6232,
+"lon": 131.339
+},
+{
+"qid": "Q6426726",
+"nama": "Kokoda Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -28.0288,
+"lon": 153.182
+},
+{
+"qid": "Q4699324",
+"nama": "Aitkenvale Aerodrome",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -19.3125,
+"lon": 146.74
+},
+{
+"qid": "Q4863179",
+"nama": "Barracks Arch",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -31.95224,
+"lon": 115.84888
+},
+{
+"qid": "Q7274964",
+"nama": "RAAF Base Nabiac",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -32.13167,
+"lon": 152.43417
+},
+{
+"qid": "Q5528972",
+"nama": "Gaza Ridge Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -36.146,
+"lon": 146.924
+},
+{
+"qid": "Q7622327",
+"nama": "Strauss Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -12.659,
+"lon": 131.078
+},
+{
+"qid": "Q7144579",
+"nama": "Paterson Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -41.43339,
+"lon": 147.13528
+},
+{
+"qid": "Q7926583",
+"nama": "Victoria Barracks, Sydney",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -33.8859,
+"lon": 151.223
+},
+{
+"qid": "Q7352085",
+"nama": "Robertson Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -12.445,
+"lon": 130.974
+},
+{
+"qid": "Q959449",
+"nama": "RAAF Base Edinburgh",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -34.7025,
+"lon": 138.62083
+},
+{
+"qid": "Q17899",
+"nama": "Bacchus Marsh Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -37.73333,
+"lon": 144.42167
+},
+{
+"qid": "Q5027994",
+"nama": "Campbell Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -31.97174,
+"lon": 115.76284
+},
+{
+"qid": "Q955268",
+"nama": "RAAF Base Williamtown",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -32.795,
+"lon": 151.83444
+},
+{
+"qid": "Q6841450",
+"nama": "Middle Head Fortifications",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -33.8272,
+"lon": 151.268
+},
+{
+"qid": "Q4879793",
+"nama": "Beehive Casemate",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -33.8275,
+"lon": 151.268
+},
+{
+"qid": "Q7274965",
+"nama": "RAAF Base Uranquinty",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -35.1975,
+"lon": 147.208
+},
+{
+"qid": "Q1529336",
+"nama": "Mungalalu Truscott Airbase",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -14.08972,
+"lon": 126.38083
+},
+{
+"qid": "Q96399827",
+"nama": "Porton Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -17.00222,
+"lon": 145.74583
+},
+{
+"qid": "Q3887266",
+"nama": "Bundaberg Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -24.90389,
+"lon": 152.31861
+},
+{
+"qid": "Q14935736",
+"nama": "Mallala Motor Sport Park",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -34.415,
+"lon": 138.50472
+},
+{
+"qid": "Q2886642",
+"nama": "Lavarack Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -19.3217,
+"lon": 146.802
+},
+{
+"qid": "Q7274959",
+"nama": "RAAF Base East Sale",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -38.09889,
+"lon": 147.14944
+},
+{
+"qid": "Q14935731",
+"nama": "Keswick Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -34.94609,
+"lon": 138.58189
+},
+{
+"qid": "Q137168731",
+"nama": "Cecil Plains Airfield",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Australia",
+"operator": "",
+"lat": -27.46194,
+"lon": 151.20917
+},
+{
+"qid": "Q4868724",
+"nama": "Batchelor Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -13.0559,
+"lon": 131.028
+},
+{
+"qid": "Q6426727",
+"nama": "Kokoda Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -41.16714,
+"lon": 146.35683
+},
+{
+"qid": "Q38250457",
+"nama": "RAAF Base Woomera",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -31.14417,
+"lon": 136.81694
+},
+{
+"qid": "Q131127509",
+"nama": "Gailes Airfield",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Australia",
+"operator": "",
+"lat": -27.36972,
+"lon": 152.55972
+},
+{
+"qid": "Q7926582",
+"nama": "Victoria Barracks, Melbourne",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -37.8274,
+"lon": 144.97
+},
+{
+"qid": "Q5429986",
+"nama": "Fairbairn",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -35.302,
+"lon": 149.202
+},
+{
+"qid": "Q6797254",
+"nama": "Maygar Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -37.6842,
+"lon": 144.944
+},
+{
+"qid": "Q17616",
+"nama": "Snake Bay Aerodrome",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -11.42278,
+"lon": 130.65361
+},
+{
+"qid": "Q8037472",
+"nama": "Woy Woy Aerodrome",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -33.5042,
+"lon": 151.319
+},
+{
+"qid": "Q5630436",
+"nama": "HMAS Leeuwin",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -32.02899,
+"lon": 115.76576
+},
+{
+"qid": "Q105759459",
+"nama": "Youngtown Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -41.4784,
+"lon": 147.1637
+},
+{
+"qid": "Q7274973",
+"nama": "RAAF Curtin",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -17.58139,
+"lon": 123.82833
+},
+{
+"qid": "Q56053238",
+"nama": "Kingstown Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -32.00471,
+"lon": 115.55355
+},
+{
+"qid": "Q7178792",
+"nama": "Petrie Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -27.2833,
+"lon": 153.0
+},
+{
+"qid": "Q1551495",
+"nama": "RAAF Base Tindal",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -14.52111,
+"lon": 132.37778
+},
+{
+"qid": "Q114044121",
+"nama": "Naval Base Sydney",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Australia",
+"operator": "",
+"lat": -33.83795,
+"lon": 150.99609
+},
+{
+"qid": "Q2903084",
+"nama": "Oakey Army Aviation Centre",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -27.41139,
+"lon": 151.73528
+},
+{
+"qid": "Q7274966",
+"nama": "RAAF Bradfield Park",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -33.778,
+"lon": 151.149
+},
+{
+"qid": "Q4763383",
+"nama": "Anglesea Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -42.88936,
+"lon": 147.32595
+},
+{
+"qid": "Q5546823",
+"nama": "Georges Head Battery",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -33.8365,
+"lon": 151.258
+},
+{
+"qid": "Q1551483",
+"nama": "RAAF Williams",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -37.93113,
+"lon": 144.75389
+},
+{
+"qid": "Q1751264",
+"nama": "RAAF Base Townsville",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -19.25333,
+"lon": 146.765
+},
+{
+"qid": "Q7274962",
+"nama": "RAAF Base Rathmines",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -33.039,
+"lon": 151.592
+},
+{
+"qid": "Q3913999",
+"nama": "Gould Landing Ground",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -13.0865,
+"lon": 131.037
+},
+{
+"qid": "Q6671345",
+"nama": "Lone Pine Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -32.6189,
+"lon": 151.171
+},
+{
+"qid": "Q5933308",
+"nama": "Hughes Field",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -12.6889,
+"lon": 131.089
+},
+{
+"qid": "Q6475013",
+"nama": "Lake Boga Flying Boat Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -35.4511,
+"lon": 143.62769
+},
+{
+"qid": "Q6659713",
+"nama": "Livingstone Field",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -12.722,
+"lon": 131.088
+},
+{
+"qid": "Q24190754",
+"nama": "North Ward Defence Complex",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -19.2524,
+"lon": 146.8161
+},
+{
+"qid": "Q30693961",
+"nama": "Military Barracks, Toodyay",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -31.5276,
+"lon": 116.4219
+},
+{
+"qid": "Q7274986",
+"nama": "RAAF Station Tocumwal",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -35.8,
+"lon": 145.567
+},
+{
+"qid": "Q5458887",
+"nama": "Fleurs Aerodrome",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -33.8633,
+"lon": 150.775
+},
+{
+"qid": "Q7274977",
+"nama": "RAAF Station Cunderdin",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -31.62403,
+"lon": 117.22377
+},
+{
+"qid": "Q5646105",
+"nama": "Hampstead Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -34.87028,
+"lon": 138.62028
+},
+{
+"qid": "Q955792",
+"nama": "RAAF Base Pearce",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -31.66778,
+"lon": 116.015
+},
+{
+"qid": "Q7274976",
+"nama": "RAAF Learmonth",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -22.23583,
+"lon": 114.08861
+},
+{
+"qid": "Q21974329",
+"nama": "Second World War RAAF Buildings, Maryborough Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -25.5176,
+"lon": 152.711
+},
+{
+"qid": "Q10853535",
+"nama": "RAAF Base Darwin",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -12.41472,
+"lon": 130.87667
+},
+{
+"qid": "Q110771881",
+"nama": "NSW Mounted Police Barracks and NSW Taoist Centre",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -33.8926,
+"lon": 151.21316
+},
+{
+"qid": "Q98866298",
+"nama": "Wongan Hills Railway Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -30.89197,
+"lon": 116.71582
+},
+{
+"qid": "Q5325081",
+"nama": "Eagle Farm Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -27.425,
+"lon": 153.084
+},
+{
+"qid": "Q6747192",
+"nama": "Manbulloo Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -14.5995,
+"lon": 132.19
+},
+{
+"qid": "Q5379358",
+"nama": "Gallipoli Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -27.42528,
+"lon": 152.98333
+},
+{
+"qid": "Q7274980",
+"nama": "RAAF Scherger",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -12.62333,
+"lon": 142.08667
+},
+{
+"qid": "Q17584",
+"nama": "Tamworth Regional Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -31.08167,
+"lon": 150.85111
+},
+{
+"qid": "Q14935352",
+"nama": "Breddan Aerodrome",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -19.94284,
+"lon": 146.23929
+},
+{
+"qid": "Q7309983",
+"nama": "Reid River Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -19.7625,
+"lon": 146.844
+},
+{
+"qid": "Q7274984",
+"nama": "RAAF Station Sandgate",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -27.28982,
+"lon": 153.0638
+},
+{
+"qid": "Q96095827",
+"nama": "Kangaroo Flats Training Area",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Australia",
+"operator": "",
+"lat": -12.79278,
+"lon": 130.82583
+},
+{
+"qid": "Q6773239",
+"nama": "Marsden Park Aerodrome",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -33.6667,
+"lon": 150.783
+},
+{
+"qid": "Q7426542",
+"nama": "Sattler Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -12.61,
+"lon": 131.052
+},
+{
+"qid": "Q4973271",
+"nama": "Broke Aerodrome",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -32.74833,
+"lon": 151.10111
+},
+{
+"qid": "Q21923995",
+"nama": "Kalumburu Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -14.28518,
+"lon": 126.63614
+},
+{
+"qid": "Q6672204",
+"nama": "Long Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -13.5831,
+"lon": 131.423
+},
+{
+"qid": "Q7135607",
+"nama": "Parap Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -12.4297,
+"lon": 130.842
+},
+{
+"qid": "Q55394555",
+"nama": "Dubbo RAAF Stores Depot",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -32.26,
+"lon": 148.619
+},
+{
+"qid": "Q2741619",
+"nama": "Jervis Bay Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -35.14667,
+"lon": 150.69667
+},
+{
+"qid": "Q7274961",
+"nama": "RAAF Base Glenbrook",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -33.76333,
+"lon": 150.63667
+},
+{
+"qid": "Q7521069",
+"nama": "Simpson Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Australia",
+"operator": "",
+"lat": -37.723,
+"lon": 145.093
+},
+{
+"qid": "Q66975005",
+"nama": "Corunna Downs Wartime Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -21.42944,
+"lon": 119.78349
+},
+{
+"qid": "Q97703570",
+"nama": "Wooloomanata Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -37.93667,
+"lon": 144.37167
+},
+{
+"qid": "Q97702446",
+"nama": "Nackeroo Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -15.57667,
+"lon": 130.475
+},
+{
+"qid": "Q62073571",
+"nama": "HMAS Stirling",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -32.24167,
+"lon": 115.68333
+},
+{
+"qid": "Q136992033",
+"nama": "Brymaroo Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -27.2158,
+"lon": 151.602
+},
+{
+"qid": "Q107088005",
+"nama": "Leyburn Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -27.36972,
+"lon": 152.55972
+},
+{
+"qid": "Q124357980",
+"nama": "Monomeith Park Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -38.2125,
+"lon": 145.56639
+},
+{
+"qid": "Q64979901",
+"nama": "7 Mile Aerodrome",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Australia",
+"operator": "",
+"lat": -23.7983,
+"lon": 133.883
+},
+{
+"qid": "Q65069893",
+"nama": "St Kilda Artillery Orderly Room and Drill Hall",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Australia",
+"operator": "",
+"lat": -37.86,
+"lon": 144.9924
+},
+{
+"qid": "Q60232199",
+"nama": "Cootamundra No. 3 AIFD",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Australia",
+"operator": "",
+"lat": -34.6518,
+"lon": 148.0148
+},
+{
+"qid": "Q85801634",
+"nama": "Small Arms Magazine, Enoggera",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Australia",
+"operator": "",
+"lat": -27.4247,
+"lon": 152.9848
+},
+{
+"qid": "Q5470772",
+"nama": "Fort Banks",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Australia",
+"operator": "",
+"lat": -33.9947,
+"lon": 151.25
+},
+{
+"qid": "Q85783005",
+"nama": "Macrossan Stores Depot Group",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Australia",
+"operator": "",
+"lat": -20.0083,
+"lon": 146.4882
+},
+{
+"qid": "Q96400836",
+"nama": "RAAF Base Amberley heritage structures",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Australia",
+"operator": "",
+"lat": -27.6394,
+"lon": 152.7072
+},
+{
+"qid": "Q65081039",
+"nama": "Hunter River Lancers Training Depot",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Australia",
+"operator": "",
+"lat": -30.5195,
+"lon": 151.6582
+},
+{
+"qid": "Q85799952",
+"nama": "School of Musketry, Enoggera",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Australia",
+"operator": "",
+"lat": -27.4244,
+"lon": 152.9859
+},
+{
+"qid": "Q85796564",
+"nama": "Remount Complex, Enoggera",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Australia",
+"operator": "",
+"lat": -27.4296,
+"lon": 152.9831
+},
+{
+"qid": "Q85759389",
+"nama": "Enoggera Magazine Complex",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Australia",
+"operator": "",
+"lat": -27.4341,
+"lon": 152.9779
+},
+{
+"qid": "Q86755267",
+"nama": "Cootamundra World War II Fuel Depot",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Australia",
+"operator": "",
+"lat": -34.6519,
+"lon": 148.0148
+},
+{
+"qid": "Q1898404",
+"nama": "Naval Communication Station Harold E. Holt",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Australia",
+"operator": "",
+"lat": -21.8164,
+"lon": 114.16563
+},
+{
+"qid": "Q65069607",
+"nama": "Fort Gellibrand",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Australia",
+"operator": "",
+"lat": -37.8694,
+"lon": 144.9061
+},
+{
+"qid": "Q112317442",
+"nama": "Royal Brunei Air Force Base, Rimba",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Brunei",
+"operator": "Royal Brunei Air Force",
+"lat": 4.94772,
+"lon": 114.92197
+},
+{
+"qid": "Q112082573",
+"nama": "Muara Naval Base",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Brunei",
+"operator": "Royal Brunei Navy",
+"lat": 5.03214,
+"lon": 115.08168
+},
+{
+"qid": "Q115051961",
+"nama": "Bolkiah Garrison",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Brunei",
+"operator": "",
+"lat": 4.92616,
+"lon": 114.93539
+},
+{
+"qid": "Q6939126",
+"nama": "Murray Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "China",
+"operator": "",
+"lat": 22.2787,
+"lon": 114.161
+},
+{
+"qid": "Q112722409",
+"nama": "Ianfong Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "China",
+"operator": "",
+"lat": 24.53942,
+"lon": 118.59323
+},
+{
+"qid": "Q115867031",
+"nama": "Hetingcun Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "China",
+"operator": "",
+"lat": 24.651,
+"lon": 117.7603
+},
+{
+"qid": "Q112721973",
+"nama": "Weitou Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "China",
+"operator": "",
+"lat": 24.5336,
+"lon": 118.5778
+},
+{
+"qid": "Q16868552",
+"nama": "Lei Yue Mun Park",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "China",
+"operator": "Leisure and Cultural Services Department",
+"lat": 22.27762,
+"lon": 114.23261
+},
+{
+"qid": "Q112721778",
+"nama": "Dashi Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "China",
+"operator": "",
+"lat": 24.5291,
+"lon": 118.5728
+},
+{
+"qid": "Q6759727",
+"nama": "Moorish Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "China",
+"operator": "",
+"lat": 22.18736,
+"lon": 113.53261
+},
+{
+"qid": "Q5618304",
+"nama": "Gun Club Hill Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "China",
+"operator": "",
+"lat": 22.3036,
+"lon": 114.177
+},
+{
+"qid": "Q111932550",
+"nama": "Zhangzhou Airbase",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "",
+"lat": 24.56167,
+"lon": 117.65472
+},
+{
+"qid": "Q3887941",
+"nama": "Hengyang Bajialing Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "",
+"lat": 26.90528,
+"lon": 112.62778
+},
+{
+"qid": "Q7169491",
+"nama": "Perowne Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "China",
+"operator": "",
+"lat": 22.3732,
+"lon": 113.992
+},
+{
+"qid": "Q97301157",
+"nama": "Sanya Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "Southern Theater Command Navy",
+"lat": 18.28778,
+"lon": 109.46035
+},
+{
+"qid": "Q8044559",
+"nama": "Xingning Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "",
+"lat": 24.15,
+"lon": 115.757
+},
+{
+"qid": "Q7275409",
+"nama": "RAF Kai Tak",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "Royal Air Force",
+"lat": 22.3286,
+"lon": 114.194
+},
+{
+"qid": "Q7105757",
+"nama": "Osborn Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "China",
+"operator": "",
+"lat": 22.3372,
+"lon": 114.18
+},
+{
+"qid": "Q17040174",
+"nama": "Fuzhou Yixu Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "",
+"lat": 26.00444,
+"lon": 119.3125
+},
+{
+"qid": "Q116688953",
+"nama": "Xincheng AIrbase",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "",
+"lat": 25.54833,
+"lon": 114.61861
+},
+{
+"qid": "Q6678623",
+"nama": "Loping Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "United States Army Air Forces",
+"lat": 24.84667,
+"lon": 104.30944
+},
+{
+"qid": "Q6702798",
+"nama": "Luliang Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "",
+"lat": 24.98806,
+"lon": 103.6425
+},
+{
+"qid": "Q17026903",
+"nama": "Guilin Qifengling Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "",
+"lat": 25.19439,
+"lon": 110.31975
+},
+{
+"qid": "Q6919538",
+"nama": "Mount Austin Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "China",
+"operator": "",
+"lat": 22.2713,
+"lon": 114.15
+},
+{
+"qid": "Q112721545",
+"nama": "Weitoutsiau Radar Station",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "China",
+"operator": "",
+"lat": 24.51206,
+"lon": 118.57074
+},
+{
+"qid": "Q7487360",
+"nama": "Sham Shui Po Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "China",
+"operator": "",
+"lat": 22.332,
+"lon": 114.158
+},
+{
+"qid": "Q3234808",
+"nama": "Shantou Waisha Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "People's Liberation Army Air Force",
+"lat": 23.425,
+"lon": 116.76028
+},
+{
+"qid": "Q5473352",
+"nama": "Foshan Shadi Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "",
+"lat": 23.0825,
+"lon": 113.07083
+},
+{
+"qid": "Q6425993",
+"nama": "Kohima Camp",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "China",
+"operator": "",
+"lat": 22.3367,
+"lon": 114.265
+},
+{
+"qid": "Q48905014",
+"nama": "Yunnanyi Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "People's Liberation Army Air Force",
+"lat": 25.44722,
+"lon": 100.73361
+},
+{
+"qid": "Q7926581",
+"nama": "Victoria Barracks, Hong Kong",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "China",
+"operator": "",
+"lat": 22.279,
+"lon": 114.164
+},
+{
+"qid": "Q7504768",
+"nama": "Shuimen Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "",
+"lat": 26.9419,
+"lon": 120.077
+},
+{
+"qid": "Q7981332",
+"nama": "Wellington Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "China",
+"operator": "",
+"lat": 22.2784,
+"lon": 114.166
+},
+{
+"qid": "Q28795686",
+"nama": "Zhangpu Airbase",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "",
+"lat": 24.0427,
+"lon": 117.8567
+},
+{
+"qid": "Q8048599",
+"nama": "Yangkai Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "China",
+"operator": "United States Army Air Forces",
+"lat": 25.40414,
+"lon": 103.11281
+},
+{
+"qid": "Q113662734",
+"nama": "Jiaoyu Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "China",
+"operator": "",
+"lat": 24.5522,
+"lon": 118.40328
+},
+{
+"qid": "Q11087325",
+"nama": "Ngong Shuen Chau Naval Base",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "China",
+"operator": "People's Liberation Army Navy",
+"lat": 22.32222,
+"lon": 114.13611
+},
+{
+"qid": "Q1332829",
+"nama": "Soewondo Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": 3.55806,
+"lon": 98.67167
+},
+{
+"qid": "Q69138157",
+"nama": "Fort Amsterdam",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Indonesia",
+"operator": "",
+"lat": 1.49253,
+"lon": 124.84026
+},
+{
+"qid": "Q2819228",
+"nama": "Prince M. Bunyamin Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": -4.61667,
+"lon": 105.23333
+},
+{
+"qid": "Q25467731",
+"nama": "Sugiri Sukani Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": -6.6784,
+"lon": 108.2522
+},
+{
+"qid": "Q7673068",
+"nama": "Tabing Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": -0.8807,
+"lon": 100.3539
+},
+{
+"qid": "Q2483033",
+"nama": "Suryadarma Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": -6.55,
+"lon": 107.67
+},
+{
+"qid": "Q7960879",
+"nama": "Wakde Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": -1.93899,
+"lon": 139.01429
+},
+{
+"qid": "Q388394",
+"nama": "Iswahyudi Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": -7.61278,
+"lon": 111.43306
+},
+{
+"qid": "Q723474",
+"nama": "Supadio International Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": -0.15056,
+"lon": 109.40389
+},
+{
+"qid": "Q138297341",
+"nama": "Melonguane naval base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Indonesia",
+"operator": "",
+"lat": 4.00359,
+"lon": 126.71482
+},
+{
+"qid": "Q1331016",
+"nama": "Dumatubin Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": -5.66139,
+"lon": 132.73139
+},
+{
+"qid": "Q137531030",
+"nama": "Lanal Sabang",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Indonesia",
+"operator": "",
+"lat": 5.89175,
+"lon": 95.32592
+},
+{
+"qid": "Q6694741",
+"nama": "Lt. Col. Wisnu Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": -8.14172,
+"lon": 114.6185
+},
+{
+"qid": "Q780450",
+"nama": "Hang Nadim International Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": 1.12083,
+"lon": 104.11861
+},
+{
+"qid": "Q137531864",
+"nama": "Lanal Kendari",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Indonesia",
+"operator": "",
+"lat": -3.97714,
+"lon": 122.5949
+},
+{
+"qid": "Q7418970",
+"nama": "Sansapor Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": -0.41825,
+"lon": 132.19236
+},
+{
+"qid": "Q65210630",
+"nama": "Lanal Semarang",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Indonesia",
+"operator": "",
+"lat": -6.9637,
+"lon": 110.39373
+},
+{
+"qid": "Q19730186",
+"nama": "Atang Senjaya Airbase",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": -6.53889,
+"lon": 106.75528
+},
+{
+"qid": "Q6841733",
+"nama": "Middleburg Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": -0.37043,
+"lon": 132.19516
+},
+{
+"qid": "Q18821729",
+"nama": "Sulaiman Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Indonesia",
+"operator": "",
+"lat": -6.98273,
+"lon": 107.57292
+},
+{
+"qid": "Q3913389",
+"nama": "Hakimpet Air Force Station",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "India",
+"operator": "Training Command",
+"lat": 17.3312,
+"lon": 78.3129
+},
+{
+"qid": "Q3015517",
+"nama": "INS Utkrosh",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "India",
+"operator": "Indian Navy",
+"lat": 11.64111,
+"lon": 92.72972
+},
+{
+"qid": "Q113560234",
+"nama": "Ratnagiri Fort",
+"nama_id": "",
+"jenis": "military base",
+"negara": "India",
+"operator": "",
+"lat": 13.81054,
+"lon": 77.1303
+},
+{
+"qid": "Q3017567",
+"nama": "Thanjavur Air Force Station",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "India",
+"operator": "Indian Air Force",
+"lat": 10.72222,
+"lon": 79.10139
+},
+{
+"qid": "Q12692963",
+"nama": "Hasimara Air Force Station",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "India",
+"operator": "Indian Air Force",
+"lat": 26.6983,
+"lon": 89.3691
+},
+{
+"qid": "Q2822983",
+"nama": "Achalgarh Fort",
+"nama_id": "",
+"jenis": "military base",
+"negara": "India",
+"operator": "Mewar",
+"lat": 24.6156,
+"lon": 72.7687
+},
+{
+"qid": "Q4863172",
+"nama": "Barrackpore Air Force Station",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "India",
+"operator": "Indian Air Force",
+"lat": 22.78194,
+"lon": 88.35917
+},
+{
+"qid": "Q5972472",
+"nama": "INS Baaz",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "India",
+"operator": "Indian Navy",
+"lat": 7.01111,
+"lon": 93.92222
+},
+{
+"qid": "Q3531530",
+"nama": "Sulur Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "India",
+"operator": "Indian Air Force",
+"lat": 11.01361,
+"lon": 77.15972
+},
+{
+"qid": "Q3623953",
+"nama": "Dum Dum Arsenal",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "India",
+"operator": "",
+"lat": 22.62,
+"lon": 88.42
+},
+{
+"qid": "Q2673008",
+"nama": "Lokpriya Gopinath Bordoloi International Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "India",
+"operator": "Indian Air Force",
+"lat": 26.10611,
+"lon": 91.58583
+},
+{
+"qid": "Q7141965",
+"nama": "Pashan Test Range",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "India",
+"operator": "Armament Research and Development Establishment",
+"lat": 18.53881,
+"lon": 73.80129
+},
+{
+"qid": "Q131299041",
+"nama": "Malkhed Fort",
+"nama_id": "",
+"jenis": "military base",
+"negara": "India",
+"operator": "",
+"lat": 17.19333,
+"lon": 77.15667
+},
+{
+"qid": "Q107675717",
+"nama": "INS Angre",
+"nama_id": "",
+"jenis": "military base",
+"negara": "India",
+"operator": "",
+"lat": 18.9317,
+"lon": 72.83728
+},
+{
+"qid": "Q17070204",
+"nama": "William Fort",
+"nama_id": "",
+"jenis": "military base",
+"negara": "India",
+"operator": "",
+"lat": 10.5254,
+"lon": 76.0423
+},
+{
+"qid": "Q7461611",
+"nama": "Shahi Qila",
+"nama_id": "",
+"jenis": "military base",
+"negara": "India",
+"operator": "Tughlaq dynasty",
+"lat": 25.74975,
+"lon": 82.68852
+},
+{
+"qid": "Q2172548",
+"nama": "Car Nicobar Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "India",
+"operator": "Indian Air Force",
+"lat": 9.1525,
+"lon": 92.81972
+},
+{
+"qid": "Q18615537",
+"nama": "Paranda Fort",
+"nama_id": "",
+"jenis": "military base",
+"negara": "India",
+"operator": "",
+"lat": 18.27012,
+"lon": 75.45319
+},
+{
+"qid": "Q12695428",
+"nama": "Uttarlai Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "India",
+"operator": "Indian Air Force",
+"lat": 25.81299,
+"lon": 71.48229
+},
+{
+"qid": "Q117100886",
+"nama": "INS Netaji Subhas",
+"nama_id": "",
+"jenis": "military base",
+"negara": "India",
+"operator": "Eastern Naval Command",
+"lat": 22.5521,
+"lon": 88.3279
+},
+{
+"qid": "Q6361095",
+"nama": "Kanchrapara Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "India",
+"operator": "",
+"lat": 22.92278,
+"lon": 88.45972
+},
+{
+"qid": "Q13117117",
+"nama": "Sangram Durg",
+"nama_id": "",
+"jenis": "military base",
+"negara": "India",
+"operator": "Bijapur Sultanate",
+"lat": 18.7567,
+"lon": 73.85982
+},
+{
+"qid": "Q19807300",
+"nama": "Takmak fort",
+"nama_id": "",
+"jenis": "military base",
+"negara": "India",
+"operator": "",
+"lat": 19.56408,
+"lon": 72.94348
+},
+{
+"qid": "Q31495784",
+"nama": "Gurramkonda Fort",
+"nama_id": "",
+"jenis": "military base",
+"negara": "India",
+"operator": "",
+"lat": 13.77683,
+"lon": 78.58611
+},
+{
+"qid": "Q85847116",
+"nama": "Sabeya Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "India",
+"operator": "",
+"lat": 26.39833,
+"lon": 84.29292
+},
+{
+"qid": "Q24950049",
+"nama": "Dronagiri Fort द्रौणपुर रियासत",
+"nama_id": "",
+"jenis": "military base",
+"negara": "India",
+"operator": "",
+"lat": 18.86696,
+"lon": 72.93588
+},
+{
+"qid": "Q6350188",
+"nama": "Kalaikunda Air Force Station",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "India",
+"operator": "Indian Air Force",
+"lat": 22.33942,
+"lon": 87.21455
+},
+{
+"qid": "Q1837207",
+"nama": "Charbatia Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "India",
+"operator": "",
+"lat": 20.54962,
+"lon": 85.88626
+},
+{
+"qid": "Q6428950",
+"nama": "Kondapalli Fort",
+"nama_id": "",
+"jenis": "military base",
+"negara": "India",
+"operator": "Government of Andhra Pradesh",
+"lat": 16.6253,
+"lon": 80.5307
+},
+{
+"qid": "Q17064236",
+"nama": "Ream Naval Base",
+"nama_id": "Pangkalan Angkatan Laut Ream",
+"jenis": "naval base",
+"negara": "Kamboja",
+"operator": "Royal Cambodian Navy",
+"lat": 10.50722,
+"lon": 103.61194
+},
+{
+"qid": "Q118897229",
+"nama": "Hmawbi Air Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Myanmar",
+"operator": "",
+"lat": 17.12056,
+"lon": 96.06806
+},
+{
+"qid": "Q13070218",
+"nama": "Bahtoo Station",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Myanmar",
+"operator": "",
+"lat": 21.27828,
+"lon": 96.8547
+},
+{
+"qid": "Q19646447",
+"nama": "Timbalai Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Malaysia",
+"operator": "Imperial Japanese Army",
+"lat": 5.30083,
+"lon": 115.25028
+},
+{
+"qid": "Q127273801",
+"nama": "RMAF Jugra Air Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Malaysia",
+"operator": "",
+"lat": 2.823,
+"lon": 101.453
+},
+{
+"qid": "Q12684386",
+"nama": "Bukit Aman",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Malaysia",
+"operator": "",
+"lat": 3.1484,
+"lon": 101.6884
+},
+{
+"qid": "Q7275429",
+"nama": "RAF Kuala Lumpur",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Malaysia",
+"operator": "Royal Air Force",
+"lat": 3.11222,
+"lon": 101.7025
+},
+{
+"qid": "Q3235616",
+"nama": "Sultan Haji Ahmad Shah Airport",
+"nama_id": "Bandar Udara Sultan Haji Ahmad Shah",
+"jenis": "airbase",
+"negara": "Malaysia",
+"operator": "Malaysian Armed Forces",
+"lat": 3.77517,
+"lon": 103.20857
+},
+{
+"qid": "Q1551466",
+"nama": "RMAF Butterworth",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Malaysia",
+"operator": "Royal Malaysian Air Force",
+"lat": 5.46611,
+"lon": 100.39111
+},
+{
+"qid": "Q1082819",
+"nama": "Simpang Airport",
+"nama_id": "Bandar Udara Simpang",
+"jenis": "airbase",
+"negara": "Malaysia",
+"operator": "Royal Malaysian Air Force",
+"lat": 3.11222,
+"lon": 101.7025
+},
+{
+"qid": "Q19798652",
+"nama": "Layang-Layang Airport",
+"nama_id": "Bandar Udara Layang-Layang",
+"jenis": "airbase",
+"negara": "Malaysia",
+"operator": "Ministry of Defence of Malaysia",
+"lat": 7.37157,
+"lon": 113.844
+},
+{
+"qid": "Q7276970",
+"nama": "RMAF Gong Kedak",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Malaysia",
+"operator": "Royal Malaysian Air Force",
+"lat": 5.79889,
+"lon": 102.49028
+},
+{
+"qid": "Q135287454",
+"nama": "Camp Mindef",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Malaysia",
+"operator": "",
+"lat": 3.17778,
+"lon": 101.72444
+},
+{
+"qid": "Q109238072",
+"nama": "RMN Lumut Naval Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Malaysia",
+"operator": "",
+"lat": 4.22833,
+"lon": 100.61167
+},
+{
+"qid": "Q7359257",
+"nama": "Rogers Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "Fifth Air Force",
+"lat": -9.04364,
+"lon": 146.89453
+},
+{
+"qid": "Q5630610",
+"nama": "HMAS Tarangau",
+"nama_id": "",
+"jenis": "naval base",
+"negara": "Papua Nugini",
+"operator": "",
+"lat": -2.04028,
+"lon": 147.37194
+},
+{
+"qid": "Q114352551",
+"nama": "Naval Base Alexishafen",
+"nama_id": "",
+"jenis": "naval base",
+"negara": "Papua Nugini",
+"operator": "Allies of World War II",
+"lat": -5.08904,
+"lon": 145.80406
+},
+{
+"qid": "Q7969202",
+"nama": "Wards Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "Fifth Air Force",
+"lat": -9.43021,
+"lon": 147.18209
+},
+{
+"qid": "Q6406485",
+"nama": "Kila Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "United States Army Air Forces",
+"lat": -9.49026,
+"lon": 147.192
+},
+{
+"qid": "Q5454916",
+"nama": "Fishermans Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "United States Army Air Forces",
+"lat": -9.51323,
+"lon": 147.05057
+},
+{
+"qid": "Q4894757",
+"nama": "Berry Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "Fifth Air Force",
+"lat": -9.38883,
+"lon": 147.24523
+},
+{
+"qid": "Q4946540",
+"nama": "Borpop Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "Imperial Japanese Navy",
+"lat": -3.87611,
+"lon": 152.8125
+},
+{
+"qid": "Q104368990",
+"nama": "Fergusson Island PT Boat Base",
+"nama_id": "",
+"jenis": "naval base",
+"negara": "Papua Nugini",
+"operator": "",
+"lat": -9.67732,
+"lon": 150.83127
+},
+{
+"qid": "Q7990221",
+"nama": "Wewak Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "",
+"lat": -3.55,
+"lon": 143.63333
+},
+{
+"qid": "Q5372593",
+"nama": "Emirau Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "United States Marine Corps",
+"lat": -1.64167,
+"lon": 149.975
+},
+{
+"qid": "Q131007868",
+"nama": "HMS Nabaron",
+"nama_id": "",
+"jenis": "Mobile Naval Air Base",
+"negara": "Papua Nugini",
+"operator": "Royal Navy",
+"lat": -1.9125,
+"lon": 146.88556
+},
+{
+"qid": "Q6680473",
+"nama": "Lorengau Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "",
+"lat": -2.02028,
+"lon": 147.26667
+},
+{
+"qid": "Q5034979",
+"nama": "Cape Opmarai Airfield",
+"nama_id": "Lapangan Terbang Tanjung Opmarai",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "United States",
+"lat": -0.47056,
+"lon": 132.12222
+},
+{
+"qid": "Q5316185",
+"nama": "Durand Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "Fifth Air Force",
+"lat": -9.3826,
+"lon": 147.17327
+},
+{
+"qid": "Q7103683",
+"nama": "Oro Bay Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "United States Army Air Forces",
+"lat": -8.67121,
+"lon": 148.41179
+},
+{
+"qid": "Q133321694",
+"nama": "Dobodura Airfield Complex",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "",
+"lat": -8.78417,
+"lon": 148.34139
+},
+{
+"qid": "Q6393844",
+"nama": "Kerevat Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "",
+"lat": -4.31306,
+"lon": 152.1
+},
+{
+"qid": "Q7433291",
+"nama": "Schwimmer Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "Fifth Air Force",
+"lat": -9.37377,
+"lon": 147.23245
+},
+{
+"qid": "Q7855839",
+"nama": "Turnbull Field",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Papua Nugini",
+"operator": "United States Army Air Forces",
+"lat": -10.3037,
+"lon": 150.38865
+},
+{
+"qid": "Q31509915",
+"nama": "Sangley Point Naval Station",
+"nama_id": "",
+"jenis": "naval base",
+"negara": "Filipina",
+"operator": "",
+"lat": 14.49833,
+"lon": 120.91333
+},
+{
+"qid": "Q117061583",
+"nama": "Camp Evangelista",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Filipina",
+"operator": "",
+"lat": 8.48908,
+"lon": 124.62317
+},
+{
+"qid": "Q2663480",
+"nama": "Villamor Airbase",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "Philippine Air Force",
+"lat": 14.50861,
+"lon": 121.01944
+},
+{
+"qid": "Q18206746",
+"nama": "Edwin Andrews Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "Philippine Air Force",
+"lat": 6.9225,
+"lon": 122.06
+},
+{
+"qid": "Q127220619",
+"nama": "Lahug Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "United States Air Force",
+"lat": 10.32972,
+"lon": 123.90722
+},
+{
+"qid": "Q12692740",
+"nama": "Fort Magsaysay Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "Philippine Army",
+"lat": 15.43389,
+"lon": 121.08722
+},
+{
+"qid": "Q18393232",
+"nama": "Rajah Buayan Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "Philippine Air Force",
+"lat": 6.10639,
+"lon": 125.235
+},
+{
+"qid": "Q132717526",
+"nama": "Naval Base Camilo Osias",
+"nama_id": "",
+"jenis": "naval base",
+"negara": "Filipina",
+"operator": "",
+"lat": 18.50417,
+"lon": 122.14861
+},
+{
+"qid": "Q1707982",
+"nama": "Danilo Atienza Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "Philippine Air Force",
+"lat": 14.49132,
+"lon": 120.89389
+},
+{
+"qid": "Q3017866",
+"nama": "Naval Air Station Cubi Point",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "United States Navy",
+"lat": 14.79654,
+"lon": 120.27669
+},
+{
+"qid": "Q16901528",
+"nama": "The U.S. Naval Communication Station Philippines",
+"nama_id": "",
+"jenis": "naval base",
+"negara": "Filipina",
+"operator": "",
+"lat": 14.9566,
+"lon": 120.066
+},
+{
+"qid": "Q2343940",
+"nama": "Basa Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "Philippine Air Force",
+"lat": 14.98667,
+"lon": 120.49333
+},
+{
+"qid": "Q11000001",
+"nama": "Nichols Field",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "United States Army Air Service",
+"lat": 14.50944,
+"lon": 121.01833
+},
+{
+"qid": "Q5471583",
+"nama": "Fort Magsaysay",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Filipina",
+"operator": "Philippine Army",
+"lat": 15.43389,
+"lon": 121.08722
+},
+{
+"qid": "Q124117743",
+"nama": "Camp Lapu-Lapu",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Filipina",
+"operator": "",
+"lat": 10.33667,
+"lon": 123.90194
+},
+{
+"qid": "Q3077786",
+"nama": "Fort Bonifacio",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Filipina",
+"operator": "Philippine Army",
+"lat": 14.5325,
+"lon": 121.045
+},
+{
+"qid": "Q3344253",
+"nama": "Lumbia Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "Philippine Air Force",
+"lat": 8.41621,
+"lon": 124.61136
+},
+{
+"qid": "Q1095676",
+"nama": "Clark Air Base",
+"nama_id": "Pangkalan Udara Clark",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "",
+"lat": 15.18583,
+"lon": 120.56028
+},
+{
+"qid": "Q5252937",
+"nama": "Del Monte Airfield",
+"nama_id": "Pangkalan Udara Del Monte",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "United States Army Air Forces",
+"lat": 8.36155,
+"lon": 124.83333
+},
+{
+"qid": "Q6981757",
+"nama": "Pascual Ledesma Naval Station",
+"nama_id": "",
+"jenis": "naval base",
+"negara": "Filipina",
+"operator": "",
+"lat": 14.49488,
+"lon": 120.90633
+},
+{
+"qid": "Q27628345",
+"nama": "Camp Iranun",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Filipina",
+"operator": "",
+"lat": 7.21667,
+"lon": 124.25
+},
+{
+"qid": "Q5026979",
+"nama": "Camp Atienza",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Filipina",
+"operator": "Philippine Army",
+"lat": 14.61575,
+"lon": 121.07713
+},
+{
+"qid": "Q6743788",
+"nama": "Malinta Tunnel",
+"nama_id": "Terowongan Malinta",
+"jenis": "military base",
+"negara": "Filipina",
+"operator": "",
+"lat": 14.38755,
+"lon": 120.58928
+},
+{
+"qid": "Q6238344",
+"nama": "John Hay Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "",
+"lat": 16.3926,
+"lon": 120.6193
+},
+{
+"qid": "Q7962732",
+"nama": "Wallace Air Station",
+"nama_id": "",
+"jenis": "naval station",
+"negara": "Filipina",
+"operator": "",
+"lat": 16.6206,
+"lon": 120.281
+},
+{
+"qid": "Q2360285",
+"nama": "Mactan Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "Philippine Air Force",
+"lat": 10.31333,
+"lon": 123.98278
+},
+{
+"qid": "Q17512364",
+"nama": "Antonio Bautista Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "Philippine Air Force",
+"lat": 9.74222,
+"lon": 118.759
+},
+{
+"qid": "Q2231994",
+"nama": "Naval Station Sangley Point",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Filipina",
+"operator": "",
+"lat": 14.49131,
+"lon": 120.89386
+},
+{
+"qid": "Q5027186",
+"nama": "Camp General Basilio Navarro",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Filipina",
+"operator": "Armed Forces of the Philippines",
+"lat": 6.91792,
+"lon": 122.04116
+},
+{
+"qid": "Q2242841",
+"nama": "Tengah Air Base",
+"nama_id": "Pangkalan Angkatan Udara Tengah",
+"jenis": "airbase",
+"negara": "Singapura",
+"operator": "Republic of Singapore Air Force",
+"lat": 1.38722,
+"lon": 103.70861
+},
+{
+"qid": "Q14874265",
+"nama": "Mount Vernon Camp",
+"nama_id": "",
+"jenis": "cantonment",
+"negara": "Singapura",
+"operator": "Singapore Police Force",
+"lat": 1.33928,
+"lon": 103.87911
+},
+{
+"qid": "Q5071978",
+"nama": "Changi Air Base (West)",
+"nama_id": "Pangkalan Udara Changi",
+"jenis": "airbase",
+"negara": "Singapura",
+"operator": "",
+"lat": 1.377,
+"lon": 103.982
+},
+{
+"qid": "Q876994",
+"nama": "Changi Naval Base",
+"nama_id": "",
+"jenis": "naval base",
+"negara": "Singapura",
+"operator": "",
+"lat": 1.32103,
+"lon": 104.02572
+},
+{
+"qid": "Q1836133",
+"nama": "Changi Air Base",
+"nama_id": "Pangkalan Udara Changi",
+"jenis": "airbase",
+"negara": "Singapura",
+"operator": "Republic of Singapore Air Force",
+"lat": 1.37626,
+"lon": 103.98318
+},
+{
+"qid": "Q11824745",
+"nama": "Pulau Sudong Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Singapura",
+"operator": "Republic of Singapore Air Force",
+"lat": 1.20528,
+"lon": 103.719
+},
+{
+"qid": "Q121854823",
+"nama": "RMN Woodlands Naval Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Singapura",
+"operator": "",
+"lat": 1.44889,
+"lon": 103.78083
+},
+{
+"qid": "Q20983856",
+"nama": "Gillman Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Singapura",
+"operator": "",
+"lat": 1.2783,
+"lon": 103.8022
+},
+{
+"qid": "Q14874463",
+"nama": "RAF Chia Keng",
+"nama_id": "",
+"jenis": "Royal Air Force station",
+"negara": "Singapura",
+"operator": "Royal Air Force",
+"lat": 1.36778,
+"lon": 103.873
+},
+{
+"qid": "Q3504948",
+"nama": "Paya Lebar Air Base",
+"nama_id": "Pangkalan Udara Paya Lebar",
+"jenis": "airbase",
+"negara": "Singapura",
+"operator": "Republic of Singapore Air Force",
+"lat": 1.36028,
+"lon": 103.90944
+},
+{
+"qid": "Q3497722",
+"nama": "Sembawang Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Singapura",
+"operator": "Republic of Singapore Air Force",
+"lat": 1.42528,
+"lon": 103.81278
+},
+{
+"qid": "Q1708760",
+"nama": "Old Chiang Rai Airport",
+"nama_id": "Bandar Udara Chiang Rai",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "Royal Thai Air Force",
+"lat": 19.89323,
+"lon": 99.8271
+},
+{
+"qid": "Q1299161",
+"nama": "Udon Thani International Airport",
+"nama_id": "Bandar Udara Udon Thani",
+"jenis": "military base",
+"negara": "Thailand",
+"operator": "",
+"lat": 17.38639,
+"lon": 102.78833
+},
+{
+"qid": "Q128693635",
+"nama": "Phang-nga Naval Base",
+"nama_id": "",
+"jenis": "naval base",
+"negara": "Thailand",
+"operator": "",
+"lat": 8.57412,
+"lon": 98.23159
+},
+{
+"qid": "Q5065943",
+"nama": "Cha Eian Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "Royal Thai Army",
+"lat": 8.46389,
+"lon": 99.95833
+},
+{
+"qid": "Q130579224",
+"nama": "Trat Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "",
+"lat": 12.25525,
+"lon": 102.51808
+},
+{
+"qid": "Q84731160",
+"nama": "Suratham Phithak Military Camp",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Thailand",
+"operator": "",
+"lat": 14.90897,
+"lon": 102.07014
+},
+{
+"qid": "Q16307028",
+"nama": "Thailand Artillery Center",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Thailand",
+"operator": "",
+"lat": 14.88061,
+"lon": 100.64015
+},
+{
+"qid": "Q7374906",
+"nama": "Royal Thai Air Base Nam Phong",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "",
+"lat": 16.65111,
+"lon": 102.9675
+},
+{
+"qid": "Q61365977",
+"nama": "Sattahip Naval Base",
+"nama_id": "",
+"jenis": "naval base",
+"negara": "Thailand",
+"operator": "",
+"lat": 12.62908,
+"lon": 100.92472
+},
+{
+"qid": "Q130419268",
+"nama": "HRH Prince Chumphon Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Thailand",
+"operator": "Royal Thai Navy",
+"lat": 12.6749,
+"lon": 100.88071
+},
+{
+"qid": "Q128771340",
+"nama": "Trat Logistics Naval Base",
+"nama_id": "",
+"jenis": "naval base",
+"negara": "Thailand",
+"operator": "",
+"lat": 12.18197,
+"lon": 102.32427
+},
+{
+"qid": "Q136746691",
+"nama": "Sa Pran Nak Army Airport",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Thailand",
+"operator": "",
+"lat": 14.95194,
+"lon": 100.64417
+},
+{
+"qid": "Q4402324",
+"nama": "Takhli Royal Thai Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "",
+"lat": 15.2681,
+"lon": 100.292
+},
+{
+"qid": "Q7876581",
+"nama": "Ubon Ratchathani Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "Royal Thai Air Force",
+"lat": 15.2511,
+"lon": 104.87
+},
+{
+"qid": "Q4356898",
+"nama": "Korat Royal Thai Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "Pacific Air Forces",
+"lat": 14.93444,
+"lon": 102.07861
+},
+{
+"qid": "Q12700142",
+"nama": "Chiangkham Airbase",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "",
+"lat": 19.5,
+"lon": 100.285
+},
+{
+"qid": "Q1655612",
+"nama": "Don Muang Royal Thai Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "",
+"lat": 13.9125,
+"lon": 100.60667
+},
+{
+"qid": "Q126171769",
+"nama": "Surat Thani Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "Royal Thai Air Force",
+"lat": 9.13616,
+"lon": 99.139
+},
+{
+"qid": "Q128672300",
+"nama": "Songkhla Naval Base",
+"nama_id": "",
+"jenis": "naval base",
+"negara": "Thailand",
+"operator": "",
+"lat": 7.21598,
+"lon": 100.58165
+},
+{
+"qid": "Q130448225",
+"nama": "Taksin Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Thailand",
+"operator": "",
+"lat": 12.61735,
+"lon": 102.11029
+},
+{
+"qid": "Q3565384",
+"nama": "Nakhon Phanom Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "Royal Thai Navy",
+"lat": 17.38389,
+"lon": 104.64306
+},
+{
+"qid": "Q126959108",
+"nama": "Saphannak Army Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "Royal Thai Army",
+"lat": 14.94994,
+"lon": 100.64347
+},
+{
+"qid": "Q7862930",
+"nama": "U-Tapao Royal Thai Navy Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "",
+"lat": 12.6797,
+"lon": 101.005
+},
+{
+"qid": "Q13021969",
+"nama": "Khok Kathiam Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "Royal Thai Air Force",
+"lat": 14.87222,
+"lon": 100.65833
+},
+{
+"qid": "Q7877292",
+"nama": "Udon Thani Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "Royal Thai Air Force",
+"lat": 17.3864,
+"lon": 102.788
+},
+{
+"qid": "Q131191831",
+"nama": "Chiang Klang Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "",
+"lat": 19.3,
+"lon": 100.85
+},
+{
+"qid": "Q12694513",
+"nama": "Prachuap Khiri Khan Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Thailand",
+"operator": "",
+"lat": 11.78667,
+"lon": 99.805
+},
+{
+"qid": "Q80911239",
+"nama": "Dong'aoling Radar Station",
+"nama_id": "",
+"jenis": "military radar station",
+"negara": "Taiwan",
+"operator": "Republic of China Air Force",
+"lat": 24.53789,
+"lon": 121.84912
+},
+{
+"qid": "Q20447726",
+"nama": "Chihhong Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Taiwan",
+"operator": "",
+"lat": 22.78628,
+"lon": 121.16894
+},
+{
+"qid": "Q97014179",
+"nama": "Fusing North Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.04656,
+"lon": 121.61494
+},
+{
+"qid": "Q104866045",
+"nama": "Chomosui Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Taiwan",
+"operator": "",
+"lat": 23.51806,
+"lon": 119.58417
+},
+{
+"qid": "Q21005896",
+"nama": "Chiayi Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Taiwan",
+"operator": "Ministry of National Defense",
+"lat": 23.46167,
+"lon": 120.39278
+},
+{
+"qid": "Q15929181",
+"nama": "Zuoying Naval Base",
+"nama_id": "",
+"jenis": "naval base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 22.69778,
+"lon": 120.26806
+},
+{
+"qid": "Q112973170",
+"nama": "Longmen Barracks",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.92782,
+"lon": 121.24251
+},
+{
+"qid": "Q11074487",
+"nama": "Chengkungling Barracks",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.11262,
+"lon": 120.60074
+},
+{
+"qid": "Q11074318",
+"nama": "Hwaisheng Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Taiwan",
+"operator": "Imperial Japanese Air Force",
+"lat": 24.9401,
+"lon": 121.3166
+},
+{
+"qid": "Q28790413",
+"nama": "Taishan Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 22.92265,
+"lon": 120.49263
+},
+{
+"qid": "Q112251975",
+"nama": "Jiupeng Campus of National Zhongshan Academy of Sciences",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 22.13386,
+"lon": 120.87936
+},
+{
+"qid": "Q49110351",
+"nama": "Yuegang Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "Ordnance Readiness Development Center",
+"lat": 23.8363,
+"lon": 120.75083
+},
+{
+"qid": "Q112623155",
+"nama": "Dahan Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.85165,
+"lon": 121.22633
+},
+{
+"qid": "Q35268681",
+"nama": "Jiashan Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Taiwan",
+"operator": "Air Force Headquarters, MND",
+"lat": 24.02733,
+"lon": 121.58942
+},
+{
+"qid": "Q708555",
+"nama": "Pingtung Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Taiwan",
+"operator": "Civil Aeronautics Administration",
+"lat": 22.67419,
+"lon": 120.46105
+},
+{
+"qid": "Q49655613",
+"nama": "Ailiao Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 22.66494,
+"lon": 120.5997
+},
+{
+"qid": "Q96972313",
+"nama": "Douhuanping Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.67924,
+"lon": 120.94164
+},
+{
+"qid": "Q96976250",
+"nama": "Zhongxin Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "Information, Communications and Electronic Force Command",
+"lat": 24.96462,
+"lon": 121.53911
+},
+{
+"qid": "Q113953980",
+"nama": "Hongtsailin Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.6893,
+"lon": 121.6701
+},
+{
+"qid": "Q15928764",
+"nama": "Clam Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.14371,
+"lon": 120.44996
+},
+{
+"qid": "Q11472101",
+"nama": "Gangshan Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Taiwan",
+"operator": "Republic of China Air Force",
+"lat": 22.78251,
+"lon": 120.26217
+},
+{
+"qid": "Q96972376",
+"nama": "Jinliujie  Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.75334,
+"lon": 121.73712
+},
+{
+"qid": "Q12694441",
+"nama": "Pingtung South Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Taiwan",
+"operator": "",
+"lat": 22.67237,
+"lon": 120.46173
+},
+{
+"qid": "Q110231611",
+"nama": "Zhinan military camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.98874,
+"lon": 121.57787
+},
+{
+"qid": "Q2963771",
+"nama": "Ching Chuan Kang Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.26,
+"lon": 120.62
+},
+{
+"qid": "Q97013998",
+"nama": "Qiding Barracks",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 23.59321,
+"lon": 120.52896
+},
+{
+"qid": "Q118908088",
+"nama": "Hsintian West Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.98774,
+"lon": 121.53537
+},
+{
+"qid": "Q124500200",
+"nama": "Chang'an Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.8911,
+"lon": 121.0881
+},
+{
+"qid": "Q116956728",
+"nama": "Dongshi Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.913,
+"lon": 121.2456
+},
+{
+"qid": "Q118906209",
+"nama": "Hsintian East Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.9865,
+"lon": 121.5384
+},
+{
+"qid": "Q114639178",
+"nama": "Xiyuan Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.9824,
+"lon": 121.52443
+},
+{
+"qid": "Q114853740",
+"nama": "Fengbitou Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 22.50915,
+"lon": 120.36076
+},
+{
+"qid": "Q118164160",
+"nama": "Tianshan Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 22.8535,
+"lon": 120.3347
+},
+{
+"qid": "Q117750449",
+"nama": "Wuri Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.10666,
+"lon": 120.61937
+},
+{
+"qid": "Q122731897",
+"nama": "Buqian Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 22.05136,
+"lon": 120.71495
+},
+{
+"qid": "Q126250926",
+"nama": "Jin'ing Barrack",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.72246,
+"lon": 120.89645
+},
+{
+"qid": "Q114414250",
+"nama": "Hunan Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Taiwan",
+"operator": "",
+"lat": 24.87726,
+"lon": 121.03295
+},
+{
+"qid": "Q708576",
+"nama": "Taitung Airport",
+"nama_id": "Bandar Udara Taitung",
+"jenis": "airbase",
+"negara": "Taiwan",
+"operator": "Republic of China Army",
+"lat": 22.75472,
+"lon": 121.10167
+},
+{
+"qid": "Q646013",
+"nama": "Kinmen Airport",
+"nama_id": "Bandar Udara Kinmen",
+"jenis": "airbase",
+"negara": "Taiwan",
+"operator": "Civil Aeronautics Administration",
+"lat": 24.42778,
+"lon": 118.35917
+},
+{
+"qid": "Q491372",
+"nama": "Andersen Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Amerika Serikat",
+"operator": "United States Air Force",
+"lat": 13.58395,
+"lon": 144.93003
+},
+{
+"qid": "Q25192682",
+"nama": "DoD Andersen AFB Communication South",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.4539,
+"lon": 144.81122
+},
+{
+"qid": "Q20736319",
+"nama": "Kobler Field",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Amerika Serikat",
+"operator": "United States Army Air Forces",
+"lat": 15.12389,
+"lon": 145.70694
+},
+{
+"qid": "Q7060035",
+"nama": "Northwest Field",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Amerika Serikat",
+"operator": "United States Army Air Forces",
+"lat": 13.62086,
+"lon": 144.85692
+},
+{
+"qid": "Q5659146",
+"nama": "Harmon Air Force Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Amerika Serikat",
+"operator": "United States Army Air Forces",
+"lat": 13.5,
+"lon": 144.80833
+},
+{
+"qid": "Q25192689",
+"nama": "DoD Andersen AFB Marbo Annex",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.51083,
+"lon": 144.87345
+},
+{
+"qid": "Q25187668",
+"nama": "DoD Naval Computer and Telecommunications Finegayan",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.5828,
+"lon": 144.84502
+},
+{
+"qid": "Q18391342",
+"nama": "Camp Eagle",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 16.408,
+"lon": 107.631
+},
+{
+"qid": "Q25192618",
+"nama": "DoD Nimitz Hill Reserve Officers Housing",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.4672,
+"lon": 144.72374
+},
+{
+"qid": "Q25192554",
+"nama": "DoD Andersen AFB Andy South",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.49856,
+"lon": 144.86774
+},
+{
+"qid": "Q6269350",
+"nama": "Joint Region Marianas",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.43944,
+"lon": 144.66139
+},
+{
+"qid": "Q25185557",
+"nama": "DoD Naval Reserve Outer Glass Breakwater",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.46438,
+"lon": 144.64406
+},
+{
+"qid": "Q25192599",
+"nama": "DoD Nimitz Hill Housing",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.45822,
+"lon": 144.71743
+},
+{
+"qid": "Q6923467",
+"nama": "Mount Santa Rita Naval Link Station",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 14.82202,
+"lon": 120.36369
+},
+{
+"qid": "Q25187667",
+"nama": "DoD Naval Hospital",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.47396,
+"lon": 144.74198
+},
+{
+"qid": "Q25192642",
+"nama": "DoD Naval Communication Station",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.48016,
+"lon": 144.82839
+},
+{
+"qid": "Q25192644",
+"nama": "DoD Reserve Admiral Nimitz Golf Course",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.46947,
+"lon": 144.82309
+},
+{
+"qid": "Q131152983",
+"nama": "Manenggon",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.39917,
+"lon": 144.75333
+},
+{
+"qid": "Q25192667",
+"nama": "DoD USAF Andersen AFB",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.58346,
+"lon": 144.92924
+},
+{
+"qid": "Q25197083",
+"nama": "DoD Andersen AFB Potts Junction Tank Farm",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.58622,
+"lon": 144.86212
+},
+{
+"qid": "Q105750380",
+"nama": "Marine Corps Base Camp Blaz",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.5698,
+"lon": 144.8407
+},
+{
+"qid": "Q3015976",
+"nama": "Naval Air Station Agana",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 13.48389,
+"lon": 144.79722
+},
+{
+"qid": "Q109359879",
+"nama": "Machinato Service Area Annex",
+"nama_id": "",
+"jenis": "military installation",
+"negara": "Amerika Serikat",
+"operator": "7th Psychological Operations Group",
+"lat": 26.26483,
+"lon": 127.71985
+},
+{
+"qid": "Q18388862",
+"nama": "Dĩ An Base Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Amerika Serikat",
+"operator": "",
+"lat": 10.9,
+"lon": 106.739
+},
+{
+"qid": "Q18639636",
+"nama": "Firebase Gio Linh",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 16.943,
+"lon": 107.076
+},
+{
+"qid": "Q18639570",
+"nama": "Dak Pek Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 15.075,
+"lon": 107.73889
+},
+{
+"qid": "Q18357143",
+"nama": "Bearcat Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 10.835,
+"lon": 106.96
+},
+{
+"qid": "Q113289174",
+"nama": "Vung Tau Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 10.37028,
+"lon": 107.09333
+},
+{
+"qid": "Q18737218",
+"nama": "Sóc Trăng Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 9.58,
+"lon": 105.959
+},
+{
+"qid": "Q109795843",
+"nama": "Fire Support Base Pershing",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "United States Army",
+"lat": 11.08728,
+"lon": 106.37941
+},
+{
+"qid": "Q18639487",
+"nama": "Ben Het Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 14.688,
+"lon": 107.661
+},
+{
+"qid": "Q18640048",
+"nama": "Quản Lợi Base Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 11.674,
+"lon": 106.663
+},
+{
+"qid": "Q18639377",
+"nama": "A Lưới Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 16.264,
+"lon": 107.23
+},
+{
+"qid": "Q7204456",
+"nama": "Pleiku Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 14.00444,
+"lon": 108.01722
+},
+{
+"qid": "Q23140262",
+"nama": "Quang Lang Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 18.97417,
+"lon": 105.0475
+},
+{
+"qid": "Q7188237",
+"nama": "Phu Cat Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 13.955,
+"lon": 109.04222
+},
+{
+"qid": "Q6672385",
+"nama": "Long Binh Jail",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 10.91731,
+"lon": 106.86749
+},
+{
+"qid": "Q18460735",
+"nama": "Cong Hoa Barracks",
+"nama_id": "",
+"jenis": "barracks",
+"negara": "Vietnam",
+"operator": "",
+"lat": 10.78588,
+"lon": 106.70233
+},
+{
+"qid": "Q10822627",
+"nama": "Hòa Lạc Air Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 21.0372,
+"lon": 105.4907
+},
+{
+"qid": "Q1973031",
+"nama": "Cam Ranh Air Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 11.99806,
+"lon": 109.21944
+},
+{
+"qid": "Q10822643",
+"nama": "Quinhon Airport",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 13.78167,
+"lon": 109.24056
+},
+{
+"qid": "Q60764565",
+"nama": "An Thoi Naval Base",
+"nama_id": "",
+"jenis": "naval base",
+"negara": "Vietnam",
+"operator": "Vietnam People's Navy",
+"lat": 10.019,
+"lon": 104.018
+},
+{
+"qid": "Q7180409",
+"nama": "Phan Rang Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 11.63361,
+"lon": 108.95194
+},
+{
+"qid": "Q18737243",
+"nama": "Tuy Hòa Base Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 12.985,
+"lon": 109.37972
+},
+{
+"qid": "Q18737187",
+"nama": "Phúc Yên Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 21.22111,
+"lon": 105.80722
+},
+{
+"qid": "Q85787685",
+"nama": "Nam Can Naval Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 8.755,
+"lon": 104.948
+},
+{
+"qid": "Q1626571",
+"nama": "Con Thien",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 16.90972,
+"lon": 106.98
+},
+{
+"qid": "Q18639524",
+"nama": "Catecka Base Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 13.865,
+"lon": 107.962
+},
+{
+"qid": "Q19839937",
+"nama": "Cai Cai Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 10.9258,
+"lon": 105.51
+},
+{
+"qid": "Q1029720",
+"nama": "Marble Mountain Air Facility",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "United States Marine Corps",
+"lat": 16.02809,
+"lon": 108.25194
+},
+{
+"qid": "Q619905",
+"nama": "Bien Hoa Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 10.97694,
+"lon": 106.81833
+},
+{
+"qid": "Q19840490",
+"nama": "Ninh Hòa Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 12.50444,
+"lon": 109.14667
+},
+{
+"qid": "Q18639520",
+"nama": "Cần Thơ Base Camp",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "People's Army of Vietnam",
+"lat": 10.052,
+"lon": 105.762
+},
+{
+"qid": "Q18392575",
+"nama": "Phu Bai Combat Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 16.40167,
+"lon": 107.70278
+},
+{
+"qid": "Q27627856",
+"nama": "Long Binh Post",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 10.91,
+"lon": 106.87
+},
+{
+"qid": "Q10822651",
+"nama": "Yên Bái Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 21.73885,
+"lon": 104.84875
+},
+{
+"qid": "Q18386286",
+"nama": "Camp Enari",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 13.86722,
+"lon": 108.03611
+},
+{
+"qid": "Q85774240",
+"nama": "Khe Gát Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 17.65972,
+"lon": 106.21778
+},
+{
+"qid": "Q60753289",
+"nama": "Camp Horn",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 16.074,
+"lon": 108.236
+},
+{
+"qid": "Q7857224",
+"nama": "Tuy Hoa Air Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 13.04944,
+"lon": 109.33361
+},
+{
+"qid": "Q2760781",
+"nama": "Kép Airbase",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 21.39472,
+"lon": 106.26111
+},
+{
+"qid": "Q18639440",
+"nama": "An Hoa Combat Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 15.785,
+"lon": 108.073
+},
+{
+"qid": "Q24191121",
+"nama": "Hill 327",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 16.013,
+"lon": 108.167
+},
+{
+"qid": "Q106963887",
+"nama": "Hill 100",
+"nama_id": "",
+"jenis": "firebase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 15.85,
+"lon": 108.2
+},
+{
+"qid": "Q18639545",
+"nama": "Chu Lai Base Area",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 15.455,
+"lon": 108.69
+},
+{
+"qid": "Q1656800",
+"nama": "Da Nang Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 16.04389,
+"lon": 108.19944
+},
+{
+"qid": "Q19841064",
+"nama": "Xuân Lộc Base Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 10.92139,
+"lon": 107.25556
+},
+{
+"qid": "Q1926602",
+"nama": "Nha Trang Air Base",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 12.2275,
+"lon": 109.19278
+},
+{
+"qid": "Q55138118",
+"nama": "Firebase Crook",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 11.39,
+"lon": 105.97
+},
+{
+"qid": "Q18391224",
+"nama": "Đức Phổ Base Camp",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 14.815,
+"lon": 108.96
+},
+{
+"qid": "Q60744450",
+"nama": "Kontum Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 14.356,
+"lon": 108.015
+},
+{
+"qid": "Q18737191",
+"nama": "Quảng Ngãi Airfield",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 15.1155,
+"lon": 108.771
+},
+{
+"qid": "Q18639518",
+"nama": "Cam Lộ Combat Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 16.812,
+"lon": 106.993
+},
+{
+"qid": "Q18386291",
+"nama": "Camp Radcliff",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 13.993,
+"lon": 108.6485
+},
+{
+"qid": "Q102124091",
+"nama": "LZ Sharon",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 16.6857,
+"lon": 107.156
+},
+{
+"qid": "Q108501991",
+"nama": "Chi Lăng Training Center",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 10.527,
+"lon": 105.024
+},
+{
+"qid": "Q18712972",
+"nama": "Firebase Pedro",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 16.71,
+"lon": 107.106
+},
+{
+"qid": "Q18737233",
+"nama": "Tây Lộc Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 16.47444,
+"lon": 107.57306
+},
+{
+"qid": "Q18712780",
+"nama": "Ban Me Thuot East Airfield",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 12.667,
+"lon": 108.12
+},
+{
+"qid": "Q18589104",
+"nama": "Plei Djereng Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 13.97,
+"lon": 107.642
+},
+{
+"qid": "Q101096788",
+"nama": "Hill 59",
+"nama_id": "",
+"jenis": "forward operating base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 15.34898,
+"lon": 108.71688
+},
+{
+"qid": "Q18639566",
+"nama": "Cửa Việt Base",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 16.905,
+"lon": 107.187
+},
+{
+"qid": "Q18386289",
+"nama": "Camp Evans",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 16.562,
+"lon": 107.38
+},
+{
+"qid": "Q18639726",
+"nama": "Hội An Base Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 15.889,
+"lon": 108.318
+},
+{
+"qid": "Q2886528",
+"nama": "Bach Mai Airfield",
+"nama_id": "",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 20.99667,
+"lon": 105.83194
+},
+{
+"qid": "Q18378669",
+"nama": "Blackhorse Base Camp",
+"nama_id": "",
+"jenis": "military base",
+"negara": "Vietnam",
+"operator": "",
+"lat": 10.827,
+"lon": 107.229
+},
+{
+"qid": "Q4115006",
+"nama": "Tan Son Nhut Air Base",
+"nama_id": "Pangkalan Udara Tân Sơn Nhứt",
+"jenis": "airbase",
+"negara": "Vietnam",
+"operator": "",
+"lat": 10.81889,
+"lon": 106.65194
+}
+]
+}

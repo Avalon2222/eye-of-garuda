@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Shield, Flag, Mountain, Waves, Cable, Ship, Plane, Satellite, Pentagon, Target, ArrowRightLeft, History, ChevronLeft, Layers } from "lucide-react";
+import { Shield, Flag, Mountain, Waves, Cable, Ship, Plane, Satellite, Pentagon, Target, ArrowRightLeft, History, ChevronLeft, Layers, PlaneTakeoff, Anchor } from "lucide-react";
 import { LAPISAN, GRUP_URUT, type LayerId, type Grup } from "@/lib/layers";
 import { terjemah, type Lang } from "@/lib/i18n";
 
@@ -18,6 +18,8 @@ const IKON: Record<LayerId, React.ComponentType<{ size?: number; className?: str
   radius: Target,
   sipri: ArrowRightLeft,
   insiden: History,
+  bandara: PlaneTakeoff,
+  pelabuhan: Anchor,
 };
 
 const KUNCI_GRUP: Record<Grup, "group_darat" | "group_laut" | "group_udara" | "group_analisis"> = {

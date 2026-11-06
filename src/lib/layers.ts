@@ -14,7 +14,9 @@ export type LayerId =
   | "zee"
   | "radius"
   | "sipri"
-  | "insiden";
+  | "insiden"
+  | "bandara"
+  | "pelabuhan";
 
 export type Grup = "darat" | "laut" | "udara" | "analisis";
 
@@ -59,6 +61,18 @@ export const LAPISAN: LayerDef[] = [
     fase: 1,
   },
   {
+    id: "bandara",
+    tombol: "[",
+    nama: { id: "Bandara & lapangan udara", en: "Airports & airfields" },
+    deskripsi: { id: "Bandara besar/sedang di kawasan + lapangan udara militer (OurAirports)", en: "Large/medium airports in the region + military airfields (OurAirports)" },
+    grup: "darat",
+    warna: "#f0abfc",
+    jenis: "statis",
+    berkas: "bandara.geojson",
+    aktifAwal: true,
+    fase: 3,
+  },
+  {
     id: "batas",
     tombol: "3",
     nama: { id: "Pulau terluar & perbatasan", en: "Outer islands & borders" },
@@ -91,8 +105,20 @@ export const LAPISAN: LayerDef[] = [
     warna: "#22d3ee",
     jenis: "statis",
     berkas: "kabel.geojson",
-    aktifAwal: false,
+    aktifAwal: true,
     fase: 1,
+  },
+  {
+    id: "pelabuhan",
+    tombol: "]",
+    nama: { id: "Pelabuhan", en: "Ports" },
+    deskripsi: { id: "Pelabuhan laut di kawasan (Wikidata)", en: "Seaports across the region (Wikidata)" },
+    grup: "laut",
+    warna: "#5eead4",
+    jenis: "statis",
+    berkas: "pelabuhan.geojson",
+    aktifAwal: true,
+    fase: 3,
   },
   {
     id: "kapal",
@@ -102,7 +128,7 @@ export const LAPISAN: LayerDef[] = [
     grup: "laut",
     warna: "#a3e635",
     jenis: "live",
-    aktifAwal: false,
+    aktifAwal: true,
     fase: 2,
   },
   {
@@ -113,7 +139,7 @@ export const LAPISAN: LayerDef[] = [
     grup: "udara",
     warna: "#facc15",
     jenis: "live",
-    aktifAwal: false,
+    aktifAwal: true,
     fase: 2,
   },
   {
@@ -124,7 +150,7 @@ export const LAPISAN: LayerDef[] = [
     grup: "udara",
     warna: "#fb923c",
     jenis: "live",
-    aktifAwal: false,
+    aktifAwal: true,
     fase: 2,
   },
   {
@@ -136,7 +162,7 @@ export const LAPISAN: LayerDef[] = [
     warna: "#f472b6",
     jenis: "analisis",
     berkas: "zee.geojson",
-    aktifAwal: false,
+    aktifAwal: true,
     fase: 3,
   },
   {
@@ -147,7 +173,7 @@ export const LAPISAN: LayerDef[] = [
     grup: "analisis",
     warna: "#e879f9",
     jenis: "analisis",
-    aktifAwal: false,
+    aktifAwal: true,
     fase: 3,
   },
   {
@@ -159,7 +185,7 @@ export const LAPISAN: LayerDef[] = [
     warna: "#c084fc",
     jenis: "analisis",
     berkas: "sipri.json",
-    aktifAwal: false,
+    aktifAwal: true,
     fase: 3,
   },
   {
@@ -202,4 +228,8 @@ export const WARNA_OPERATOR: Record<string, string> = {
   Thailand: "#f472b6",
   Kamboja: "#ef4444",
   "Papua Nugini": "#34d399",
+  Taiwan: "#fb7185",
+  Brunei: "#fde047",
+  Myanmar: "#a8a29e",
+  "Timor-Leste": "#f87171",
 };

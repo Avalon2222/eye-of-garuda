@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Search, HelpCircle, Maximize2, Minimize2, Share2, Play, Square, BarChart3, Globe2, Map as MapIcon, Satellite, Languages } from "lucide-react";
+import { Search, HelpCircle, Maximize2, Minimize2, Share2, Play, Square, BarChart3, Globe2, Map as MapIcon, Satellite, Languages, LocateFixed } from "lucide-react";
 import Logo from "./Logo";
 import { terjemah, type Lang } from "@/lib/i18n";
 
@@ -23,6 +23,7 @@ interface Props {
   onBagikan: () => void;
   onData: () => void;
   onFullscreen: () => void;
+  onReset: () => void;
 }
 
 function pad(n: number) {
@@ -114,6 +115,9 @@ export default function Hud(p: Props) {
           </button>
         </div>
         <div className="glass flex items-center gap-1 p-1">
+          <button className="tombol-ikon" onClick={p.onReset} title={`${terjemah(p.lang, "reset_view")} (R)`}>
+            <LocateFixed size={15} />
+          </button>
           <button className="tombol-ikon" onClick={p.onCari} title={`${terjemah(p.lang, "search")} (Ctrl+K)`}>
             <Search size={15} />
           </button>

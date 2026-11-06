@@ -4,7 +4,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Map as MapLibre, setWorkerUrl, type MapMouseEvent } from "maplibre-gl";
 import type { GeoJSON } from "geojson";
 import { bangunStyle, ID_LAYER_SAT, layerBasemapTersembunyiSaatSat } from "@/lib/mapStyle";
-import { pasangSemuaLapisan, setVisibilitas, setDataSource, LAYER_INTERAKTIF } from "@/lib/mapLayers";
+import { pasangSemuaLapisan, setVisibilitas, setDataSource, LAYER_INTERAKTIF, sorotPilihan, pakaiCincin } from "@/lib/mapLayers";
+import { KanvasLive } from "@/lib/kanvasLive";
 import { LAPISAN, type LayerId } from "@/lib/layers";
 import { bacaUrl, tulisUrl, TAMPILAN_AWAL, type Tampilan } from "@/lib/urlState";
 import { terjemah, bacaLangTersimpan, simpanLang, type Lang } from "@/lib/i18n";
@@ -88,6 +89,7 @@ export default function Console() {
   bootRef.current = boot;
   const petaSiapCallback = useRef<(() => void) | null>(null);
   const petaSudahLoad = useRef(false);
+  const kanvas = useRef<KanvasLive | null>(null);
 
   const tampilkanToast = useCallback((t: string) => {
     setToast(t);
@@ -118,12 +120,12 @@ export default function Console() {
     setPilihan(p);
     const m = mapRef.current;
     if (!m) return;
-    setDataSource(m, "pilihan", p ? { type: "FeatureCollection", features: [{ type: "Feature", properties: {}, geometry: { type: "Point", coordinates: [p.lon, p.lat] } }] } : KOSONG);
-    if (p?.lapisan === "satelit" && satelit.current) {
-      setDataSource(m, "satelit-lintasan", satelit.current.lintasan(Number(p.props.norad), new Date()));
-    } else if (m.getSource("satelit-lintasan")) {
-      setDataSource(m, "satelit-lintasan", KOSONG);
-    }
+    const id = p ? String(p.props.id ?? "") : "";
+    const diKanvas = p?.lapisan === "satelit" || p?.lapisan === "pesawat";
+    const cincin = p && !diKanvas && pakaiCincin(p.lapisan, id);
+    setDataSource(m, "pilihan", cincin ? { type: "FeatureCollection", features: [{ type: "Feature", properties: {}, geometry: { type: "Point", coordinates: [p.lon, p.lat] } }] } : KOSONG);
+    sorotPilihan(m, p && !cincin && !diKanvas ? p.lapisan : null, id || null);
+    if (kanvas.current) kanvas.current.pilihan = diKanvas && p ? { jenis: p.lapisan as "satelit" | "pesawat", id } : null;
     if (p && terbang) {
       m.flyTo({ center: [p.lon, p.lat], zoom: Math.max(m.getZoom(), p.lapisan === "satelit" ? 2.5 : 6), duration: 1600, essential: true });
     }
@@ -193,6 +195,7 @@ export default function Console() {
         const p = new PelacakPesawat();
         p.cakupan = cakupan;
         pesawat.current = p;
+        if (kanvas.current) kanvas.current.pesawat = p;
         const ambil = () =>
           p.ambil().then(() => {
             setLive((s) => ({ ...s, pesawat: { jumlah: p.jumlah, totalDunia: 0, galat: p.galat, terakhir: p.terakhirAmbil } }));
@@ -205,6 +208,7 @@ export default function Console() {
       if (id === "satelit" && !satelit.current) {
         const s = new PelacakSatelit();
         satelit.current = s;
+        if (kanvas.current) kanvas.current.satelit = s;
         s.muat().then(() => {
           setLive((st) => ({ ...st, satelit: { jumlah: s.jumlah, epoch: s.katalog?.epoch_tle ?? "", galat: s.galat } }));
           setJumlah((j) => ({ ...j, satelit: s.jumlah }));
@@ -237,36 +241,49 @@ export default function Console() {
     }
   }, [cakupan]);
 
-  // loop animasi: pesawat tiap frame, satelit tiap 250 ms, kapal tiap 2 s
+  // loop animasi: kanvas (satelit + pesawat) tiap frame, kapal tiap 2 s, busur SIPRI tiap 70 ms
   useEffect(() => {
     let raf = 0;
-    let tSat = 0, tKapal = 0, tStatus = 0, tBusur = 0, langkah = 0;
+    let tKapal = 0, tStatus = 0, tBusur = 0, tDetail = 0, langkah = 0;
     const tik = () => {
       const m = mapRef.current;
       const now = Date.now();
-      if (m && m.isStyleLoaded()) {
+      const k = kanvas.current;
+      if (m && k && petaSudahLoad.current) {
         const a = aktifRef.current;
-        if (a.has("pesawat") && pesawat.current) {
-          const { titik, jejak } = pesawat.current.hitung(now);
-          setDataSource(m, "pesawat", titik);
-          setDataSource(m, "pesawat-jejak", jejak);
-        }
-        if (a.has("satelit") && satelit.current && now - tSat > 250) {
-          tSat = now;
-          setDataSource(m, "satelit", satelit.current.hitung(new Date(now)));
-        }
+        k.tampilPesawat = a.has("pesawat");
+        k.tampilSatelit = a.has("satelit");
+        k.gambar(now);
         if (a.has("kapal") && kapal.current && now - tKapal > 2000) {
           tKapal = now;
-          setDataSource(m, "kapal", kapal.current.hitung(now));
+          const fc = kapal.current.hitung(now);
+          setDataSource(m, "kapal", fc);
+          const pl = pilihanRef.current;
+          if (pl?.lapisan === "kapal") {
+            const f = fc.features.find((x) => x.properties?.id === pl.props.id);
+            if (f && f.geometry.type === "Point") setDataSource(m, "pilihan", { type: "FeatureCollection", features: [{ type: "Feature", properties: {}, geometry: f.geometry }] });
+          }
         }
         if (a.has("sipri") && now - tBusur > 70) {
           tBusur = now;
           langkahBusur(m, langkah++);
         }
+        // panel detail satelit/pesawat ikut bergerak: segarkan props tiap detik
+        const pl = pilihanRef.current;
+        if (pl && (pl.lapisan === "satelit" || pl.lapisan === "pesawat") && now - tDetail > 1000) {
+          tDetail = now;
+          if (pl.lapisan === "satelit" && satelit.current) {
+            const sat = satelit.current.cari(Number(pl.props.norad));
+            if (sat?.pos) setPilihan({ ...pl, props: satelit.current.info(sat), lon: sat.pos.lon, lat: sat.pos.lat });
+          } else if (pl.lapisan === "pesawat" && pesawat.current) {
+            const ps = pesawat.current.daftar(now).find((x) => x.hex === pl.props.hex);
+            if (ps) setPilihan({ ...pl, props: ps.props, lon: ps.lon, lat: ps.lat });
+          }
+        }
         if (now - tStatus > 30_000 && kapal.current) {
           tStatus = now;
-          const k = kapal.current;
-          setLive((s) => ({ ...s, kapal: { ...s.kapal, umurMenit: k.umurMenit(now) } }));
+          const kp = kapal.current;
+          setLive((st) => ({ ...st, kapal: { ...st.kapal, umurMenit: kp.umurMenit(now) } }));
         }
       }
       raf = requestAnimationFrame(tik);
@@ -303,7 +320,25 @@ export default function Console() {
       m.on("load", () => {
         petaSudahLoad.current = true;
         pasangSemuaLapisan(m);
-        for (const l of LAPISAN) setVisibilitas(m, l.id, aktifRef.current.has(l.id));
+        if (!kanvas.current && wadah.current?.parentElement) {
+          const k = new KanvasLive(m, wadah.current.parentElement);
+          k.pesawat = pesawat.current;
+          k.satelit = satelit.current;
+          kanvas.current = k;
+          (window as unknown as { __eogKanvas?: KanvasLive }).__eogKanvas = k;
+        }
+        // pemanasan: semua lapisan dibuat visible sebentar supaya worker menyiapkan tile tiap source
+        // saat layar boot masih tampil; setelah itu visibilitas sebenarnya diterapkan (toggle jadi instan)
+        for (const l of LAPISAN) setVisibilitas(m, l.id, true);
+        const terapkan = () => {
+          if (!mapRef.current) return;
+          for (const l of LAPISAN) setVisibilitas(m, l.id, aktifRef.current.has(l.id));
+        };
+        const idPemanasan = setTimeout(terapkan, 2200);
+        m.once("idle", () => {
+          clearTimeout(idPemanasan);
+          terapkan();
+        });
         if (sat) terapkanSat(m, true);
         if (datar) m.setProjection({ type: "mercator" });
         muatLapisanStatis(m);
@@ -318,6 +353,14 @@ export default function Console() {
         if (tourRef.current >= 0) setTour(-1);
       });
       m.on("click", (e: MapMouseEvent) => {
+        const hit = kanvas.current?.cari(e.point.x, e.point.y, 16);
+        if (hit) {
+          if (hit.jenis === "satelit" && satelit.current) {
+            const sat = satelit.current.cari(Number((hit.props as { norad: number }).norad));
+            if (sat) pilih({ lapisan: "satelit", props: satelit.current.info(sat), lon: hit.lon, lat: hit.lat });
+          } else pilih({ lapisan: hit.jenis, props: hit.props, lon: hit.lon, lat: hit.lat });
+          return;
+        }
         const ids = Object.keys(LAYER_INTERAKTIF).filter((id) => m.getLayer(id));
         const f = m.queryRenderedFeatures(e.point, { layers: ids })[0];
         if (!f) {
@@ -331,7 +374,7 @@ export default function Console() {
       });
       m.on("mousemove", (e: MapMouseEvent) => {
         const ids = Object.keys(LAYER_INTERAKTIF).filter((id) => m.getLayer(id));
-        const ada = m.queryRenderedFeatures(e.point, { layers: ids }).length > 0;
+        const ada = Boolean(kanvas.current?.cari(e.point.x, e.point.y, 12)) || m.queryRenderedFeatures(e.point, { layers: ids }).length > 0;
         m.getCanvas().style.cursor = ada ? "pointer" : "";
       });
       m.on("error", (e) => {
@@ -569,6 +612,7 @@ export default function Console() {
         onBagikan={bagikan}
         onData={() => setPanel("data")}
         onFullscreen={fullscreen}
+        onReset={reset}
       />
 
       <LayerRail lang={lang} aktif={aktif} jumlah={jumlah} onToggle={toggleLapisan} tersedia={tersedia} />

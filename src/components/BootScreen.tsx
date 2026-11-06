@@ -6,7 +6,9 @@ import { terjemah, type Lang } from "@/lib/i18n";
 
 const LANGKAH = ["boot_1", "boot_2", "boot_3", "boot_4"] as const;
 
-export default function BootScreen({ lang, onSelesai }: { lang: Lang; onSelesai: () => void }) {
+export default function BootScreen({ onSelesai }: { lang?: Lang; onSelesai: () => void }) {
+  // layar boot selalu berbahasa Inggris (gaya konsol), apa pun bahasa UI
+  const lang: Lang = "en";
   const [langkah, setLangkah] = useState(0);
   const [progres, setProgres] = useState(0);
   const [pudar, setPudar] = useState(false);

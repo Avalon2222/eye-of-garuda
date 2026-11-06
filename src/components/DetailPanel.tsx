@@ -131,22 +131,34 @@ function barisUntuk(p: Pilihan, lang: Lang): { judul: string; sub: string; baris
         url: pr.mmsi ? `https://www.marinetraffic.com/en/ais/details/ships/mmsi:${s(pr.mmsi)}` : undefined,
       };
     }
-    case "satelit":
+    case "satelit": {
+      const kelas = s(pr.kelas_orbit);
+      const kelasTeks = kelas === "LEO" ? t("orbit_leo") : kelas === "MEO" ? t("orbit_meo") : kelas === "GEO" ? t("orbit_geo") : kelas === "HEO" ? t("orbit_heo") : "";
+      const kec = pr.kecepatan != null ? `${Number(pr.kecepatan).toFixed(2)} km/s (${Math.round(Number(pr.kecepatan) * 3600).toLocaleString("en-US")} km/h)` : "";
+      const periode = pr.periode_menit != null ? `${Number(pr.periode_menit).toFixed(1)} ${lang === "id" ? "menit" : "min"}` : "";
       return {
         judul: s(pr.nama),
-        sub: `${s(pr.kelompok)} · ${s(pr.negara)}`,
+        sub: `${kelas ? kelas + " · " : ""}${s(pr.kelompok)} · ${s(pr.negara)}`,
         baris: [
           [t("norad"), s(pr.norad)],
           [t("detail_country"), s(pr.negara)],
           [t("detail_operator"), s(pr.operator)],
           [t("mission"), s(pr.misi)],
+          [t("orbit_class"), kelasTeks],
           [t("orbit_alt"), pr.alt != null ? `${Number(pr.alt).toLocaleString("en-US")} km` : ""],
+          [t("speed"), kec],
+          [t("orbit_period"), periode],
+          [t("inclination"), pr.inklinasi != null ? `${s(pr.inklinasi)}°` : ""],
+          [t("apogee_perigee"), pr.apogee != null ? `${Number(pr.apogee).toLocaleString("en-US")} / ${Number(pr.perigee).toLocaleString("en-US")} km` : ""],
+          [t("eccentricity"), s(pr.eksentrisitas)],
           [t("launched"), s(pr.diluncurkan)],
+          [t("tle_epoch"), s(pr.epoch)],
           [t("source"), "CelesTrak (TLE) · GCAT"],
         ],
         catatan: "sat_caveat",
         url: pr.norad ? `https://www.n2yo.com/satellite/?s=${s(pr.norad)}` : undefined,
       };
+    }
     case "zee":
       return {
         judul: s(pr.nama),
@@ -187,6 +199,32 @@ function barisUntuk(p: Pilihan, lang: Lang): { judul: string; sub: string; baris
           [t("year"), s(pr.tanggal)],
           [t("detail_notes"), s(pr.keterangan)],
           [t("source"), s(pr.sumber)],
+        ],
+        url,
+      };
+    case "bandara": {
+      const kelas = s(pr.kelas) === "besar" ? t("airport_large") : s(pr.kelas) === "sedang" ? t("airport_medium") : t("airport_military");
+      return {
+        judul: s(pr.nama),
+        sub: `${[s(pr.iata), s(pr.icao)].filter(Boolean).join(" / ")}${pr.iata || pr.icao ? " · " : ""}${s(pr.negara)}`,
+        baris: [
+          [t("airport_class"), kelas],
+          ["ICAO / IATA", [s(pr.icao), s(pr.iata)].filter(Boolean).join(" / ")],
+          [t("detail_city"), s(pr.kota)],
+          [t("detail_country"), s(pr.negara)],
+          [t("military_use"), pr.militer ? (lang === "id" ? "Ya (berdasarkan nama)" : "Yes (by name)") : ""],
+          [t("source"), "OurAirports (public domain)"],
+        ],
+        url,
+      };
+    }
+    case "pelabuhan":
+      return {
+        judul: s(pr.nama),
+        sub: s(pr.negara),
+        baris: [
+          [t("detail_country"), s(pr.negara)],
+          [t("source"), "Wikidata (CC0)"],
         ],
         url,
       };

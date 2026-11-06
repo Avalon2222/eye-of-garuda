@@ -3,7 +3,7 @@
  * dengan prefix `${id}-`. Toggle = ubah visibility semua layer berprefix itu.
  */
 
-import type { Map as MapLibre, LayerSpecification, ExpressionSpecification, GeoJSONSource } from "maplibre-gl";
+import type { Map as MapLibre, LayerSpecification, ExpressionSpecification, GeoJSONSource, FilterSpecification } from "maplibre-gl";
 import type { GeoJSON } from "geojson";
 import { WARNA_MATRA, WARNA_OPERATOR, LAPISAN, type LayerId } from "./layers";
 import { FONT, FONT_TEBAL } from "./mapStyle";
@@ -219,37 +219,8 @@ export const WARNA_KAPAL: Record<string, string> = {
   lainnya: "#9ca3af",
 };
 
-function pasangPesawat(map: MapLibre) {
-  tambahSourceKosong(map, "pesawat");
-  tambahSourceKosong(map, "pesawat-jejak");
-  daftarkanIkon(map, "ikon-pesawat", "pesawat", "#facc15");
-  daftar(map, {
-    id: "pesawat-jejak",
-    type: "line",
-    source: "pesawat-jejak",
-    layout: { "line-cap": "round" },
-    paint: { "line-color": "#facc15", "line-width": 1.2, "line-opacity": 0.45 },
-  }, null);
-  daftar(map, {
-    id: "pesawat-ikon",
-    type: "symbol",
-    source: "pesawat",
-    layout: {
-      "icon-image": "ikon-pesawat",
-      "icon-size": ["interpolate", ["linear"], ["zoom"], 2, 0.45, 8, 0.9],
-      "icon-rotate": ["get", "track"],
-      "icon-rotation-alignment": "map",
-      "icon-allow-overlap": true,
-      "icon-ignore-placement": true,
-      "text-field": ["get", "callsign"],
-      "text-font": FONT,
-      "text-size": 10,
-      "text-offset": [0, 1.3],
-      "text-anchor": "top",
-      "text-optional": true,
-    },
-    paint: { "text-color": "#fde68a", "text-halo-color": "#05080f", "text-halo-width": 1.2 },
-  }, "pesawat");
+function pasangPesawat() {
+  /* pesawat digambar di kanvas (src/lib/kanvasLive.ts), bukan sebagai layer MapLibre */
 }
 
 function pasangKapal(map: MapLibre) {
@@ -290,36 +261,57 @@ function pasangKapal(map: MapLibre) {
   }, "kapal");
 }
 
-function pasangSatelit(map: MapLibre) {
-  tambahSourceKosong(map, "satelit");
-  tambahSourceKosong(map, "satelit-lintasan");
-  const warna: ExpressionSpecification = ["match", ["get", "kelompok"], "Indonesia", "#ff5a3c", "Militer asing", "#fb923c", "Pengintai sipil & komersial asing", "#67e8f9", "#94a3b8"];
+function pasangSatelit() {
+  /* satelit digambar di kanvas (src/lib/kanvasLive.ts), bukan sebagai layer MapLibre */
+}
+
+function pasangBandara(map: MapLibre) {
+  tambahSourceKosong(map, "bandara");
+  const warna: ExpressionSpecification = ["case", ["get", "militer"], "#fb7185", ["==", ["get", "kelas"], "besar"], "#f0abfc", "#d8b4fe"];
   daftar(map, {
-    id: "satelit-lintasan",
-    type: "line",
-    source: "satelit-lintasan",
-    paint: { "line-color": "#fb923c", "line-width": 1.2, "line-opacity": 0.6, "line-dasharray": [2, 2] },
-  }, null);
-  daftar(map, {
-    id: "satelit-titik",
+    id: "bandara-titik",
     type: "circle",
-    source: "satelit",
+    source: "bandara",
     paint: {
-      "circle-radius": ["interpolate", ["linear"], ["zoom"], 1, 2, 6, 4.5],
-      "circle-color": warna,
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], 3, ["case", ["==", ["get", "kelas"], "besar"], 2.6, 1.8], 8, 6],
+      "circle-color": "#05080f",
+      "circle-stroke-color": warna,
+      "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 3, 1, 8, 2],
+      "circle-opacity": 0.9,
+    },
+  }, "bandara");
+  daftar(map, {
+    id: "bandara-label",
+    type: "symbol",
+    source: "bandara",
+    minzoom: 6.2,
+    layout: { ...LABEL_DASAR, "text-field": ["coalesce", ["get", "iata"], ["get", "icao"], ["get", "nama"]], "text-size": 9.5 },
+    paint: { ...LABEL_PAINT, "text-color": "#f5d0fe" },
+  }, "bandara");
+}
+
+function pasangPelabuhan(map: MapLibre) {
+  tambahSourceKosong(map, "pelabuhan");
+  daftar(map, {
+    id: "pelabuhan-titik",
+    type: "circle",
+    source: "pelabuhan",
+    paint: {
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], 3, 1.6, 8, 5],
+      "circle-color": "#5eead4",
       "circle-stroke-color": "#05080f",
       "circle-stroke-width": 0.8,
-      "circle-opacity": 0.95,
+      "circle-opacity": ["interpolate", ["linear"], ["zoom"], 3, 0.6, 6, 0.95],
     },
-  }, "satelit");
+  }, "pelabuhan");
   daftar(map, {
-    id: "satelit-label",
+    id: "pelabuhan-label",
     type: "symbol",
-    source: "satelit",
-    minzoom: 4,
+    source: "pelabuhan",
+    minzoom: 7,
     layout: { ...LABEL_DASAR, "text-field": ["get", "nama"], "text-size": 9.5 },
-    paint: { ...LABEL_PAINT, "text-color": "#fed7aa" },
-  }, "satelit");
+    paint: { ...LABEL_PAINT, "text-color": "#99f6e4" },
+  }, "pelabuhan");
 }
 
 // ---------- lapisan analisis fase 3 ----------
@@ -468,14 +460,17 @@ const PEMASANG: Record<LayerId, (map: MapLibre) => void> = {
   radius: pasangRadius,
   sipri: pasangSipri,
   insiden: pasangInsiden,
+  bandara: pasangBandara,
+  pelabuhan: pasangPelabuhan,
 };
 
 /** Urutan pemasangan menentukan urutan gambar (yang terakhir di atas). */
-const URUTAN: LayerId[] = ["zee", "radius", "kabel", "alki", "sipri", "batas", "insiden", "asing", "tni", "kapal", "satelit", "pesawat"];
+const URUTAN: LayerId[] = ["zee", "radius", "kabel", "alki", "sipri", "pelabuhan", "bandara", "batas", "insiden", "asing", "tni", "kapal", "satelit", "pesawat"];
 
 export function pasangSemuaLapisan(map: MapLibre) {
   for (const id of URUTAN) PEMASANG[id](map);
-  // sorotan entitas terpilih, paling atas
+  pasangSorot(map);
+  // cincin entitas titik terpilih, paling atas
   tambahSourceKosong(map, "pilihan");
   daftar(map, {
     id: "pilihan-cincin",
@@ -489,6 +484,51 @@ export function pasangSemuaLapisan(map: MapLibre) {
       "circle-stroke-opacity": 0.9,
     },
   }, null);
+}
+
+/** Source bertipe garis/poligon yang entitasnya disorot dengan garis tebal saat dipilih (bukan cincin). */
+const SUMBER_SOROT: { source: string; lapisan: LayerId; warna: string }[] = [
+  { source: "kabel", lapisan: "kabel", warna: "#ffffff" },
+  { source: "alki", lapisan: "alki", warna: "#ffffff" },
+  { source: "zee", lapisan: "zee", warna: "#ffffff" },
+  { source: "radius", lapisan: "radius", warna: "#ffffff" },
+  { source: "sipri", lapisan: "sipri", warna: "#ffffff" },
+];
+const FILTER_KOSONG: FilterSpecification = ["==", ["get", "id"], "__tidak_ada__"];
+
+function pasangSorot(map: MapLibre) {
+  for (const s of SUMBER_SOROT) {
+    daftar(map, {
+      id: `${s.lapisan}-sorot-cahaya`,
+      type: "line",
+      source: s.source,
+      filter: FILTER_KOSONG,
+      layout: { "line-cap": "round", "line-join": "round" },
+      paint: { "line-color": s.warna, "line-width": 12, "line-opacity": 0.18, "line-blur": 4 },
+    }, null);
+    daftar(map, {
+      id: `${s.lapisan}-sorot`,
+      type: "line",
+      source: s.source,
+      filter: FILTER_KOSONG,
+      layout: { "line-cap": "round", "line-join": "round" },
+      paint: { "line-color": s.warna, "line-width": 3.5, "line-opacity": 0.95 },
+    }, null);
+  }
+}
+
+/** Lapisan yang entitasnya berupa titik: pilihan ditandai cincin. Selain itu garis/poligon disorot tebal. */
+export function pakaiCincin(lapisan: LayerId, id: string): boolean {
+  if (lapisan === "kabel") return id.startsWith("landing-");
+  return !SUMBER_SOROT.some((s) => s.lapisan === lapisan);
+}
+
+/** Sorot entitas terpilih (garis/poligon) atau hapus sorotan bila lapisan/id null. */
+export function sorotPilihan(map: MapLibre, lapisan: LayerId | null, id: string | null) {
+  for (const s of SUMBER_SOROT) {
+    const f: FilterSpecification = lapisan === s.lapisan && id ? ["==", ["get", "id"], id] : FILTER_KOSONG;
+    for (const l of [`${s.lapisan}-sorot`, `${s.lapisan}-sorot-cahaya`]) if (map.getLayer(l)) map.setFilter(l, f);
+  }
 }
 
 export function setVisibilitas(map: MapLibre, id: LayerId, aktif: boolean) {
