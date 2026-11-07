@@ -1,0 +1,28 @@
+name: SIPRI bulanan
+
+# Mengambil ulang transfer senjata ke Indonesia dari basis data SIPRI dan menyimpannya ke cabang `data`.
+# Aplikasi membaca sipri.json dari cabang itu lebih dulu, lalu jatuh ke salinan di repo.
+on:
+  schedule:
+    - cron: "17 2 3 * *"   # tanggal 3 tiap bulan, 02:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cabang-data
+  cancel-in-progress: false
+
+jobs:
+  ambil:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet -r scripts/requirements.txt
+      - run: python scripts/ambil_sipri.py --keluar keluar/sipri.json --tanpa-csv
+      - run: bash scripts/simpan_cabang_data.sh keluar/sipri.json
