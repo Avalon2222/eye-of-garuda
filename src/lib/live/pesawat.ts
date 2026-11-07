@@ -6,6 +6,7 @@
 
 import type { GeoJSON } from "geojson";
 import { titikTujuan } from "../geo";
+import { negaraDariHex, kategoriPesawat, type KategoriPesawat } from "../negara";
 
 export interface FixPesawat {
   hex: string;
@@ -19,6 +20,10 @@ export interface FixPesawat {
   track: number | null;
   squawk: string;
   dilihat: number; // ms epoch fix
+  /** keterangan tipe dari basis data ADS-B (mis. "Boeing P-8A Poseidon") */
+  desc?: string;
+  /** operator (mis. "United States Navy") bila ada */
+  operator?: string;
 }
 
 interface StatusPesawat extends FixPesawat {
@@ -26,6 +31,9 @@ interface StatusPesawat extends FixPesawat {
   koreksiLat: number;
   mulaiKoreksi: number;
   jejak: [number, number][];
+  negara: string;
+  negaraNama: { id: string; en: string };
+  kategori: KategoriPesawat;
 }
 
 export type CakupanPesawat = "kawasan" | "dunia";
@@ -83,12 +91,23 @@ export class PelacakPesawat {
       terlihat.add(f.hex);
       const lama = this.status.get(f.hex);
       if (!lama) {
-        this.status.set(f.hex, { ...f, koreksiLon: 0, koreksiLat: 0, mulaiKoreksi: t, jejak: [[f.lon, f.lat]] });
+        const n = negaraDariHex(f.hex);
+        this.status.set(f.hex, {
+          ...f,
+          koreksiLon: 0,
+          koreksiLat: 0,
+          mulaiKoreksi: t,
+          jejak: [[f.lon, f.lat]],
+          negara: n?.kode ?? "???",
+          negaraNama: n?.nama ?? { id: "Tidak diketahui", en: "Unknown" },
+          kategori: kategoriPesawat(f.tipe, f.desc),
+        });
         continue;
       }
       // posisi yang sedang tampil sekarang vs prediksi dari fix baru -> koreksi dihaluskan
       const [tLon, tLat] = this.posisiTampil(lama, t);
       const baru: StatusPesawat = { ...lama, ...f, koreksiLon: 0, koreksiLat: 0, mulaiKoreksi: t };
+      if (!lama.tipe && f.tipe) baru.kategori = kategoriPesawat(f.tipe, f.desc);
       const [pLon, pLat] = this.prediksi(baru, t);
       baru.koreksiLon = tLon - pLon;
       baru.koreksiLat = tLat - pLat;
@@ -121,9 +140,10 @@ export class PelacakPesawat {
     const hasil: PesawatTampil[] = [];
     for (const s of this.status.values()) {
       const [lon, lat] = this.posisiTampil(s, t);
+      const callsign = s.callsign || s.reg || s.hex.toUpperCase();
       hasil.push({
         hex: s.hex,
-        callsign: s.callsign || s.reg || s.hex.toUpperCase(),
+        callsign,
         lon,
         lat,
         track: s.track ?? 0,
@@ -131,9 +151,18 @@ export class PelacakPesawat {
         props: {
           id: `pesawat-${s.hex}`,
           hex: s.hex,
-          callsign: s.callsign || s.reg || s.hex.toUpperCase(),
+          callsign,
+          /** label peta: "CALLSIGN (USA)", sama dengan gaya satelit */
+          label: `${callsign} (${s.negara})`,
+          nama: `${callsign} (${s.negara})`,
           reg: s.reg,
           tipe: s.tipe,
+          desc: s.desc ?? "",
+          operator: s.operator ?? "",
+          kategori: s.kategori,
+          negara: s.negara,
+          negara_id: s.negaraNama.id,
+          negara_en: s.negaraNama.en,
           alt: s.alt,
           gs: s.gs,
           track: s.track ?? 0,
@@ -145,6 +174,13 @@ export class PelacakPesawat {
       });
     }
     return hasil;
+  }
+
+  /** Jumlah per kategori (untuk legenda/ticker). */
+  perKategori(): Partial<Record<KategoriPesawat, number>> {
+    const h: Partial<Record<KategoriPesawat, number>> = {};
+    for (const s of this.status.values()) h[s.kategori] = (h[s.kategori] ?? 0) + 1;
+    return h;
   }
 
   /** GeoJSON titik (dengan posisi terekstrapolasi) dan jejak untuk waktu t. */

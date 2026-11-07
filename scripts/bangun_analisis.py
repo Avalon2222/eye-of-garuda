@@ -223,31 +223,6 @@ def bangun_radius(zee) -> dict:
     return {"type": "FeatureCollection", "features": fitur}, buta_fc
 
 
-def bangun_sipri() -> dict:
-    baris = baca_csv("sipri_impor.csv")
-    total = sum(float(b["tiv_juta_2000_2024"]) for b in baris)
-    return {
-        "tujuan": {"nama": "Jakarta", "lat": -6.2, "lon": 106.8},
-        "periode": "2000–2024",
-        "satuan": "juta TIV (SIPRI trend-indicator value)",
-        "total_tiv_juta": total,
-        "catatan": "Angka dibulatkan dari tabel importer SIPRI dan ditandai keyakinan rendah; periksa ulang di basis data SIPRI sebelum dikutip.",
-        "pemasok": [
-            {
-                "negara": b["negara"],
-                "lat": float(b["lat"]),
-                "lon": float(b["lon"]),
-                "tiv_juta": float(b["tiv_juta_2000_2024"]),
-                "persen": round(100 * float(b["tiv_juta_2000_2024"]) / total, 1),
-                "keyakinan": b["keyakinan"],
-                "contoh": b["contoh_alutsista"],
-                "sumber": b["sumber"],
-                "url": b["url_sumber"],
-            }
-            for b in baris
-        ],
-    }
-
 
 def bangun_insiden() -> dict:
     fitur = []
@@ -276,10 +251,9 @@ def main() -> None:
     print("Membangun lapisan analisis ...")
     zee = muat_zee()
     simpan("zee.geojson", bangun_zee(zee))
-    radius, buta = bangun_radius(zee)
+    radius, _buta = bangun_radius(zee)
     simpan("radius.geojson", radius)
-    simpan("radius_buta.geojson", buta)
-    simpan("sipri.json", bangun_sipri())
+    # sipri.json dibangun terpisah dari basis data SIPRI: python scripts/ambil_sipri.py
     simpan("insiden.json", bangun_insiden())
     print("Selesai.")
 

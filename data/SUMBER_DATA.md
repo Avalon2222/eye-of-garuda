@@ -7,7 +7,8 @@ kawasan, bukan data operasional. Tiap baris data statis menyimpan kolom `sumber`
 
 | Berkas | Isi | Sumber |
 |---|---|---|
-| `markas_tni.csv` | 198 markas: Mabes TNI/AD/AL/AU, Kogabwilhan, semua Kodam & Korem, Lantamal & Lanal, Koarmada, Lanud, Kopassus, Kostrad, Marinir, Puspenerbad/Puspenerbal, akademi. Korem dan Lanal memakai koordinat pusat kota/pelabuhan (ditandai "perkiraan" di kolom keterangan) | Wikipedia ID/EN per satuan, Wikidata, OurAirports (Lanud) |
+| `markas_tni.csv` | 198 markas: Mabes TNI/AD/AU/AL, Kogabwilhan, semua Kodam & Korem, Lantamal & Lanal, Koarmada, Lanud, Kopassus, Kostrad, Marinir, Puspenerbad/Puspenerbal, akademi. Kolom `presisi`: `osm` = koordinat dicocokkan ke objek OpenStreetMap lewat geocoder Photon (`scripts/koreksi_lokasi.py`, 81 titik), `kota` = masih pusat kota/pelabuhan | Wikipedia ID/EN per satuan, Wikidata, OurAirports (Lanud), OpenStreetMap (ODbL) lewat Photon |
+| `kapal_selam.csv` | 16 pangkalan induk kapal selam di kawasan dengan jumlah, kelas, dan status (aktif/rencana). Bukan posisi kapal: kapal selam tidak bisa dilacak dengan data publik | Wikipedia, halaman armada resmi, liputan media |
 | `pulau_terluar_perbatasan.csv` | 15 pulau terluar, 6 PLBN, 3 wilayah rawan (titik tengah ilustratif) | Keppres 6/2017, Wikipedia |
 | `pangkalan_asing.csv` + `sumber/wikidata_militer.json` | 211 pangkalan/pos negara lain di kawasan: 37 kurasi manual (kolom `kurasi=1`) + instalasi militer dari Wikidata (pangkalan udara/laut, markas; benteng dan situs bersejarah dibuang; belum diverifikasi satu per satu) | Wikipedia, CSIS AMTI, RAAF, US Navy, liputan ABC/Reuters; Wikidata (CC0) |
 | `sumber/ourairports_kawasan.csv` → `bandara.geojson` | 507 bandara besar/sedang di kawasan + lapangan udara militer berdasarkan nama (`scripts/bangun_fasilitas.py`) | OurAirports (public domain) |
@@ -27,7 +28,8 @@ Label "pangkalan asing di kawasan" sengaja netral; sebagian besar milik negara m
 |---|---|---|
 | Pesawat militer | `api.adsb.lol/v2/mil` (cadangan `api.airplanes.live/v2/mil`), gratis tanpa kunci | Proxy `app/api/pesawat`, cache 8 detik; browser mengambil tiap 10 detik dan mengekstrapolasi posisi dari kecepatan + haluan |
 | Satelit | TLE CelesTrak (snapshot harian proyek who-watches-indonesia) + katalog GCAT (CC BY 4.0) | `scripts/bangun_satelit.py` memilih satelit militer/pengintai dan Indonesia; posisi dipropagasi SGP4 (satellite.js) di browser |
-| Kapal | aisstream.io (AIS) | `scripts/ambil_ais.py` menyimak ~90 detik tiap 30 menit lewat GitHub Actions, menyimpan snapshot ke cabang `data`; browser mengekstrapolasi posisi dari COG/SOG |
+| Kapal | aisstream.io (AIS) | Dua jalur digabung: (1) `scripts/ambil_ais.py` menyimak ~90 detik tiap 30 menit lewat GitHub Actions, menyimpan snapshot ke cabang `data`; (2) `app/api/kapal` membuka stream ~7 detik per permintaan (cache 45 detik) kalau `AISSTREAM_API_KEY` terpasang di Vercel, browser memintanya tiap 60 detik. Kapal dari stream diberi cincin LIVE. Browser mengekstrapolasi posisi dari COG/SOG |
+| Jadwal lintasan satelit | TLE yang sama dengan lapisan satelit | Web Worker mempropagasi satelit LEO 12 jam ke depan (langkah 60 detik) dan mencatat waktu masuk/keluar kotak 94–142° BT, 12° LS–7° LU |
 
 Catatan jujur: hanya pesawat militer yang memancarkan ADS-B yang terlihat (banyak jet tempur terbang gelap);
 cakupan AIS tipis di luar Singapura/Batam; kapal perang sering mematikan AIS.
@@ -39,8 +41,15 @@ cakupan AIS tipis di luar Singapura/Batam; kapal perang sering mematikan AIS.
 | ZEE Indonesia | Marine Regions, Flanders Marine Institute, Maritime Boundaries v12 | Disederhanakan untuk web; bukan batas resmi |
 | Sembilan garis putus | Digambar ilustratif dari koordinat yang lazim dikutip | Bukan dokumen resmi; hanya untuk menunjukkan tumpang tindih di Natuna Utara |
 | Radius tempur | Angka publik (Wikipedia/produsen) per tipe pesawat | Tanpa tanker, tanpa profil misi; hanya jarak geometris |
-| Impor senjata | SIPRI Arms Transfers Database (TIV) | TIV adalah indikator volume, bukan harga |
+| Impor senjata | SIPRI Arms Transfers Database, 2000–2025, diambil dari API publik SIPRI oleh `scripts/ambil_sipri.py` (workflow bulanan ke cabang `data`; salinan di `public/data/sipri.json` dan ringkasan `data/sipri_impor.csv`) | TIV adalah indikator volume pengiriman, bukan harga kontrak; angka tahun berjalan masih bisa berubah |
 | Insiden & latihan | Liputan media, Wikipedia | Daftar kurasi, bukan daftar lengkap |
+
+## Skenario War Room
+
+Tiga skenario fiktif dan edukatif (`src/lib/skenario/`): Krisis Laut Natuna Utara, Cable Cut di Selat Singapura, dan
+Perang nuklir dilihat dari Indonesia. Geometri jarak dihitung dari koordinat publik; waktu tempuh dari kecepatan
+tipikal yang dipublikasikan; efek ledakan nuklir (radius bola api, 5 psi, luka bakar, EMP ketinggian tinggi) dibulatkan
+dari literatur publik (Glasstone & Dolan, *The Effects of Nuclear Weapons*; NUKEMAP). Tidak ada yang merupakan prediksi.
 
 ## Yang sengaja TIDAK dilakukan
 

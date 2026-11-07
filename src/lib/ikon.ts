@@ -51,7 +51,33 @@ const SATELIT: Penggambar = (ctx, s) => {
   ctx.fillRect(22 * u, 13.5 * u, 8 * u, 5 * u);
 };
 
-const PENGGAMBAR: Record<string, Penggambar> = { pesawat: PESAWAT, kapal: KAPAL, satelit: SATELIT };
+const KAPALSELAM: Penggambar = (ctx, s) => {
+  // siluet kapal selam dilihat dari samping: lambung kapsul + menara (sail) + kemudi
+  const u = s / 32;
+  ctx.beginPath();
+  ctx.moveTo(3 * u, 19 * u);
+  ctx.quadraticCurveTo(3 * u, 13 * u, 9 * u, 13 * u);
+  ctx.lineTo(24 * u, 13 * u);
+  ctx.quadraticCurveTo(31 * u, 13 * u, 31 * u, 16 * u);
+  ctx.quadraticCurveTo(31 * u, 19 * u, 24 * u, 19 * u);
+  ctx.lineTo(9 * u, 19 * u);
+  ctx.quadraticCurveTo(3 * u, 19 * u, 3 * u, 19 * u);
+  ctx.closePath();
+  ctx.fill();
+  // menara
+  ctx.fillRect(13 * u, 8 * u, 6 * u, 5.5 * u);
+  // periskop
+  ctx.fillRect(16.5 * u, 5 * u, 1.4 * u, 3.5 * u);
+  // kemudi belakang
+  ctx.beginPath();
+  ctx.moveTo(4 * u, 16 * u);
+  ctx.lineTo(1 * u, 11 * u);
+  ctx.lineTo(4.5 * u, 13 * u);
+  ctx.closePath();
+  ctx.fill();
+};
+
+const PENGGAMBAR: Record<string, Penggambar> = { pesawat: PESAWAT, kapal: KAPAL, satelit: SATELIT, kapalselam: KAPALSELAM };
 
 export function daftarkanIkon(map: MapLibre, nama: string, bentuk: keyof typeof PENGGAMBAR, warna: string, ukuran = 32): void {
   if (map.hasImage(nama)) return;

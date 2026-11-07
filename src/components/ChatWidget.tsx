@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { MessageSquareText, X, SendHorizontal, Sparkles, LocateFixed, Layers } from "lucide-react";
+import { X, SendHorizontal, Sparkles, LocateFixed, Layers } from "lucide-react";
+import Logo from "./Logo";
 import { terjemah, type Lang } from "@/lib/i18n";
 import { LAPISAN, lapisanDariId, type LayerId } from "@/lib/layers";
 import { jawabFaq } from "@/lib/pengetahuan";
@@ -208,20 +209,30 @@ export default function ChatWidget({ lang, terbuka, onToggle, indeks, aktif, jum
 
   return (
     <>
+      {/* tombol Garuda AI: pil dengan logo + label supaya jelas ini asisten AI, bukan sekadar ikon chat */}
       <button
-        className={`tombol-ikon pointer-events-auto absolute bottom-[44px] right-2 z-30 !h-10 !w-10 rounded-full sm:right-3 max-sm:bottom-[88px] ${terbuka ? "aktif" : ""}`}
+        data-tour="chat"
+        className={`tombol-ai pointer-events-auto absolute bottom-[44px] right-2 z-30 sm:right-3 max-sm:bottom-[88px] ${terbuka ? "aktif" : ""} ${pilihan && !terbuka ? "max-sm:hidden" : ""}`}
         onClick={onToggle}
-        title={`${terjemah(lang, "chat_title")} (C)`}
-        aria-label={terjemah(lang, "chat_title")}
+        title={`${terjemah(lang, "chat_button")} (C)`}
+        aria-label={terjemah(lang, "chat_button")}
       >
-        {terbuka ? <X size={17} /> : <MessageSquareText size={17} />}
+        <span className="tombol-ai-logo">
+          <Logo size={22} />
+          <Sparkles size={10} className="tombol-ai-kilau" />
+        </span>
+        <span className="tombol-ai-teks">
+          <span className="tombol-ai-judul">{terjemah(lang, "chat_title")}</span>
+          <span className="tombol-ai-sub">{terbuka ? terjemah(lang, "close") : terjemah(lang, "chat_hint")}</span>
+        </span>
+        {terbuka && <X size={14} className="mr-1 shrink-0 text-muted" />}
       </button>
 
       {terbuka && (
         <section className="glass braket muncul pointer-events-auto absolute bottom-[92px] !bg-[rgba(5,8,15,0.9)] right-2 z-30 flex h-[460px] max-h-[calc(100%-150px)] w-[360px] max-w-[calc(100%-16px)] flex-col sm:right-3 max-sm:bottom-[136px] max-sm:max-h-[55vh]">
           <div className="flex items-center justify-between gap-2 border-b border-white/10 px-3 py-2">
             <div className="flex min-w-0 items-center gap-2">
-              <Sparkles size={13} className="shrink-0 text-accent" />
+              <Logo size={20} className="shrink-0 text-accent" />
               <div className="min-w-0">
                 <div className="label-kecil truncate text-text">{terjemah(lang, "chat_title")}</div>
                 <div className="truncate text-[9.5px] tracking-[0.12em] text-muted">{mode === "ai" ? terjemah(lang, "chat_mode_ai") : terjemah(lang, "chat_mode_faq")}</div>

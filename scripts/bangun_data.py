@@ -55,6 +55,18 @@ def operator_utama(teks: str) -> str:
     return teks.split("(")[0].strip()
 
 
+JENIS_UTAMA = {"Markas Besar", "Kogabwilhan", "Kodam", "Koarmada", "Lantamal", "Komando Utama"}
+
+
+def peringkat_markas(b: dict) -> int:
+    """1 = markas besar/komando utama (selalu tampak), 2 = Korem, Lanal, Lanud kecil (muncul saat zoom)."""
+    if b["jenis"] in JENIS_UTAMA:
+        return 1
+    if b["jenis"] == "Lanud" and int(b["id"]) <= 61:
+        return 1
+    return 2
+
+
 def bangun_markas() -> dict:
     fitur = []
     for b in baca_csv("markas_tni.csv"):
@@ -68,6 +80,30 @@ def bangun_markas() -> dict:
                     "jenis": b["jenis"],
                     "kota": b["kota"],
                     "provinsi": b["provinsi"],
+                    "keterangan": b["keterangan"],
+                    "peringkat": peringkat_markas(b),
+                    "presisi": b.get("presisi") or "kota",
+                    "sumber": b["sumber"],
+                    "url": b["url_sumber"],
+                },
+            )
+        )
+    return {"type": "FeatureCollection", "features": fitur}
+
+
+def bangun_kapal_selam() -> dict:
+    fitur = []
+    for b in baca_csv("kapal_selam.csv"):
+        fitur.append(
+            titik(
+                b,
+                {
+                    "id": f"kapalselam-{b['id']}",
+                    "nama": b["pangkalan"],
+                    "negara": b["negara"],
+                    "jumlah": int(b["jumlah"]),
+                    "kelas": b["kelas"],
+                    "status": b["status"],
                     "keterangan": b["keterangan"],
                     "sumber": b["sumber"],
                     "url": b["url_sumber"],
@@ -174,6 +210,8 @@ def bangun_pangkalan_asing() -> dict:
                     "sumber": "Wikidata",
                     "url": f"https://www.wikidata.org/wiki/{f['qid']}",
                     "kurasi": False,
+                    # instalasi Wikidata (belum diverifikasi) baru muncul saat zoom mendekat; yang dikurasi tampil dari jauh
+                    "peringkat": 2,
                 },
                 "geometry": {"type": "Point", "coordinates": [f["lon"], f["lat"]]},
             }
@@ -194,6 +232,7 @@ def bangun_pangkalan_asing() -> dict:
                     "sumber": b["sumber"],
                     "url": b["url_sumber"],
                     "kurasi": True,
+                    "peringkat": 1,
                 },
             )
         )
@@ -324,7 +363,9 @@ def main() -> None:
     alki = bangun_alki()
     kabel, landing = bangun_kabel()
     tabel = bangun_tabel()
+    kapal_selam = bangun_kapal_selam()
     simpan("markas_tni.geojson", markas)
+    simpan("kapal_selam.geojson", kapal_selam)
     simpan("perbatasan.geojson", perbatasan)
     simpan("pangkalan_asing.geojson", asing)
     simpan("alki.geojson", alki)
@@ -342,6 +383,7 @@ def main() -> None:
                 "alki": len(alki["features"]),
                 "kabel": len(kabel["features"]),
                 "landing_station": len(landing["features"]),
+                "kapal_selam": len(kapal_selam["features"]),
             },
         },
     )

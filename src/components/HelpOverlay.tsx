@@ -4,11 +4,12 @@ import { X } from "lucide-react";
 import { terjemah, type Lang } from "@/lib/i18n";
 import Logo from "./Logo";
 
-const PINTASAN: [string, "help_k" | "help_t" | "help_f" | "help_r" | "help_l" | "help_s" | "help_g" | "help_num" | "help_esc" | "help_q" | "help_w" | "help_c"][] = [
+const PINTASAN: [string, "help_k" | "help_t" | "help_f" | "help_r" | "help_l" | "help_s" | "help_g" | "help_num" | "help_esc" | "help_q" | "help_w" | "help_c" | "help_o"][] = [
   ["Ctrl K", "help_k"],
   ["T", "help_t"],
   ["W", "help_w"],
   ["C", "help_c"],
+  ["O", "help_o"],
   ["F", "help_f"],
   ["R", "help_r"],
   ["L", "help_l"],
@@ -19,7 +20,7 @@ const PINTASAN: [string, "help_k" | "help_t" | "help_f" | "help_r" | "help_l" | 
   ["?", "help_q"],
 ];
 
-export default function HelpOverlay({ lang, onTutup, tentang }: { lang: Lang; onTutup: () => void; tentang?: boolean }) {
+export default function HelpOverlay({ lang, onTutup, tentang, onPanduan }: { lang: Lang; onTutup: () => void; tentang?: boolean; onPanduan?: () => void }) {
   return (
     <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/50 p-3 backdrop-blur-[2px]" onClick={onTutup}>
       <div className="glass braket muncul w-[620px] max-w-full" onClick={(e) => e.stopPropagation()}>
@@ -39,14 +40,14 @@ export default function HelpOverlay({ lang, onTutup, tentang }: { lang: Lang; on
           {lang === "id" ? (
             <p>
               Konsol globe interaktif untuk melihat postur pertahanan Indonesia dari luar angkasa: markas TNI, pangkalan asing di kawasan, pulau terluar,
-              ALKI, kabel bawah laut, pesawat militer yang memancarkan ADS-B, satelit militer dan pengintai, kapal dari AIS, serta analisis ZEE, radius tempur,
-              impor senjata, dan lini masa insiden. Semua dari data publik; koordinat adalah perkiraan.
+              ALKI, kabel bawah laut, pesawat dan helikopter militer yang memancarkan ADS-B, satelit militer dan pengintai, kapal dari AIS, pangkalan kapal selam,
+              serta analisis ZEE, radius tempur, impor senjata SIPRI, lini masa insiden, dan tiga simulasi War Room. Semua dari data publik; koordinat adalah perkiraan.
             </p>
           ) : (
             <p>
               An interactive globe console for Indonesia&apos;s defense posture seen from orbit: TNI bases, foreign bases in the region, outer islands, sea lanes,
-              undersea cables, military aircraft broadcasting ADS-B, military and spy satellites, AIS vessels, plus EEZ, combat-radius, arms-import and
-              incident-timeline analysis. Public data only; coordinates are approximate.
+              undersea cables, military aircraft and helicopters broadcasting ADS-B, military and spy satellites, AIS vessels, submarine home ports, plus EEZ,
+              combat-radius, SIPRI arms-import and incident-timeline analysis, and three War Room simulations. Public data only; coordinates are approximate.
             </p>
           )}
           <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-1.5 sm:grid-cols-2">
@@ -63,6 +64,11 @@ export default function HelpOverlay({ lang, onTutup, tentang }: { lang: Lang; on
               </div>
             ))}
           </div>
+          {onPanduan && (
+            <button className="tombol-hud mt-4" onClick={onPanduan}>
+              {terjemah(lang, "help_replay_guide")}
+            </button>
+          )}
           <p className="mt-4 text-[10.5px] text-dim">
             {terjemah(lang, "disclaimer")} ·{" "}
             <a className="underline hover:text-text" href="https://github.com/Avalon2222/eye-of-garuda" target="_blank" rel="noreferrer">

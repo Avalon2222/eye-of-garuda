@@ -5,6 +5,18 @@ import { Shield, Flag, Mountain, Waves, Cable, Ship, Plane, Satellite, Pentagon,
 import { LAPISAN, GRUP_URUT, type LayerId, type Grup } from "@/lib/layers";
 import { terjemah, type Lang } from "@/lib/i18n";
 
+/** Ikon kapal selam (lucide belum punya): lambung + menara + periskop. */
+function Submarine({ size = 14, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M3 14a4 4 0 0 1 4-4h10a4 4 0 0 1 0 8H7a4 4 0 0 1-4-4Z" />
+      <path d="M9 10V7h5v3" />
+      <path d="M12 7V4" />
+      <path d="M3 14H1" />
+    </svg>
+  );
+}
+
 const IKON: Record<LayerId, React.ComponentType<{ size?: number; className?: string }>> = {
   tni: Shield,
   asing: Flag,
@@ -20,6 +32,7 @@ const IKON: Record<LayerId, React.ComponentType<{ size?: number; className?: str
   insiden: History,
   bandara: PlaneTakeoff,
   pelabuhan: Anchor,
+  kapalselam: Submarine,
 };
 
 const KUNCI_GRUP: Record<Grup, "group_darat" | "group_laut" | "group_udara" | "group_analisis"> = {
@@ -42,7 +55,7 @@ export default function LayerRail({ lang, aktif, jumlah, onToggle, tersedia }: P
 
   return (
     <aside className={`pointer-events-auto absolute left-2 top-[72px] z-20 hidden max-h-[calc(100%-150px)] flex-col sm:flex sm:left-3 sm:top-[84px] ${terbuka ? "w-[250px]" : "w-[46px]"} transition-[width] duration-200`}>
-      <div className="glass braket flex h-full flex-col overflow-hidden">
+      <div className="glass braket flex h-full flex-col overflow-hidden" data-tour="lapisan">
         <div className="flex items-center justify-between border-b border-white/10 px-2 py-1.5">
           {terbuka && (
             <span className="label-kecil flex items-center gap-2 pl-1">
@@ -101,7 +114,7 @@ export default function LayerRail({ lang, aktif, jumlah, onToggle, tersedia }: P
 /** Baris chip untuk layar kecil (ponsel). */
 export function LayerChips({ lang, aktif, onToggle, tersedia }: Omit<Props, "jumlah">) {
   return (
-    <div className="pointer-events-auto absolute inset-x-0 bottom-[38px] z-20 flex gap-1.5 overflow-x-auto px-2 pb-1 sm:hidden [scrollbar-width:none]">
+    <div className="pointer-events-auto absolute inset-x-0 bottom-[38px] z-20 flex gap-1.5 overflow-x-auto px-2 pb-1 sm:hidden [scrollbar-width:none]" data-tour="chips">
       {LAPISAN.filter((l) => tersedia.has(l.id)).map((l) => {
         const Ikon = IKON[l.id];
         const on = aktif.has(l.id);

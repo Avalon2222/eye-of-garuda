@@ -5,6 +5,7 @@ import { lapisanDariId, type LayerId } from "@/lib/layers";
 import { terjemah, type Lang, type KunciKamus } from "@/lib/i18n";
 import { formatKoordinat } from "@/lib/geo";
 import type { Pilihan } from "@/lib/types";
+import { NAMA_KATEGORI_PESAWAT, type KategoriPesawat } from "@/lib/negara";
 
 type Baris = [string, string];
 
@@ -92,13 +93,18 @@ function barisUntuk(p: Pilihan, lang: Lang): { judul: string; sub: string; baris
       const alt = pr.alt != null ? `${Number(pr.alt).toLocaleString("en-US")} ft (${Math.round(Number(pr.alt) * 0.3048).toLocaleString("en-US")} m)` : "";
       const gs = pr.gs != null ? `${Math.round(Number(pr.gs))} kt (${Math.round(Number(pr.gs) * 1.852)} km/h)` : "";
       const umur = pr.dilihat ? Math.max(0, Math.round((Date.now() - Number(pr.dilihat)) / 1000)) : null;
+      const kategori = NAMA_KATEGORI_PESAWAT[(s(pr.kategori) || "lain") as KategoriPesawat]?.[lang] ?? "";
+      const negara = lang === "en" ? s(pr.negara_en) : s(pr.negara_id);
       return {
-        judul: s(pr.callsign) || s(pr.hex).toUpperCase(),
-        sub: `${s(pr.tipe) || "?"} · ${s(pr.reg) || s(pr.hex)}`,
+        judul: s(pr.label) || s(pr.callsign) || s(pr.hex).toUpperCase(),
+        sub: `${s(pr.desc) || s(pr.tipe) || "?"} · ${negara || s(pr.negara)}`,
         baris: [
           [t("callsign"), s(pr.callsign)],
+          [t("detail_country"), negara ? `${negara} (${s(pr.negara)})` : s(pr.negara)],
+          [t("aircraft_category"), kategori],
+          [t("detail_operator"), s(pr.operator)],
           [t("registration"), s(pr.reg)],
-          [t("aircraft_type"), s(pr.tipe)],
+          [t("aircraft_type"), [s(pr.tipe), s(pr.desc)].filter(Boolean).join(" · ")],
           ["ICAO hex", s(pr.hex).toUpperCase()],
           [t("altitude"), alt],
           [t("speed"), gs],
@@ -114,8 +120,8 @@ function barisUntuk(p: Pilihan, lang: Lang): { judul: string; sub: string; baris
     case "kapal": {
       const sog = pr.sog != null ? `${Number(pr.sog).toFixed(1)} kt` : "";
       return {
-        judul: s(pr.nama),
-        sub: `${s(pr.kelas)}${pr.tersanksi ? " · " + t("sanctioned") : ""}`,
+        judul: s(pr.label) || s(pr.nama),
+        sub: `${s(pr.kelas)}${s(pr.sumber) === "live" ? " · LIVE" : ""}${pr.tersanksi ? " · " + t("sanctioned") : ""}`,
         baris: [
           [t("mmsi"), s(pr.mmsi)],
           [t("ship_type"), `${s(pr.kelas)}${pr.tipe != null ? ` (AIS ${s(pr.tipe)})` : ""}`],
@@ -127,10 +133,25 @@ function barisUntuk(p: Pilihan, lang: Lang): { judul: string; sub: string; baris
           ...(pr.tersanksi ? ([["Program", s(pr.program)]] as Baris[]) : []),
           [t("source"), "aisstream.io (AIS) · OpenSanctions"],
         ],
-        catatan: "ships_caveat",
+        catatan: s(pr.sumber) === "live" ? "ships_live_note" : "ships_caveat",
         url: pr.mmsi ? `https://www.marinetraffic.com/en/ais/details/ships/mmsi:${s(pr.mmsi)}` : undefined,
       };
     }
+    case "kapalselam":
+      return {
+        judul: s(pr.nama),
+        sub: `${s(pr.negara)} · ${s(pr.status)}`,
+        baris: [
+          [t("detail_country"), s(pr.negara)],
+          [t("sub_count"), s(pr.jumlah)],
+          [t("sub_fleet"), s(pr.kelas)],
+          [t("detail_status"), s(pr.status)],
+          [t("detail_notes"), s(pr.keterangan)],
+          [t("source"), s(pr.sumber)],
+        ],
+        catatan: "sub_caveat",
+        url,
+      };
     case "satelit": {
       const kelas = s(pr.kelas_orbit);
       const kelasTeks = kelas === "LEO" ? t("orbit_leo") : kelas === "MEO" ? t("orbit_meo") : kelas === "GEO" ? t("orbit_geo") : kelas === "HEO" ? t("orbit_heo") : "";

@@ -154,6 +154,149 @@ button {
   background: rgba(255, 255, 255, 0.04);
 }
 
+/* tombol Garuda AI */
+.tombol-ai {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px 6px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 90, 60, 0.55);
+  background: linear-gradient(135deg, rgba(255, 90, 60, 0.22), rgba(7, 11, 20, 0.85));
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: 0 0 0 0 rgba(255, 90, 60, 0.5), 0 10px 30px rgba(0, 0, 0, 0.45);
+  color: var(--text);
+  text-align: left;
+  animation: ai-denyut 2.8s ease-out infinite;
+  transition: border-color 150ms, transform 150ms;
+}
+.tombol-ai:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.tombol-ai.aktif {
+  animation: none;
+  border-color: var(--accent);
+}
+.tombol-ai-logo {
+  position: relative;
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #05080f;
+  flex-shrink: 0;
+}
+.tombol-ai-kilau {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  color: var(--gold);
+}
+.tombol-ai-teks {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  min-width: 0;
+}
+.tombol-ai-judul {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.tombol-ai-sub {
+  font-size: 9.5px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+@media (max-width: 640px) {
+  .tombol-ai-sub {
+    display: none;
+  }
+  .tombol-ai {
+    padding-right: 10px;
+  }
+}
+@keyframes ai-denyut {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 90, 60, 0.55), 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
+  60% {
+    box-shadow: 0 0 0 12px rgba(255, 90, 60, 0), 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 90, 60, 0), 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* panel kaca tipis untuk simulasi di HP: teks tetap terbaca, visual di belakangnya tetap terlihat */
+.glass-tipis {
+  background: rgba(7, 11, 20, 0.42);
+  backdrop-filter: blur(6px) saturate(130%);
+  -webkit-backdrop-filter: blur(6px) saturate(130%);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.glass-tipis .teks-bayang {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 0 12px rgba(0, 0, 0, 0.7);
+}
+
+/* sorotan onboarding */
+.sorot-panduan {
+  position: relative;
+  z-index: 61 !important;
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.55), 0 0 32px rgba(242, 198, 109, 0.5);
+  animation: sorot-kedip 1.6s ease-in-out infinite;
+}
+@keyframes sorot-kedip {
+  0%,
+  100% {
+    outline-color: var(--gold);
+  }
+  50% {
+    outline-color: var(--accent);
+  }
+}
+
+/* slider lini masa */
+.slider-waktu {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(248, 113, 113, 0.6), rgba(96, 165, 250, 0.6));
+  outline: none;
+  cursor: pointer;
+}
+.slider-waktu::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--gold);
+  border: 2px solid #05080f;
+  box-shadow: 0 0 0 2px var(--gold);
+}
+.slider-waktu::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--gold);
+  border: 2px solid #05080f;
+  box-shadow: 0 0 0 2px var(--gold);
+}
+
 /* titik status berdenyut */
 .denyut {
   position: relative;

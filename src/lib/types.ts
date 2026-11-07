@@ -10,7 +10,7 @@ export interface Pilihan {
 export interface StatusLive {
   pesawat: { jumlah: number; totalDunia: number; galat: string | null; terakhir: number };
   satelit: { jumlah: number; epoch: string; galat: string | null };
-  kapal: { jumlah: number; umurMenit: number | null; galat: string | null };
+  kapal: { jumlah: number; umurMenit: number | null; galat: string | null; live: number };
 }
 
 export type PanelId = "none" | "cari" | "bantuan" | "data" | "tentang";
