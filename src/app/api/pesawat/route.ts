@@ -23,6 +23,8 @@ interface AcMentah {
   true_heading?: number;
   squawk?: string;
   seen_pos?: number;
+  desc?: string;
+  ownOp?: string;
 }
 
 let cache: { waktu: number; ac: AcMentah[] } | null = null;
@@ -67,6 +69,8 @@ export async function GET(req: Request) {
       track: typeof a.track === "number" ? a.track : typeof a.true_heading === "number" ? a.true_heading : null,
       squawk: a.squawk ?? "",
       dilihat: sekarang - Math.round((a.seen_pos ?? 0) * 1000),
+      desc: a.desc ?? "",
+      operator: a.ownOp ?? "",
     }));
     return NextResponse.json(
       { now: sekarang, total_dunia: semua.length, cakupan, ac },

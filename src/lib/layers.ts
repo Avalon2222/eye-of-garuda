@@ -16,7 +16,8 @@ export type LayerId =
   | "sipri"
   | "insiden"
   | "bandara"
-  | "pelabuhan";
+  | "pelabuhan"
+  | "kapalselam";
 
 export type Grup = "darat" | "laut" | "udara" | "analisis";
 
@@ -121,10 +122,22 @@ export const LAPISAN: LayerDef[] = [
     fase: 3,
   },
   {
+    id: "kapalselam",
+    tombol: ";",
+    nama: { id: "Kapal selam (pangkalan)", en: "Submarines (home ports)" },
+    deskripsi: { id: "Armada kapal selam kawasan per pangkalan; posisi live tidak tersedia", en: "Regional submarine fleets by home port; no live positions exist" },
+    grup: "laut",
+    warna: "#67e8f9",
+    jenis: "statis",
+    berkas: "kapal_selam.geojson",
+    aktifAwal: true,
+    fase: 3,
+  },
+  {
     id: "kapal",
     tombol: "6",
     nama: { id: "Kapal (AIS)", en: "Ships (AIS)" },
-    deskripsi: { id: "Snapshot AIS; militer, patroli, tanker, kargo, nelayan", en: "AIS snapshot; military, patrol, tanker, cargo, fishing" },
+    deskripsi: { id: "Live AIS via aisstream + snapshot 30 menit; militer, patroli, tanker, kargo", en: "Live AIS via aisstream + 30-min snapshot; military, patrol, tanker, cargo" },
     grup: "laut",
     warna: "#a3e635",
     jenis: "live",
@@ -134,8 +147,8 @@ export const LAPISAN: LayerDef[] = [
   {
     id: "pesawat",
     tombol: "7",
-    nama: { id: "Pesawat militer (live)", en: "Military aircraft (live)" },
-    deskripsi: { id: "ADS-B militer, diperbarui tiap 10 detik", en: "Military ADS-B, refreshed every 10 s" },
+    nama: { id: "Pesawat & helikopter militer (live)", en: "Military aircraft & helicopters (live)" },
+    deskripsi: { id: "ADS-B militer tiap 10 detik: jet, heli, tanker, angkut, intai", en: "Military ADS-B every 10 s: jets, helicopters, tankers, transports, ISR" },
     grup: "udara",
     warna: "#facc15",
     jenis: "live",
@@ -169,7 +182,7 @@ export const LAPISAN: LayerDef[] = [
     id: "radius",
     tombol: "0",
     nama: { id: "Radius tempur", en: "Combat radius" },
-    deskripsi: { id: "Jangkauan Rafale, F-16, Su-30 dari tiap Lanud", en: "Rafale, F-16, Su-30 reach from each air base" },
+    deskripsi: { id: "Lingkaran jangkauan Rafale, F-16, Su-30 dari tiap Lanud", en: "Rafale, F-16, Su-30 reach circles from each air base" },
     grup: "analisis",
     warna: "#e879f9",
     jenis: "analisis",
@@ -180,7 +193,7 @@ export const LAPISAN: LayerDef[] = [
     id: "sipri",
     tombol: "-",
     nama: { id: "Impor senjata (SIPRI)", en: "Arms imports (SIPRI)" },
-    deskripsi: { id: "Busur dari negara pemasok, 2000–2024", en: "Arcs from supplier countries, 2000–2024" },
+    deskripsi: { id: "Busur dari negara pemasok, 2000–2025, langsung dari database SIPRI", en: "Arcs from supplier countries, 2000–2025, straight from the SIPRI database" },
     grup: "analisis",
     warna: "#c084fc",
     jenis: "analisis",
@@ -201,6 +214,9 @@ export const LAPISAN: LayerDef[] = [
     fase: 3,
   },
 ];
+
+/** Lapisan untuk tampilan awal dan tombol reset: ramai tapi ringan (detail kecil baru muncul saat zoom). */
+export const LAPISAN_BAWAAN: LayerId[] = LAPISAN.filter((l) => l.aktifAwal).map((l) => l.id);
 
 export const GRUP_URUT: Grup[] = ["darat", "laut", "udara", "analisis"];
 

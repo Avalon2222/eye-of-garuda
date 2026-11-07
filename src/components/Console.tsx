@@ -4,16 +4,19 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Map as MapLibre, setWorkerUrl, type MapMouseEvent } from "maplibre-gl";
 import type { GeoJSON } from "geojson";
 import { bangunStyle, ID_LAYER_SAT, layerBasemapTersembunyiSaatSat } from "@/lib/mapStyle";
-import { pasangSemuaLapisan, setVisibilitas, setDataSource, LAYER_INTERAKTIF, sorotPilihan, pakaiCincin } from "@/lib/mapLayers";
+import { pasangSemuaLapisan, setVisibilitas, sinkronVisibilitas, setDataSource, LAYER_INTERAKTIF, sorotPilihan, pakaiCincin, sorotKabelPutus } from "@/lib/mapLayers";
 import { KanvasLive } from "@/lib/kanvasLive";
-import { LAPISAN, type LayerId } from "@/lib/layers";
+import { LAPISAN, LAPISAN_BAWAAN, type LayerId } from "@/lib/layers";
 import { bacaUrl, tulisUrl, TAMPILAN_AWAL, type Tampilan } from "@/lib/urlState";
 import { terjemah, bacaLangTersimpan, simpanLang, type Lang } from "@/lib/i18n";
 import { TOUR } from "@/lib/tour";
 import { PelacakPesawat, type CakupanPesawat } from "@/lib/live/pesawat";
 import { PelacakSatelit } from "@/lib/live/satelit";
 import { PelacakKapal } from "@/lib/live/kapal";
-import { muatAnalisis, langkahBusur, type DataSipri } from "@/lib/analisis";
+import { PenjadwalLintasan, type Lintasan } from "@/lib/live/lintasan";
+import { muatAnalisis, type DataSipri } from "@/lib/analisis";
+import { SKENARIO, skenarioDariId, skenarioKeMarkdown, TAHAN_KESIMPULAN_MS } from "@/lib/skenario";
+import { fotoPng, unduhTeks, unduhBlob, bisaMerekam, Perekam } from "@/lib/ekspor";
 import type { Pilihan, PanelId, StatusLive } from "@/lib/types";
 import BootScreen from "./BootScreen";
 import Hud, { JamZulu } from "./Hud";
@@ -26,12 +29,15 @@ import TourOverlay from "./TourOverlay";
 import DataPanel from "./DataPanel";
 import TimelineStrip from "./TimelineStrip";
 import SipriLegend from "./SipriLegend";
-import SkenarioOverlay from "./SkenarioOverlay";
+import SkenarioOverlay, { SkenarioPicker } from "./SkenarioOverlay";
 import ChatWidget from "./ChatWidget";
-import { SKENARIO } from "@/lib/skenario";
+import Onboarding, { panduanSudahDilihat } from "./Onboarding";
+import JadwalSatelit from "./JadwalSatelit";
 
 const TAMPILAN_JAUH = { center: [118, -2] as [number, number], zoom: 1.3, pitch: 0, bearing: 0 };
 const KOSONG: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
+/** toleransi klik (px) untuk titik kecil: jari di HP butuh lebih lebar daripada kursor */
+const TOLERANSI_KLIK = { mouse: 7, sentuh: 14 };
 
 function entriDariFitur(lapisan: LayerId, f: GeoJSON.Feature): EntriCari | null {
   const p = (f.properties ?? {}) as Record<string, unknown>;
@@ -46,14 +52,25 @@ function entriDariFitur(lapisan: LayerId, f: GeoJSON.Feature): EntriCari | null 
   else return null;
   const nama = String(p.nama ?? p.judul ?? p.callsign ?? "");
   if (!nama) return null;
-  const sub = String(p.jenis ?? p.operator ?? p.kategori ?? p.kelompok ?? p.tanggal ?? p.pesawat ?? "");
+  const sub = String(p.jenis ?? p.operator ?? p.negara ?? p.kategori ?? p.kelompok ?? p.tanggal ?? p.pesawat ?? "");
   return { id: String(p.id ?? `${lapisan}-${nama}`), lapisan, nama, sub, lon, lat, props: p };
+}
+
+function layarKecil(): boolean {
+  return typeof window !== "undefined" && window.innerWidth < 640;
+}
+
+interface StatusSimulasi {
+  id: string;
+  fase: number;
+  /** ms epoch saat fase ini mulai (untuk hitung mundur fase terakhir) */
+  mulaiFase: number;
 }
 
 export default function Console() {
   const awalUrl = useMemo(() => bacaUrl(), []);
   const [lang, setLang] = useState<Lang>(() => awalUrl.lang ?? bacaLangTersimpan());
-  const [aktif, setAktif] = useState<Set<LayerId>>(() => new Set(awalUrl.lapisan ?? LAPISAN.filter((l) => l.aktifAwal).map((l) => l.id)));
+  const [aktif, setAktif] = useState<Set<LayerId>>(() => new Set(awalUrl.lapisan ?? LAPISAN_BAWAAN));
   const [sat, setSat] = useState(Boolean(awalUrl.sat));
   const [datar, setDatar] = useState(Boolean(awalUrl.datar));
   const [boot, setBoot] = useState(true);
@@ -62,8 +79,13 @@ export default function Console() {
   const [panel, setPanel] = useState<PanelId>("none");
   const [tour, setTour] = useState(-1);
   const [obrolan, setObrolan] = useState(false);
-  /** indeks fase skenario yang sedang dimainkan, -1 = tidak aktif */
-  const [skenario, setSkenario] = useState(-1);
+  const [panduan, setPanduan] = useState(false);
+  const [pilihSkenario, setPilihSkenario] = useState(false);
+  const [simulasi, setSimulasi] = useState<StatusSimulasi | null>(null);
+  const [merekam, setMerekam] = useState(false);
+  const [jadwal, setJadwal] = useState(false);
+  const [lintasan, setLintasan] = useState<{ daftar: Lintasan[]; sekarang: number[]; dihitung: number } | null>(null);
+  const [hitungLintasan, setHitungLintasan] = useState(false);
   const [jumlah, setJumlah] = useState<Partial<Record<LayerId, number>>>({});
   const [tersedia, setTersedia] = useState<Set<LayerId>>(new Set());
   const [toast, setToast] = useState<string | null>(null);
@@ -74,7 +96,7 @@ export default function Console() {
   const [live, setLive] = useState<StatusLive>({
     pesawat: { jumlah: 0, totalDunia: 0, galat: null, terakhir: 0 },
     satelit: { jumlah: 0, epoch: "", galat: null },
-    kapal: { jumlah: 0, umurMenit: null, galat: null },
+    kapal: { jumlah: 0, umurMenit: null, galat: null, live: 0 },
   });
 
   const wadah = useRef<HTMLDivElement>(null);
@@ -85,11 +107,14 @@ export default function Console() {
   aktifRef.current = aktif;
   const tourRef = useRef(tour);
   tourRef.current = tour;
-  const skenarioRef = useRef(skenario);
-  skenarioRef.current = skenario;
+  const simulasiRef = useRef(simulasi);
+  simulasiRef.current = simulasi;
+  const langRef = useRef(lang);
+  langRef.current = lang;
   const pesawat = useRef<PelacakPesawat | null>(null);
   const satelit = useRef<PelacakSatelit | null>(null);
   const kapal = useRef<PelacakKapal | null>(null);
+  const penjadwal = useRef<PenjadwalLintasan | null>(null);
   const pilihanRef = useRef(pilihan);
   pilihanRef.current = pilihan;
   const layerSatTersembunyi = useRef<string[]>([]);
@@ -98,16 +123,20 @@ export default function Console() {
   const petaSiapCallback = useRef<(() => void) | null>(null);
   const petaSudahLoad = useRef(false);
   const kanvas = useRef<KanvasLive | null>(null);
+  const perekam = useRef<Perekam | null>(null);
+  /** lapisan pengguna sebelum simulasi/briefing, dipulihkan saat selesai atau diinterupsi */
+  const lapisanSebelum = useRef<Set<LayerId> | null>(null);
+  const tampilanSebelum = useRef<Tampilan | null>(null);
 
   const tampilkanToast = useCallback((t: string) => {
     setToast(t);
-    setTimeout(() => setToast(null), 1800);
+    setTimeout(() => setToast(null), 2200);
   }, []);
 
   // ---------- URL ----------
   const simpanUrl = useCallback(() => {
     const m = mapRef.current;
-    if (!m || bootRef.current) return;
+    if (!m || bootRef.current || simulasiRef.current || tourRef.current >= 0) return;
     const c = m.getCenter();
     tulisUrl({
       tampilan: { lat: c.lat, lon: c.lng, zoom: m.getZoom(), bearing: m.getBearing(), pitch: m.getPitch() },
@@ -122,6 +151,17 @@ export default function Console() {
   useEffect(() => {
     simpanUrl();
   }, [aktif, lang, sat, datar, pilihan, simpanUrl]);
+
+  // ---------- visibilitas lapisan: selalu disinkronkan dengan state (anti "bandel") ----------
+  useEffect(() => {
+    const m = mapRef.current;
+    if (!m || !petaSudahLoad.current) return;
+    sinkronVisibilitas(m, aktif);
+  }, [aktif]);
+
+  useEffect(() => {
+    if (kanvas.current) kanvas.current.lang = lang;
+  }, [lang]);
 
   // ---------- pilih entitas ----------
   const pilih = useCallback((p: Pilihan | null, terbang = false) => {
@@ -177,6 +217,11 @@ export default function Console() {
       const an = await muatAnalisis(m);
       setSipri(an.sipri);
       setInsiden(an.fitur.insiden ?? null);
+      if (kanvas.current && an.fitur.sipri) {
+        kanvas.current.busurSipri = an.fitur.sipri.features
+          .filter((f) => f.geometry.type === "LineString")
+          .map((f) => ({ id: String(f.properties?.id), koordinat: (f.geometry as GeoJSON.LineString).coordinates as [number, number][], tebal: Number(f.properties?.tebal ?? 1) }));
+      }
       for (const [id, fc] of Object.entries(an.fitur)) {
         if (!fc) continue;
         hasil[id as LayerId] = fc.features.length;
@@ -225,14 +270,18 @@ export default function Console() {
       if (id === "kapal" && !kapal.current) {
         const k = new PelacakKapal();
         kapal.current = k;
-        const muat = () =>
-          k.muat().then(() => {
-            setLive((st) => ({ ...st, kapal: { jumlah: k.jumlah, umurMenit: k.umurMenit(Date.now()), galat: k.galat } }));
-            setJumlah((j) => ({ ...j, kapal: k.jumlah }));
-          });
-        muat();
-        const idInt = setInterval(muat, 5 * 60_000);
-        (k as unknown as { stop: () => void }).stop = () => clearInterval(idInt);
+        const laporkan = () => {
+          setLive((st) => ({ ...st, kapal: { jumlah: k.jumlah, umurMenit: k.umurMenit(Date.now()), galat: k.galat, live: k.jumlahLive } }));
+          setJumlah((j) => ({ ...j, kapal: k.jumlah }));
+        };
+        k.muat().then(laporkan);
+        k.muatLive().then(laporkan);
+        const idSnap = setInterval(() => k.muat().then(laporkan), 5 * 60_000);
+        const idLive = setInterval(() => k.muatLive().then(laporkan), 60_000);
+        (k as unknown as { stop: () => void }).stop = () => {
+          clearInterval(idSnap);
+          clearInterval(idLive);
+        };
       }
     },
     [cakupan],
@@ -249,10 +298,10 @@ export default function Console() {
     }
   }, [cakupan]);
 
-  // loop animasi: kanvas (satelit + pesawat) tiap frame, kapal tiap 2 s, busur SIPRI tiap 70 ms
+  // loop animasi: kanvas (satelit + pesawat + komet SIPRI + skenario) tiap frame, kapal tiap 2 s
   useEffect(() => {
     let raf = 0;
-    let tKapal = 0, tStatus = 0, tBusur = 0, tDetail = 0, langkah = 0;
+    let tKapal = 0, tStatus = 0, tDetail = 0;
     const tik = () => {
       const m = mapRef.current;
       const now = Date.now();
@@ -261,6 +310,7 @@ export default function Console() {
         const a = aktifRef.current;
         k.tampilPesawat = a.has("pesawat");
         k.tampilSatelit = a.has("satelit");
+        k.tampilSipri = a.has("sipri");
         k.gambar(now);
         if (a.has("kapal") && kapal.current && now - tKapal > 2000) {
           tKapal = now;
@@ -271,10 +321,6 @@ export default function Console() {
             const f = fc.features.find((x) => x.properties?.id === pl.props.id);
             if (f && f.geometry.type === "Point") setDataSource(m, "pilihan", { type: "FeatureCollection", features: [{ type: "Feature", properties: {}, geometry: f.geometry }] });
           }
-        }
-        if (a.has("sipri") && now - tBusur > 70) {
-          tBusur = now;
-          langkahBusur(m, langkah++);
         }
         // panel detail satelit/pesawat ikut bergerak: segarkan props tiap detik
         const pl = pilihanRef.current;
@@ -291,7 +337,7 @@ export default function Console() {
         if (now - tStatus > 30_000 && kapal.current) {
           tStatus = now;
           const kp = kapal.current;
-          setLive((st) => ({ ...st, kapal: { ...st.kapal, umurMenit: kp.umurMenit(now) } }));
+          setLive((st) => ({ ...st, kapal: { ...st.kapal, umurMenit: kp.umurMenit(now), live: kp.jumlahLive } }));
         }
       }
       raf = requestAnimationFrame(tik);
@@ -299,6 +345,156 @@ export default function Console() {
     raf = requestAnimationFrame(tik);
     return () => cancelAnimationFrame(raf);
   }, []);
+
+  // ---------- simulasi & briefing: fokus lapisan, interupsi, pemulihan ----------
+  const hentikanSimulasi = useCallback(
+    (alasan: "selesai" | "stop" | "interupsi") => {
+      const m = mapRef.current;
+      if (simulasiRef.current) {
+        setSimulasi(null);
+        if (kanvas.current) kanvas.current.skenario = null;
+        if (m) sorotKabelPutus(m, []);
+        if (perekam.current?.aktif) {
+          perekam.current.berhenti().then((b) => {
+            if (b && perekam.current) unduhBlob(b, `eye-of-garuda-${simulasiRef.current?.id ?? "simulasi"}.${perekam.current.ekstensi}`);
+          });
+          setMerekam(false);
+        }
+      }
+      if (tourRef.current >= 0) setTour(-1);
+      if (lapisanSebelum.current) {
+        const pulih = lapisanSebelum.current;
+        lapisanSebelum.current = null;
+        setAktif(pulih);
+        if (m) sinkronVisibilitas(m, pulih);
+        if (alasan === "interupsi") tampilkanToast(terjemah(langRef.current, "scenario_interrupted"));
+      }
+      if (alasan === "selesai" && m) {
+        m.flyTo({ center: [TAMPILAN_AWAL.lon, TAMPILAN_AWAL.lat], zoom: TAMPILAN_AWAL.zoom, pitch: 0, bearing: 0, duration: 2600, essential: true });
+      } else if (alasan === "stop" && m && tampilanSebelum.current) {
+        const t = tampilanSebelum.current;
+        m.flyTo({ center: [t.lon, t.lat], zoom: t.zoom, pitch: t.pitch, bearing: t.bearing, duration: 2000, essential: true });
+      }
+      tampilanSebelum.current = null;
+    },
+    [tampilkanToast],
+  );
+
+  const simpanKeadaan = useCallback(() => {
+    if (lapisanSebelum.current) return;
+    lapisanSebelum.current = new Set(aktifRef.current);
+    const m = mapRef.current;
+    if (m) {
+      const c = m.getCenter();
+      tampilanSebelum.current = { lat: c.lat, lon: c.lng, zoom: m.getZoom(), bearing: m.getBearing(), pitch: m.getPitch() };
+    }
+  }, []);
+
+  const mulaiSimulasi = useCallback(
+    (id: string) => {
+      setPilihSkenario(false);
+      if (tourRef.current >= 0) setTour(-1);
+      simpanKeadaan();
+      pilih(null);
+      setPanel("none");
+      setObrolan(false);
+      setSimulasi({ id, fase: 0, mulaiFase: Date.now() });
+    },
+    [simpanKeadaan, pilih],
+  );
+
+  // jalankan fase simulasi
+  useEffect(() => {
+    const k = kanvas.current;
+    if (!simulasi) {
+      if (k) k.skenario = null;
+      return;
+    }
+    const m = mapRef.current;
+    const sk = skenarioDariId(simulasi.id);
+    const f = sk?.fase[simulasi.fase];
+    if (!m || !sk || !f) {
+      hentikanSimulasi("stop");
+      return;
+    }
+    // hanya lapisan yang dibutuhkan skenario + tambahan fase ini
+    const fokus = new Set<LayerId>([...sk.lapisan, ...(f.nyalakan ?? [])]);
+    setAktif(fokus);
+    sinkronVisibilitas(m, fokus);
+    for (const id of fokus) if (LAPISAN.find((x) => x.id === id)?.jenis === "live") mulaiLive(id);
+    sorotKabelPutus(m, f.kabelPutus ?? []);
+    // di HP, panel menutup bagian bawah: beri padding supaya aksi tetap terlihat
+    const kecil = layarKecil();
+    m.flyTo({
+      center: f.kamera.center,
+      zoom: kecil ? f.kamera.zoom - 0.5 : f.kamera.zoom,
+      pitch: f.kamera.pitch,
+      bearing: f.kamera.bearing,
+      duration: f.kamera.durasi,
+      essential: true,
+      curve: 1.2,
+      padding: kecil ? { top: 70, bottom: Math.round(window.innerHeight * 0.4), left: 0, right: 0 } : { top: 0, bottom: 0, left: 0, right: 0 },
+    });
+    if (k) k.skenario = { fase: f, mulai: Date.now() + Math.min(1200, f.kamera.durasi * 0.4) };
+    const terakhir = simulasi.fase >= sk.fase.length - 1;
+    const tahan = terakhir ? TAHAN_KESIMPULAN_MS : f.kamera.durasi + f.tahan;
+    const id = window.setTimeout(() => {
+      if (simulasiRef.current?.id !== simulasi.id || simulasiRef.current.fase !== simulasi.fase) return;
+      if (terakhir) hentikanSimulasi("selesai");
+      else setSimulasi({ id: simulasi.id, fase: simulasi.fase + 1, mulaiFase: Date.now() });
+    }, tahan);
+    return () => clearTimeout(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [simulasi?.id, simulasi?.fase]);
+
+  const toggleTour = useCallback(() => {
+    if (tourRef.current >= 0) {
+      hentikanSimulasi("stop");
+      return;
+    }
+    if (simulasiRef.current) hentikanSimulasi("stop");
+    simpanKeadaan();
+    setAktif(new Set());
+    setTour(0);
+  }, [hentikanSimulasi, simpanKeadaan]);
+
+  const toggleSkenario = useCallback(() => {
+    if (simulasiRef.current) hentikanSimulasi("stop");
+    else setPilihSkenario((p) => !p);
+  }, [hentikanSimulasi]);
+
+  // jalankan langkah briefing (lapisan kumulatif per langkah)
+  useEffect(() => {
+    if (tour < 0) return;
+    const m = mapRef.current;
+    const l = TOUR[tour];
+    if (!m || !l) {
+      hentikanSimulasi("selesai");
+      return;
+    }
+    pilih(null);
+    setPanel("none");
+    if (l.nyalakan) {
+      setAktif((a) => {
+        const b = new Set(a);
+        for (const id of l.nyalakan!) {
+          if (!tersedia.has(id) && LAPISAN.find((x) => x.id === id)?.jenis !== "live") continue;
+          b.add(id);
+          if (LAPISAN.find((x) => x.id === id)?.jenis === "live") mulaiLive(id);
+        }
+        sinkronVisibilitas(m, b);
+        return b;
+      });
+    }
+    m.flyTo({ center: l.center, zoom: layarKecil() ? l.zoom - 0.4 : l.zoom, pitch: l.pitch, bearing: l.bearing, duration: l.durasiTerbang, essential: true, curve: 1.2, padding: layarKecil() ? { top: 60, bottom: 220, left: 0, right: 0 } : { top: 0, bottom: 0, left: 0, right: 0 } });
+    const id = setTimeout(() => {
+      if (tourRef.current !== tour) return;
+      if (tour + 1 < TOUR.length) setTour(tour + 1);
+      else hentikanSimulasi("selesai");
+    }, l.durasiTerbang + l.tahan);
+    return () => clearTimeout(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tour]);
 
   // ---------- peta ----------
   useEffect(() => {
@@ -321,7 +517,7 @@ export default function Console() {
         attributionControl: { compact: true },
         maxPitch: 70,
         fadeDuration: 150,
-        canvasContextAttributes: { antialias: true },
+        canvasContextAttributes: { antialias: true, preserveDrawingBuffer: true },
       });
       mapRef.current = m;
       (window as unknown as { __eog?: MapLibre }).__eog = m;
@@ -332,6 +528,7 @@ export default function Console() {
           const k = new KanvasLive(m, wadah.current.parentElement);
           k.pesawat = pesawat.current;
           k.satelit = satelit.current;
+          k.lang = langRef.current;
           kanvas.current = k;
           (window as unknown as { __eogKanvas?: KanvasLive }).__eogKanvas = k;
         }
@@ -340,13 +537,15 @@ export default function Console() {
         for (const l of LAPISAN) setVisibilitas(m, l.id, true);
         const terapkan = () => {
           if (!mapRef.current) return;
-          for (const l of LAPISAN) setVisibilitas(m, l.id, aktifRef.current.has(l.id));
+          sinkronVisibilitas(m, aktifRef.current);
         };
         const idPemanasan = setTimeout(terapkan, 2200);
         m.once("idle", () => {
           clearTimeout(idPemanasan);
           terapkan();
         });
+        // jaring pengaman: tiap kali peta idle, samakan lagi visibilitas dengan state
+        m.on("idle", terapkan);
         if (sat) terapkanSat(m, true);
         if (datar) m.setProjection({ type: "mercator" });
         muatLapisanStatis(m);
@@ -357,11 +556,21 @@ export default function Console() {
         });
       });
       m.on("moveend", simpanUrl);
+      // interaksi pengguna saat simulasi/briefing: hentikan dan pulihkan
       m.on("dragstart", () => {
-        if (tourRef.current >= 0) setTour(-1);
+        if (tourRef.current >= 0 || simulasiRef.current) hentikanSimulasi("interupsi");
+      });
+      m.on("wheel", () => {
+        if (tourRef.current >= 0 || simulasiRef.current) hentikanSimulasi("interupsi");
       });
       m.on("click", (e: MapMouseEvent) => {
-        const hit = kanvas.current?.cari(e.point.x, e.point.y, 16);
+        if (tourRef.current >= 0 || simulasiRef.current) {
+          hentikanSimulasi("interupsi");
+          return;
+        }
+        const sentuh = (e.originalEvent as PointerEvent | undefined)?.pointerType === "touch" || (e.originalEvent as { sourceCapabilities?: { firesTouchEvents?: boolean } })?.sourceCapabilities?.firesTouchEvents === true;
+        const r = sentuh ? TOLERANSI_KLIK.sentuh : TOLERANSI_KLIK.mouse;
+        const hit = kanvas.current?.cari(e.point.x, e.point.y, r + 6);
         if (hit) {
           if (hit.jenis === "satelit" && satelit.current) {
             const sat = satelit.current.cari(Number((hit.props as { norad: number }).norad));
@@ -370,10 +579,24 @@ export default function Console() {
           return;
         }
         const ids = Object.keys(LAYER_INTERAKTIF).filter((id) => m.getLayer(id));
-        const f = m.queryRenderedFeatures(e.point, { layers: ids })[0];
-        if (!f) {
+        // kotak toleransi: titik kecil (3–6 px) tetap bisa diklik tanpa harus tepat
+        const kandidat = m.queryRenderedFeatures([[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]], { layers: ids });
+        if (!kandidat.length) {
           pilih(null);
           return;
+        }
+        // titik terdekat menang atas garis/poligon; di antara titik pilih yang paling dekat
+        let f = kandidat[0];
+        let terbaik = Infinity;
+        for (const c of kandidat) {
+          const g = c.geometry;
+          if (g.type !== "Point") continue;
+          const q = m.project(g.coordinates as [number, number]);
+          const d = (q.x - e.point.x) ** 2 + (q.y - e.point.y) ** 2;
+          if (d < terbaik) {
+            terbaik = d;
+            f = c;
+          }
         }
         const lapisan = LAYER_INTERAKTIF[f.layer.id];
         const g = f.geometry;
@@ -382,7 +605,8 @@ export default function Console() {
       });
       m.on("mousemove", (e: MapMouseEvent) => {
         const ids = Object.keys(LAYER_INTERAKTIF).filter((id) => m.getLayer(id));
-        const ada = Boolean(kanvas.current?.cari(e.point.x, e.point.y, 12)) || m.queryRenderedFeatures(e.point, { layers: ids }).length > 0;
+        const r = TOLERANSI_KLIK.mouse;
+        const ada = Boolean(kanvas.current?.cari(e.point.x, e.point.y, 12)) || m.queryRenderedFeatures([[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]], { layers: ids }).length > 0;
         m.getCanvas().style.cursor = ada ? "pointer" : "";
       });
       m.on("error", (e) => {
@@ -402,7 +626,7 @@ export default function Console() {
     for (const id of layerSatTersembunyi.current) if (m.getLayer(id)) m.setLayoutProperty(id, "visibility", on ? "none" : "visible");
   }
 
-  // boot selesai -> terbang ke tampilan awal / URL
+  // boot selesai -> terbang ke tampilan awal / URL, lalu panduan singkat (sekali)
   const selesaiBoot = useCallback(() => {
     if (!bootRef.current) return;
     setBoot(false);
@@ -413,6 +637,7 @@ export default function Console() {
     };
     if (m && petaSudahLoad.current) terbang();
     else petaSiapCallback.current = terbang;
+    if (!panduanSudahDilihat() && !awalUrl.pilih) setTimeout(() => setPanduan(true), 2600);
   }, [awalUrl]);
 
   // pilihan dari URL setelah data siap
@@ -425,17 +650,27 @@ export default function Console() {
   // ---------- aksi ----------
   const toggleLapisan = useCallback(
     (id: LayerId) => {
+      // mengubah lapisan saat simulasi = interupsi; tetapi lapisan baru pengguna tetap dihormati
+      if (simulasiRef.current || tourRef.current >= 0) {
+        const pulih = lapisanSebelum.current ? new Set(lapisanSebelum.current) : new Set(aktifRef.current);
+        if (pulih.has(id)) pulih.delete(id);
+        else pulih.add(id);
+        lapisanSebelum.current = pulih;
+        hentikanSimulasi("interupsi");
+        if (pulih.has(id) && LAPISAN.find((l) => l.id === id)?.jenis === "live") mulaiLive(id);
+        return;
+      }
       setAktif((a) => {
         const b = new Set(a);
         if (b.has(id)) b.delete(id);
         else b.add(id);
         const m = mapRef.current;
-        if (m?.isStyleLoaded()) setVisibilitas(m, id, b.has(id));
+        if (m && petaSudahLoad.current) setVisibilitas(m, id, b.has(id));
         if (b.has(id) && LAPISAN.find((l) => l.id === id)?.jenis === "live") mulaiLive(id);
         return b;
       });
     },
-    [mulaiLive],
+    [mulaiLive, hentikanSimulasi],
   );
 
   const toggleSat = useCallback(() => {
@@ -462,10 +697,19 @@ export default function Console() {
     });
   }, []);
 
+  /** Reset: tampilan awal + lapisan bawaan (ramai tapi ringan), simulasi/briefing dihentikan. */
   const reset = useCallback(() => {
+    if (simulasiRef.current || tourRef.current >= 0) {
+      lapisanSebelum.current = new Set(LAPISAN_BAWAAN);
+      hentikanSimulasi("selesai");
+      return;
+    }
     pilih(null);
+    const bawaan = new Set(LAPISAN_BAWAAN);
+    setAktif(bawaan);
+    for (const id of bawaan) if (LAPISAN.find((l) => l.id === id)?.jenis === "live") mulaiLive(id);
     mapRef.current?.flyTo({ center: [TAMPILAN_AWAL.lon, TAMPILAN_AWAL.lat], zoom: TAMPILAN_AWAL.zoom, pitch: 0, bearing: 0, duration: 2500, essential: true });
-  }, [pilih]);
+  }, [pilih, hentikanSimulasi, mulaiLive]);
 
   const bagikan = useCallback(async () => {
     simpanUrl();
@@ -482,91 +726,71 @@ export default function Console() {
     else document.documentElement.requestFullscreen?.();
   }, []);
 
-  const toggleTour = useCallback(() => {
-    setSkenario(-1);
-    setTour((t) => (t >= 0 ? -1 : 0));
-  }, []);
-  const toggleSkenario = useCallback(() => {
-    setTour(-1);
-    setSkenario((f) => (f >= 0 ? -1 : 0));
+  // ---------- jadwal lintasan satelit ----------
+  const hitungJadwal = useCallback(() => {
+    const s = satelit.current;
+    if (!s || !s.daftar.length) return;
+    if (!penjadwal.current) penjadwal.current = new PenjadwalLintasan();
+    setHitungLintasan(true);
+    penjadwal.current.hitung(s.daftar.map((a) => a.meta), 12).then((h) => {
+      setHitungLintasan(false);
+      if (h) setLintasan({ daftar: h.lintasan, sekarang: h.sekarang, dihitung: h.dihitung });
+    });
   }, []);
 
-  // jalankan fase skenario
-  useEffect(() => {
-    const k = kanvas.current;
-    if (skenario < 0) {
-      if (k) k.skenario = null;
-      return;
-    }
-    const m = mapRef.current;
-    const sk = SKENARIO[0];
-    const f = sk.fase[skenario];
-    if (!m || !f) {
-      setSkenario(-1);
-      return;
-    }
-    pilih(null);
-    setPanel("none");
-    if (f.nyalakan) {
-      setAktif((a) => {
-        const b = new Set(a);
-        for (const id of f.nyalakan!) {
-          if (!b.has(id)) {
-            b.add(id);
-            setVisibilitas(m, id, true);
-            if (LAPISAN.find((x) => x.id === id)?.jenis === "live") mulaiLive(id);
-          }
-        }
-        return b;
-      });
-    }
-    m.flyTo({ center: f.kamera.center, zoom: f.kamera.zoom, pitch: f.kamera.pitch, bearing: f.kamera.bearing, duration: f.kamera.durasi, essential: true, curve: 1.2 });
-    if (k) k.skenario = { fase: f, mulai: Date.now() + Math.min(1200, f.kamera.durasi * 0.4) };
-    const terakhir = skenario >= sk.fase.length - 1;
-    const id = terakhir ? 0 : window.setTimeout(() => setSkenario((x) => (x === skenario ? skenario + 1 : x)), f.kamera.durasi + f.tahan);
-    return () => {
-      if (id) clearTimeout(id);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [skenario]);
+  const bukaJadwal = useCallback(() => {
+    setJadwal((j) => {
+      if (!j) {
+        if (!aktifRef.current.has("satelit")) toggleLapisan("satelit");
+        const segar = !lintasan || Date.now() - lintasan.dihitung > 15 * 60_000;
+        if (segar) setTimeout(hitungJadwal, satelit.current?.daftar.length ? 0 : 1500);
+      }
+      return !j;
+    });
+  }, [lintasan, hitungJadwal, toggleLapisan]);
 
-  // jalankan langkah tour
-  useEffect(() => {
-    if (tour < 0) return;
+  // ---------- ekspor ----------
+  const eksporMd = useCallback(() => {
+    const sk = simulasiRef.current ? skenarioDariId(simulasiRef.current.id) : null;
+    if (!sk) return;
+    unduhTeks(skenarioKeMarkdown(sk, lang), `eye-of-garuda-${sk.id}-${lang}.md`);
+  }, [lang]);
+
+  const eksporPng = useCallback(async () => {
     const m = mapRef.current;
-    const l = TOUR[tour];
-    if (!m || !l) {
-      setTour(-1);
+    if (!m) return;
+    const sk = simulasiRef.current ? skenarioDariId(simulasiRef.current.id) : null;
+    const judul = sk ? `${sk.judul[lang]} · ${terjemah(lang, "scenario_fictional")}` : "EYE OF GARUDA";
+    const ok = await fotoPng(m, kanvas.current?.canvas ?? null, `eye-of-garuda-${sk?.id ?? "view"}.png`, `${judul} · eye-of-garuda.vercel.app`);
+    if (!ok) tampilkanToast("PNG gagal");
+  }, [lang, tampilkanToast]);
+
+  const toggleRekam = useCallback(async () => {
+    const m = mapRef.current;
+    if (!m) return;
+    if (perekam.current?.aktif) {
+      const b = await perekam.current.berhenti();
+      setMerekam(false);
+      if (b) unduhBlob(b, `eye-of-garuda-${simulasiRef.current?.id ?? "rekaman"}.${perekam.current.ekstensi}`);
       return;
     }
-    pilih(null);
-    setPanel("none");
-    if (l.nyalakan) {
-      setAktif((a) => {
-        const b = new Set(a);
-        for (const id of l.nyalakan!) {
-          if (!tersedia.has(id) && LAPISAN.find((x) => x.id === id)?.jenis !== "live") continue;
-          if (!b.has(id)) {
-            b.add(id);
-            setVisibilitas(m, id, true);
-            if (LAPISAN.find((x) => x.id === id)?.jenis === "live") mulaiLive(id);
-          }
-        }
-        return b;
-      });
-    }
-    m.flyTo({ center: l.center, zoom: l.zoom, pitch: l.pitch, bearing: l.bearing, duration: l.durasiTerbang, essential: true, curve: 1.2 });
-    const id = setTimeout(() => setTour((t) => (t === tour ? (tour + 1 < TOUR.length ? tour + 1 : -1) : t)), l.durasiTerbang + l.tahan);
-    return () => clearTimeout(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tour]);
+    const sk = simulasiRef.current ? skenarioDariId(simulasiRef.current.id) : null;
+    perekam.current = new Perekam(m, kanvas.current?.canvas ?? null, `${sk?.judul[lang] ?? "EYE OF GARUDA"} · ${terjemah(lang, "scenario_fictional")} · eye-of-garuda.vercel.app`);
+    if (perekam.current.mulai()) setMerekam(true);
+    else tampilkanToast("Browser tidak mendukung rekaman");
+  }, [lang, tampilkanToast]);
 
   // keyboard
   useEffect(() => {
     const h = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement | null;
-      if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) {
-        if (e.key === "Escape") setPanel("none");
+      // hanya kolom teks yang "memakan" pintasan; slider/checkbox yang masih fokus tidak boleh mematikan keyboard
+      const mengetik = target && (target.tagName === "TEXTAREA" || (target.tagName === "INPUT" && !["range", "checkbox", "radio", "button"].includes((target as HTMLInputElement).type)));
+      if (mengetik) {
+        if (e.key === "Escape") {
+          setPanel("none");
+          target.blur();
+        }
         return;
       }
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
@@ -578,9 +802,11 @@ export default function Console() {
       switch (e.key) {
         case "Escape":
           if (bootRef.current) selesaiBoot();
+          else if (panduan) setPanduan(false);
+          else if (pilihSkenario) setPilihSkenario(false);
+          else if (jadwal) setJadwal(false);
           else if (panel !== "none") setPanel("none");
-          else if (tourRef.current >= 0) setTour(-1);
-          else if (skenarioRef.current >= 0) setSkenario(-1);
+          else if (tourRef.current >= 0 || simulasiRef.current) hentikanSimulasi("stop");
           else pilih(null);
           break;
         case "?":
@@ -602,6 +828,9 @@ export default function Console() {
           break;
         case "w":
           toggleSkenario();
+          break;
+        case "o":
+          bukaJadwal();
           break;
         case "l":
           toggleLang();
@@ -626,7 +855,7 @@ export default function Console() {
     };
     window.addEventListener("keydown", h);
     return () => window.removeEventListener("keydown", h);
-  }, [panel, tersedia, selesaiBoot, pilih, fullscreen, reset, toggleTour, toggleSkenario, toggleLang, toggleSat, toggleDatar, toggleLapisan]);
+  }, [panel, panduan, pilihSkenario, jadwal, tersedia, selesaiBoot, pilih, fullscreen, reset, toggleTour, toggleSkenario, bukaJadwal, toggleLang, toggleSat, toggleDatar, toggleLapisan, hentikanSimulasi]);
 
   // ---------- turunan ----------
   const jumlahEntitas = useMemo(() => [...aktif].reduce((n, id) => n + (jumlah[id] ?? 0), 0), [aktif, jumlah]);
@@ -637,13 +866,21 @@ export default function Console() {
     if (aktif.has("satelit")) t.push(terjemah(lang, "ticker_sats", { n: live.satelit.jumlah }));
     if (aktif.has("kapal")) {
       const umur = live.kapal.umurMenit;
-      t.push(terjemah(lang, "ticker_ships", { n: live.kapal.jumlah }) + (umur != null ? ` · ${umur === 0 ? terjemah(lang, "updated_now") : terjemah(lang, "updated_ago", { n: umur })}` : ` · ${terjemah(lang, "no_snapshot")}`));
+      t.push(
+        terjemah(lang, "ticker_ships", { n: live.kapal.jumlah }) +
+          (live.kapal.live ? ` · ${live.kapal.live} ${terjemah(lang, "ticker_ships_live")}` : "") +
+          (umur != null ? ` · ${umur === 0 ? terjemah(lang, "updated_now") : terjemah(lang, "updated_ago", { n: umur })}` : ` · ${terjemah(lang, "no_snapshot")}`),
+      );
     }
+    if (jumlah.kapalselam != null) t.push(terjemah(lang, "ticker_subs", { n: jumlah.kapalselam }));
     if (jumlah.kabel != null) t.push(terjemah(lang, "ticker_cables", { n: jumlah.kabel }));
     t.push(terjemah(lang, "aircraft_caveat"));
     t.push(terjemah(lang, "disclaimer"));
     return t;
   }, [lang, jumlah, aktif, live]);
+
+  const skenarioAktif = simulasi ? skenarioDariId(simulasi.id) ?? null : null;
+  const sibukLayar = tour >= 0 || simulasi !== null;
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-bg">
@@ -675,7 +912,8 @@ export default function Console() {
         onFullscreen={fullscreen}
         onReset={reset}
         onSkenario={toggleSkenario}
-        skenarioAktif={skenario >= 0}
+        skenarioAktif={simulasi !== null || pilihSkenario}
+        onLintasan={bukaJadwal}
       />
 
       <LayerRail lang={lang} aktif={aktif} jumlah={jumlah} onToggle={toggleLapisan} tersedia={tersedia} />
@@ -687,7 +925,7 @@ export default function Console() {
       </div>
 
       {/* opsi cakupan pesawat */}
-      {aktif.has("pesawat") && (
+      {aktif.has("pesawat") && !sibukLayar && (
         <div className="glass pointer-events-auto absolute right-2 top-[82px] z-20 flex items-center gap-1 p-1 sm:right-3 sm:top-[92px] max-sm:hidden">
           <span className="label-kecil px-1">{terjemah(lang, "aircraft_scope")}</span>
           <button className={`tombol-hud ${cakupan === "kawasan" ? "aktif" : ""}`} onClick={() => setCakupan("kawasan")}>
@@ -699,23 +937,31 @@ export default function Console() {
         </div>
       )}
 
-      {pilihan && tour < 0 && skenario < 0 && <DetailPanel lang={lang} pilihan={pilihan} onTutup={() => pilih(null)} onTerbang={(lon, lat) => mapRef.current?.flyTo({ center: [lon, lat], zoom: Math.max(mapRef.current.getZoom(), 7), duration: 1500 })} />}
+      {pilihan && !sibukLayar && <DetailPanel lang={lang} pilihan={pilihan} onTutup={() => pilih(null)} onTerbang={(lon, lat) => mapRef.current?.flyTo({ center: [lon, lat], zoom: Math.max(mapRef.current.getZoom(), 7), duration: 1500 })} />}
 
-      {skenario >= 0 && (
+      {pilihSkenario && <SkenarioPicker lang={lang} onPilih={mulaiSimulasi} onTutup={() => setPilihSkenario(false)} />}
+
+      {simulasi && skenarioAktif && (
         <SkenarioOverlay
           lang={lang}
-          skenario={SKENARIO[0]}
-          fase={skenario}
-          onStop={() => setSkenario(-1)}
-          onLanjut={() => setSkenario((f) => Math.min(SKENARIO[0].fase.length - 1, f + 1))}
-          onMundur={() => setSkenario((f) => Math.max(0, f - 1))}
-          onUlang={() => setSkenario(0)}
+          skenario={skenarioAktif}
+          fase={simulasi.fase}
+          mulaiFase={simulasi.mulaiFase}
+          merekam={merekam}
+          bisaRekam={bisaMerekam()}
+          onStop={() => hentikanSimulasi("stop")}
+          onLanjut={() => setSimulasi((s) => (s ? { ...s, fase: Math.min(skenarioAktif.fase.length - 1, s.fase + 1), mulaiFase: Date.now() } : s))}
+          onMundur={() => setSimulasi((s) => (s ? { ...s, fase: Math.max(0, s.fase - 1), mulaiFase: Date.now() } : s))}
+          onUlang={() => setSimulasi((s) => (s ? { ...s, fase: 0, mulaiFase: Date.now() } : s))}
+          onEksporMd={eksporMd}
+          onEksporPng={eksporPng}
+          onRekam={toggleRekam}
         />
       )}
 
-      {tour >= 0 && <TourOverlay lang={lang} langkah={tour} onStop={() => setTour(-1)} onLanjut={() => setTour((t) => (t + 1 < TOUR.length ? t + 1 : -1))} />}
+      {tour >= 0 && <TourOverlay lang={lang} langkah={tour} onStop={() => hentikanSimulasi("stop")} onLanjut={() => (tour + 1 < TOUR.length ? setTour(tour + 1) : hentikanSimulasi("selesai"))} />}
 
-      {aktif.has("insiden") && insiden && tour < 0 && skenario < 0 && (
+      {aktif.has("insiden") && insiden && !sibukLayar && (
         <TimelineStrip
           lang={lang}
           data={insiden}
@@ -726,7 +972,7 @@ export default function Console() {
           }}
         />
       )}
-      {aktif.has("sipri") && sipri && tour < 0 && skenario < 0 && !pilihan && !obrolan && (
+      {aktif.has("sipri") && sipri && !sibukLayar && !pilihan && !obrolan && (
         <SipriLegend
           lang={lang}
           data={sipri}
@@ -737,7 +983,7 @@ export default function Console() {
         />
       )}
 
-      {!boot && tour < 0 && skenario < 0 && (
+      {!boot && !sibukLayar && (
         <ChatWidget
           lang={lang}
           terbuka={obrolan}
@@ -771,10 +1017,40 @@ export default function Console() {
           }}
         />
       )}
-      {panel === "bantuan" && <HelpOverlay lang={lang} onTutup={() => setPanel("none")} />}
+      {panel === "bantuan" && (
+        <HelpOverlay
+          lang={lang}
+          onTutup={() => setPanel("none")}
+          onPanduan={() => {
+            setPanel("none");
+            setPanduan(true);
+          }}
+        />
+      )}
       {panel === "data" && <DataPanel lang={lang} onTutup={() => setPanel("none")} />}
+      {jadwal && (
+        <JadwalSatelit
+          lang={lang}
+          lintasan={lintasan?.daftar ?? null}
+          sekarang={lintasan?.sekarang ?? []}
+          dihitung={lintasan?.dihitung ?? null}
+          sedangHitung={hitungLintasan}
+          lapisanAktif={aktif.has("satelit")}
+          onTutup={() => setJadwal(false)}
+          onHitung={hitungJadwal}
+          onPilih={(norad) => {
+            const s = satelit.current?.cari(norad);
+            if (!s || !satelit.current) return;
+            setJadwal(false);
+            pilih({ lapisan: "satelit", props: satelit.current.info(s), lon: s.pos?.lon ?? 0, lat: s.pos?.lat ?? 0 }, true);
+          }}
+        />
+      )}
+
+      {panduan && !boot && <Onboarding lang={lang} onSelesai={() => setPanduan(false)} />}
 
       {toast && <div className="glass muncul pointer-events-none absolute left-1/2 top-[120px] z-50 -translate-x-1/2 px-4 py-2 text-[12px] text-text">{toast}</div>}
     </div>
   );
 }
+

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Search, HelpCircle, Maximize2, Minimize2, Share2, Play, Square, BarChart3, Globe2, Map as MapIcon, Satellite, Languages, LocateFixed, Swords } from "lucide-react";
+import { Search, HelpCircle, Maximize2, Minimize2, Share2, Play, Square, BarChart3, Globe2, Map as MapIcon, Satellite, Languages, LocateFixed, Swords, Orbit } from "lucide-react";
 import Logo from "./Logo";
 import { terjemah, type Lang } from "@/lib/i18n";
 
@@ -26,6 +26,7 @@ interface Props {
   onReset: () => void;
   onSkenario: () => void;
   skenarioAktif: boolean;
+  onLintasan: () => void;
 }
 
 function pad(n: number) {
@@ -64,7 +65,7 @@ export default function Hud(p: Props) {
   return (
     <header className="pointer-events-none absolute inset-x-0 top-0 z-30 flex items-start justify-between gap-2 p-2 sm:p-3">
       {/* kiri: identitas */}
-      <div className="glass braket pointer-events-auto flex items-center gap-3 px-3 py-2">
+      <div className="glass braket pointer-events-auto flex items-center gap-3 px-3 py-2" data-tour="status">
         <Logo size={30} className="text-accent shrink-0" />
         <div className="leading-tight">
           <div className="whitespace-nowrap text-[11px] font-semibold tracking-[0.22em] text-text sm:text-[13px] sm:tracking-[0.3em]">EYE OF GARUDA</div>
@@ -97,7 +98,7 @@ export default function Hud(p: Props) {
 
       {/* kanan: alat */}
       <div className="pointer-events-auto flex flex-col items-end gap-2">
-        <div className="glass flex items-center gap-1 p-1">
+        <div className="glass flex items-center gap-1 p-1" data-tour="mode">
           <button className={`tombol-hud ${!p.datar ? "aktif" : ""}`} onClick={p.onToggleDatar} title="G">
             <Globe2 size={13} /> <span className="hidden sm:inline">{terjemah(p.lang, "globe_mode")}</span>
           </button>
@@ -116,7 +117,7 @@ export default function Hud(p: Props) {
             <Languages size={13} /> {terjemah(p.lang, "lang_toggle")}
           </button>
         </div>
-        <div className="glass flex items-center gap-1 p-1">
+        <div className="glass flex items-center gap-1 p-1" data-tour="alat">
           <button className="tombol-ikon" onClick={p.onReset} title={`${terjemah(p.lang, "reset_view")} (R)`}>
             <LocateFixed size={15} />
           </button>
@@ -128,6 +129,9 @@ export default function Hud(p: Props) {
           </button>
           <button className={`tombol-ikon ${p.skenarioAktif ? "aktif" : ""}`} onClick={p.onSkenario} title={`${terjemah(p.lang, "scenario")} (W)`}>
             <Swords size={15} />
+          </button>
+          <button className="tombol-ikon" onClick={p.onLintasan} title={`${terjemah(p.lang, "passes_title")} (O)`}>
+            <Orbit size={15} />
           </button>
           <button className="tombol-ikon" onClick={p.onData} title={terjemah(p.lang, "data_panel")}>
             <BarChart3 size={15} />

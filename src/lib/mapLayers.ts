@@ -32,6 +32,27 @@ const LABEL_PAINT = {
   "text-halo-width": 1.4,
 };
 
+/**
+ * Opacity bertingkat (LOD): peringkat 1 selalu tampak, peringkat 2 memudar masuk antara zoom `dari`..`sampai`.
+ * MapLibre menganimasikan perubahan paint 300 ms, jadi muncul/hilangnya halus saat zoom.
+ */
+function opacityLod(dari: number, sampai: number, penuh: number, kecil = penuh): ExpressionSpecification {
+  return [
+    "interpolate",
+    ["linear"],
+    ["zoom"],
+    dari,
+    ["case", ["==", ["coalesce", ["get", "peringkat"], 1], 1], penuh, 0],
+    sampai,
+    ["case", ["==", ["coalesce", ["get", "peringkat"], 1], 1], penuh, kecil],
+  ] as unknown as ExpressionSpecification;
+}
+
+/** Opacity yang memudar masuk antara dua zoom (untuk lapisan rapat: bandara, pelabuhan, landing station). */
+function opacityZoom(dari: number, sampai: number, awal: number, akhir: number): ExpressionSpecification {
+  return ["interpolate", ["linear"], ["zoom"], dari, awal, sampai, akhir] as unknown as ExpressionSpecification;
+}
+
 function tambahSourceKosong(map: MapLibre, id: string) {
   if (!map.getSource(id)) map.addSource(id, { type: "geojson", data: KOSONG });
 }
@@ -57,30 +78,32 @@ function pasangTni(map: MapLibre) {
     paint: {
       "circle-radius": ["interpolate", ["linear"], ["zoom"], 3, 7, 7, 16],
       "circle-color": warna,
-      "circle-opacity": 0.12,
+      "circle-opacity": opacityLod(4.2, 5.4, 0.12),
       "circle-stroke-color": warna,
       "circle-stroke-width": 1,
-      "circle-stroke-opacity": 0.35,
+      "circle-stroke-opacity": opacityLod(4.2, 5.4, 0.35),
     },
-  }, null);
+  }, "tni");
   daftar(map, {
     id: "tni-titik",
     type: "circle",
     source: "tni",
     paint: {
-      "circle-radius": ["interpolate", ["linear"], ["zoom"], 3, 3, 7, 6],
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], 3, ["case", ["==", ["get", "peringkat"], 1], 3.2, 2.4], 7, 6],
       "circle-color": warna,
+      "circle-opacity": opacityLod(4.2, 5.4, 1),
       "circle-stroke-color": "#05080f",
       "circle-stroke-width": 1,
+      "circle-stroke-opacity": opacityLod(4.2, 5.4, 1),
     },
   }, "tni");
   daftar(map, {
     id: "tni-label",
     type: "symbol",
     source: "tni",
-    minzoom: 5,
+    minzoom: 4.6,
     layout: { ...LABEL_DASAR, "text-field": ["get", "nama"] },
-    paint: LABEL_PAINT,
+    paint: { ...LABEL_PAINT, "text-opacity": opacityLod(5.0, 5.8, 1) },
   }, "tni");
 }
 
@@ -94,31 +117,32 @@ function pasangAsing(map: MapLibre) {
     paint: {
       "circle-radius": ["interpolate", ["linear"], ["zoom"], 3, 8, 7, 18],
       "circle-color": warna,
-      "circle-opacity": 0.1,
+      "circle-opacity": opacityLod(4.0, 5.2, 0.1),
       "circle-stroke-color": warna,
       "circle-stroke-width": 1,
-      "circle-stroke-opacity": 0.4,
-      "circle-stroke-dasharray": [2, 2],
-    } as never,
-  }, null);
+      "circle-stroke-opacity": opacityLod(4.0, 5.2, 0.4),
+    },
+  }, "asing");
   daftar(map, {
     id: "asing-titik",
     type: "circle",
     source: "asing",
     paint: {
-      "circle-radius": ["interpolate", ["linear"], ["zoom"], 3, 3.5, 7, 6.5],
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], 3, ["case", ["==", ["get", "peringkat"], 1], 3.5, 2.6], 7, 6.5],
       "circle-color": "#05080f",
+      "circle-opacity": opacityLod(4.0, 5.2, 1),
       "circle-stroke-color": warna,
       "circle-stroke-width": 2,
+      "circle-stroke-opacity": opacityLod(4.0, 5.2, 1),
     },
   }, "asing");
   daftar(map, {
     id: "asing-label",
     type: "symbol",
     source: "asing",
-    minzoom: 4.5,
+    minzoom: 4.2,
     layout: { ...LABEL_DASAR, "text-field": ["get", "nama"] },
-    paint: { ...LABEL_PAINT, "text-color": "#bfdbfe" },
+    paint: { ...LABEL_PAINT, "text-color": "#bfdbfe", "text-opacity": opacityLod(4.8, 5.6, 1) },
   }, "asing");
 }
 
@@ -200,8 +224,10 @@ function pasangKabel(map: MapLibre) {
     paint: {
       "circle-radius": ["interpolate", ["linear"], ["zoom"], 3, 2, 8, 5],
       "circle-color": "#05080f",
+      "circle-opacity": opacityZoom(3.8, 5.0, 0, 1),
       "circle-stroke-color": "#22d3ee",
       "circle-stroke-width": 1.2,
+      "circle-stroke-opacity": opacityZoom(3.8, 5.0, 0, 1),
     },
   }, "kabel");
 }
@@ -240,6 +266,19 @@ function pasangKapal(map: MapLibre) {
     },
   }, "kapal");
   daftar(map, {
+    id: "kapal-live",
+    type: "circle",
+    source: "kapal",
+    filter: ["==", ["get", "sumber"], "live"],
+    paint: {
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], 3, 5, 9, 11],
+      "circle-color": "transparent",
+      "circle-stroke-color": "#a3e635",
+      "circle-stroke-width": 1,
+      "circle-stroke-opacity": 0.55,
+    },
+  }, "kapal");
+  daftar(map, {
     id: "kapal-ikon",
     type: "symbol",
     source: "kapal",
@@ -250,7 +289,7 @@ function pasangKapal(map: MapLibre) {
       "icon-rotation-alignment": "map",
       "icon-allow-overlap": true,
       "icon-ignore-placement": true,
-      "text-field": ["step", ["zoom"], "", 8, ["get", "nama"]],
+      "text-field": ["step", ["zoom"], "", 7.5, ["coalesce", ["get", "label"], ["get", "nama"]]],
       "text-font": FONT,
       "text-size": 10,
       "text-offset": [0, 1.1],
@@ -277,7 +316,8 @@ function pasangBandara(map: MapLibre) {
       "circle-color": "#05080f",
       "circle-stroke-color": warna,
       "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 3, 1, 8, 2],
-      "circle-opacity": 0.9,
+      "circle-opacity": ["interpolate", ["linear"], ["zoom"], 3.4, ["case", ["any", ["get", "militer"], ["==", ["get", "kelas"], "besar"]], 0.6, 0], 5.2, 0.9],
+      "circle-stroke-opacity": ["interpolate", ["linear"], ["zoom"], 3.4, ["case", ["any", ["get", "militer"], ["==", ["get", "kelas"], "besar"]], 0.8, 0], 5.2, 1],
     },
   }, "bandara");
   daftar(map, {
@@ -301,7 +341,8 @@ function pasangPelabuhan(map: MapLibre) {
       "circle-color": "#5eead4",
       "circle-stroke-color": "#05080f",
       "circle-stroke-width": 0.8,
-      "circle-opacity": ["interpolate", ["linear"], ["zoom"], 3, 0.6, 6, 0.95],
+      "circle-opacity": opacityZoom(4.0, 5.6, 0, 0.95),
+      "circle-stroke-opacity": opacityZoom(4.0, 5.6, 0, 1),
     },
   }, "pelabuhan");
   daftar(map, {
@@ -312,6 +353,45 @@ function pasangPelabuhan(map: MapLibre) {
     layout: { ...LABEL_DASAR, "text-field": ["get", "nama"], "text-size": 9.5 },
     paint: { ...LABEL_PAINT, "text-color": "#99f6e4" },
   }, "pelabuhan");
+}
+
+function pasangKapalSelam(map: MapLibre) {
+  tambahSourceKosong(map, "kapalselam");
+  daftarkanIkon(map, "ikon-kapalselam-tni", "kapalselam", "#4ade80", 28);
+  daftarkanIkon(map, "ikon-kapalselam-asing", "kapalselam", "#67e8f9", 28);
+  daftarkanIkon(map, "ikon-kapalselam-rencana", "kapalselam", "#94a3b8", 28);
+  const warna: ExpressionSpecification = ["case", ["==", ["get", "negara"], "Indonesia"], "#4ade80", ["==", ["get", "status"], "rencana"], "#94a3b8", "#67e8f9"];
+  daftar(map, {
+    id: "kapalselam-halo",
+    type: "circle",
+    source: "kapalselam",
+    paint: {
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], 2, ["+", 6, ["*", 0.4, ["get", "jumlah"]]], 7, ["+", 14, ["*", 0.8, ["get", "jumlah"]]]],
+      "circle-color": warna,
+      "circle-opacity": 0.1,
+      "circle-stroke-color": warna,
+      "circle-stroke-width": 1,
+      "circle-stroke-opacity": 0.45,
+    },
+  }, "kapalselam");
+  daftar(map, {
+    id: "kapalselam-titik",
+    type: "symbol",
+    source: "kapalselam",
+    layout: {
+      "icon-image": ["case", ["==", ["get", "negara"], "Indonesia"], "ikon-kapalselam-tni", ["==", ["get", "status"], "rencana"], "ikon-kapalselam-rencana", "ikon-kapalselam-asing"],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 2, 0.5, 7, 0.95],
+      "icon-allow-overlap": true,
+      "icon-ignore-placement": true,
+      "text-field": ["step", ["zoom"], "", 3.6, ["concat", ["get", "nama"], " · ", ["to-string", ["get", "jumlah"]]]],
+      "text-font": FONT,
+      "text-size": 10,
+      "text-offset": [0, 1.2],
+      "text-anchor": "top",
+      "text-optional": true,
+    },
+    paint: { "text-color": "#cffafe", "text-halo-color": "#05080f", "text-halo-width": 1.3 },
+  }, "kapalselam");
 }
 
 // ---------- lapisan analisis fase 3 ----------
@@ -363,13 +443,6 @@ function pasangZee(map: MapLibre) {
 
 function pasangRadius(map: MapLibre) {
   tambahSourceKosong(map, "radius");
-  tambahSourceKosong(map, "radius-buta");
-  daftar(map, {
-    id: "radius-buta",
-    type: "fill",
-    source: "radius-buta",
-    paint: { "fill-color": "#e879f9", "fill-opacity": 0.07, "fill-outline-color": "#e879f9" },
-  }, "radius");
   daftar(map, {
     id: "radius-isi",
     type: "fill",
@@ -392,7 +465,8 @@ function pasangSipri(map: MapLibre) {
     type: "line",
     source: "sipri",
     layout: { "line-cap": "round" },
-    paint: { "line-color": "#c084fc", "line-width": ["interpolate", ["linear"], ["get", "tebal"], 1, 1, 10, 7], "line-opacity": 0.25 },
+    // busur skala dunia: memudar saat zoom dekat supaya tidak jadi pita tebal di atas kota
+    paint: { "line-color": "#c084fc", "line-width": ["interpolate", ["linear"], ["get", "tebal"], 1, 1, 10, 5], "line-opacity": opacityZoom(5.5, 8, 0.22, 0) },
   }, "sipri");
   daftar(map, {
     id: "sipri-busur",
@@ -401,9 +475,8 @@ function pasangSipri(map: MapLibre) {
     layout: { "line-cap": "round" },
     paint: {
       "line-color": "#e9d5ff",
-      "line-width": ["interpolate", ["linear"], ["get", "tebal"], 1, 1, 10, 4],
-      "line-opacity": 0.9,
-      "line-dasharray": [0, 2, 1],
+      "line-width": ["interpolate", ["linear"], ["get", "tebal"], 1, 0.7, 10, 2.2],
+      "line-opacity": opacityZoom(5.5, 8, 0.5, 0),
     },
   }, "sipri");
   daftar(map, {
@@ -462,10 +535,11 @@ const PEMASANG: Record<LayerId, (map: MapLibre) => void> = {
   insiden: pasangInsiden,
   bandara: pasangBandara,
   pelabuhan: pasangPelabuhan,
+  kapalselam: pasangKapalSelam,
 };
 
 /** Urutan pemasangan menentukan urutan gambar (yang terakhir di atas). */
-const URUTAN: LayerId[] = ["zee", "radius", "kabel", "alki", "sipri", "pelabuhan", "bandara", "batas", "insiden", "asing", "tni", "kapal", "satelit", "pesawat"];
+const URUTAN: LayerId[] = ["zee", "radius", "kabel", "alki", "sipri", "pelabuhan", "bandara", "batas", "insiden", "asing", "tni", "kapal", "kapalselam", "satelit", "pesawat"];
 
 export function pasangSemuaLapisan(map: MapLibre) {
   for (const id of URUTAN) PEMASANG[id](map);
@@ -496,7 +570,29 @@ const SUMBER_SOROT: { source: string; lapisan: LayerId; warna: string }[] = [
 ];
 const FILTER_KOSONG: FilterSpecification = ["==", ["get", "id"], "__tidak_ada__"];
 
+/** Kabel yang "putus" dalam skenario: disorot merah berkedip lewat filter id. */
+export function sorotKabelPutus(map: MapLibre, ids: string[]) {
+  const f: FilterSpecification = ids.length ? (["in", ["get", "id"], ["literal", ids]] as unknown as FilterSpecification) : FILTER_KOSONG;
+  for (const l of ["kabel-putus", "kabel-putus-cahaya"]) if (map.getLayer(l)) map.setFilter(l, f);
+}
+
 function pasangSorot(map: MapLibre) {
+  daftar(map, {
+    id: "kabel-putus-cahaya",
+    type: "line",
+    source: "kabel",
+    filter: FILTER_KOSONG,
+    layout: { "line-cap": "round", "line-join": "round" },
+    paint: { "line-color": "#ef4444", "line-width": 12, "line-opacity": 0.22, "line-blur": 4 },
+  }, null);
+  daftar(map, {
+    id: "kabel-putus",
+    type: "line",
+    source: "kabel",
+    filter: FILTER_KOSONG,
+    layout: { "line-cap": "round", "line-join": "round" },
+    paint: { "line-color": "#f87171", "line-width": 3, "line-opacity": 0.95, "line-dasharray": [2, 1.5] },
+  }, null);
   for (const s of SUMBER_SOROT) {
     daftar(map, {
       id: `${s.lapisan}-sorot-cahaya`,
@@ -531,12 +627,30 @@ export function sorotPilihan(map: MapLibre, lapisan: LayerId | null, id: string 
   }
 }
 
-export function setVisibilitas(map: MapLibre, id: LayerId, aktif: boolean) {
-  const style = map.getStyle();
-  if (!style) return;
-  for (const l of style.layers) {
-    if (l.id.startsWith(`${id}-`)) map.setLayoutProperty(l.id, "visibility", aktif ? "visible" : "none");
+/**
+ * Terapkan visibilitas semua layer berprefix `${id}-`. Aman dipanggil kapan saja setelah map `load`:
+ * tidak bergantung pada isStyleLoaded() (yang bisa false sesaat ketika tile masih dimuat, sehingga
+ * dulu toggle "bandel"). Mengembalikan false bila style belum ada sama sekali.
+ */
+export function setVisibilitas(map: MapLibre, id: LayerId, aktif: boolean): boolean {
+  let style: ReturnType<MapLibre["getStyle"]> | null = null;
+  try {
+    style = map.getStyle();
+  } catch {
+    return false;
   }
+  if (!style?.layers) return false;
+  const nilai = aktif ? "visible" : "none";
+  for (const l of style.layers) {
+    if (!l.id.startsWith(`${id}-`)) continue;
+    if (map.getLayoutProperty(l.id, "visibility") !== nilai) map.setLayoutProperty(l.id, "visibility", nilai);
+  }
+  return true;
+}
+
+/** Samakan visibilitas semua lapisan dengan himpunan aktif (dipanggil ulang saat idle supaya tidak ada yang tertinggal). */
+export function sinkronVisibilitas(map: MapLibre, aktif: Set<LayerId>): void {
+  for (const l of LAPISAN) setVisibilitas(map, l.id, aktif.has(l.id));
 }
 
 export function setDataSource(map: MapLibre, id: string, data: GeoJSON.FeatureCollection) {
