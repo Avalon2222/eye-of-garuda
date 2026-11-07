@@ -53,6 +53,8 @@ function kelasDariTipe(tipe: number | null): string {
 
 let cache: { waktu: number; kapal: KapalLive[]; diambil: string } | null = null;
 let sedang: Promise<KapalLive[]> | null = null;
+/** pesan galat dari aisstream (mis. kunci tidak valid), ikut dikirim ke browser untuk diagnosis */
+let galatServer: string | null = null;
 
 function simak(kunci: string): Promise<KapalLive[]> {
   return new Promise((resolve, reject) => {
@@ -62,6 +64,7 @@ function simak(kunci: string): Promise<KapalLive[]> {
       return;
     }
     const kapal = new Map<number, KapalLive>();
+    galatServer = null;
     const statis = new Map<number, { tipe: number | null; tujuan: string; nama: string }>();
     let ws: WebSocket;
     try {
@@ -91,16 +94,24 @@ function simak(kunci: string): Promise<KapalLive[]> {
       }
     };
     const idTimer = setTimeout(() => selesai(), LAMA_SIMAK_MS);
+    // aisstream mengirim frame biner; tanpa ini Node memberi Blob dan JSON.parse selalu gagal
+    ws.binaryType = "arraybuffer";
+    const pengurai = new TextDecoder();
     ws.onopen = () => {
       ws.send(JSON.stringify({ APIKey: kunci, BoundingBoxes: KOTAK, FilterMessageTypes: ["PositionReport", "StandardClassBPositionReport", "ShipStaticData"] }));
     };
     ws.onerror = () => selesai(new Error("koneksi aisstream gagal"));
     ws.onclose = () => selesai();
     ws.onmessage = (ev: MessageEvent) => {
-      let m: PesanAis;
+      let m: PesanAis & { error?: string };
       try {
-        m = JSON.parse(typeof ev.data === "string" ? ev.data : String(ev.data)) as PesanAis;
+        const teks = typeof ev.data === "string" ? ev.data : pengurai.decode(ev.data as ArrayBuffer);
+        m = JSON.parse(teks) as PesanAis & { error?: string };
       } catch {
+        return;
+      }
+      if (m.error) {
+        galatServer = m.error;
         return;
       }
       if (!m.MetaData?.MMSI) return;
@@ -149,8 +160,12 @@ export async function GET() {
       });
     }
     const kapal = await sedang;
-    cache = { waktu: Date.now(), kapal, diambil: new Date().toISOString() };
-    return NextResponse.json({ diambil: cache.diambil, durasi_detik: LAMA_SIMAK_MS / 1000, sumber: "live", jumlah: kapal.length, kapal }, { headers: { "Cache-Control": "public, max-age=20, s-maxage=40" } });
+    // hasil kosong hanya dicache sebentar supaya percobaan berikutnya cepat
+    cache = { waktu: kapal.length ? Date.now() : Date.now() - CACHE_MS + 10_000, kapal, diambil: new Date().toISOString() };
+    return NextResponse.json(
+      { diambil: cache.diambil, durasi_detik: LAMA_SIMAK_MS / 1000, sumber: "live", jumlah: kapal.length, kapal, ...(galatServer ? { galat: galatServer } : {}) },
+      { headers: { "Cache-Control": kapal.length ? "public, max-age=20, s-maxage=40" : "no-store" } },
+    );
   } catch (e) {
     if (cache) return NextResponse.json({ diambil: cache.diambil, durasi_detik: LAMA_SIMAK_MS / 1000, sumber: "cache", jumlah: cache.kapal.length, kapal: cache.kapal });
     return NextResponse.json({ error: e instanceof Error ? e.message : "gagal" }, { status: 502 });
