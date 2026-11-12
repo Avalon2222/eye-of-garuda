@@ -64,7 +64,7 @@ const KATA_PANGKALAN = ["pangkalan", "markas", "base", "bases"];
 
 const RE_TERDEKAT = /\b(terdekat|paling dekat|nearest|closest|dekat dari|dekat dengan|close to)\b/;
 const RE_JARAK = /\b(jarak|berapa km|berapa kilometer|berapa jauh|seberapa jauh|how far|distance)\b/;
-const RE_HITUNG = /\b(berapa|jumlah|how many|number of|banyaknya|total)\b/;
+const RE_HITUNG = /\b(berapa|jumlah|how many|number of|banyaknya|total|terbanyak|paling banyak|most|tersedikit|paling sedikit|fewest)\b/;
 const RE_LETAK = /\b(di mana|dimana|where|letak|lokasi|located|apa itu|what is|siapa|tunjukkan|show me)\b/;
 
 const WILAYAH_TAMBAHAN = ["papua", "jawa", "sumatera", "kalimantan", "sulawesi", "maluku", "nusa tenggara", "kepulauan riau", "riau"];
@@ -73,7 +73,9 @@ function ada(q: string, frasa: string): boolean {
   return ` ${q} `.includes(` ${frasa} `);
 }
 
-function tebakLapisan(q: string): { lapisan: LapisanChat; jenis?: string }[] {
+function tebakLapisan(mentah: string): { lapisan: LapisanChat; jenis?: string }[] {
+  // akhiran -nya dilepas supaya "pangkalannya" tetap terbaca "pangkalan"
+  const q = mentah.replace(/([a-z]{4,})nya\b/g, "$1");
   const hasil: { lapisan: LapisanChat; jenis?: string }[] = [];
   for (const p of PETUNJUK) {
     if (hasil.some((h) => h.lapisan === p.lapisan)) continue;
@@ -260,8 +262,12 @@ export function siapkanFakta(indeks: ObjekPeta[], pertanyaan: string, lang: Lang
     }
   }
 
-  if (blok.length === 0 && RE_HITUNG.test(q) && lapisan.length) {
-    for (const t of lapisan.slice(0, 2)) {
+  // "negara mana yang pangkalannya paling banyak": pangkalan per negara berarti lapisan pangkalan asing
+  const qDasar = q.replace(/([a-z]{4,})nya\b/g, "$1");
+  const lapisanHitung = lapisan.length || !/\b(negara|country|countries)\b/.test(q) || !KATA_PANGKALAN.some((k) => ada(qDasar, k)) ? lapisan : [{ lapisan: "asing" as LapisanChat }];
+  if (blok.length === 0 && RE_HITUNG.test(q) && lapisanHitung.length) {
+    lapisanUtama ??= lapisanHitung[0].lapisan;
+    for (const t of lapisanHitung.slice(0, 2)) {
       const negara = t.lapisan === "tni" || t.lapisan === "batas" || t.lapisan === "kabel" || t.lapisan === "insiden" ? undefined : tebakNegara(indeks, mentah, q);
       const wilayah = t.lapisan === "tni" || t.lapisan === "batas" ? tebakWilayah(indeks, q) : undefined;
       const saring = wilayah ?? negara ?? t.jenis;
