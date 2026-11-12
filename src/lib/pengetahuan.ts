@@ -1,9 +1,9 @@
 /**
- * Pengetahuan dasar tentang Eye of Garuda untuk asisten obrolan: dipakai sebagai system prompt di server
- * dan sebagai FAQ cadangan di browser kalau layanan AI tidak tersedia (kunci belum dipasang / kuota habis).
+ * Pengetahuan dasar tentang Eye of Garuda untuk asisten obrolan: daftar pintasan (ikut masuk system prompt,
+ * lihat chat/prompt.ts) dan FAQ cadangan di browser kalau layanan AI tidak tersedia (kunci belum dipasang
+ * atau kuota habis).
  */
 
-import { LAPISAN } from "./layers";
 import type { Lang } from "./i18n";
 
 export const PINTASAN_TEKS = [
@@ -22,36 +22,6 @@ export const PINTASAN_TEKS = [
   ["?", "bantuan / help"],
   ["Esc", "tutup / close"],
 ];
-
-/** Ringkasan aplikasi yang dibagi ke model bahasa. Dijaga pendek supaya hemat token. */
-export function ringkasanAplikasi(lang: Lang): string {
-  const lapisan = LAPISAN.map((l) => `- [${l.tombol}] ${l.nama[lang]} (${l.jenis}): ${l.deskripsi[lang]}`).join("\n");
-  const pintasan = PINTASAN_TEKS.map(([k, v]) => `${k}: ${v}`).join("; ");
-  if (lang === "en") {
-    return `Eye of Garuda is an open-source interactive 3D globe (MapLibre GL + Next.js) that visualises Indonesia's defence posture from PUBLIC data only. Live at https://eye-of-garuda.vercel.app, source at https://github.com/Avalon2222/eye-of-garuda (MIT).
-
-LAYERS (keyboard key in brackets):
-${lapisan}
-
-DATA SOURCES: Wikipedia and official unit pages (TNI bases, ~200 points incl. all Kodam, Korem, Lantamal, Lanal, Lanud; most points snapped to OpenStreetMap positions via the Photon geocoder), Wikidata + CSIS AMTI (~160 foreign bases, Wikidata list hand-checked: US, Australia, China incl. Spratly outposts, India, ASEAN neighbours), public fleet pages (16 submarine home ports in the region incl. Surabaya and Palu for Indonesia), OurAirports (airports), Wikidata (ports), TeleGeography via cut-the-cable (118 cables), Marine Regions (EEZ), CelesTrak TLE + GCAT (satellites, SGP4 propagated in the browser), adsb.lol/airplanes.live (military ADS-B incl. helicopters, tankers, recon; 10 s; each label shows the country, e.g. "RCH123 (USA)"), aisstream.io (ships: live stream when the key is set, plus a snapshot every 30 min), SIPRI Arms Transfers Database 2000–2025 fetched monthly from SIPRI (TIV), Keppres 6/2017 (outer islands).
-
-HONESTY: coordinates are approximate public locations, never operational data. Submarines cannot be tracked live by anyone with public data; the layer shows home ports and fleet sizes only. Only military aircraft broadcasting ADS-B are visible; warships often switch AIS off. The nine-dash line and ALKI are drawn illustratively. Combat radius = plain geometry from public figures. SIPRI TIV is a volume indicator, not money. The three War Room scenarios (key W: "North Natuna Sea crisis", "Cable Cut: Singapore Strait", "Nuclear exchange and Indonesia") are fictional and educational; each can be exported as Markdown, PNG or a screen recording.
-
-UI: left rail = layers (click to toggle; small details only appear as you zoom in), top = Zulu clock + counters + 3D/2D, map/satellite, language; top-right icons = reset, search, briefing, War Room, satellite passes, data panel, share, fullscreen, help. Click any object for a detail panel (satellites show orbit class, speed, period, full orbit line). Lines/areas get highlighted when clicked. During a simulation only the layers it needs are shown; dragging the map or clicking elsewhere stops it and restores your layers. Incident timeline has a draggable slider and play button. URL hash stores camera, layers, language, selection, so views are shareable. A short onboarding guide runs on first visit (replay from Help).
-SHORTCUTS: ${pintasan}.`;
-  }
-  return `Eye of Garuda adalah globe 3D interaktif open-source (MapLibre GL + Next.js) yang memvisualkan postur pertahanan Indonesia dari data PUBLIK saja. Live di https://eye-of-garuda.vercel.app, kode di https://github.com/Avalon2222/eye-of-garuda (MIT).
-
-LAPISAN (tombol keyboard dalam kurung):
-${lapisan}
-
-SUMBER DATA: Wikipedia & situs resmi satuan (markas TNI, ~200 titik termasuk semua Kodam, Korem, Lantamal, Lanal, Lanud; sebagian besar titik dicocokkan ke posisi OpenStreetMap lewat geocoder Photon), Wikidata + CSIS AMTI (~160 pangkalan asing, daftar Wikidata sudah disaring manual: AS, Australia, China termasuk pos di Spratly, India, tetangga ASEAN), halaman armada publik (16 pangkalan kapal selam di kawasan termasuk Surabaya dan Palu untuk Indonesia), OurAirports (bandara), Wikidata (pelabuhan), TeleGeography lewat cut-the-cable (118 kabel), Marine Regions (ZEE), TLE CelesTrak + GCAT (satelit, dipropagasi SGP4 di browser), adsb.lol/airplanes.live (ADS-B militer termasuk helikopter, tanker, pesawat intai; 10 detik; label memuat negara, mis. "RCH123 (USA)"), aisstream.io (kapal: stream live kalau kunci terpasang, plus snapshot tiap 30 menit), SIPRI Arms Transfers Database 2000–2025 diambil bulanan dari SIPRI (TIV), Keppres 6/2017 (pulau terluar).
-
-KEJUJURAN: koordinat adalah perkiraan lokasi umum, bukan data operasional. Kapal selam tidak bisa dilacak live oleh siapa pun dengan data publik; lapisannya hanya pangkalan induk dan jumlah armada. Hanya pesawat militer yang memancarkan ADS-B yang terlihat; kapal perang sering mematikan AIS. Sembilan garis putus dan ALKI digambar ilustratif. Radius tempur = geometri polos dari angka publik. TIV SIPRI indikator volume, bukan uang. Tiga skenario War Room (tombol W: "Krisis Laut Natuna Utara", "Cable Cut: Selat Singapura", "Perang nuklir dan Indonesia") fiktif dan edukatif; tiap skenario bisa diekspor sebagai Markdown, PNG, atau rekaman layar.
-
-UI: rel kiri = lapisan (klik untuk nyala/mati; detail kecil baru muncul saat zoom), atas = jam Zulu + penghitung + 3D/2D, peta/satelit, bahasa; ikon kanan atas = reset, cari, briefing, War Room, jadwal lintasan satelit, panel data, bagikan, layar penuh, bantuan. Klik objek apa pun untuk panel detail (satelit menampilkan kelas orbit, kecepatan, periode, garis orbit penuh). Garis/area disorot saat diklik. Saat simulasi hanya lapisan yang dibutuhkan yang tampil; menggeser peta atau mengklik hal lain menghentikannya dan mengembalikan lapisan pengguna. Lini masa insiden punya slider yang bisa digeser dan tombol putar. Hash URL menyimpan kamera, lapisan, bahasa, pilihan, jadi tampilan bisa dibagikan. Panduan singkat muncul saat kunjungan pertama (bisa diulang dari Bantuan).
-PINTASAN: ${pintasan}.`;
-}
 
 export interface Faq {
   kunci: string[];
@@ -207,7 +177,8 @@ export function jawabFaq(q: string, lang: Lang): { teks: string; terbang?: strin
   let terbaik: Faq | null = null;
   let nilai = 0;
   for (const f of FAQ) {
-    const n = f.kunci.filter((k) => s.includes(k)).length;
+    // kata kunci panjang lebih spesifik: "submarine" menang atas "about"
+    const n = f.kunci.filter((k) => s.includes(k)).reduce((a, k) => a + k.length, 0);
     if (n > nilai) {
       nilai = n;
       terbaik = f;
