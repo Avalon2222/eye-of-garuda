@@ -58,18 +58,25 @@ def operator_utama(teks: str) -> str:
 JENIS_UTAMA = {"Markas Besar", "Kogabwilhan", "Kodam", "Koarmada", "Lantamal", "Komando Utama"}
 
 
+JENIS_SATUAN_BAWAH = {"Kodim", "Yonif"}
+
+
 def peringkat_markas(b: dict) -> int:
-    """1 = markas besar/komando utama (selalu tampak), 2 = Korem, Lanal, Lanud kecil (muncul saat zoom)."""
+    """1 = markas besar/komando utama (selalu tampak), 2 = Korem, Lanal, Lanud kecil (muncul saat zoom),
+    3 = Kodim dan Yonif (baru muncul di zoom dekat)."""
+    if b["jenis"] in JENIS_SATUAN_BAWAH:
+        return 3
     if b["jenis"] in JENIS_UTAMA:
         return 1
-    if b["jenis"] == "Lanud" and int(b["id"]) <= 61:
+    if b["jenis"] == "Lanud" and b["id"].isdigit() and int(b["id"]) <= 61:
         return 1
     return 2
 
 
 def bangun_markas() -> dict:
     fitur = []
-    for b in baca_csv("markas_tni.csv"):
+    # markas_tni.csv = markas kurasi manual; markas_tni_satuan.csv = Kodim/Yonif (scripts/ambil_satuan_ad.py)
+    for b in baca_csv("markas_tni.csv") + baca_csv("markas_tni_satuan.csv"):
         fitur.append(
             titik(
                 b,

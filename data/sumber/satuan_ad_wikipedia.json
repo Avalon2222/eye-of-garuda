@@ -1,0 +1,4916 @@
+{
+"diambil": "2026-11-12",
+"kodim": [
+[
+"1.",
+"Komando Distrik Militer 0101",
+"Banda Aceh",
+"Kodam I/Iskandar Muda",
+"Berdiri Sendiri"
+],
+[
+"2.",
+"Komando Distrik Militer 0102",
+"Pidie",
+"Komando Resor Militer 011/Lilawangsa",
+""
+],
+[
+"3.",
+"Komando Distrik Militer 0103",
+"Aceh Utara",
+"Komando Resor Militer 011/Lilawangsa",
+""
+],
+[
+"4.",
+"Komando Distrik Militer 0104",
+"Aceh Timur",
+"Komando Resor Militer 011/Lilawangsa",
+""
+],
+[
+"5.",
+"Komando Distrik Militer 0105",
+"Aceh Barat",
+"Komando Resor Militer 012/Teuku Umar",
+""
+],
+[
+"6.",
+"Komando Distrik Militer 0106",
+"Aceh Tengah",
+"Komando Resor Militer 011/Lilawangsa",
+""
+],
+[
+"7.",
+"Komando Distrik Militer 0107",
+"Aceh Selatan",
+"Komando Resor Militer 012/Teuku Umar",
+""
+],
+[
+"8.",
+"Komando Distrik Militer 0108",
+"Aceh Tenggara",
+"Komando Resor Militer 011/Lilawangsa",
+""
+],
+[
+"9.",
+"Komando Distrik Militer 0109",
+"Aceh Singkil",
+"Komando Resor Militer 012/Teuku Umar",
+""
+],
+[
+"10.",
+"Komando Distrik Militer 0110",
+"Aceh Barat Daya",
+"Komando Resor Militer 012/Teuku Umar",
+""
+],
+[
+"11.",
+"Komando Distrik Militer 0111",
+"Bireuen",
+"Komando Resor Militer 011/Lilawangsa",
+""
+],
+[
+"12.",
+"Komando Distrik Militer 0112",
+"Sabang",
+"Komando Resor Militer 012/Teuku Umar",
+""
+],
+[
+"13.",
+"Komando Distrik Militer 0113",
+"Gayo Lues",
+"Komando Resor Militer 011/Lilawangsa",
+""
+],
+[
+"14.",
+"Komando Distrik Militer 0114",
+"Aceh Jaya",
+"Komando Resor Militer 012/Teuku Umar",
+""
+],
+[
+"15.",
+"Komando Distrik Militer 0115",
+"Simeuleu",
+"Komando Resor Militer 012/Teuku Umar",
+""
+],
+[
+"16.",
+"Komando Distrik Militer 0116",
+"Nagan Raya",
+"Komando Resor Militer 012/Teuku Umar",
+""
+],
+[
+"17.",
+"Komando Distrik Militer 0117",
+"Aceh Tamiang",
+"Komando Resor Militer 011/Lilawangsa",
+""
+],
+[
+"18.",
+"Komando Distrik Militer 0118",
+"Subulussalam",
+"Komando Resor Militer 012/Teuku Umar",
+""
+],
+[
+"19.",
+"Komando Distrik Militer 0119",
+"Bener Meriah",
+"Komando Resor Militer 011/Lilawangsa",
+""
+],
+[
+"20.",
+"Komando Distrik Militer 0201",
+"Medan",
+"Kodam II/Bukit Barisan",
+"Berdiri Sendiri"
+],
+[
+"21.",
+"Komando Distrik Militer 0203",
+"Binjai",
+"Komando Resor Militer 022/Pantai Timur",
+""
+],
+[
+"22.",
+"Komando Distrik Militer 0204",
+"Lubuk Pakam",
+"Komando Resor Militer 022/Pantai Timur",
+""
+],
+[
+"23.",
+"Komando Distrik Militer 0205",
+"Tanah Karo",
+"Komando Resor Militer 023/Kawal Samudra",
+""
+],
+[
+"24.",
+"Komando Distrik Militer 0206",
+"Dairi",
+"Komando Resor Militer 022/Kawal Samudra",
+""
+],
+[
+"25.",
+"Komando Distrik Militer 0207",
+"Simalungun",
+"Komando Resor Militer 022/Pantai Timur",
+""
+],
+[
+"26.",
+"Komando Distrik Militer 0208",
+"Asahan",
+"Komando Resor Militer 022/Pantai Timur",
+""
+],
+[
+"27.",
+"Komando Distrik Militer 0209",
+"Labuhan Batu",
+"Komando Resor Militer 022/Pantai Timur",
+""
+],
+[
+"28.",
+"Komando Distrik Militer 0210",
+"Tarutung",
+"Komando Resor Militer 023/Kawal Samudra",
+""
+],
+[
+"29.",
+"Komando Distrik Militer 0211",
+"Sibolga",
+"Komando Resor Militer 023/Kawal Samudra",
+""
+],
+[
+"30.",
+"Komando Distrik Militer 0212",
+"Padang Sidempuan",
+"Komando Resor Militer 022/Kawal Samudra",
+""
+],
+[
+"31.",
+"Komando Distrik Militer 0213",
+"Gunung Sitoli",
+"Komando Resor Militer 023/Kawal Samudra",
+""
+],
+[
+"32.",
+"Komando Distrik Militer 0301",
+"Pekanbaru",
+"Kodam XIX/Tuanku Tambusai",
+"Berdiri Sendiri"
+],
+[
+"33.",
+"Komando Distrik Militer 0302",
+"Rengat",
+"Komando Resor Militer 031/Wirabima",
+""
+],
+[
+"34.",
+"Komando Distrik Militer 0303",
+"Bengkalis",
+"Komando Resor Militer 031/Wirabima",
+""
+],
+[
+"35.",
+"Komando Distrik Militer 0304",
+"Agam",
+"Komando Resor Militer 032/Wirabraja",
+""
+],
+[
+"36.",
+"Komando Distrik Militer 0305",
+"Lubuk Sikaping",
+"Komando Resor Militer 032/Wirabraja",
+""
+],
+[
+"37.",
+"Komando Distrik Militer 0306",
+"Sarilamak",
+"Komando Resor Militer 032/Wirabraja",
+""
+],
+[
+"38.",
+"Komando Distrik Militer 0307",
+"Batusangkar",
+"Komando Resor Militer 032/Wirabraja",
+""
+],
+[
+"39.",
+"Komando Distrik Militer 0308",
+"Pariaman",
+"Komando Resor Militer 032/Wirabraja",
+""
+],
+[
+"40.",
+"Komando Distrik Militer 0309",
+"Solok",
+"Komando Resor Militer 032/Wirabraja",
+""
+],
+[
+"41.",
+"Komando Distrik Militer 0310",
+"Sawah Lunto",
+"Komando Resor Militer 032/Wirabraja",
+""
+],
+[
+"42.",
+"Komando Distrik Militer 0311",
+"Pesisir Selatan",
+"Komando Resor Militer 032/Wirabraja",
+""
+],
+[
+"43.",
+"Komando Distrik Militer 0312",
+"Padang",
+"Komando Resor Militer 032/Wirabraja",
+"A"
+],
+[
+"44.",
+"Komando Distrik Militer 0313",
+"Kampar",
+"Komando Resor Militer 031/Wirabima",
+""
+],
+[
+"45.",
+"Komando Distrik Militer 0314",
+"Indragiri Hilir",
+"Komando Resor Militer 031/Wirabima",
+""
+],
+[
+"46.",
+"Komando Distrik Militer 0315",
+"Tanjung Pinang",
+"Komando Resor Militer 033/Wira Pratama",
+"A"
+],
+[
+"47.",
+"Komando Distrik Militer 0316",
+"Batam",
+"Komando Resor Militer 033/Wira Pratama",
+""
+],
+[
+"48.",
+"Komando Distrik Militer 0317",
+"Tanjung Balai Karimun",
+"Komando Resor Militer 033/Wira Pratama",
+""
+],
+[
+"49.",
+"Komando Distrik Militer 0318",
+"Natuna",
+"Komando Resor Militer 033/Wira Pratama",
+""
+],
+[
+"50.",
+"Komando Distrik Militer 0319",
+"Tuapejat",
+"Komando Resor Militer 032/Wirabraja",
+""
+],
+[
+"51.",
+"Komando Distrik Militer 0320",
+"Dumai",
+"Komando Resor Militer 031/Wirabima",
+""
+],
+[
+"52.",
+"Komando Distrik Militer 0321",
+"Rokan Hilir",
+"Komando Resor Militer 031/Wirabima",
+""
+],
+[
+"53.",
+"Komando Distrik Militer 0322",
+"Siak",
+"Komando Resor Militer 031/Wirabima",
+""
+],
+[
+"54.",
+"Komando Distrik Militer 0401",
+"Musi Banyuasin",
+"Komando Resor Militer 044/Garuda Dempo",
+""
+],
+[
+"55.",
+"Komando Distrik Militer 0402",
+"Ogan Komering Ilir",
+"Komando Resor Militer 044/Garuda Dempo",
+""
+],
+[
+"56.",
+"Komando Distrik Militer 0403",
+"Ogan Komering Ulu",
+"Komando Resor Militer 044/Garuda Dempo",
+""
+],
+[
+"57.",
+"Komando Distrik Militer 0404",
+"Muara Enim",
+"Komando Resor Militer 044/Garuda Dempo",
+""
+],
+[
+"58.",
+"Komando Distrik Militer 0405",
+"Lahat",
+"Komando Resor Militer 044/Garuda Dempo",
+""
+],
+[
+"59.",
+"Komando Distrik Militer 0406",
+"Musi Rawas",
+"Komando Resor Militer 044/Garuda Dempo",
+""
+],
+[
+"60.",
+"Komando Distrik Militer 0407",
+"Bengkulu",
+"Komando Resor Militer 041/Garuda Emas",
+"A"
+],
+[
+"61.",
+"Komando Distrik Militer 0408",
+"Bengkulu Selatan",
+"Komando Resor Militer 041/Garuda Emas",
+""
+],
+[
+"62.",
+"Komando Distrik Militer 0409",
+"Rejang Lebong",
+"Komando Resor Militer 041/Garuda Emas",
+""
+],
+[
+"63.",
+"Komando Distrik Militer 0410",
+"Bandar Lampung",
+"Komando Resor Militer 043/Garuda Hitam",
+"A"
+],
+[
+"64.",
+"Komando Distrik Militer 0411",
+"Metro",
+"Komando Resor Militer 043/Garuda Hitam",
+""
+],
+[
+"65.",
+"Komando Distrik Militer 0412",
+"Lampung Utara",
+"Komando Resor Militer 043/Garuda Hitam",
+""
+],
+[
+"66.",
+"Komando Distrik Militer 0413",
+"Bangka",
+"Komando Resor Militer 045/Garuda Jaya",
+"A"
+],
+[
+"67.",
+"Komando Distrik Militer 0414",
+"Belitung",
+"Komando Resor Militer 045/Garuda Jaya",
+""
+],
+[
+"68.",
+"Komando Distrik Militer 0415",
+"Jambi",
+"Komando Resor Militer 042/Garuda Putih",
+"A"
+],
+[
+"69.",
+"Komando Distrik Militer 0416",
+"Bungo",
+"Komando Resor Militer 042/Garuda Putih",
+""
+],
+[
+"70.",
+"Komando Distrik Militer 0417",
+"Kerinci",
+"Komando Resor Militer 042/Garuda Putih",
+""
+],
+[
+"71.",
+"Komando Distrik Militer 0418",
+"Palembang",
+"Kodam IV/Sriwijaya",
+"Berdiri Sendiri"
+],
+[
+"72.",
+"Komando Distrik Militer 0419",
+"Tanjung Jabung",
+"Komando Resor Militer 042/Garuda Putih",
+""
+],
+[
+"73.",
+"Komando Distrik Militer 0420",
+"Sarolangun",
+"Komando Resor Militer 042/Garuda Putih",
+""
+],
+[
+"74.",
+"Komando Distrik Militer 0421",
+"Lampung Selatan",
+"Komando Resor Militer 043/Garuda Hitam",
+""
+],
+[
+"75.",
+"Komando Distrik Militer 0422",
+"Lampung Barat",
+"Komando Resor Militer 043/Garuda Hitam",
+""
+],
+[
+"76.",
+"Komando Distrik Militer 0423",
+"Bengkulu Utara",
+"Komando Resor Militer 041/Garuda Emas",
+""
+],
+[
+"77.",
+"Komando Distrik Militer 0424",
+"Tanggamus",
+"Komando Resor Militer 043/Garuda Hitam",
+""
+],
+[
+"78.",
+"Komando Distrik Militer 0425",
+"Seluma",
+"Komando Resor Militer 041/Garuda Emas",
+""
+],
+[
+"79.",
+"Komando Distrik Militer 0426",
+"Tulang Bawang",
+"Komando Resor Militer 043/Garuda Hitam",
+""
+],
+[
+"80.",
+"Komando Distrik Militer 0427",
+"Way Kanan",
+"Komando Resor Militer 043/Garuda Hitam",
+""
+],
+[
+"81.",
+"Komando Distrik Militer 0428",
+"Mukomuko",
+"Komando Resor Militer 041/Garuda Emas",
+""
+],
+[
+"82.",
+"Komando Distrik Militer 0429",
+"Lampung Timur",
+"Komando Resor Militer 043/Garuda Hitam",
+""
+],
+[
+"83.",
+"Komando Distrik Militer 0430",
+"Banyuasin",
+"Komando Resor Militer 044/Garuda Dempo",
+""
+],
+[
+"84.",
+"Komando Distrik Militer 0431",
+"Bangka Selatan",
+"Komando Resor Militer 045/Garuda Jaya",
+""
+],
+[
+"85.",
+"Komando Distrik Militer 0432",
+"Bangka Barat",
+"Komando Resor Militer 045/Garuda Jaya",
+""
+],
+[
+"86.",
+"Komando Distrik Militer 0433",
+"Lampung Tengah",
+"Komando Resor Militer 043/Garuda Hitam",
+""
+],
+[
+"87.",
+"Komando Distrik Militer 0501",
+"Jakarta Pusat",
+"Kodam Jayakarta",
+"Berdiri Sendiri"
+],
+[
+"88.",
+"Komando Distrik Militer 0502",
+"Jakarta Utara",
+"Komando Resor Militer 052/Wijayakrama",
+"A"
+],
+[
+"89.",
+"Komando Distrik Militer 0503",
+"Jakarta Barat",
+"Komando Resor Militer 052/Wijayakrama",
+"A"
+],
+[
+"90.",
+"Komando Distrik Militer 0504",
+"Jakarta Selatan",
+"Komando Resor Militer 051/Wijayakarta",
+"A"
+],
+[
+"91.",
+"Komando Distrik Militer 0505",
+"Jakarta Timur",
+"Komando Resor Militer 051/Wijayakarta",
+"A"
+],
+[
+"92.",
+"Komando Distrik Militer 0506",
+"Tangerang",
+"Komando Resor Militer 052/Wijayakrama",
+"A"
+],
+[
+"93.",
+"Komando Distrik Militer 0507",
+"Bekasi",
+"Komando Resor Militer 051/Wijayakarta",
+"A"
+],
+[
+"94.",
+"Komando Distrik Militer 0508",
+"Depok",
+"Komando Resor Militer 051/Wijayakarta",
+"A"
+],
+[
+"95.",
+"Komando Distrik Militer 0509",
+"Cikarang",
+"Komando Resor Militer 052/Wijayakrama",
+""
+],
+[
+"96.",
+"Komando Distrik Militer 0510",
+"Tigaraksa",
+"Komando Resor Militer 052/Wijayakrama",
+""
+],
+[
+"97.",
+"Komando Distrik Militer 0601",
+"Pandeglang",
+"Komando Resor Militer 064/Maulana Yusuf",
+""
+],
+[
+"98.",
+"Komando Distrik Militer 0602",
+"Serang",
+"Komando Resor Militer 064/Maulana Yusuf",
+"A"
+],
+[
+"99.",
+"Komando Distrik Militer 0603",
+"Lebak",
+"Komando Resor Militer 064/Maulana Yusuf",
+""
+],
+[
+"100.",
+"Komando Distrik Militer 0604",
+"Karawang",
+"Komando Resor Militer 063/Sunan Gunung Jati",
+""
+],
+[
+"101.",
+"Komando Distrik Militer 0605",
+"Subang",
+"Komando Resor Militer 063/Sunan Gunung Jati",
+""
+],
+[
+"102.",
+"Komando Distrik Militer 0606",
+"Bogor",
+"Komando Resor Militer 061/Surya Kencana",
+"A"
+],
+[
+"103.",
+"Komando Distrik Militer 0607",
+"Sukabumi",
+"Komando Resor Militer 061/Surya Kencana",
+""
+],
+[
+"104.",
+"Komando Distrik Militer 0608",
+"Cianjur",
+"Komando Resor Militer 061/Surya Kencana",
+""
+],
+[
+"105.",
+"Komando Distrik Militer 0609",
+"Cimahi",
+"Komando Resor Militer 062/Tarumanagara",
+""
+],
+[
+"106.",
+"Komando Distrik Militer 0610",
+"Sumedang",
+"Komando Resor Militer 062/Tarumanagara",
+""
+],
+[
+"107.",
+"Komando Distrik Militer 0611",
+"Garut",
+"Komando Resor Militer 062/Tarumanagara",
+""
+],
+[
+"108.",
+"Komando Distrik Militer 0612",
+"Tasikmalaya",
+"Komando Resor Militer 062/Tarumanagara",
+""
+],
+[
+"109.",
+"Komando Distrik Militer 0613",
+"Ciamis",
+"Komando Resor Militer 062/Tarumanagara",
+""
+],
+[
+"110.",
+"Komando Distrik Militer 0614",
+"Cirebon",
+"Komando Resor Militer 063/Sunan Gunung Jati",
+""
+],
+[
+"111.",
+"Komando Distrik Militer 0615",
+"Kuningan",
+"Komando Resor Militer 063/Sunan Gunung Jati",
+""
+],
+[
+"112.",
+"Komando Distrik Militer 0616",
+"Indramayu",
+"Komando Resor Militer 063/Sunan Gunung Jati",
+""
+],
+[
+"113.",
+"Komando Distrik Militer 0617",
+"Majalengka",
+"Komando Resor Militer 063/Sunan Gunung Jati",
+""
+],
+[
+"114.",
+"Komando Distrik Militer 0618",
+"Bandung",
+"Kodam VI/Siliwangi",
+"Berdiri Sendiri"
+],
+[
+"115.",
+"Komando Distrik Militer 0619",
+"Purwakarta",
+"Komando Resor Militer 063/Sunan Gunung Jati",
+""
+],
+[
+"116.",
+"Komando Distrik Militer 0620",
+"Sumber",
+"Komando Resor Militer 063/Sunan Gunung Jati",
+""
+],
+[
+"117.",
+"Komando Distrik Militer 0621",
+"Cibinong",
+"Komando Resor Militer 061/Surya Kencana",
+""
+],
+[
+"118.",
+"Komando Distrik Militer 0622",
+"Palabuhanratu",
+"Komando Resor Militer 061/Surya Kencana",
+""
+],
+[
+"119.",
+"Komando Distrik Militer 0623",
+"Cilegon",
+"Komando Resor Militer 064/Maulana Yusuf",
+""
+],
+[
+"120.",
+"Komando Distrik Militer 0624",
+"Soreang",
+"Komando Resor Militer 062/Tarumanagara",
+""
+],
+[
+"121.",
+"Komando Distrik Militer 0625",
+"Pangandaran",
+"Komando Resor Militer 062/Tarumanagara",
+""
+],
+[
+"122.",
+"Komando Distrik Militer 0701",
+"Purwokerto",
+"Komando Resor Militer 071/Wijayakusuma",
+""
+],
+[
+"123.",
+"Komando Distrik Militer 0702",
+"Purbalingga",
+"Komando Resor Militer 071/Wijayakusuma",
+""
+],
+[
+"124.",
+"Komando Distrik Militer 0703",
+"Cilacap",
+"Komando Resor Militer 071/Wijayakusuma",
+""
+],
+[
+"125.",
+"Komando Distrik Militer 0704",
+"Banjarnegara",
+"Komando Resor Militer 071/Wijayakusuma",
+""
+],
+[
+"126.",
+"Komando Distrik Militer 0705",
+"Magelang",
+"Komando Resor Militer 072/Pemungkas",
+""
+],
+[
+"127.",
+"Komando Distrik Militer 0706",
+"Temanggung",
+"Komando Resor Militer 072/Pemungkas",
+""
+],
+[
+"128.",
+"Komando Distrik Militer 0707",
+"Wonosobo",
+"Komando Resor Militer 072/Pemungkas",
+""
+],
+[
+"129.",
+"Komando Distrik Militer 0708",
+"Purworejo",
+"Komando Resor Militer 072/Pemungkas",
+""
+],
+[
+"130.",
+"Komando Distrik Militer 0709",
+"Kebumen",
+"Komando Resor Militer 072/Pemungkas",
+""
+],
+[
+"131.",
+"Komando Distrik Militer 0710",
+"Pekalongan",
+"Komando Resor Militer 071/Wijayakusuma",
+""
+],
+[
+"132.",
+"Komando Distrik Militer 0711",
+"Pemalang",
+"Komando Resor Militer 071/Wijayakusuma",
+""
+],
+[
+"133.",
+"Komando Distrik Militer 0712",
+"Tegal",
+"Komando Resor Militer 071/Wijayakusuma",
+""
+],
+[
+"134.",
+"Komando Distrik Militer 0713",
+"Brebes",
+"Komando Resor Militer 071/Wijayakusuma",
+""
+],
+[
+"135.",
+"Komando Distrik Militer 0714",
+"Salatiga",
+"Komando Resor Militer 073/Makutarama",
+""
+],
+[
+"136.",
+"Komando Distrik Militer 0715",
+"Kendal",
+"Komando Resor Militer 073/Makutarama",
+""
+],
+[
+"137.",
+"Komando Distrik Militer 0716",
+"Demak",
+"Komando Resor Militer 073/Makutarama",
+""
+],
+[
+"138.",
+"Komando Distrik Militer 0717",
+"Grobogan",
+"Komando Resor Militer 073/Makutarama",
+""
+],
+[
+"139.",
+"Komando Distrik Militer 0718",
+"Pati",
+"Komando Resor Militer 073/Makutarama",
+""
+],
+[
+"140.",
+"Komando Distrik Militer 0719",
+"Jepara",
+"Komando Resor Militer 073/Makutarama",
+""
+],
+[
+"141.",
+"Komando Distrik Militer 0720",
+"Rembang",
+"Komando Resor Militer 073/Makutarama",
+""
+],
+[
+"142.",
+"Komando Distrik Militer 0721",
+"Blora",
+"Komando Resor Militer 073/Makutarama",
+""
+],
+[
+"143.",
+"Komando Distrik Militer 0722",
+"Kudus",
+"Komando Resor Militer 073/Makutarama",
+""
+],
+[
+"144.",
+"Komando Distrik Militer 0723",
+"Klaten",
+"Komando Resor Militer 074/Warastratama",
+""
+],
+[
+"145.",
+"Komando Distrik Militer 0724",
+"Boyolali",
+"Komando Resor Militer 074/Warastratama",
+""
+],
+[
+"146.",
+"Komando Distrik Militer 0725",
+"Sragen",
+"Komando Resor Militer 074/Warastratama",
+""
+],
+[
+"147.",
+"Komando Distrik Militer 0726",
+"Sukoharjo",
+"Komando Resor Militer 074/Warastratama",
+""
+],
+[
+"148.",
+"Komando Distrik Militer 0727",
+"Karanganyar",
+"Komando Resor Militer 074/Warastratama",
+""
+],
+[
+"149.",
+"Komando Distrik Militer 0728",
+"Wonogiri",
+"Komando Resor Militer 074/Warastratama",
+""
+],
+[
+"150.",
+"Komando Distrik Militer 0729",
+"Bantul",
+"Komando Resor Militer 072/Pemungkas",
+""
+],
+[
+"151.",
+"Komando Distrik Militer 0730",
+"Gunung Kidul",
+"Komando Resor Militer 072/Pemungkas",
+""
+],
+[
+"152.",
+"Komando Distrik Militer 0731",
+"Kulon Progo",
+"Komando Resor Militer 072/Pemungkas",
+""
+],
+[
+"153.",
+"Komando Distrik Militer 0732",
+"Sleman",
+"Komando Resor Militer 072/Pemungkas",
+""
+],
+[
+"154.",
+"Komando Distrik Militer 0733",
+"Semarang",
+"Kodam VII/Diponegoro",
+"Berdiri Sendiri"
+],
+[
+"155.",
+"Komando Distrik Militer 0734",
+"Yogyakarta",
+"Komando Resor Militer 072/Pemungkas",
+"A"
+],
+[
+"156.",
+"Komando Distrik Militer 0735",
+"Surakarta",
+"Komando Resor Militer 074/Warastratama",
+""
+],
+[
+"157.",
+"Komando Distrik Militer 0736",
+"Batang",
+"Komando Resor Militer 071/Wijayakusuma",
+""
+],
+[
+"158.",
+"Komando Distrik Militer 0801",
+"Pacitan",
+"Komando Resor Militer 081/Dhirotsaha Jaya",
+""
+],
+[
+"159.",
+"Komando Distrik Militer 0802",
+"Ponorogo",
+"Komando Resor Militer 081/Dhirotsaha Jaya",
+""
+],
+[
+"160.",
+"Komando Distrik Militer 0803",
+"Madiun",
+"Komando Resor Militer 081/Dhirotsaha Jaya",
+""
+],
+[
+"161.",
+"Komando Distrik Militer 0804",
+"Magetan",
+"Komando Resor Militer 081/Dhirotsaha Jaya",
+""
+],
+[
+"162.",
+"Komando Distrik Militer 0805",
+"Ngawi",
+"Komando Resor Militer 081/Dhirotsaha Jaya",
+""
+],
+[
+"163.",
+"Komando Distrik Militer 0806",
+"Trenggalek",
+"Komando Resor Militer 081/Dhirotsaha Jaya",
+""
+],
+[
+"164.",
+"Komando Distrik Militer 0807",
+"Tulungagung",
+"Komando Resor Militer 081/Dhirotsaha Jaya",
+""
+],
+[
+"165.",
+"Komando Distrik Militer 0808",
+"Blitar",
+"Komando Resor Militer 081/Dhirotsaha Jaya",
+""
+],
+[
+"166.",
+"Komando Distrik Militer 0809",
+"Kediri",
+"Komando Resor Militer 082/Citra Panca Yuda Jaya",
+""
+],
+[
+"167.",
+"Komando Distrik Militer 0810",
+"Nganjuk",
+"Komando Resor Militer 081/Dhirotsaha Jaya",
+""
+],
+[
+"168.",
+"Komando Distrik Militer 0811",
+"Tuban",
+"Komando Resor Militer 082/Citra Panca Yuda Jaya",
+""
+],
+[
+"169.",
+"Komando Distrik Militer 0812",
+"Lamongan",
+"Komando Resor Militer 082/Citra Panca Yuda Jaya",
+""
+],
+[
+"170.",
+"Komando Distrik Militer 0813",
+"Bojonegoro",
+"Komando Resor Militer 082/Citra Panca Yuda Jaya",
+""
+],
+[
+"171.",
+"Komando Distrik Militer 0814",
+"Jombang",
+"Komando Resor Militer 082/Citra Panca Yuda Jaya",
+""
+],
+[
+"172.",
+"Komando Distrik Militer 0815",
+"Mojokerto",
+"Komando Resor Militer 082/Citra Panca Yuda Jaya",
+""
+],
+[
+"173.",
+"Komando Distrik Militer 0816",
+"Sidoarjo",
+"Komando Resor Militer 084/Bhaskara Jaya",
+""
+],
+[
+"174.",
+"Komando Distrik Militer 0817",
+"Gresik",
+"Komando Resor Militer 084/Bhaskara Jaya",
+""
+],
+[
+"175.",
+"Komando Distrik Militer 0818",
+"Kepanjen",
+"Komando Resor Militer 083/Baladhika Jaya",
+""
+],
+[
+"176.",
+"Komando Distrik Militer 0819",
+"Pasuruan",
+"Komando Resor Militer 083/Baladhika Jaya",
+""
+],
+[
+"177.",
+"Komando Distrik Militer 0820",
+"Probolinggo",
+"Komando Resor Militer 083/Baladhika Jaya",
+""
+],
+[
+"178.",
+"Komando Distrik Militer 0821",
+"Lumajang",
+"Komando Resor Militer 083/Baladhika Jaya",
+""
+],
+[
+"179.",
+"Komando Distrik Militer 0822",
+"Bondowoso",
+"Komando Resor Militer 083/Baladhika Jaya",
+""
+],
+[
+"180.",
+"Komando Distrik Militer 0823",
+"Situbondo",
+"Komando Resor Militer 083/Baladhika Jaya",
+""
+],
+[
+"181.",
+"Komando Distrik Militer 0824",
+"Jember",
+"Komando Resor Militer 083/Baladhika Jaya",
+""
+],
+[
+"182.",
+"Komando Distrik Militer 0825",
+"Banyuwangi",
+"Komando Resor Militer 083/Baladhika Jaya",
+""
+],
+[
+"183.",
+"Komando Distrik Militer 0826",
+"Pamekasan",
+"Komando Resor Militer 084/Bhaskara Jaya",
+""
+],
+[
+"184.",
+"Komando Distrik Militer 0827",
+"Sumenep",
+"Komando Resor Militer 084/Bhaskara Jaya",
+""
+],
+[
+"185.",
+"Komando Distrik Militer 0828",
+"Sampang",
+"Komando Resor Militer 084/Bhaskara Jaya",
+""
+],
+[
+"186.",
+"Komando Distrik Militer 0829",
+"Bangkalan",
+"Komando Resor Militer 084/Bhaskara Jaya",
+""
+],
+[
+"187.",
+"Komando Distrik Militer 0830",
+"Surabaya",
+"Komando Resor Militer 084/Bhaskara Jaya",
+"A"
+],
+[
+"190.",
+"Komando Distrik Militer 0833",
+"Malang",
+"Komando Resor Militer 083/Baladhika Jaya",
+""
+],
+[
+"191.",
+"Komando Distrik Militer 0901",
+"Samarinda",
+"Komando Resor Militer 091/Aji Surya Natakesuma",
+"A"
+],
+[
+"192.",
+"Komando Distrik Militer 0902",
+"Berau",
+"Komando Resor Militer 091/Aji Surya Natakesuma",
+""
+],
+[
+"193.",
+"Komando Distrik Militer 0903",
+"Tanjung Selor",
+"Komando Resor Militer 092/Maharajalilla",
+"A"
+],
+[
+"194.",
+"Komando Distrik Militer 0904",
+"Tanah Grogot",
+"Komando Resor Militer 091/Aji Surya Natakesuma",
+""
+],
+[
+"195.",
+"Komando Distrik Militer 0905",
+"Balikpapan",
+"Berdiri Sendiri",
+"BS"
+],
+[
+"196.",
+"Komando Distrik Militer 0906",
+"Tenggarong",
+"Komando Resor Militer 091/Aji Surya Natakesuma",
+""
+],
+[
+"197.",
+"Komando Distrik Militer 0907",
+"Tarakan",
+"Komando Resor Militer 092/Maharajalilla",
+""
+],
+[
+"198.",
+"Komando Distrik Militer 0908",
+"Bontang",
+"Komando Resor Militer 091/Aji Surya Natakesuma",
+""
+],
+[
+"199.",
+"Komando Distrik Militer 0909",
+"Sangatta",
+"Komando Resor Militer 091/Aji Surya Natakesuma",
+""
+],
+[
+"200.",
+"Komando Distrik Militer 0910",
+"Malinau",
+"Komando Resor Militer 092/Maharajalilla",
+""
+],
+[
+"201.",
+"Komando Distrik Militer 0911",
+"Nunukan",
+"Komando Resor Militer 092/Maharajalilla",
+""
+],
+[
+"202.",
+"Komando Distrik Militer 0912",
+"Sendawar",
+"Komando Resor Militer 091/Aji Surya Natakesuma",
+""
+],
+[
+"203.",
+"Komando Distrik Militer 0913",
+"Penajam Paser Utara",
+"Komando Resor Militer 091/Aji Surya Natakesuma",
+""
+],
+[
+"204.",
+"Komando Distrik Militer 0914",
+"Tana Tidung",
+"Komando Resor Militer 092/Maharajalilla",
+""
+],
+[
+"205.",
+"Komando Distrik Militer 0915",
+"Mahakam Ulu",
+"Komando Resor Militer 091/Aji Surya Natakesuma",
+""
+],
+[
+"206.",
+"Komando Distrik Militer 1001",
+"Amuntai",
+"Komando Resor Militer 101/Antasari",
+""
+],
+[
+"207.",
+"Komando Distrik Militer 1002",
+"Barabai",
+"Komando Resor Militer 101/Antasari",
+""
+],
+[
+"208.",
+"Komando Distrik Militer 1003",
+"Kandangan",
+"Komando Resor Militer 101/Antasari",
+""
+],
+[
+"209.",
+"Komando Distrik Militer 1004",
+"Kotabaru",
+"Komando Resor Militer 101/Antasari",
+""
+],
+[
+"210.",
+"Komando Distrik Militer 1005",
+"Marabahan",
+"Komando Resor Militer 101/Antasari",
+""
+],
+[
+"211.",
+"Komando Distrik Militer 1006",
+"Martapura",
+"Komando Resor Militer 101/Antasari",
+""
+],
+[
+"212.",
+"Komando Distrik Militer 1007",
+"Banjarmasin",
+"Komando Resor Militer 101/Antasari",
+"A"
+],
+[
+"213.",
+"Komando Distrik Militer 1008",
+"Tanjung",
+"Komando Resor Militer 101/Antasari",
+""
+],
+[
+"214.",
+"Komando Distrik Militer 1009",
+"Pelaihari",
+"Komando Resor Militer 101/Antasari",
+""
+],
+[
+"215.",
+"Komando Distrik Militer 1010",
+"Rantau",
+"Komando Resor Militer 101/Antasari",
+""
+],
+[
+"216.",
+"Komando Distrik Militer 1011",
+"Kuala Kapuas",
+"Komando Resor Militer 102/Panju Panjung",
+""
+],
+[
+"217.",
+"Komando Distrik Militer 1012",
+"Barito Selatan",
+"Komando Resor Militer 102/Panju Panjung",
+""
+],
+[
+"228.",
+"Komando Distrik Militer 1013",
+"Muara Teweh",
+"Komando Resor Militer 102/Panju Panjung",
+""
+],
+[
+"219.",
+"Komando Distrik Militer 1014",
+"Pangkalan Bun",
+"Komando Resor Militer 102/Panju Panjung",
+""
+],
+[
+"220.",
+"Komando Distrik Militer 1015",
+"Sampit",
+"Komando Resor Militer 102/Panju Panjung",
+""
+],
+[
+"221.",
+"Komando Distrik Militer 1016",
+"Palangkaraya",
+"Kodam XI/Tambun Bungai",
+"Berdiri Sendiri"
+],
+[
+"222.",
+"Komando Distrik Militer 1017",
+"Lamandau",
+"Komando Resor Militer 102/Panju Panjung",
+""
+],
+[
+"223.",
+"Komando Distrik Militer 1018",
+"Gunung Mas",
+"Komando Resor Militer 102/Panju Panjung",
+""
+],
+[
+"224.",
+"Komando Distrik Militer 1019",
+"Katingan",
+"Komando Resor Militer 102/Panju Panjung",
+""
+],
+[
+"224.",
+"Komando Distrik Militer 1020",
+"Murung Raya",
+"Komando Resor Militer 102/Panju Panjung",
+""
+],
+[
+"225.",
+"Komando Distrik Militer 1022",
+"Tanah Bumbu",
+"Komando Resor Militer 101/Antasari",
+""
+],
+[
+"226.",
+"Komando Distrik Militer 1023",
+"Batulicin",
+"Komando Resor Militer 101/Antasari",
+""
+],
+[
+"226.",
+"Komando Distrik Militer 1201",
+"Mempawah",
+"Komando Resor Militer 121/Alambhana Wanawai",
+""
+],
+[
+"227.",
+"Komando Distrik Militer 1202",
+"Singkawang",
+"Komando Resor Militer 121/Alambhana Wanawai",
+""
+],
+[
+"228.",
+"Komando Distrik Militer 1203",
+"Ketapang",
+"Komando Resor Militer 121/Alambhana Wanawai",
+""
+],
+[
+"229.",
+"Komando Distrik Militer 1204",
+"Sanggau",
+"Komando Resor Militer 121/Alambhana Wanawai",
+""
+],
+[
+"230.",
+"Komando Distrik Militer 1205",
+"Sintang",
+"Komando Resor Militer 121/Alambhana Wanawai",
+""
+],
+[
+"231.",
+"Komando Distrik Militet 1206",
+"Putussibau",
+"Komando Resor Militer 121/Alambhana Wanawai",
+""
+],
+[
+"232.",
+"Komando Distrik Militer 1207",
+"Pontianak",
+"Kodam XII/Tanjungpura",
+"Berdiri Sendir"
+],
+[
+"233.",
+"Komando Distrik Militer 1208",
+"Sambas",
+"Komando Resor Militer 121/Alambhana Wanawai",
+""
+],
+[
+"234.",
+"Komando Distrik Militer 1209",
+"Bengkayang",
+"Komando Resor Militer 121/Alambhana Wanawai",
+""
+],
+[
+"235.",
+"Komando Daerah Militer 1210",
+"Landak",
+"Komando Resor Militer 121/Alambhana Wanawai",
+""
+],
+[
+"236.",
+"Komando Distrik Militer 1301",
+"Sangihe",
+"Komando Resor Militer 131/Santiago",
+""
+],
+[
+"237.",
+"Komando Distrik Militer 1302",
+"Minahasa",
+"Komando Resor Militer 131/Santiago",
+""
+],
+[
+"238.",
+"Komando Distrik Militer 1303",
+"Kotamobagu",
+"Komando Resor Militer 131/Santiago",
+""
+],
+[
+"239.",
+"Komando Distrik Militer 1304",
+"Kota Gorontalo",
+"Komando Resor Militer 133/Nani Wartabone",
+"A"
+],
+[
+"240.",
+"Komando Distrik Militer 1305",
+"Tolitoli",
+"Komando Resor Militer 132/Tadulako",
+""
+],
+[
+"241.",
+"Komando Distrik Militer 1306",
+"Kota Palu",
+"Komando Resor Militer 132/Tadulako",
+"A"
+],
+[
+"242.",
+"Komando Distrik Militer 1307",
+"Poso",
+"Komando Resor Militer 132/Tadulako",
+""
+],
+[
+"243.",
+"Komando Distrik Militer 1308",
+"Luwuk",
+"Komando Resor Militer 132/Tadulako",
+""
+],
+[
+"244.",
+"Komando Distrik Militer 1309",
+"Kota Manado",
+"Komando Resor Militer 131/Santiago",
+"A"
+],
+[
+"245.",
+"Komando Distrik Militer 1310",
+"Bitung",
+"Komando Resor Militer 131/Santiago",
+""
+],
+[
+"246.",
+"Komando Distrik Militer 1311",
+"Morowali",
+"Komando Resor Militer 132/Tadulako",
+""
+],
+[
+"247.",
+"Komando Distrik Militer 1312",
+"Talaud",
+"Komando Resor Militer 131/Santiago",
+""
+],
+[
+"248.",
+"Komando Distrik Militer 1313",
+"Pohuwato",
+"Komando Resor Militer 133/Nani Wartabone",
+""
+],
+[
+"249.",
+"Komando Distrik Militer 1314",
+"Gorontalo Utara",
+"Komando Resor Militer 133/Nani Wartabone",
+""
+],
+[
+"250.",
+"Komando Distrik Militer 1315",
+"Kabupaten Gorontalo",
+"Komando Resor Militer 133/Nani Wartabone",
+""
+],
+[
+"251.",
+"Komando Distrik Militer 1316",
+"Boalemo",
+"Komando Resor Militer 133/Nani Wartabone",
+""
+],
+[
+"252.",
+"Komando Distrik Militer 1401",
+"Majene",
+"Komando Resor Militer 142/Taroada Tarogau",
+""
+],
+[
+"253.",
+"Komando Distrik Militer 1402",
+"Polewali",
+"Komando Resor Militer 142/Taroada Tarogau",
+""
+],
+[
+"254.",
+"Komando Distrik Militer 1403",
+"Palopo",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"255.",
+"Komando Distrik Militer 1404",
+"Pinrang",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"256.",
+"Komando Distrik Militer 1405",
+"Pare-pare",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"257.",
+"Komando Distrik Militer 1406",
+"Sengkang",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"258.",
+"Komando Distrik Militer 1407",
+"Watampone",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"259.",
+"Komando Distrik Militer 1408",
+"Makassar",
+"Kodam XIV/Hasanuddin",
+"Berdiri Sendiri"
+],
+[
+"260.",
+"Komando Distrik Militer 1409",
+"Sungguminasa",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"261.",
+"Komando Distrik Militer 1410",
+"Bantaeng",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"262.",
+"Komando Distrik Militer 1411",
+"Bulukumba",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"263.",
+"Komando Distrik Militer 1412",
+"Kolaka",
+"Komando Resor Militer 143/Halu Oleo",
+""
+],
+[
+"264.",
+"Komando Distrik Militer 1413",
+"Buton",
+"Komando Resor Militer 143/Halu Oleo",
+""
+],
+[
+"265.",
+"Komando Distrik Militer 1414",
+"Makale",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"266.",
+"Komando Distrik Militer 1415",
+"Selayar",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"267.",
+"Komando Distrik Militer 1416",
+"Muna",
+"Komando Resor Militer 143/Halu Oleo",
+""
+],
+[
+"268.",
+"Komando Distrik Militer 1417",
+"Kendari",
+"Komando Resor Militer 143/Halu Oleo",
+"A"
+],
+[
+"269.",
+"Komando Distrik Militer 1418",
+"Mamuju",
+"Komando Resor Militer 142/Taroada Tarogau",
+"A"
+],
+[
+"270.",
+"Komando Distrik Militer 1419",
+"Enrekang",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"271.",
+"Komando Distrik Militer 1420",
+"Sidrap",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"272.",
+"Komando Distrik Militer 1421",
+"Pangkep",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"273.",
+"Komando Distrik Militer 1422",
+"Maros",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"274.",
+"Komando Distrik Militer 1423",
+"Soppeng",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"275.",
+"Komando Distrik Militer 1424",
+"Sinjai",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"276.",
+"Komando Distrik Militer 1425",
+"Jeneponto",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"277.",
+"Komando Distrik Militer 1426",
+"Takalar",
+"Komando Resor Militer 141/Toddopuli",
+""
+],
+[
+"278.",
+"Komando Distrik Militer 1427",
+"Mamuju Utara",
+"Komando Resor Militer 142/Taroada Tarogau",
+""
+],
+[
+"279.",
+"Komando Distrik Militer 1428",
+"Mamasa",
+"Komando Resor Militer 142/Taroada Tarogau",
+""
+],
+[
+"280.",
+"Komando Distrik Militer 1429",
+"Buton Utara",
+"Komando Resor Militer 143/Halu Oleo",
+""
+],
+[
+"281.",
+"Komando Distrik Militer 1430",
+"Konawe Utara",
+"Komando Resor Militer 143/Halu Oleo",
+""
+],
+[
+"282.",
+"Komando Distrik Militer 1431",
+"Bombana",
+"Komando Resor Militer 143/Halu Oleo",
+""
+],
+[
+"283.",
+"Komando Distrik Militer 1501",
+"Ternate",
+"Komando Resor Militer 152/Baabullah",
+"A"
+],
+[
+"284.",
+"Komando Distrik Militer 1502",
+"Masohi",
+"Komando Resor Militer 151/Binaiya",
+""
+],
+[
+"285.",
+"Komando Distrik Militer 1503",
+"Tual",
+"Komando Resor Militer 151/Binaiya",
+""
+],
+[
+"286.",
+"Komando Distrik Militer 1504",
+"Ambon",
+"Kodam XV/Pattimura",
+"Berdiri Sendiri"
+],
+[
+"287.",
+"Komando Distrik Militer 1505",
+"Tidore",
+"Komando Resor Militer 152/Baabullah",
+""
+],
+[
+"288.",
+"Komando Distrik Militer 1506",
+"Namlea",
+"Komando Resor Militer 151/Binaiya",
+""
+],
+[
+"289.",
+"Komando Distrik Militer 1507",
+"Saumlaki",
+"Komando Resor Militer 151/Binaiya",
+""
+],
+[
+"290.",
+"Komando Distrik Militer 1508",
+"Tobelo",
+"Komando Resor Militer 152/Baabullah",
+""
+],
+[
+"291.",
+"Komando Distrik Militer 1509",
+"Labuha",
+"Komando Resor Militer 152/Baabullah",
+""
+],
+[
+"292.",
+"Komando Distrik Militer 1510",
+"Sanana",
+"Komando Resor Militer 152/Baabullah",
+""
+],
+[
+"293.",
+"Komando Distrik Militer 1511",
+"Pulau Moa",
+"Komando Resor Militer 151/Binaiya",
+""
+],
+[
+"294.",
+"Komando Distrik Militer 1512",
+"Weda",
+"Komando Resor Militer 152/Baabullah",
+""
+],
+[
+"295.",
+"Komando Distrik Militer 1513",
+"Seram Barat",
+"Komando Resor Militer 151/Binaiya",
+""
+],
+[
+"296.",
+"Komando Distrik Militer 1514",
+"Morotai",
+"Komando Resor Militer 152/Baabullah",
+""
+],
+[
+"297.",
+"Komando Distrik Militer 1601",
+"Waingapu",
+"Komando Resor Militer 161/Wira Sakti",
+""
+],
+[
+"298.",
+"Komando Distrik Militer 1602",
+"Ende",
+"Komando Resor Militer 161/Wira Sakti",
+""
+],
+[
+"299.",
+"Komando Distrik Militer 1603",
+"Maumere",
+"Komando Resor Militer 161/Wira Sakti",
+""
+],
+[
+"300.",
+"Komando Distrik Militer 1604",
+"Kupang",
+"Komando Resor Militer 161/Wira Sakti",
+"A"
+],
+[
+"301.",
+"Komando Distrik Militer 1605",
+"Belu",
+"Komando Resor Militer 161/Wira Sakti",
+""
+],
+[
+"302.",
+"Komando Distrik Militer 1606",
+"Mataram",
+"Komando Resor Militer 162/Wira Bhakti",
+"A"
+],
+[
+"303.",
+"Komando Distrik Militer 1607",
+"Sumbawa Besar",
+"Komando Resor Militer 162/Wira Bhakti",
+""
+],
+[
+"304.",
+"Komando Distrik Militer 1608",
+"Bima",
+"Komando Resor Militer 162/Wira Bhakti",
+""
+],
+[
+"305.",
+"Komando Distrik Militer 1609",
+"Buleleng",
+"Komando Resor Militer 163/Wira Satya",
+""
+],
+[
+"306.",
+"Komando Distrik Militer 1610",
+"Klungkung",
+"Komando Resor Militer 163/Wira Satya",
+""
+],
+[
+"307.",
+"Komando Distrik Militer 1611",
+"Badung",
+"Komando Resor Militer 163/Wira Satya",
+"A"
+],
+[
+"308.",
+"Komando Distrik Militer 1612",
+"Ruteng",
+"Komando Resor Militer 161/Wira Sakti",
+""
+],
+[
+"309.",
+"Komando Distrik Militer 1613",
+"Sumba Barat",
+"Komando Resor Militer 161/Wira Sakti",
+""
+],
+[
+"310.",
+"Komando Distrik Militer 1614",
+"Dompu",
+"Komando Resor Militer 162/Wira Bhakti",
+""
+],
+[
+"311.",
+"Komando Distrik Militer 1615",
+"Lombok Timur",
+"Komando Resor Militer 162/Wira Bhakti",
+""
+],
+[
+"312.",
+"Komando Distrik Militer 1616",
+"Gianyar",
+"Komando Resor Militer 163/Wira Satya",
+""
+],
+[
+"313.",
+"Komando Distrik Militer 1617",
+"Negara",
+"Komando Resor Militer 163/Wira Satya",
+""
+],
+[
+"314.",
+"Komando Distrik Militer 1618",
+"Kefamenanu",
+"Komando Resor Militer 161/Wira Sakti",
+""
+],
+[
+"315.",
+"Komando Distrik Militer 1619",
+"Tabanan",
+"Komando Resor Militer 163/Wira Satya",
+""
+],
+[
+"316.",
+"Komando Distrik Militer 1620",
+"Praya",
+"Komando Resor Militer 162/Wira Bhakti",
+""
+],
+[
+"317.",
+"Komando Distrik Militer 1621",
+"Timor Tengah Selatan",
+"Komando Resor Militer 161/Wira Sakti",
+""
+],
+[
+"318.",
+"Komando Distrik Militer 1622",
+"Kalabahi",
+"Komando Resor Militer 161/Wira Sakti",
+""
+],
+[
+"319.",
+"Komando Distrik Militer 1623",
+"Karangasem",
+"Komando Resor Militer 163/Wira Satya",
+""
+],
+[
+"320.",
+"Komando Distrik Militer 1624",
+"Larantuka",
+"Komando Resor Militer 161/Wira Sakti",
+""
+],
+[
+"321.",
+"Komando Distrik Militer 1625",
+"Bajawa",
+"Komando Resor Militer 161/Wira Sakti",
+""
+],
+[
+"322.",
+"Komando Distrik Militer 1626",
+"Bangli",
+"Komando Resor Militer 163/Wira Satya",
+""
+],
+[
+"323.",
+"Komando Distrik Militer 1627",
+"Rote Ndao",
+"Komando Resor Militer 161/Wira Sakti",
+""
+],
+[
+"324.",
+"Komando Distrik Militer 1628",
+"Taliwang",
+"Komando Resor Militer 162/Wira Bhakti",
+""
+],
+[
+"325.",
+"Komando Distrik Militer 1629",
+"Sumba Barat Daya",
+"Komando Resor Militer 161/Wira Sakti",
+""
+],
+[
+"326.",
+"Komando Distrik Militer 1630",
+"Manggarai Barat",
+"Komando Resor Militer 161/Wira Sakti",
+""
+],
+[
+"327.",
+"Komando Distrik Militer 1701",
+"Jayapura",
+"Komando Resor Militer 172/Praja Wira Yakhti",
+"A"
+],
+[
+"328.",
+"Komando Distrik Militer 1702",
+"Jayawijaya",
+"Komando Resor Militer 172/Praja Wira Yakhti",
+""
+],
+[
+"329.",
+"Komando Distrik Militer 1703",
+"Deiyai",
+"Komando Resor Militer 173/Praja Wira Braja",
+""
+],
+[
+"330.",
+"Komando Distrik Militer 1704",
+"Mappi",
+"Komando Resor Militer 174/Anim Ti Waninggap",
+""
+],
+[
+"331.",
+"Komando Distrik Militer 1705",
+"Nabire",
+"Komando Resor Militer 173/Praja Wira Braja",
+""
+],
+[
+"332.",
+"Komando Distrik Militer 1706",
+"Nduga",
+"Komando Resor Militer 172/Praja Wira Yakhti",
+""
+],
+[
+"333.",
+"Komando Distrik Militer 1707",
+"Merauke",
+"Komando Resor Militer 174/Anim TI Wanianggap",
+""
+],
+[
+"334.",
+"Komando Distrik Militer 1708",
+"Biak",
+"Komando Resor Militer 173/Praja Wira Braja",
+""
+],
+[
+"335.",
+"Komando Distrik Militer 1709",
+"Serui",
+"Komando Resor Militer 173/Praja Wira Braja",
+""
+],
+[
+"336.",
+"Komando Distrik Militer 1710",
+"Mimika",
+"Komando Resor Militer 173/Praja Wira Braja",
+""
+],
+[
+"337.",
+"Komando Distrik Militer 1711",
+"Boven Digoel",
+"Komando Resor Militer 174/Anim Ti Wanianggap",
+""
+],
+[
+"338.",
+"Komando Distrik Militer 1712",
+"Sarmi",
+"Komando Resor Militer 172/Praja Wira Yakhti",
+""
+],
+[
+"339.",
+"Komando Distrik Militer 1713",
+"Lanny Jaya",
+"Komando Resor Militer 173/Praja Wira Braja",
+""
+],
+[
+"340.",
+"Komando Distrik Militer 1714",
+"Puncak Jaya",
+"Komando Resor Militer 173/Praja Wira Braja",
+""
+],
+[
+"341.",
+"Komando Distrik Militer 1715",
+"Yahukimo",
+"Komando Resor Militer 172/Praja Wira Yakhti",
+""
+],
+[
+"342.",
+"Komando Distrik Militer 1716",
+"Tolikara",
+"Komando Resor Militer 172/Praja Wira Yakhti",
+""
+],
+[
+"343.",
+"Komando Distrik Militer 1717",
+"Puncak",
+"Komando Resor Militer 173/Praja Wira Braja",
+""
+],
+[
+"343.",
+"Komando Distrik Militer 1718",
+"Intan Jaya",
+"Komando Resor Militer 173/Praja Wira Braja",
+""
+],
+[
+"344.",
+"Komando Distrik Militer 1801",
+"Manokwari",
+"Berdiri Sendiri",
+"BS"
+],
+[
+"345.",
+"Komando Distrik Militer 1802",
+"Sorong",
+"Komando Resor Militer 181/Praja Vira Tama",
+""
+],
+[
+"346.",
+"Komando Distrik Militer 1803",
+"Fakfak",
+"|Komando Resor Militer 182/Jazira Onim",
+""
+],
+[
+"347.",
+"Komando Distrik Militer 1804",
+"Kaimana",
+"Komando Resor Militer 182/Jazira Onim",
+""
+],
+[
+"348.",
+"Komando Distrik Militer 1805",
+"Raja Ampat",
+"Komando Resor Militer 181/Praja Vira Tama",
+""
+],
+[
+"349.",
+"Komando Distrik Militer 1806",
+"Teluk Bintuni",
+"Komando Resor Militer 182/Jazira Onim",
+""
+],
+[
+"350.",
+"Komando Distrik Militer 1807",
+"Sorong Selatan",
+"Komando Resor Militer 181/Praja Vira Tama",
+""
+],
+[
+"351.",
+"Komando Distrik Militer 1808",
+"Manokwari Selatan",
+"Komando Resor Militer 181/Praja Vira Tama",
+""
+],
+[
+"352.",
+"Komando Distrik Militer 1809",
+"Maybrat",
+"Komando Resor Militer 181/Praja Vira Tama",
+""
+],
+[
+"353.",
+"Komando Distrik Militer 1810",
+"Tambrauw",
+"Komando Resor Militer 181/Praja Vira Tama",
+""
+],
+[
+"354.",
+"Komando Distrik Militer 1811",
+"Teluk Wondama",
+"Komando Resor Militer 182/Jazira Onim",
+""
+],
+[
+"355.",
+"Komando Distrik Militer 1812",
+"Pegunungan Arfak",
+"Komando Resor Militer 182/Jazira Onim",
+"{|"
+]
+],
+"yonif": [
+[
+"1.",
+"Batalyon Infanteri 100/Prajurit Setia",
+"Langkat",
+"Kodam II/Bukit Barisan"
+],
+[
+"2.",
+"Batalyon Infanteri 111/Karma Bhakti",
+"Aceh Tamiang",
+"Brigif 25/Siwah"
+],
+[
+"3.",
+"Batalyon Infanteri 112/Dharma Jaya",
+"Kota Banda Aceh",
+"Kodam I/Iskandar Muda"
+],
+[
+"4.",
+"Batalyon Infanteri 113/Jaya Sakti",
+"Bireuen",
+"Brigif 25/Siwah"
+],
+[
+"5.",
+"Batalyon Infanteri 114/Satria Musara",
+"Bener Meriah",
+"Brigif 25/Siwah"
+],
+[
+"6.",
+"Batalyon Infanteri 115/Macan Leuser",
+"Aceh Selatan",
+"Korem 012/Teuku Umar"
+],
+[
+"7.",
+"Batalyon Infanteri 116/Garda Samudera",
+"Meulaboh",
+"Korem 012/Teuku Umar"
+],
+[
+"8.",
+"Batalyon Infanteri 117/Ksatria Yudha",
+"Jantho, Aceh Besar",
+"Korem 012/Teuku Umar"
+],
+[
+"9.",
+"Batalyon Infanteri 121/Macan Kumbang",
+"Galang, Deli Serdang",
+"Kodam II/Bukit Barisan"
+],
+[
+"10.",
+"Batalyon Infanteri 122/Tombak Sakti",
+"Pematang Siantar",
+"Brigif 7/Rimba Raya"
+],
+[
+"11.",
+"Batalyon Infanteri 123/Rajawali",
+"Padang Sidempuan",
+"Korem 023/Kawal Samudera"
+],
+[
+"12.",
+"Batalyon Infanteri 125/Simbisa",
+"Kabanjahe, Karo",
+"Brigif 7/Rimba Raya"
+],
+[
+"13.",
+"Batalyon Infanteri 126/Kala Cakti",
+"Sei Balai, Batu Bara",
+"Brigif 7/Rimba Raya"
+],
+[
+"14.",
+"Batalyon Infanteri 131/Braja Sakti",
+"Payakumbuh",
+"Korem 032/Wirabraja"
+],
+[
+"15.",
+"Batalyon Infanteri 132/Bima Sakti",
+"Salo, Kampar",
+"Kodam XIX/Tuanku Tambusai"
+],
+[
+"16.",
+"Batalyon Infanteri 133/Yudha Sakti",
+"Padang",
+"Kodam XX/Tuanku Imam Bonjol"
+],
+[
+"17.",
+"Batalyon Infanteri 136/Tuah Sakti",
+"Batam",
+"Korem 033/Wira Pratama"
+],
+[
+"18.",
+"Batalyon Infanteri 141/Aneka Yudha Jaya Perkasa",
+"Muara Enim",
+"Brigif 8/Garuda Cakti"
+],
+[
+"19.",
+"Batalyon Infanteri 142/Ksatria Jaya",
+"Jambi",
+"Korem 042/Garuda Putih"
+],
+[
+"20.",
+"Batalyon Infanteri 143/Tri Wira Eka Jaya",
+"Natar, Lampung Selatan",
+"Korem 043/Garuda Hitam"
+],
+[
+"21.",
+"Batalyon Infanteri 144/Jaya Yudha",
+"Curup, Rejang Lebong",
+"Korem 041/Garuda Emas"
+],
+[
+"22.",
+"Batalyon Infanteri 147/Ksatria Garuda Jaya",
+"Namang, Bangka Tengah",
+"Korem 045/Garuda Jaya"
+],
+[
+"23.",
+"Batalyon Infanteri 200/Bhakti Negara",
+"Kota Palembang",
+"Kodam IV/Sriwijaya"
+],
+[
+"24.",
+"Batalyon Infanteri 201/Jaya Yudha",
+"Pasar Rebo, Jakarta Timur",
+"Brigif 1/Jaya Sakti"
+],
+[
+"25.",
+"Batalyon Infanteri 202/Taji Malela",
+"Bekasi",
+"Brigif 1/Jaya Sakti"
+],
+[
+"26.",
+"Batalyon Infanteri 203/Arya Kemuning",
+"Tangerang",
+"Brigif 1/Jaya Sakti"
+],
+[
+"27.",
+"Batalyon Infanteri 300/Braja Wijaya",
+"Cianjur",
+"Kodam VI/Siliwangi"
+],
+[
+"28.",
+"Batalyon Infanteri 301/Prabu Kian Santang",
+"Sumedang",
+"Brigif 15/Kujang II"
+],
+[
+"29.",
+"Batalyon Infanteri 303/Setia Sampai Mati",
+"Garut",
+"Brigif 13/Galuh Rahayu"
+],
+[
+"30.",
+"Batalyon Infanteri 305/Tengkorak",
+"Karawang",
+"Brigif 17/Sakti Budi Bhakti"
+],
+[
+"31.",
+"Batalyon Infanteri 310/Kidang Kancana",
+"Sukabumi",
+"Brigif 15/Kujang II"
+],
+[
+"32.",
+"Batalyon Infanteri 312/Kala Hitam",
+"Subang",
+"Brigif 15/Kujang II"
+],
+[
+"33.",
+"Batalyon Infanteri 315/Garuda",
+"Bogor",
+"Korem 061/Surya Kencana"
+],
+[
+"34.",
+"Batalyon Infanteri 318/Adhirajasa Yudha",
+"Lebak",
+"Brigif 14/Mandala Yudha"
+],
+[
+"35.",
+"Batalyon Infanteri 320/Badak Putih",
+"Pandeglang",
+"Brigif 14/Mandala Yudha"
+],
+[
+"36.",
+"Batalyon Infanteri 321/Galuh Taruna",
+"Majalengka",
+"Brigif 13/Galuh Rahayu"
+],
+[
+"37.",
+"Battalion Infanteri 323/Buaya Putih",
+"Kota Banjar",
+"Brigif 13/Galuh Rahayu"
+],
+[
+"38.",
+"Batalyon Infanteri 328/Dirgahayu",
+"Depok",
+"Brigif 17/Sakti Budi Bhakti"
+],
+[
+"39.",
+"Batalyon Infanteri 330/Tri Dharma",
+"Bandung",
+"Brigif 17/Sakti Budi Bhakti"
+],
+[
+"40.",
+"Batalyon Infanteri 400/Banteng Raiders",
+"Semarang",
+"Kodam VII/Diponegoro"
+],
+[
+"41.",
+"Batalyon Infanteri 403/Wirasada Pratista",
+"Depok, Sleman",
+"Korem 072/Pamungkas"
+],
+[
+"42.",
+"Batalyon Infanteri 405/Surya Kusuma",
+"Wangon, Banyumas",
+"Brigif 4/Dewa Ratna"
+],
+[
+"43.",
+"Batalyon Infanteri 406/Candra Kusuma",
+"Purbalingga",
+"Brigif 4/Dewa Ratna"
+],
+[
+"44.",
+"Batalyon Infanteri 407/Padma Kusuma",
+"Adiwerna, Tegal",
+"Brigif 4/Dewa Ratna"
+],
+[
+"45.",
+"Batalyon Infanteri 408/Suhbrastha",
+"Sragen",
+"Korem 074/Warastratama"
+],
+[
+"46.",
+"Batalyon Infanteri 410/Alugoro",
+"Blora",
+"Korem 073/Makutarama"
+],
+[
+"47.",
+"Batalyon Infanteri 411/Pendawa",
+"Salatiga",
+"Brigif 6/Tri Sakti Balajaya"
+],
+[
+"48.",
+"Batalyon Infanteri 412/Bharata Eka Sakti",
+"Purworejo",
+"Brigif 6/Tri Sakti Balajaya"
+],
+[
+"49.",
+"Batalyon Infanteri 413/Bremoro",
+"Mojolaban, Sukoharjo",
+"Brigif 6/Tri Sakti Balajaya"
+],
+[
+"50.",
+"Batalyon Infanteri 431/Satria Setia Perkasa",
+"Tanralili, Maros",
+"Brigif 3/Tri Budi Sakti"
+],
+[
+"51.",
+"Batalyon Infanteri 432/Waspada Setia Jaya",
+"Tanralili, Maros",
+"Brigif 3/Tri Budi Sakti"
+],
+[
+"52.",
+"Batalyon Infanteri 433/Julu Siri",
+"Simbang, Maros",
+"Brigif 3/Tri Budi Sakti"
+],
+[
+"53.",
+"Batalyon Infanteri 500/Mahastra Yudha",
+"Surabaya",
+"Kodam VIII/Brawijaya"
+],
+[
+"54.",
+"Batalyon Infanteri 501/Bajra Yudha",
+"Kota Madiun",
+"Brigif 18/Sarvatra Eva Yudha"
+],
+[
+"55.",
+"Batalyon Infanteri 502/Ujwala Yudha",
+"Jabung, Malang",
+"Brigif 18/Sarvatra Eva Yudha"
+],
+[
+"56.",
+"Batalyon Infanteri 503/Mayangkara",
+"Mojosari, Mojokerto",
+"Brigif 18/Sarvatra Eva Yudha"
+],
+[
+"57.",
+"Batalyon Infanteri 509/Balawara Yudha",
+"Jember",
+"Brigif 9/Dharaka Yudha"
+],
+[
+"58.",
+"Batalyon Infanteri 511/Dibyatara Yudha",
+"Blitar",
+"Korem 081/Dhirotsaha Jaya"
+],
+[
+"59.",
+"Batalyon Infanteri 512/Quratara Yudha",
+"Kepanjen, Malang",
+"Brigif 16/Wira Yudha"
+],
+[
+"60.",
+"Batalyon Infanteri 514/Sabbada Yudha",
+"Bondowoso",
+"Brigif 9/Dharaka Yudha"
+],
+[
+"61.",
+"Batalyon Infanteri 515/Ugra Tapa Yudha",
+"Banyuwangi",
+"Brigif 9/Dharaka Yudha"
+],
+[
+"62.",
+"Batalyon Infanteri 516/Caraka Yudha",
+"Gresik",
+"Brigif 16/Wira Yudha"
+],
+[
+"63.",
+"Batalyon Infanteri 521/Dadaha Yudha",
+"Kota Kediri",
+"Brigif 16/Wira Yudha"
+],
+[
+"64.",
+"Batalyon Infanteri 527/Baladibya Yudha",
+"Lumajang",
+"Korem 083/Baladhika Jaya"
+],
+[
+"65.",
+"Batalyon Infanteri 600/Modang",
+"Balikpapan",
+"Kodam IX/Mulawarman"
+],
+[
+"66.",
+"Batalyon Infanteri 611/Awang Long",
+"Loa Janan, Kutai Kartanegara",
+"Kodam IX/Mulawarman"
+],
+[
+"67.",
+"Batalyon Infanteri 613/Raja Alam",
+"Tarakan",
+"Brigif 24/Bulungan Cakti"
+],
+[
+"68.",
+"Batalyon Infanteri 614/Raja Pandita",
+"Malinau",
+"Brigif 24/Bulungan Cakti"
+],
+[
+"69.",
+"Batalyon Infanteri 621/Manuntung",
+"Barabai",
+"Korem 101/Antasari"
+],
+[
+"70.",
+"Batalyon Infanteri 623/Bhakti Wira Utama",
+"Banjarbaru",
+"Korem 101/Antasari"
+],
+[
+"71.",
+"Batalyon Infanteri 631/Antang",
+"Sampit",
+"Kodam XI/Tambun Bungai"
+],
+[
+"72.",
+"Batalyon Infanteri 641/Beruang",
+"Singkawang",
+"Brigif 19/Khatulistiwa"
+],
+[
+"73.",
+"Batalyon Infanteri 642/Kapuas",
+"Sintang",
+"Korem 121/Alambhana Wanawwai"
+],
+[
+"74.",
+"Batalyon Infanteri 643/Wanara Sakti",
+"Anjongan, Mempawah",
+"Kodam XII/Tanjungpura"
+],
+[
+"75.",
+"Batalyon Infanteri 644/Walet Sakti",
+"Putussibau",
+"Brigif 19/Khatulistiwa"
+],
+[
+"76.",
+"Batalyon Infanteri 645/Gardatama Yudha",
+"Sambas",
+"Brigif 19/Khatulistiwa"
+],
+[
+"77.",
+"Batalyon Infanteri 700/Wira Yudha Cakti",
+"Kota Makassar",
+"Kodam XIV/Hasanuddin"
+],
+[
+"78.",
+"Batalyon Infanteri 711/Raksa Tama",
+"Kota Palu",
+"Kodam XXIII/Palaka Wira"
+],
+[
+"79.",
+"Batalyon Infanteri 712/Wira Tama",
+"Kota Manado",
+"Kodam XIII/Merdeka"
+],
+[
+"80.",
+"Batalyon Infanteri 713/Satya Tama",
+"Telaga Biru, Gorontalo",
+"Korem 133/Nani Wartabone"
+],
+[
+"81.",
+"Batalyon Infanteri 714/Sintuwu Maroso",
+"Poso",
+"Korem 132/Tadulako"
+],
+[
+"82.",
+"Batalyon Infanteri 715/Motuliato",
+"Gorontalo",
+"Brigif 22/Ota Manasa"
+],
+[
+"83.",
+"Batalyon Infanteri 721/Makkasau",
+"Patampanua, Pinrang",
+"Brigif 11/Badik Sakti"
+],
+[
+"84.",
+"Batalyon Infanteri 725/Woroagi",
+"Ranomeeto, Konawe Selatan",
+"Korem 143/Halu Oleo"
+],
+[
+"85.",
+"Batalyon Infanteri 726/Tamalatea",
+"Bangkala Barat, Jeneponto",
+"Brigif 11/Badik Sakti"
+],
+[
+"86.",
+"Batalyon Infanteri 731/Kabaresi",
+"Masohi, Maluku Tengah",
+"Brigif 27/Nusa Ina"
+],
+[
+"87.",
+"Batalyon Infanteri 732/Banau",
+"Jailolo, Halmahera Barat",
+"Korem 152/Baabullah"
+],
+[
+"88.",
+"Batalyon Infanteri 733/Masariku",
+"Kota Ambon",
+"Kodam XV/Pattimura"
+],
+[
+"89.",
+"Batalyon Infanteri 734/Satria Nusa Samudera",
+"Saumlaki, Tanimbar Selatan",
+"Brigif 27/Nusa Ina"
+],
+[
+"90.",
+"Batalyon Infanteri 735/Nawasena",
+"Langgur, Maluku Tenggara",
+"Brigif 27/Nusa Ina"
+],
+[
+"91.",
+"Batalyon Infanteri 741/Garuda Nusantara",
+"Jembrana",
+"Korem 163/Wira Satya"
+],
+[
+"92.",
+"Batalyon Infanteri 742/Satya Wira Yudha",
+"Mataram",
+"Korem 162/Wira Bhakti"
+],
+[
+"93.",
+"Batalyon Infanteri 743/Pradnya Samapta Yudha",
+"Kupang",
+"Brigif 21/Komodo"
+],
+[
+"94.",
+"Batalyon Infanteri 744/Satya Yudha Bhakti",
+"Atambua, Belu",
+"Brigif 21/Komodo"
+],
+[
+"95.",
+"Batalyon Infanteri 746/Nitya Yudha Bhakti",
+"Flores",
+"Brigif 21/Komodo"
+],
+[
+"96.",
+"Batalyon Infanteri 751/Vira Jaya Sakti",
+"Jayapura",
+"Kodam XVII/Cenderawasih"
+],
+[
+"97.",
+"Batalyon Infanteri 753/Arga Vira Tama",
+"Nabire",
+"Brigif 20/Ima Jaya Keramo"
+],
+[
+"98.",
+"Batalyon Infanteri 754/Eme Neme Kangasi",
+"Mimika",
+"Brigif 20/Ima Jaya Keramo"
+],
+[
+"99.",
+"Batalyon Infanteri 756/Wimane Sili",
+"Wamena",
+"Brigif 20/Ima Jaya Keramo"
+],
+[
+"100.",
+"Batalyon Infanteri 757/Ghupta Vira",
+"Semangga, Merauke",
+"Korem 174/Anim Ti Waninggap"
+],
+[
+"101.",
+"Batalyon Infanteri 761/Kibibor Akinting",
+"Manokwari",
+"Kodam XVIII/Kasuari"
+],
+[
+"102.",
+"Batalyon Infanteri 762/Vira Yudha Sakti",
+"Sorong",
+"Brigif 26/Gurana Piarawaimo"
+],
+[
+"103.",
+"Batalyon Infanteri 763/Sanetia Buerama Amor",
+"Teluk Bintuni",
+"Brigif 26/Gurana Piarawaimo"
+],
+[
+"104.",
+"Batalyon Infanteri 764/Iamba Baua",
+"Kaimana",
+"Brigif 26/Gurana Piarawaimo"
+],
+[
+"105.",
+"Batalyon Infanteri 900/Satya Bhakti Wirottama",
+"Buleleng",
+"Kodam XVI/Udayana"
+]
+],
+"yonif_tp": [
+[
+"1.",
+"Batalyon Infanteri Teritorial Pembangunan 801/Nduka Adyatama Yudha",
+"Kurik, Merauke, Papua Selatan",
+"Brigif TP 83/Bugodi",
+"Letkol Inf Agung Pudhi Riyadi"
+],
+[
+"2.",
+"Batalyon Infanteri Teritorial Pembangunan 802/Wimane Mambe Jaya",
+"Keco, Merauke, Papua Selatan",
+"Brigif TP 83/Bugodi",
+"Letkol Inf Enggar Armyasto"
+],
+[
+"3.",
+"Batalyon Infanteri Teritorial Pembangunan 803/Ksatria Yudha Kentsuwri",
+"Boven Digoel, Papua Selatan",
+"Brigif TP 83/Bugodi",
+"Letkol Inf Ahmadi Arif"
+],
+[
+"4.",
+"Batalyon Infanteri Teritorial Pembangunan 804/Dharma Bhakti Asasta Yudha",
+"Nabire, Papua Tengah",
+"Brigif TP 82/Wuyou Korako Bidao",
+"Letkol Inf Okto Hutabri Tanimba, S.H., M.H.I."
+],
+[
+"5.",
+"Batalyon Infanteri Teritorial Pembangunan 805/Ksatria Satya Waninggap",
+"Manokwari Selatan, Papua Barat",
+"Brigif TP 84/Uggor Abiresso",
+"Letkol Inf Aji Danar Yudha Ketawang, S.Sos., M.P.P."
+],
+[
+"6.",
+"Batalyon Infanteri Teritorial Pembangunan 806/Satya Inyomusi",
+"Aimas, Sorong, Papua Barat Daya",
+"Brigif TP 84/Uggor Abiresso",
+"Letkol Inf Handi Wibowo, S.I.Kom."
+],
+[
+"7.",
+"Batalyon Infanteri Teritorial Pembangunan 807/Muluk Nansa Mambri",
+"Teminabuan, Sorong Selatan, Papua Barat Daya",
+"Brigif TP 84/Uggor Abiresso",
+"Letkol Inf Abdurrahman Panji Prawira"
+],
+[
+"8.",
+"Batalyon Infanteri Teritorial Pembangunan 808/Mbaham Matta",
+"Tomage, Fakfak, Papua Barat",
+"Korem 182/Jazira Onim",
+"Letkol Inf Ahmad Nasudin, M.Tr.Mil."
+],
+[
+"9.",
+"Batalyon Infanteri Teritorial Pembangunan 809/Nanibarye Temto Mauu",
+"Sarmi, Papua",
+"Brigif TP 80/Kurare",
+"Letkol Inf Jeffy Satriansyah, S.Hub.Int."
+],
+[
+"10.",
+"Batalyon Infanteri Teritorial Pembangunan 810/Beyea Emare Memare",
+"Doyo Baru, Waibu, Jayapura, Papua",
+"Brigif TP 80/Kurare",
+"Letkol Inf Iskandar, S.E., M.Tr.Mil."
+],
+[
+"11.",
+"Batalyon Infanteri Teritorial Pembangunan 813/Arweyani",
+"Kaureh, Jayapura, Papua",
+"Brigif TP 80/Kurare",
+"Letkol Inf Wahyu Hendra Saputra, S.E., M.Sc."
+],
+[
+"12.",
+"Batalyon Infanteri Teritorial Pembangunan 814/Jana Zini Airisni",
+"Yapsi, Jayapura, Papua",
+"Brigif TP 80/Kurare",
+"Letkol Inf Bayu Setia Yogasara, S.Hub.Int."
+],
+[
+"13.",
+"Batalyon Infanteri Teritorial Pembangunan 815/Wor Gir Tasem",
+"Keerom, Papua",
+"Brigif TP 80/Kurare",
+"Letkol Inf Syafiuddien Hasan, S.Sos., M.I.P."
+],
+[
+"14.",
+"Batalyon Infanteri Teritorial Pembangunan 816/Doruka",
+"Yahukimo, Papua Pegunungan",
+"Korem 172/Praja Wira Yakthi",
+"Letkol Inf Noer"
+],
+[
+"15.",
+"Batalyon Infanteri Teritorial Pembangunan 817/Aoba",
+"Jagebob, Merauke, Papua Selatan",
+"Brigif TP 83/Bugodi",
+"Letkol Inf Endra Eko Fitrianto, S.H., M.Sc."
+],
+[
+"16.",
+"Batalyon Infanteri Teritorial Pembangunan 818/Yuboi",
+"Tanah Miring, Merauke, Papua Selatan",
+"Brigif TP 83/Bugodi",
+"Letkol Inf Fadliansyah, S.Hub.Int."
+],
+[
+"17.",
+"Batalyon Infanteri Teritorial Pembangunan 819/Powir Indoqko Bayane Paere",
+"Mappi, Papua Selatan",
+"Brigif TP 83/Bugodi",
+"Letkol Inf Alfredi Rumanjaya, S.H., M.M."
+],
+[
+"18.",
+"Batalyon Infanteri Teritorial Pembangunan 820/Daro Ainoko Arpa Ikimamonoku",
+"Iwaka, Mimika, Papua Tengah",
+"Brigif TP 82/Wuyou Korako Bidao",
+"Letkol Inf Danu Winargo, S.H."
+],
+[
+"19.",
+"Batalyon Infanteri Teritorial Pembangunan 821/Satria Bupolo",
+"Namlea, Buru, Maluku",
+"Brigif 27/Nusa Ina",
+"Letkol Inf Muhamad Zoddiqul Ulum Ely"
+],
+[
+"20.",
+"Batalyon Infanteri Teritorial Pembangunan 822/Satria Magawe",
+"Morotai, Maluku Utara",
+"Brigif TP 28/Bari Fola",
+"Letkol Inf Raju Pacilasera, S.Hub.Int."
+],
+[
+"21.",
+"Batalyon Infanteri Teritorial Pembangunan 823/Raja Wakaaka",
+"Kota Baubau, Sulawesi Tenggara",
+"Brigif TP 29/Mekongga",
+"Letkol Inf Arkham Hidayat, S.Sos., M.M."
+],
+[
+"22.",
+"Batalyon Infanteri Teritorial Pembangunan 824/MO'E'A",
+"Tabongo, Gorontalo",
+"Brigif 22/Ota Manasa",
+"Letkol Inf Anjas Suryana Putra, S.IP."
+],
+[
+"23.",
+"Batalyon Infanteri Teritorial Pembangunan 825/Garuda Yudha Sakti",
+"Morowali Utara, Sulawesi Tengah",
+"Brigif TP 30/Karoso Ndaya",
+"Letkol Inf Alkomar S.I.P., M.Tr.Mil."
+],
+[
+"24.",
+"Batalyon Infanteri Teritorial Pembangunan 826/Benuo Taka Bekerai",
+"Penajam Paser Utara, Kalimantan Timur",
+"Brigif TP 85/Benuo Taka Cakti",
+"Letkol Inf Sulaiman, S.I.P."
+],
+[
+"25.",
+"Batalyon Infanteri Teritorial Pembangunan 827/Mahakam Cakti Yudha",
+"Kutai Barat, Kalimantan Timur",
+"Brigif TP 85/Benuo Taka Cakti",
+"Letkol Inf Syarifuddin Sinaga"
+],
+[
+"26.",
+"Batalyon Infanteri Teritorial Pembangunan 828/Banua Warani Mattone",
+"Sari Gadung, Simpang Empat, Tanah Bumbu, Kalimantan Selatan",
+"Korem 101/Antasari",
+"Letkol Inf Robertus Asep Kristiawan"
+],
+[
+"27.",
+"Batalyon Infanteri Teritorial Pembangunan 829/Bumi Antaludin",
+"Padang Batung, Hulu Sungai Selatan, Kalimantan Selatan",
+"Brigif TP 86/Mandau",
+"Letkol Inf Teguh Yuda Prakosa"
+],
+[
+"28.",
+"Batalyon Infanteri Teritorial Pembangunan 830/Isen Mulang",
+"Palangkaraya, Kalimantan Tengah",
+"Brigif TP 86/Mandau",
+"Letkol Inf Jeham Divif Wotanto, S.E., M.M."
+],
+[
+"29.",
+"Batalyon Infanteri Teritorial Pembangunan 831/Panunjung Tarung",
+"Katingan, Kalimantan Tengah",
+"Brigif TP 86/Mandau",
+"Letkol Inf Putra Iman Didada, S.Sos., M.Hub.Int."
+],
+[
+"30.",
+"Batalyon Infanteri Teritorial Pembangunan 832/Pawan Asasta",
+"Matan Hilir Selatan, Ketapang, Kalimantan Barat",
+"Brigif 19/Khatulistiwa",
+"Letkol Inf Febriyanto Tri Dewantoro, S.I.P."
+],
+[
+"31.",
+"Batalyon Infanteri Teritorial Pembangunan 833/Bumi Daranante",
+"Sanggau, Kalimantan Barat",
+"Korem 121/Alambhana Wanawwai",
+"Letkol Inf Riska Imron Rosadi, S.I.P."
+],
+[
+"32.",
+"Batalyon Infanteri Teritorial Pembangunan 834/Wakanga Mere",
+"Nagekeo, Nusa Tenggara Timur",
+"Brigif TP 42/Ksatria Elang Floris",
+"Letkol Inf I Bony Prima Panji Kusuma, S.I.P."
+],
+[
+"33.",
+"Batalyon Infanteri Teritorial Pembangunan 835/Samota Yudha Bhakti",
+"Unter Iwes, Sumbawa, Nusa Tenggara Barat",
+"Brigif TP 31/Perisai Sakti",
+"Letkol Inf I Gusti Ngurah Ketut Budiartana, S.S.T.Han., S.I.P."
+],
+[
+"34.",
+"Batalyon Infanteri Teritorial Pembangunan 836/Brahma Yodha",
+"Bermi, Krucil, Probolinggo, Jawa Timur",
+"Brigif TP 56/Tribhumi Samuhita",
+"Letkol Inf Faishal Riza, S.H."
+],
+[
+"35.",
+"Batalyon Infanteri Teritorial Pembangunan 837/Ksatria Trunojoyo",
+"Keraton, Bangkalan, Bangkalan, Jawa Timur",
+"Brigif TP 57/Ksatria Mandhilaras",
+"Letkol Inf Agus Fahruddin, S.Hub.Int., M.M."
+],
+[
+"36.",
+"Batalyon Infanteri Teritorial Pembangunan 838/Purwa Wijaya",
+"Adipala, Cilacap, Jawa Tengah",
+"Brigif 4/Dewa Ratna",
+"Letkol Inf Swary Atmanda Bachtiar, S.A.P."
+],
+[
+"37.",
+"Batalyon Infanteri Teritorial Pembangunan 839/Satria Abyakta",
+"Cilimus, Kuningan, Jawa Barat",
+"Brigif TP 34/Cakra Buana",
+"Letkol Inf Era Borhan Wiantoro, Sos., M.I.P."
+],
+[
+"38.",
+"Batalyon Infanteri Teritorial Pembangunan 840/Golok Sakti",
+"Bangunmekar, Sajira, Lebak, Banten",
+"Brigif TP 87/Salakanagara",
+"Letkol Inf Brama Fathayasa"
+],
+[
+"39.",
+"Batalyon Infanteri Teritorial Pembangunan 841/Sulangkar",
+"Waringinkurung, Serang, Banten",
+"Brigif TP 87/Salakanagara",
+"Letkol Inf Sandra Setiawan Prihandono"
+],
+[
+"40.",
+"Batalyon Infanteri Teritorial Pembangunan 842/Badak Sakti",
+"Cimanggu, Pandeglang, Banten",
+"Brigif TP 87/Salakanagara",
+"Letkol Inf Mulia Adi Dharma"
+],
+[
+"41.",
+"Batalyon Infanteri Teritorial Pembangunan 843/Patriot Yudha Vikasa",
+"Cibitung, Bekasi, Jawa Barat",
+"Brigif TP 44/Prajawangsa",
+"Letkol Inf Febri Ari Cahyanto, S.S.T.Han., S.I.P."
+],
+[
+"42.",
+"Batalyon Infanteri Teritorial Pembangunan 844/Ksatria Batanghari",
+"Tebo, Jambi",
+"Brigif TP 35/Siginjai",
+"Letkol Inf Wasidi, S.I.P., M.Tr.Mil."
+],
+[
+"43.",
+"Batalyon Infanteri Teritorial Pembangunan 845/Ksatria Satam",
+"Simpang Renggiang, Belitung Timur, Kepulauan Bangka Belitung",
+"Korem 045/Garuda Jaya",
+"Letkol Inf Barlian Prabowo, S.H., M.H."
+],
+[
+"44.",
+"Batalyon Infanteri Teritorial Pembangunan 846/Ksatria Silampari",
+"Musi Rawas Utara, Sumatera Selatan",
+"Brigif 8/Garuda Cakti",
+"Letkol Inf Hermanto Pungky Prabowo, S.E., M.M."
+],
+[
+"45.",
+"Batalyon Infanteri Teritorial Pembangunan 847/Vahakah Samruddhi",
+"Bengkulu Utara, Bengkulu",
+"Brigif TP 88/Ksatria Bukit Kaba",
+"Letkol Inf Joko Legowo, S.I.P., M.Tr.Opsla."
+],
+[
+"46.",
+"Batalyon Infanteri Teritorial Pembangunan 848/Satya Pandya Sakti",
+"Lampung Tengah, Lampung",
+"Brigif TP 88/Ksatria Bukit Kaba",
+"Letkol Inf Dewa Gede Mahendra, S.E., M.M., M.I.P."
+],
+[
+"47.",
+"Batalyon Infanteri Teritorial Pembangunan 849/Beladau Sakti",
+"Lingga, Kepulauan Riau",
+"Brigif TP 89/Gimpam Gasib",
+"Letkol Inf Kukuh Prakosa, S.A.P."
+],
+[
+"48.",
+"Batalyon Infanteri Teritorial Pembangunan 850/Serindit Sakti",
+"Indragiri Hulu, Riau",
+"Brigif TP 89/Gimpam Gasib",
+"Letkol Inf Eko Sugiarto"
+],
+[
+"49.",
+"Batalyon Infanteri Teritorial Pembangunan 851/Barau Barau Cakti",
+"Sungai Apit, Siak, Riau",
+"Brigif TP 89/Gimpam Gasib",
+"Letkol Inf Lalu Pardede Gita Prahara"
+],
+[
+"50.",
+"Batalyon Infanteri Teritorial Pembangunan 852/Abhinaya Bala Yudha",
+"Pantai Labu, Deli Serdang, Sumatera Utara",
+"Brigif TP 36/Harajaon Marpitu",
+"Letkol Inf Rachmat Phonna Darwin"
+],
+[
+"51.",
+"Batalyon Infanteri Teritorial Pembangunan 853/Bawar Reje Bur",
+"Keude, Peudawa, Aceh Timur, Aceh",
+"Brigif TP 47/Aman Remu",
+"Letkol Inf Ilham Panji Akbar"
+],
+[
+"52.",
+"Batalyon Infanteri Teritorial Pembangunan 854/Dharma Kersaka",
+"Rusip Antara, Aceh Tengah, Aceh",
+"Brigif TP 90/Yudha Giri Dhanu",
+"Letkol Inf Muhamad Fahri Prawira, S.Sos."
+],
+[
+"53.",
+"Batalyon Infanteri Teritorial Pembangunan 855/Raksaka Dharma",
+"Dabun Gelang, Gayo Lues, Aceh",
+"Brigif TP 90/Yudha Giri Dhanu",
+"Letkol Inf Irvan Nugraha Rodin, S.I.P., M.Tr.Mil."
+],
+[
+"54.",
+"Batalyon Infanteri Teritorial Pembangunan 856/Satria Bumi Sakti",
+"Beutong, Nagan Raya, Aceh",
+"Brigif TP 90/Yudha Giri Dhanu",
+"Letkol Inf Didik Sulistio, S.A.P., M.P.A."
+],
+[
+"55.",
+"Batalyon Infanteri Teritorial Pembangunan 857/Gana Gajahsora",
+"Mane, Pidie, Aceh",
+"Brigif TP 47/Aman Remu",
+"Letkol Inf Hervin Rahadian Jannat, S.H."
+],
+[
+"56.",
+"Batalyon Infanteri Teritorial Pembangunan 858/Mambri Sopani Bemgakba",
+"Biak, Papua",
+"Korem 172/Praja Wira Yakthi",
+"Letkol Inf I Made Denni Hermawadhi Tunas, S.I.P., M.Tr.Mil."
+],
+[
+"57.",
+"Batalyon Infanteri Teritorial Pembangunan 859/Raknamun Bebriwarek Kawasa",
+"Supiori, Papua",
+"Korem 172/Praja Wira Yakthi",
+"Letkol Inf Putra Utama Anshar, S.S.T.Han."
+],
+[
+"58.",
+"Batalyon Infanteri Teritorial Pembangunan 860/Ndi Sowosio Korako",
+"Waropen, Papua",
+"Korem 172/Praja Wira Yakthi",
+"Letkol Inf Alfa Erydani, S.Hub.Int."
+],
+[
+"59.",
+"Batalyon Infanteri Teritorial Pembangunan 861/Maleo Kamur",
+"Merauke, Papua Selatan",
+"Korem 174/Anim Ti Waninggap",
+"Letkol Inf Harry Purnama"
+],
+[
+"60.",
+"Batalyon Infanteri Teritorial Pembangunan 862/Ure Wara",
+"Teluk Wondama, Papua Barat",
+"Brigif TP 84/Uggor Abiresso",
+"Letkol Inf Benny Taupiq I. Siregar, S.S.T.Han, S.I.P."
+],
+[
+"61.",
+"Batalyon Infanteri Teritorial Pembangunan 863/Bemanbe Bathun",
+"Raja Ampat, Papua Barat Daya",
+"Korem 181/Praja Vira Tama",
+"Letkol Inf Muhammad Junaidi, S.S.T.Han., S.I.P., M.P.P."
+],
+[
+"62.",
+"Batalyon Infanteri Teritorial Pembangunan 864/Nane Nambae",
+"Kaimana, Papua Barat",
+"Brigif TP 84/Uggor Abiresso",
+"Letkol Inf Sonjaya Ardi Putra, S.S.T.Han., S.I.P."
+],
+[
+"63.",
+"Batalyon Infanteri Teritorial Pembangunan 865/Satria Manewata",
+"Kairatu, Seram Bagian Barat, Maluku",
+"Brigif 27/Nusa Ina",
+"Letkol Inf M. Joko Candra S."
+],
+[
+"64.",
+"Batalyon Infanteri Teritorial Pembangunan 866/Satria Gamrange",
+"Wasile, Halmahera Timur, Maluku Utara",
+"Brigif TP 28/Bari Fola",
+"Letkol Inf Muhammad Yoppi Septiansyah"
+],
+[
+"65.",
+"Batalyon Infanteri Teritorial Pembangunan 867/Satria Manggasa",
+"Bacan, Halmahera Selatan, Maluku Utara",
+"Brigif TP 28/Bari Fola",
+"Letkol Inf Aditya Kurnia Rahman"
+],
+[
+"66.",
+"Batalyon Infanteri Teritorial Pembangunan 868/Bantong Sakti",
+"Motongkad, Bolaang Mongondow Timur, Sulawesi Utara",
+"Brigif 22/Ota Manasa",
+"Letkol Inf Mamiek Prananto K., S.Kom., M.I.P."
+],
+[
+"67.",
+"Batalyon Infanteri Teritorial Pembangunan 869/Taawu",
+"Tongauna, Ueesi, Kolaka Timur, Sulawesi Tenggara",
+"Brigif TP 29/Mekongga",
+"Letkol Inf Rizal Fadly, S.Sos., M.Han."
+],
+[
+"68.",
+"Batalyon Infanteri Teritorial Pembangunan 870/Sangia Wambulu",
+"Waara, Lakudo, Buton Tengah, Sulawesi Tenggara",
+"Brigif TP 29/Mekongga",
+"Letkol Inf Andi Gumilang"
+],
+[
+"69.",
+"Batalyon Infanteri Teritorial Pembangunan 871/La Maindo",
+"Batauga, Buton Selatan, Sulawesi Tenggara",
+"Brigif TP 29/Mekongga",
+"Letkol Inf Wahyu Dwi Kriswanto, S.H., M.M."
+],
+[
+"70.",
+"Batalyon Infanteri Teritorial Pembangunan 872/Andi Djemma",
+"Tana Lili, Luwu Utara, Sulawesi Selatan",
+"Brigif 11/Badik Sakti",
+"Letkol Inf Surianto, S.I.P."
+],
+[
+"71.",
+"Batalyon Infanteri Teritorial Pembangunan 873/Mareso Masagena",
+"Sigi, Sulawesi Tengah",
+"Brigif TP 30/Karoso Ndaya",
+"Letkol Inf Dont Serudi Harles Pasaribu"
+],
+[
+"72.",
+"Batalyon Infanteri Teritorial Pembangunan 874/Vovasanggayu",
+"Tikke Raya, Pasangkayu, Sulawesi Barat",
+"Brigif TP 30/Karoso Ndaya",
+"Letkol Inf Nasrullah, S.H., M.H."
+],
+[
+"73.",
+"Batalyon Infanteri Teritorial Pembangunan 875/Sangga Yudha Perkasa",
+"Pekat, Dompu, Nusa Tenggara Barat",
+"Brigif TP 31/Perisai Sakti",
+"Letkol Inf Ahmad Fazril, S.H."
+],
+[
+"74.",
+"Batalyon Infanteri Teritorial Pembangunan 876/Pa Aing La Urra Tana (Palatana)",
+"Pandawai, Sumba Timur, Nusa Tenggara Timur",
+"Brigif TP 42/Ksatria Elang Floris",
+"Letkol Inf Arief Candra Gunawan, S. Sos., M. Tr .Mil."
+],
+[
+"75.",
+"Batalyon Infanteri Teritorial Pembangunan 877/Biinmaffo",
+"Bikomi Selatan, Timor Tengah Utara, Nusa Tenggara Timur",
+"Brigif TP 42/Ksatria Elang Floris",
+"Letkol Inf M. Sandy Helly Wijaya"
+],
+[
+"76.",
+"Batalyon Infanteri Teritorial Pembangunan 878/Galuh Pakuan",
+"Kabupaten Bogor, Jawa Barat",
+"Brigif TP 34/Cakra Buana",
+"Letkol Inf Allaen Rahadian, S.Hub.Int."
+],
+[
+"77.",
+"Batalyon Infanteri Teritorial Pembangunan 879/Rangkok Cakti",
+"Kutai Timur, Kalimantan Timur",
+"Brigif TP 32/Mangkalihat",
+"Letkol Inf Taufan Hendryanto Siswoyo, S.S.T.Han, M.H.I."
+],
+[
+"78.",
+"Batalyon Infanteri Teritorial Pembangunan 880/Banuanta",
+"Bulungan, Kalimantan Utara",
+"Brigif TP 32/Mangkalihat",
+"Letkol Inf Khabibur Rosyad, S.I.P., M.I.P."
+],
+[
+"79.",
+"Batalyon Infanteri Teritorial Pembangunan 881/Baratama Dharma",
+"Nunukan, Kalimantan Utara",
+"Brigif TP 32/Mangkalihat",
+"Letkol Inf Riswantoro, S.I.P."
+],
+[
+"80.",
+"Batalyon Infanteri Teritorial Pembangunan 882/Hulubalang",
+"Kubu Raya, Kalimantan Barat",
+"Brigif 19/Khatulistiwa",
+"Letkol Inf Ricky Fauzie, S.I.P., M.I.P."
+],
+[
+"81.",
+"Batalyon Infanteri Teritorial Pembangunan 883/Tamanggung Awan",
+"Murung Raya, Kalimantan Tengah",
+"Brigif TP 86/Mandau",
+"Letkol Inf Supriyanto, S.S.T.Han., S.I.P."
+],
+[
+"82.",
+"Batalyon Infanteri Teritorial Pembangunan 884/Sa Ijaan",
+"Kotabaru, Kalimantan Selatan",
+"Brigif TP 86/Mandau",
+"Letkol Inf Priya Firmansyah,S.E"
+],
+[
+"83.",
+"Batalyon Infanteri Teritorial Pembangunan 885/Belibis Putih",
+"Buntalan, Temayang, Bojonegoro, Jawa Timur",
+"Brigif TP 33/Naga Sesha",
+"Letkol Inf Rino Wahyu Nugroho, S.E."
+],
+[
+"84.",
+"Batalyon Infanteri Teritorial Pembangunan 886/Panjalu Jayati",
+"Kalidawir, Tulungagung, Jawa Timur",
+"Brigif TP 62/Wengker",
+"Letkol Inf Mohammad Isa, S.I.P."
+],
+[
+"85.",
+"Batalyon Infanteri Teritorial Pembangunan 887/Kesatria Joko Modo",
+"Ngimbang, Lamongan, Jawa Timur",
+"Brigif TP 64/Prabu Satmata",
+"Letkol Inf Dondy Infantriadi S., S.S.T.Han., S.I.P."
+],
+[
+"86.",
+"Batalyon Infanteri Teritorial Pembangunan 888/Satria Sejati",
+"Pamotan, Rembang, Jawa Tengah",
+"Brigif TP 43/Muria",
+"Letkol Inf Jayadi, S.H., M.Tr.Mil."
+],
+[
+"87.",
+"Batalyon Infanteri Teritorial Pembangunan 889/Gagak Winangsih",
+"Terisi, Indramayu, Jawa Barat",
+"Brigif TP 34/Cakra Buana",
+"Letkol Inf Bagus Prabowo Wijonarko, S.I.P., M.I.P."
+],
+[
+"88.",
+"Batalyon Infanteri Teritorial Pembangunan 890/Gardha Sakti",
+"Cijayana, Mekarmukti, Garut, Jawa Barat",
+"Brigif TP 50/Kandang Wesi",
+"Letkol Inf Ade Fian Agestiyono, S.E., M.Han."
+],
+[
+"89.",
+"Batalyon Infanteri Teritorial Pembangunan 891/Maharaja Sakti",
+"Seluma, Bengkulu",
+"Brigif TP 88/Ksatria Bukit Kaba",
+"Letkol Inf Nuzul Andri Sujatmiko, S.H."
+],
+[
+"90.",
+"Batalyon Infanteri Teritorial Pembangunan 892/Vikasa Sena",
+"Way Kanan, Lampung",
+"Brigif TP 88/Ksatria Bukit Kaba",
+"Letkol Inf Ranji Sasmita, S.S.T.Han., S.I.P., M.I.P."
+],
+[
+"91.",
+"Batalyon Infanteri Teritorial Pembangunan 893/Ksatria Bumi Komering",
+"Ogan Komering Ulu Timur, Sumatera Selatan",
+"Brigif 8/Garuda Cakti",
+"Letkol Inf Triyas Prakosa, S.I.P."
+],
+[
+"92.",
+"Batalyon Infanteri Teritorial Pembangunan 894/Prayatna Bumi",
+"Lahat, Sumatera Selatan",
+"Brigif 8/Garuda Cakti",
+"Letkol Inf Irfan Adi Wibowo, S.T.r.han"
+],
+[
+"93.",
+"Batalyon Infanteri Teritorial Pembangunan 895/Kujur Cakti",
+"Muara Enim, Sumatera Selatan",
+"Brigif 8/Garuda Cakti",
+"Letkol Inf Mas Agung Abdi Negoro, S.E., M.M."
+],
+[
+"94.",
+"Batalyon Infanteri Teritorial Pembangunan 896/Serumpun Pseko",
+"Sarolangun, Jambi",
+"Brigif TP 35/Siginjai",
+"Letkol Inf Mansyur Her Alam, M.Tr.Mil."
+],
+[
+"95.",
+"Batalyon Infanteri Teritorial Pembangunan 897/Singgalang",
+"Lubuk Basung, Agam, Sumatera Barat",
+"Brigif TP 35/Siginjai",
+"Letkol Inf Saor Jonathan Lumbanbatu, S.S.T.Han., S.I.P., M.H.I."
+],
+[
+"96.",
+"Batalyon Infanteri Teritorial Pembangunan 898/Pancalang Sakti",
+"Kampar, Riau",
+"Brigif TP 89/Gimpam Gasib",
+"Letkol Inf Erica Dali Fernando, S.I.P., M.M."
+],
+[
+"97.",
+"Batalyon Infanteri Teritorial Pembangunan 899/Bata Satya Gardapati",
+"Depok, Jawa Barat",
+"Brigif TP 44/Prajawangsa",
+"Letkol Inf Satriyo Pinandito, S.Sos."
+],
+[
+"98.",
+"Batalyon Infanteri Teritorial Pembangunan 901/Suhul Gading",
+"Panombeian Pane, Simalungun, Sumatera Utara",
+"Brigif TP 36/Harajaon Marpitu",
+"Letkol Inf Mahfudz"
+],
+[
+"99.",
+"Batalyon Infanteri Teritorial Pembangunan 902/Sri Paduka Gocah",
+"Dolok Masihul, Serdang Bedagai, Sumatera Utara",
+"Brigif TP 36/Harajaon Marpitu",
+"Letkol Inf Akhmad Saefuddin, S.I.P., M.M."
+],
+[
+"100.",
+"Batalyon Infanteri Teritorial Pembangunan 903/Baluseda",
+"Afulu, Nias Utara, Sumatera Utara",
+"Brigif TP TP 36/Harajaon Marpitu",
+"Letkol Inf Anotona Zebua, S.M."
+],
+[
+"101.",
+"Batalyon Infanteri Teritorial Pembangunan 904/Garamata",
+"Laubaleng, Karo, Sumatera Utara",
+"Brigif TP 37/Hujur Siringis",
+"Letkol Inf Anom Wahyu Sasmita, S.I.P., M.Tr.Mil."
+],
+[
+"102.",
+"Batalyon Infanteri Teritorial Pembangunan 905/Tuan Syah",
+"Manduamas, Tapanuli Tengah, Sumatera Utara",
+"Brigif TP 37/Hujur Siringis",
+"Letkol Inf Sabar Marihot Simanjuntak"
+],
+[
+"103.",
+"Batalyon Infanteri Teritorial Pembangunan 906/Sanalenggam",
+"Salak, Pakpak Bharat, Sumatera Utara",
+"Brigif TP 37/Hujur Siringis",
+"Letkol Inf Rachmat Saleh, S.H., M.Han."
+],
+[
+"104.",
+"Batalyon Infanteri Teritorial Pembangunan 907/Dewa Shahdan",
+"Pangkalan Brandan, Langkat, Sumatera Utara",
+"Brigif TP 37/Hujur Siringis",
+"Letkol Inf Jimat Suryo Utomo, S.S.T.Han."
+],
+[
+"105.",
+"Batalyon Infanteri Teritorial Pembangunan 908/Gaja Dompak",
+"Sigalingging, Dairi, Sumatera Utara",
+"Brigif TP 37/Hujur Siringis",
+"Letkol Inf Chandra Jaya Maulana, S.Sos., M.A.P., M.Tr.Mil."
+],
+[
+"106.",
+"Batalyon Infanteri Teritorial Pembangunan 909/Karia Ruba Pewa",
+"Yapen, Papua",
+"Brigif TP 80/Kurare",
+"Letkol Inf Mohammad Amri Djuddah, S.S.T.Han., S.I.P."
+],
+[
+"107.",
+"Batalyon Infanteri Teritorial Pembangunan 910/Aherfaiyona",
+"Mamberamo Raya, Papua",
+"Brigif TP 80/Kurare",
+"Letkol Eko Hadi Syahputra, S.S.T.Han., S.I.P., M.H."
+],
+[
+"108.",
+"Batalyon Infanteri Teritorial Pembangunan 911/Buambor Wuon",
+"Tambrauw, Papua Barat Daya",
+"Brigif TP 38/Nani Bili",
+"Letkol Inf Ichsan Pratama, S.S.T.Han."
+],
+[
+"109.",
+"Batalyon Infanteri Teritorial Pembangunan 912/Jargaria Sakti",
+"Dobo, Aru, Maluku",
+"Brigif TP 39/Nusa Manan",
+"Letkol Inf Desta Dwihartanto, S.S.T.Han., S.I.P."
+],
+[
+"110.",
+"Batalyon Infanteri Teritorial Pembangunan 913/Wadwana Sakti",
+"Moa, Maluku Barat Daya, Maluku",
+"Brigif TP 39/Nusa Manan",
+"Letkol Inf Respati Pono Setiawan, S.S.T.Han., S.I.P."
+],
+[
+"111.",
+"Batalyon Infanteri Teritorial Pembangunan 914/Maren Nusa Larvul",
+"Tual, Maluku",
+"Brigif TP 39/Nusa Manan",
+"Letkol Inf Angga Andika, S.S.T.Han., S.I.P., M.H."
+],
+[
+"112.",
+"Batalyon Infanteri Teritorial Pembangunan 915/Bitu'o",
+"Boalemo, Gorontalo",
+"Korem 133/Nani Wartabone",
+"Letkol Inf Didik Yektiandarko, S.S.T.Han."
+],
+[
+"113.",
+"Batalyon Infanteri Teritorial Pembangunan 916/Bara Sakti",
+"Bitung, Sulawesi Utara",
+"Brigif 22/Ota Manasa",
+"Letkol Inf Aditya Yoga Pramana, S.S.T.Han., S.I.P."
+],
+[
+"114.",
+"Batalyon Infanteri Teritorial Pembangunan 917/Keris Muda Mandar",
+"Polewali Mandar, Sulawesi Barat",
+"Brigif TP 30/Karoso Ndaya",
+"Letkol Inf Fadi Virmushano, S.S.T.Han., S.I.P., M.I.P."
+],
+[
+"115.",
+"Batalyon Infanteri Teritorial Pembangunan 918/Matufu Maliuntinufu",
+"Parigi Moutong, Sulawesi",
+"Brigif TP 30/Karoso Ndaya",
+"Letkol Inf Angga Singgih L., S.S.T.Han., S.I.P., M.I.P."
+],
+[
+"116.",
+"Batalyon Infanteri Teritorial Pembangunan 919/Sangia Dowo",
+"Bombana, Sulawesi Tenggara",
+"Brigif TP 29/Mekongga",
+"Letkol Tendry Aryo Baskoro, S.S.T.Han., S.I.P., M.Sos."
+],
+[
+"117.",
+"Batalyon Infanteri Teritorial Pembangunan 920/Lasalaga",
+"Bone, Sulawesi Selatan",
+"Brigif 11/Badik Sakti",
+"Letkol Inf Andri Putra Situmorang, S.S.T.Han., S.I.P."
+],
+[
+"118.",
+"Batalyon Infanteri Teritorial Pembangunan 921/Alang Impang",
+"Malinau, Kalimantan Utara",
+"Brigif TP 32/Mangkalihat",
+"Letkol Inf Yon Andreas, S.T.Han."
+],
+[
+"119.",
+"Batalyon Infanteri Teritorial Pembangunan 922/Upun Taka",
+"Tana Tidung, Kalimantan Utara",
+"Brigif TP 32/Mangkalihat",
+"Letkol Inf Michael Connis Tanaem, S.S.T.Han., S.I.P., M.I.R."
+],
+[
+"120.",
+"Batalyon Infanteri Teritorial Pembangunan 923/Mentaya",
+"Sampit, Kalimantan Tengah",
+"Brigif TP 40/Huma Betang",
+"Letkol Inf Hengky Saputra, S.S.T.Han., S.I.P., M.I.P."
+],
+[
+"121.",
+"Batalyon Infanteri Teritorial Pembangunan 924/Uria Mapas",
+"Barito Timur, Kalimantan Tengah",
+"Brigif TP 40/Huma Betang",
+"Letkol Inf Wahyu Hariatmoko, S.S.T.Han."
+],
+[
+"122.",
+"Batalyon Infanteri Teritorial Pembangunan 925/Ksatria Wangkang",
+"Barito Kuala, Kalimantan Selatan",
+"Brigif TP 86/Mandau",
+"Letkol Inf Zulfikar Ali Nugroho, S.S.T.Han., S.I.P."
+],
+[
+"123.",
+"Batalyon Infanteri Teritorial Pembangunan 926/Pangalangok Libau",
+"Bengkayang, Kalimantan Barat",
+"Brigif TP 41/Kubu Betuah",
+"Letkol Inf Arya Dwinanda W., S.S.T.Han., S.I.P."
+],
+[
+"124.",
+"Batalyon Infanteri Teritorial Pembangunan 927/Uncak Kapuas",
+"Kapuas Hulu, Kalimantan Barat",
+"Brigif TP 41/Kubu Betuah",
+"Letkol Inf Jamrizal, S.Pd., M.A."
+],
+[
+"125.",
+"Batalyon Infanteri Teritorial Pembangunan 928/Brata Sena Yudha",
+"Jembrana, Bali",
+"Kodam IX/Udayana",
+"Letkol Inf Okky Chandra Firmansyah, S.S.T.Han., S.I.P., M.Sc."
+],
+[
+"126.",
+"Batalyon Infanteri Teritorial Pembangunan 929/Meo Matane Mutis",
+"Soe, Nusa Tenggara Timur",
+"Brigif TP 42/Ksatria Elang Floris",
+"Letkol Inf Andi Baso Pabeangi, S.S.T.Han."
+],
+[
+"127.",
+"Batalyon Infanteri Teritorial Pembangunan 930/Toda Tebi",
+"Sumba Tengah, Nusa Tenggara Timur",
+"Brigif TP 42/Ksatria Elang Floris",
+"Letkol Inf Afrizal Ramadhan, S.S.T.Han., S.I.P."
+],
+[
+"128.",
+"Batalyon Infanteri Teritorial Pembangunan 931/Ksatria Jokotole",
+"Sumenep, Jawa Timur",
+"Brigif TP 57/Ksatria Mandhilaras",
+"Letkol Inf Aditya Danang Putranto, S.S.T.Han., M.I.P."
+],
+[
+"129.",
+"Batalyon Infanteri Teritorial Pembangunan 932/Sunan Bonang",
+"Tuban, Jawa Timur",
+"Brigif TP 33/Naga Sesha",
+"Letkol Inf Hafidh Wahidiyas, S.S.T.Han."
+],
+[
+"130.",
+"Batalyon Infanteri Teritorial Pembangunan 933/Macan Wilis",
+"Nganjuk, Jawa Timur",
+"Brigif TP 55/Vira Digdaya",
+"Letkol Inf Rum Patria Misa, S.S.T.Han."
+],
+[
+"131.",
+"Batalyon Infanteri Teritorial Pembangunan 934/Satria Bhuwana Yudha",
+"Pringkuku, Pacitan, Jawa Timur",
+"Brigif TP 62/Wengker",
+"Letkol Inf Dr. Dian Nur Huda, S.S.T.Han., S.I.P., S.Sos., M.A.P."
+],
+[
+"132.",
+"Batalyon Infanteri Teritorial Pembangunan 935/Satria Bahurekso",
+"Kendal, Jawa Tengah",
+"Brigif TP 52/Padmonegoro",
+"Letkol Inf Harry Pribadhi, S.S.T.Han., S.I.P."
+],
+[
+"133.",
+"Batalyon Infanteri Teritorial Pembangunan 936/Satria Joyokusumo",
+"Winong, Pati, Jawa Tengah",
+"Brigif TP 43/Muria",
+"Letkol Inf Reza Nugraha, S.S.T.Han., S.I.P."
+],
+[
+"134.",
+"Batalyon Infanteri Teritorial Pembangunan 937/Satria Kalijaga",
+"Demak, Jawa Tengah",
+"Brigif TP 43/Muria",
+"Letkol Inf Supriyadi Nata Atmaja, S.S.T.Han., S.I.P., M.P.A."
+],
+[
+"135.",
+"Batalyon Infanteri Teritorial Pembangunan 938/Pancasona",
+"Margaluyu, Cipeundeuy, Bandung Barat, Jawa Barat",
+"Brigif 15/Kujang II",
+"Letkol Inf Muhammad Rifqi, S.I.P."
+],
+[
+"136.",
+"Batalyon Infanteri Teritorial Pembangunan 939/Macan Putih",
+"Singaparna, Tasikmalaya, Jawa Barat",
+"Brigif TP 50/Kandang Wesi",
+"Letkol Inf Deddy Setya Wijaya, S.S.T.Han., S.I.P., M.Sc."
+],
+[
+"137.",
+"Batalyon Infanteri Teritorial Pembangunan 940/Jayanegara",
+"Subang, Jawa Barat",
+"Brigif TP 34/Cakra Buana",
+"Letkol Inf Senopati Yudho Prakoso, S.S.T.Han., S.I.P."
+],
+[
+"138.",
+"Batalyon Infanteri Teritorial Pembangunan 941/Singa Perbangsa",
+"Karawang, Jawa Barat",
+"Brigif 15/Kujang II",
+"Letkol Inf Didik Irwan Udin, S.I.P."
+],
+[
+"139.",
+"Batalyon Infanteri Teritorial Pembangunan 942/Arya Wangsakara",
+"Legok, Tangerang, Banten",
+"Brigif TP 44/Prajawangsa",
+"Letkol Inf Syarief Al Marthada, S.S.T.Han., S.I.P."
+],
+[
+"140.",
+"Batalyon Infanteri Teritorial Pembangunan 943/Darah Putih Cakti",
+"Rajabasa Lama, Labuhan Ratu, Lampung Timur, Lampung",
+"Brigif TP 45/Sai Bhumi",
+"Letkol Inf Jonathan Ginting, S.I.P."
+],
+[
+"141.",
+"Batalyon Infanteri Teritorial Pembangunan 944/Raja Saibatin Cakti",
+"Pesisir Barat, Lampung",
+"Brigif TP 45/Sai Bhumi",
+"Letkol Inf Ruddy Setyadi Alfista, , S.S.T.Han., S.I.P."
+],
+[
+"142.",
+"Batalyon Infanteri Teritorial Pembangunan 945/Pandu Pepadun Cakti",
+"Tanggamus, Lampung",
+"Brigif TP 45/Sai Bhumi",
+"Letkol Aditya Bagus Satriawan, S.S.T.Han."
+],
+[
+"143.",
+"Batalyon Infanteri Teritorial Pembangunan 946/Depati Menumbing",
+"Parittiga, Bangka Barat, Bangka Belitung",
+"Korem 045/Garuda Jaya",
+"Letkol Inf Hubertus Bintang Mahendriya, S.S.T.Han., S.I.P."
+],
+[
+"144.",
+"Batalyon Infanteri Teritorial Pembangunan 947/Pangeran Amin",
+"Musi Rawas, Sumatera Selatan",
+"Brigif TP 46/Sebiduk Cakti",
+"Letkol Inf Royhan Asshiddiky, S.S.T.Han., S.I.P., M.A."
+],
+[
+"145.",
+"Batalyon Infanteri Teritorial Pembangunan 948/Serasan Sekate",
+"Bayung Lencir, Musi Banyuasin, Sumatera Selatan",
+"Brigif TP 46/Sebiduk Cakti",
+"Letkol Inf M. Misbahul Munir, S.S.T.Han., S.I.P., M.I.P."
+],
+[
+"146.",
+"Batalyon Infanteri Teritorial Pembangunan 949/Depati Reksa",
+"Lempuing, Ogan Komering Ilir, Sumatera Selatan",
+"Brigif TP 46/Sebiduk Cakti",
+"Letkol Inf Sasmito Hasta Adi, S.I.P."
+],
+[
+"147.",
+"Batalyon Infanteri Teritorial Pembangunan 950/Raje Mengkute",
+"Banyuasin, Sumatera Selatan",
+"Korem 044/Garuda Dempo",
+"Letkol Inf Anwar Riyadi, S.S.T.Han., S.I.P., M.I.P."
+],
+[
+"148.",
+"Batalyon Infanteri Teritorial Pembangunan 951/Pandeka Marapi",
+"Rambatan, Tanah Datar, Sumatera Barat",
+"Kodam XX/Tuanku Imam Bonjol",
+"Letkol Inf Jimson Andre Siahaan, S.S.T.Han., S.I.P., M.M."
+],
+[
+"149.",
+"Batalyon Infanteri Teritorial Pembangunan 952/Imam Bulqin",
+"Duri, Bengkalis, Riau",
+"Brigif TP 89/Gimpam Gasib",
+"Letkol Inf Andy Supartono, S.S.T.Han., S.I.P."
+],
+[
+"150.",
+"Batalyon Infanteri Teritorial Pembangunan 953/Harimau Rawa",
+"Kempas, Indragiri Hilir, Riau",
+"Brigif TP 89/Gimpam Gasib",
+"Letkol Inf Anam Achmad Musadilah, S.S.T.Han., S.I.P., M.Si."
+],
+[
+"151.",
+"Batalyon Infanteri Teritorial Pembangunan 954/Naga Bekisar",
+"Bandar Pasir Mandoge, Asahan, Sumatera Utara",
+"Brigif TP 36/Harajaon Marpitu",
+"Letkol Inf Setyo Erlang Nugroho, S.S.T.Han., S.I.P."
+],
+[
+"152.",
+"Batalyon Infanteri Teritorial Pembangunan 955/Hoda Sihapaspili",
+"Pollung, Humbang Hasundutan, Sumatera Utara",
+"Brigif TP 37/Hujur Siringis",
+"Letkol Inf Heryanto Sinaga, S.Hub.Int., M.Tr.Mil."
+],
+[
+"153.",
+"Batalyon Infanteri Teritorial Pembangunan 956/Sultan Bidar Alam",
+"Labuhan Batu, Sumatera Utara",
+"Brigif TP 36/Harajaon Marpitu",
+"Letkol Inf Birawa Anoraga, S.I.P., M.I.P."
+],
+[
+"154.",
+"Batalyon Infanteri Teritorial Pembangunan 957/Lebah Uteun",
+"Aceh Singkil, Aceh",
+"Brigif TP 90/Yudha Giri Dhanu",
+"Letkol Inf Rayu Chandra, S.S.T.Han., S.I.P., M.I.P."
+],
+[
+"155.",
+"Batalyon Infanteri Teritorial Pembangunan 958/Rangkong Meukuree",
+"Rambung, Setia, Aceh Barat Daya, Aceh",
+"Brigif TP 90/Yudha Giri Dhanu",
+"Letkol Inf Roxky Maracilu, S.I.P."
+],
+[
+"156.",
+"Batalyon Infanteri Teritorial Pembangunan 331/Sanca Manggala",
+"Sukamulya, Cikembar, Sukabumi, Jawa Barat",
+"Brigif TP 48/Samudera Giri",
+"Mayor Inf Pusdika Danial Arief, S.T.Han."
+],
+[
+"157.",
+"Batalyon Infanteri Teritorial Pembangunan 332/Jayasasana",
+"Mekargalih, Cikalong Kulon, Cianjur, Jawa Barat",
+"Brigif TP 48/Samudera Giri",
+"Mayor Inf I Gede Hendra Widyantara, S.I.P., M.H."
+],
+[
+"158.",
+"Batalyon Infanteri Teritorial Pembangunan 333/Macan Cisanti",
+"Cikembang, Kertasari, Bandung, Jawa Barat",
+"Brigif TP 49/Raksanagara",
+"Letkol Inf Noor Sapta Harry Wijaya, S.S.T.Han., S.I.P."
+],
+[
+"159.",
+"Batalyon Infanteri Teritorial Pembangunan 334/Naga Runting",
+"Wanayasa, Purwakarta, Jawa Barat",
+"Brigif TP 49/Raksanagara",
+"Letkol Inf Suhartadi Sunarso, S.S.T.Han., S.I.P., M.I.P."
+],
+[
+"160.",
+"Batalyon Infanteri Teritorial Pembangunan 335/Macan Sukapura",
+"Urug, Kawalu, Tasikmalaya, Jawa Barat",
+"Brigif TP 50/Kandang Wesi",
+""
+],
+[
+"161.",
+"Batalyon Infanteri Teritorial Pembangunan 336/Merak Sakti",
+"Cimerak, Pangandaran, Jawa Barat",
+"Brigif TP 50/Kandang Wesi",
+"Mayor Inf Indrasatya Danyatna, S.S.T.Han., S.I.P."
+],
+[
+"162.",
+"Batalyon Infanteri Teritorial Pembangunan 337/Sutajaya",
+"Tonjong, Pasaleman, Cirebon, Jawa Barat",
+"Brigif TP 34/Cakra Buana",
+"Mayor Inf Dinary Bagus Farera, S.T.Han., M.H.I."
+],
+[
+"163.",
+"Batalyon Infanteri Teritorial Pembangunan 338/Talaga Manggung",
+"Sukamulya, Kertajati, Majalengka, Jawa Barat",
+"Brigif TP 34/Cakra Buana",
+"Mayor Inf Mario Herdiana Belo, S.T.Han."
+],
+[
+"164.",
+"Batalyon Infanteri Teritorial Pembangunan 339/Jaya Perkasa",
+"Ujungjaya, Sumedang, Jawa Barat",
+"Brigif TP 34/Cakra Buana",
+"Mayor Inf Ahmad Rifai Siregar, S.T.Han., S.H."
+],
+[
+"165.",
+"Batalyon Infanteri Teritorial Pembangunan 434/Satria Arya Suralaya",
+"Dukuhjeruk, Banjarharjo, Brebes, Jawa Tengah",
+"Brigif TP 51/Hanyokropati",
+"Mayor Inf Cahyo Dati Widodo, S.Tr.Han., M.H."
+],
+[
+"166.",
+"Batalyon Infanteri Teritorial Pembangunan 435/Satria Gede Sebayu",
+"Harjasari, Suradadi, Tegal, Jawa Tengah",
+"Brigif TP 51/Hanyokropati",
+"Mayor Inf Abdi Nasution, S.T.Han., M.H."
+],
+[
+"167.",
+"Batalyon Infanteri Teritorial Pembangunan 436/Satria Yudanegara",
+"Kebasen, Banyumas, Jawa Tengah",
+"Brigif TP 51/Hanyokropati",
+"Mayor Inf Edward Marthin Sirait, S.T.Han., M.H.I."
+],
+[
+"168.",
+"Batalyon Infanteri Teritorial Pembangunan 437/Satria Benowo",
+"Surajaya, Pemalang, Pemalang, Jawa Tengah",
+"Brigif TP 52/Padmonegoro",
+"Mayor Inf Ikhwan Hadi Putra, S.T.Han."
+],
+[
+"169.",
+"Batalyon Infanteri Teritorial Pembangunan 438/Satria Arsayuda",
+"Purbalingga, Jawa Tengah",
+"Brigif TP 51/Hanyokropati",
+"Mayor Inf Arif Novianto, S.T.Han., M.H.I."
+],
+[
+"170.",
+"Batalyon Infanteri Teritorial Pembangunan 439/Satria Mangunyudha",
+"Punggelan, Banjarnegara, Jawa Tengah",
+"Brigif TP 59/Bodronolo",
+"Mayor Inf Galih Satria Aditia, S.T.Han."
+],
+[
+"171.",
+"Batalyon Infanteri Teritorial Pembangunan 440/Satria Jaka Sangkrip",
+"Banyumudal, Buayan, Kebumen, Jawa Tengah",
+"Brigif TP 59/Bodronolo",
+"Mayor Inf Mochamad Chamim, S.T.Han., M.I.P."
+],
+[
+"172.",
+"Batalyon Infanteri Teritorial Pembangunan 441/Satria Penatas Angin",
+"Bukur, Bojong, Pekalongan, Jawa Tengah",
+"Brigif TP 52/Padmonegoro",
+"Mayor Inf Taofiq Siswadi, S.S.T.Han., S.I.P."
+],
+[
+"173.",
+"Batalyon Infanteri Teritorial Pembangunan 442/Satria Jatikusumo",
+"Sigayam, Wonotunggal, Batang, Jawa Tengah",
+"Brigif TP 52/Padmonegoro",
+"Mayor Inf Mijan Ajhar, S.T.Han."
+],
+[
+"174.",
+"Batalyon Infanteri Teritorial Pembangunan 443/Satria Rakai Pikatan",
+"Selosabrang, Bejen, Temanggung, Jawa Tengah",
+"Brigif TP 61/Wonopawiro",
+"Mayor Inf Donny Dapari Yara, S.T.Han."
+],
+[
+"175.",
+"Batalyon Infanteri Teritorial Pembangunan 444/Satria Setjonegoro",
+"Kepil, Wonosobo, Jawa Tengah",
+"Brigif TP 61/Wonopawiro",
+"Mayor Inf Ahmad Harianto, S.T.Han."
+],
+[
+"176.",
+"Batalyon Infanteri Teritorial Pembangunan 445/Satria Sawunggalih",
+"Bayan, Purworejo, Jawa Tengah",
+"Brigif TP 61/Wonopawiro",
+"Mayor Inf Dwi Nugroho"
+],
+[
+"177.",
+"Batalyon Infanteri Teritorial Pembangunan 446/Satria Dipoyudo",
+"Wonoroto, Windusari, Magelang, Jawa Tengah",
+"Brigif TP 59/Bodronolo",
+"Mayor Inf Sidiq Sumantri, S.T.Han., M.H.I."
+],
+[
+"178.",
+"Batalyon Infanteri Teritorial Pembangunan 447/Satria Rakai Kayuwangi",
+"Krakotan, Bayat, Klaten, Jawa Tengah",
+"Brigif TP 53/Panembahan Senopati",
+"Letkol Inf Onang Nur Waseso, S.S.T.Han., S.I.P., M.Sc."
+],
+[
+"179.",
+"Batalyon Infanteri Teritorial Pembangunan 448/Satria Sambernyawa",
+"Pondoksari, Nguntoronadi, Wonogiri, Jawa Tengah",
+"Brigif TP 53/Panembahan Senopati",
+"Mayor Inf Febri Ari Cahyanto, S.S.T.Han., S.I.P."
+],
+[
+"180.",
+"Batalyon Infanteri Teritorial Pembangunan 449/Satria Honggopati",
+"Polokarto, Sukoharjo, Jawa Tengah",
+"Brigif TP 60/Prabu Handayaningrat",
+"Mayor Inf Edy Riwanto, S.T.Han., S.I.P."
+],
+[
+"181.",
+"Batalyon Infanteri Teritorial Pembangunan 450/Satria Surajaya",
+"Kemuning, Ngargoyoso, Karanganyar, Jawa Tengah",
+"Brigif TP 60/Prabu Handayaningrat",
+"Mayor Inf Suryo Widyantoro, S.T.Han."
+],
+[
+"182.",
+"Batalyon Infanteri Teritorial Pembangunan 451/Satria Mangkubumi",
+"Katelan, Tangen, Sragen, Jawa Tengah",
+"Brigif TP 60/Prabu Handayaningrat",
+"Mayor Inf Andreas Devi Sitolu, S.T.Han."
+],
+[
+"183.",
+"Batalyon Infanteri Teritorial Pembangunan 452/Satria Ageng Selo",
+"Kalimaro, Kedungjati, Grobogan, Jawa Tengah",
+"Brigif TP 54/Getas Pendowo",
+"Letkol Inf Very Grahita Fitrianang, S.S.T.Han., S.I.P., M.A."
+],
+[
+"184.",
+"Batalyon Infanteri Teritorial Pembangunan 453/Satria Wilatikta",
+"Kunduran, Blora, Jawa Tengah",
+"Brigif TP 54/Getas Pendowo",
+"Mayor Inf Tunggul S.T.Han., S.H."
+],
+[
+"185.",
+"Batalyon Infanteri Teritorial Pembangunan 454/Satria Prawirodigdoyo",
+"Pilangrejo, Juwangi, Boyolali, Jawa Tengah",
+"Brigif TP 60/Prabu Handayaningrat",
+"Mayor Inf Sandha"
+],
+[
+"186.",
+"Batalyon Infanteri Teritorial Pembangunan 455/Satria Pandanaran",
+"Plumutan, Bancak, Semarang, Jawa Tengah",
+"Brigif TP 54/Getas Pendowo",
+"Letkol Inf Dimas Wahyu Satrio, S.S.T.Han."
+],
+[
+"187.",
+"Batalyon Infanteri Teritorial Pembangunan 456/Satria Poncowati",
+"Klaling, Jekulo, Kudus, Jawa Tengah",
+"Brigif TP 43/Muria",
+"Mayor Inf Nugraha Yhuda Pratama, S.T.Han."
+],
+[
+"188.",
+"Batalyon Infanteri Teritorial Pembangunan 457/Satria Citrosomo",
+"Jerukwangi, Bangsri, Jepara, Jawa Tengah",
+"Brigif TP 43/Muria",
+"Mayor Inf Andi Y. Kusumah, S.T.Han., M.Si."
+],
+[
+"199.",
+"Batalyon Infanteri Teritorial Pembangunan 528/Ksatriya Bhumi Ketonggo",
+"Sidolaju, Widodaren, Ngawi, Jawa Timur",
+"Brigif TP 33/Naga Sesha",
+"Mayor Inf Madha Bayu Sasongko, S.T.Han."
+],
+[
+"190.",
+"Batalyon Infanteri Teritorial Pembangunan 529/Satria Bhumi Aksara",
+"Mategal, Parang, Magetan, Jawa Timur",
+"Brigif TP 62/Wengker",
+"Mayor Inf Airlangga Bramudya Wijaya, S.T.Han."
+],
+[
+"191.",
+"Batalyon Infanteri Teritorial Pembangunan 530/Raden Katong",
+"Pulung Merdiko, Pulung, Ponorogo, Jawa Timur",
+"Brigif TP 62/Wengker",
+"Mayor Inf Puthut Wahyu Nugroho, S.T.Han."
+],
+[
+"192.",
+"Batalyon Infanteri Teritorial Pembangunan 531/Menak Sopal",
+"Karanggandu, Watulimo, Trenggalek, Jawa Timur",
+"Brigif TP 62/Wengker",
+"Mayor Inf Adey Gunawan Sutomo, S.T.Han."
+],
+[
+"193.",
+"Batalyon Infanteri Teritorial Pembangunan 532/Pangeran Timur",
+"Wonorejo, Mejayan, Madiun, Jawa Timur",
+"Brigif TP 33/Naga Sesha",
+"Mayor Inf Golden Adi Putra"
+],
+[
+"194.",
+"Batalyon Infanteri Teritorial Pembangunan 533/Satya Bhakti Patria",
+"Siraman, Kesamben, Blitar, Jawa Timur",
+"Brigif TP 55/Vira Digdaya",
+"Mayor Inf Rhizal Shanda Santoso, S.T.Han., M.I.P."
+],
+[
+"195.",
+"Batalyon Infanteri Teritorial Pembangunan 534/Vira Dharma",
+"Sidodadi, Lawang, Malang, Jawa Timur",
+"Brigif TP 65/Ksatria Mahameru",
+"Letkol Inf Martinus Ucok Leando Borosi, S.S.T.Han., S.I.P."
+],
+[
+"196.",
+"Batalyon Infanteri Teritorial Pembangunan 535/Nararya Kirana",
+"Burno, Senduro, Lumajang, Jawa Timur",
+"Brigif TP 65/Ksatria Mahameru",
+"Mayor Inf Gede Beny Purnama, S.T.Han."
+],
+[
+"197.",
+"Batalyon Infanteri Teritorial Pembangunan 536/Ksatria Suradikara",
+"Kendit, Situbondo, Jawa Timur",
+"Brigif TP 56/Tribhumi Samuhita",
+"Mayor Inf Wisnu Suranenggala, S.S.T.Han., S.I.P., M.I.P."
+],
+[
+"198.",
+"Batalyon Infanteri Teritorial Pembangunan 537/Tunggul Wulung",
+"Sumberwringin, Bondowoso, Jawa Timur",
+"Brigif TP 56/Tribhumi Samuhita",
+"Mayor Inf I Komang Agus Suratmaja, S.T.Han."
+],
+[
+"199.",
+"Batalyon Infanteri Teritorial Pembangunan 538/Prabu Tawang Alun",
+"Glagahagung, Purwoharjo, Banyuwangi, Jawa Timur",
+"Brigif TP 56/Tribhumi Samuhita",
+"Letkol Inf Edy Beni Kristian, S.I.P."
+],
+[
+"200.",
+"Batalyon Infanteri Teritorial Pembangunan 539/Ronggo Sukowati",
+"Larangan Slampar, Tlanakan, Pamekasan, Jawa Timur",
+"Brigif TP 57/Ksatria Mandhilaras",
+"Mayor Inf Damar Buwono Nara Yoga, S.S.T.Han., S.I.P., M.I.P."
+],
+[
+"201.",
+"Batalyon Infanteri Teritorial Pembangunan 540/Pangeran Mertosari",
+"Nyeloh, Kedungdung, Sampang, Jawa Timur",
+"Brigif TP 57/Ksatria Mandhilaras",
+"Mayor Inf Adhitya Bagus Satriawan, S.S.T.Han., S.I.P."
+],
+[
+"202.",
+"Batalyon Infanteri Teritorial Pembangunan 541/Ksatria Joko Samudro",
+"Panceng, Gresik, Jawa Timur",
+"Brigif TP 64/Prabu Satmata",
+"Mayor Inf Fatkhur Greha Wicaksono, S.T.Han."
+],
+[
+"203.",
+"Batalyon Infanteri Teritorial Pembangunan 542/Arya Tadah",
+"Gunungsari, Dawarblandong, Mojokerto, Jawa Timur",
+"Brigif TP 63/Panji Wiruncana",
+"Mayor Inf Irfan Hertanto, S.T.Han."
+],
+[
+"204.",
+"Batalyon Infanteri Teritorial Pembangunan 543/Setyo Negoro",
+"Mojoagung, Jombang, Jawa Timur",
+"Brigif TP 63/Panji Wiruncana",
+"Mayor Inf Hendri Ardiansyah, S.T.Han."
+],
+[
+"205.",
+"Batalyon Infanteri Teritorial Pembangunan 544/Ksatria Joyoboyo",
+"Banaran, Kandangan, Kediri, Jawa Timur",
+"Brigif TP 55/Vira Digdaya",
+"Mayor Inf Mochammad Khoiron Ardiyanto, S.S.T.Han., S.I.P., M.I.P."
+],
+[
+"206.",
+"Batalyon Infanteri Teritorial Pembangunan 204/Purnawarman",
+"Jasinga, Bogor, Jawa Barat",
+"Brigif TP 58/Jayasingawarman",
+""
+],
+[
+"207.",
+"Batalyon Infanteri Teritorial Pembangunan 205/Gandamana",
+"Jasinga, Bogor, Jawa Barat",
+"Brigif TP 58/Jayasingawarman",
+"Letkol Inf Gafur D. Nugraha"
+],
+[
+"208.",
+"Batalyon Infanteri Teritorial Pembangunan 206/Wirasinga",
+"Cikopomayak, Jasinga, Bogor, Jawa Barat",
+"Brigif TP 58/Jayasingawarman",
+"Letkol Inf Johan Bormasa, S.I.P."
+],
+[
+"209.",
+"Batalyon Infanteri Teritorial Pembangunan 340/Sultan Syafiudin Matangaji Kota Cirebon",
+"Jatimulya, Cidahu, Kuningan, Jawa Barat",
+"Brigif TP 34/Cakra Buana",
+""
+],
+[
+"210.",
+"Batalyon Infanteri Teritorial Pembangunan 341/Sang Manarah",
+"Tambaksari, Ciamis, Jawa Barat",
+"Brigif TP 50/Kandang Wesi",
+"Letkol Inf Maskur Riyadi, S.Sos."
+],
+[
+"211.",
+"Batalyon Infanteri Teritorial Pembangunan 342/Marga Yudha Kota Banjar",
+"Tambaksari, Ciamis, Jawa Barat",
+"Brigif TP 50/Kandang Wesi",
+"Letkol Inf Aris Anas M., S.Hub.Int., M.H.I."
+],
+[
+"212.",
+"Batalyon Infanteri Teritorial Pembangunan 343/Satria Padjadjaran Kota Bandung",
+"Kota Bandung, Jawa Barat",
+"Brigif TP 49/Raksanagara",
+"Letkol Inf Putra Wandani, S.E."
+],
+[
+"213.",
+"Batalyon Infanteri Teritorial Pembangunan 344/Jaya Dilaga Kota Cimahi",
+"Wanayasa, Purwakarta, Jawa Barat",
+"Brigif TP 49/Raksanagara",
+"Letkol Inf Giywantara Prasetya Putra, S.E."
+],
+[
+"214.",
+"Batalyon Infanteri Teritorial Pembangunan 345/Maung Sancang Kota Sukabumi",
+"Kota Sukabumi, Jawa Barat",
+"Brigif TP 48/Samudera Giri",
+""
+],
+[
+"215.",
+"Batalyon Infanteri Teritorial Pembangunan 346/Elang Jawara Kota Bogor",
+"Kota Bogor, Jawa Barat",
+"Brigif TP 48/Samudera Giri",
+""
+],
+[
+"216.",
+"Batalyon Infanteri Teritorial Pembangunan 347/Sultan Maulana Kota Serang",
+"Kota Serang, Banten",
+"Brigif TP 87/Salakanagara",
+""
+],
+[
+"217.",
+"Batalyon Infanteri Teritorial Pembangunan 348/Giri Munara Kota Cilegon",
+"Kota Cilegon, Banten",
+"Brigif TP 87/Salakanagara",
+"Letkol Inf Agus Rudianto"
+],
+[
+"218.",
+"Batalyon Infanteri Teritorial Pembangunan 458/Satria Bangun Tapa Kota Surakarta",
+"Kota Surakarta, Jawa Tengah",
+"Brigif TP 60/Prabu Handayaningrat",
+"Letkol Inf Agus Dwi Prabowo"
+],
+[
+"219.",
+"Batalyon Infanteri Teritorial Pembangunan 459/Satria Johar Manik Kota Salatiga",
+"Penawangan, Pringapus, Semarang,, Jawa Tengah",
+"Brigif TP 54/Getas Pendowo",
+""
+],
+[
+"220.",
+"Batalyon Infanteri Teritorial Pembangunan 460/Satria Suro Menggolo Kota Semarang",
+"Sidokumpul, Patean, Kendal, Jawa Tengah",
+"Brigif TP 54/Getas Pendowo",
+""
+],
+[
+"221.",
+"Batalyon Infanteri Teritorial Pembangunan 461/Satria Jayengrono Kota Pekalongan",
+"Kedungkebo, Karangdadap, Pekalongan, Jawa Tengah",
+"Brigif TP 52/Padmonegoro",
+"Letkol Inf Rezki Pandu Gunawan, S.E., M.Sc."
+],
+[
+"222.",
+"Batalyon Infanteri Teritorial Pembangunan 462/Satria Purboyo Kota Magelang",
+"Kota Magelang, Jawa Tengah",
+"Brigif TP 59/Bodronolo",
+"Letkol Inf Tegar Wighnu Atmojo, S.I.P."
+],
+[
+"223.",
+"Batalyon Infanteri Teritorial Pembangunan 463/Satria Martoloyo Kota Tegal",
+"Kota Tegal, Jawa Tengah",
+"Brigif TP 51/Hanyokropati",
+"Letkol Inf Eko Agustian J.S., S.Hub.Int."
+],
+[
+"224.",
+"Batalyon Infanteri Teritorial Pembangunan 464/Satria Djojo Menggolo",
+"Banyusoco, Playen, Gunung Kidul, DIY",
+"Brigif TP 61/Wonopawiro",
+""
+],
+[
+"225.",
+"Batalyon Infanteri Teritorial Pembangunan 465/Satria Nitiprojo",
+"Madurejo, Prambanan, Sleman, DIY",
+"Brigif TP 53/Panembahan Senopati",
+""
+],
+[
+"226.",
+"Batalyon Infanteri Teritorial Pembangunan 466/Satria Wirabraja Kota Yogyakarta",
+"Kota Yogyakarta, DIY",
+"Brigif TP 53/Panembahan Senopati",
+"Letkol Inf Fagus Budi Wiyono, S.E., M.M."
+],
+[
+"227.",
+"Batalyon Infanteri Teritorial Pembangunan 467/Satria Sumodiningrat",
+"Selopamioro, Bantul, DIY",
+"Brigif TP 53/Panembahan Senopati",
+""
+],
+[
+"228.",
+"Batalyon Infanteri Teritorial Pembangunan 468/Satria Sadewo",
+"Kabupaten Kulon Progo, DIY",
+"Brigif TP 61/Wonopawiro",
+""
+],
+[
+"229.",
+"Batalyon Infanteri Teritorial Pembangunan 545/Ksatria Bura",
+"Silo, Jember, Jawa Timur",
+"Brigif TP 65/Ksatria Mahameru",
+"Letkol Inf Ronald Setiyono Biet, S.Hub.Int."
+],
+[
+"230.",
+"Batalyon Infanteri Teritorial Pembangunan 546/Dharma Durga Sula Kota Probolinggo",
+"Kedawung, Kuripan, Probolinggo, Jawa Timur",
+"Brigif TP 56/Tribhumi Samuhita",
+"Letkol Inf Yudi Eko Darmawan, S.E., M.H.I."
+],
+[
+"231.",
+"Batalyon Infanteri Teritorial Pembangunan 547/Untung Suropati Kota Pasuruan",
+"Kota Pasuruan, Jawa Timur",
+"Brigif TP 63/Panji Wiruncana",
+"Letkol Inf Firman Permana"
+],
+[
+"232.",
+"Batalyon Infanteri Teritorial Pembangunan 548/Ksatria Sakera",
+"Rebalas, Grati, Pasuruan, Jawa Timur",
+"Brigif TP 63/Panji Wiruncana",
+"Letkol Inf Haris Puji Prasetiawan, S.I.P., M.Tr.Mil."
+],
+[
+"233.",
+"Batalyon Infanteri Teritorial Pembangunan 549/Sawunggaling Kota Surabaya",
+"Kota Surabaya, Jawa Timur",
+"Brigif TP 64/Prabu Satmata",
+"Letkol Inf Fandy Pamungkas, S.E."
+],
+[
+"234.",
+"Batalyon Infanteri Teritorial Pembangunan 550/Ksatria Jenggala",
+"Kabupaten Sidoarjo, Jawa Timur",
+"Brigif TP 64/Prabu Satmata",
+"Letkol Inf Mohammad Deri Saputra, S.I.P., M.M."
+],
+[
+"235.",
+"Batalyon Infanteri Teritorial Pembangunan 551/Surya Majapahit Kota Mojokerto",
+"Jatidukuh, Gondang, Mojokerto, Jawa Timur",
+"Brigif TP 63/Panji Wiruncana",
+"Letkol Inf Rully Simson Hamonangan Pandjaitan, S.H."
+],
+[
+"236.",
+"Batalyon Infanteri Teritorial Pembangunan 552/Ksatria Dhaha Kota Kediri",
+"Puhrubuh, Semen, Kediri, Jawa Timur",
+"Brigif TP 55/Vira Digdaya",
+"Letkol Inf Bobby Kotachi, S.H."
+],
+[
+"237.",
+"Batalyon Infanteri Teritorial Pembangunan 553/Vira Raksa Sakti Kota Batu",
+"Srigonco, Bantur, Malang, Jawa Timur",
+"Brigif TP 65/Ksatria Mahameru",
+"Letkol Inf Ro'uf Sulisno, S.S.T.Han., S.I.P., M.I.P."
+],
+[
+"238.",
+"Batalyon Infanteri Teritorial Pembangunan 554/Gajayana Wiratama Kota Malang",
+"Kota Malang, Jawa Timur",
+"Brigif TP 65/Ksatria Mahameru",
+"Letkol Inf Yoga Firmansyah, S.S.T.Han., S.I.P., M.I.P."
+],
+[
+"239.",
+"Batalyon Infanteri Teritorial Pembangunan 555/Ksatria Bawa Laksana Kota Blitar",
+"Maliran, Ponggok, Blitar, Jawa Timur",
+"Brigif TP 55/Vira Digdaya",
+"Letkol Inf Ari Subrata, S.I.P."
+],
+[
+"240.",
+"Batalyon Infanteri Teritorial Pembangunan 556/Kesatria Reksogati Kota Madiun",
+"Pajaran, Saradan, Madiun, Jawa Timur",
+"Brigif TP 33/Naga Sesha",
+"Letkol Inf Rudi Churniawan, S.H."
+],
+[
+"241.",
+"Batalyon Infanteri Teritorial Pembangunan 746/Pusaka Sakti Manakarra",
+"Beru-Beru, Kalukku, Mamuju, Sulawesi Barat",
+"Kodam XXIII/Palaka Wira",
+"Letkol Inf Ridho"
+],
+[
+"242.",
+"Batalyon Infanteri Teritorial Pembangunan 959/Asamanam",
+"Kabupaten Asmat, Papua Selatan",
+"Brigif TP 67/Womogun Okgun Notap",
+"Letkol Inf Setiyadi Purnomo"
+],
+[
+"243.",
+"Batalyon Infanteri Teritorial Pembangunan 960/Bokam Daniwol",
+"Kabupaten Pegunungan Bintang, Papua Pegunungan",
+"Korem 172/Praja Wira Yakthi",
+"Letkol Inf Roy Satrya Pasaribu, S.Hub.Int."
+],
+[
+"244.",
+"Batalyon Infanteri Teritorial Pembangunan 961/Kusipapu Prawa",
+"Kabupaten Yalimo, Papua Pegunungan",
+"Korem 172/Praja Wira Yakthi",
+""
+],
+[
+"245.",
+"Batalyon Infanteri Teritorial Pembangunan 962/Medak Wenaga",
+"Kabupaten Puncak Jaya, Papua Tengah",
+"Brigif TP 82/Wuyou Korako Bidao",
+"Letkol Inf Heri Bagus Prabowo"
+],
+[
+"246.",
+"Batalyon Infanteri Teritorial Pembangunan 963/Nit Lambunik",
+"Kabupaten Puncak, Papua Tengah",
+"Brigif TP 82/Wuyou Korako Bidao",
+""
+],
+[
+"247.",
+"Batalyon Infanteri Teritorial Pembangunan 964/Astrapia",
+"Kabupaten Intan Jaya, Papua Tengah",
+"Brigif TP 82/Wuyou Korako Bidao",
+"Letkol Inf Aflahal Mukmin, S.E., M.M., M.H.I."
+],
+[
+"248.",
+"Batalyon Infanteri Teritorial Pembangunan 965/Yame Owa",
+"Kabupaten Paniai, Papua Tengah",
+"Brigif TP 82/Wuyou Korako Bidao",
+""
+],
+[
+"249.",
+"Batalyon Infanteri Teritorial Pembangunan 966/Enaimo Mee Yoka",
+"Kabupaten Deiyai, Papua Tengah",
+"Brigif TP 82/Wuyou Korako Bidao",
+"Letkol Inf Adhi Setiadi Nugroho, S.M., M.H.I., M.Han."
+],
+[
+"250.",
+"Batalyon Infanteri Teritorial Pembangunan 967/Enaa Agiyai Enaa Ekowapi",
+"Kabupaten Dogiyai, Papua Tengah",
+"Brigif TP 82/Wuyou Korako Bidao",
+"Letkol Inf Farich T. Putra, S.Pd."
+],
+[
+"251.",
+"Batalyon Infanteri Teritorial Pembangunan 968/Maroske Eregyog",
+"Kabupaten Manokwari, Papua Barat",
+"Brigif TP 84/Uggor Abiresso",
+""
+],
+[
+"252.",
+"Batalyon Infanteri Teritorial Pembangunan 969/Igya Ser Minu",
+"Kabupaten Pegunungan Arfak, Papua Barat",
+"Brigif TP 84/Uggor Abiresso",
+""
+],
+[
+"253.",
+"Batalyon Infanteri Teritorial Pembangunan 970/Sisar Matiti",
+"Kabupaten Teluk Bintuni, Papua Barat",
+"Brigif TP 84/Uggor Abiresso",
+"Letkol Inf Andri Kurniawan"
+],
+[
+"254.",
+"Batalyon Infanteri Teritorial Pembangunan 971/Raa Sien",
+"Aifat, Maybrat, Papua Barat Daya",
+"Brigif TP 38/Nani Bili",
+"Letkol Inf Miftakhul Khoiron, S.S.T.Han."
+],
+[
+"255.",
+"Batalyon Infanteri Teritorial Pembangunan 972/Pafagu Mele",
+"Kota Sorong , Papua Barat Daya",
+"Brigif TP 38/Nani Bili",
+"Letkol Inf Teguh Widakdo, S.E., M.M."
+]
+]
+}
