@@ -68,13 +68,46 @@ function daftar(map: MapLibre, layer: LayerSpecification, interaktif: LayerId | 
 
 // ---------- lapisan statis fase 1 ----------
 
+/** Kodim/Yonif (peringkat 3) baru muncul mulai zoom ini; di bawahnya layernya tidak dirender sama sekali (tidak bisa diklik). */
+export const ZOOM_SATUAN_BAWAH = 6;
+const FILTER_SATUAN_BAWAH: FilterSpecification = ["==", ["coalesce", ["get", "peringkat"], 1], 3];
+const FILTER_MARKAS_UTAMA: FilterSpecification = ["<=", ["coalesce", ["get", "peringkat"], 1], 2];
+
 function pasangTni(map: MapLibre) {
   tambahSourceKosong(map, "tni");
   const warna = matchWarna("matra", WARNA_MATRA, "#ff5a3c");
+  const z = ZOOM_SATUAN_BAWAH;
+  // satuan bawah dipasang duluan supaya titik & label markas utama tetap di atasnya
+  daftar(map, {
+    id: "tni-satuan-titik",
+    type: "circle",
+    source: "tni",
+    minzoom: z,
+    filter: FILTER_SATUAN_BAWAH,
+    paint: {
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], z, 2, 9, 5],
+      // Kodim = titik penuh, Yonif = cincin
+      "circle-color": ["case", ["==", ["get", "jenis"], "Yonif"], "#05080f", warna] as unknown as ExpressionSpecification,
+      "circle-opacity": opacityZoom(z, z + 0.8, 0, 0.95),
+      "circle-stroke-color": ["case", ["==", ["get", "jenis"], "Yonif"], warna, "#05080f"] as unknown as ExpressionSpecification,
+      "circle-stroke-width": ["case", ["==", ["get", "jenis"], "Yonif"], 1.6, 1] as unknown as ExpressionSpecification,
+      "circle-stroke-opacity": opacityZoom(z, z + 0.8, 0, 0.95),
+    },
+  }, "tni");
+  daftar(map, {
+    id: "tni-satuan-label",
+    type: "symbol",
+    source: "tni",
+    minzoom: z + 1.6,
+    filter: FILTER_SATUAN_BAWAH,
+    layout: { ...LABEL_DASAR, "text-size": 10, "text-field": ["get", "nama"] },
+    paint: { ...LABEL_PAINT, "text-color": "#cbd5e1", "text-opacity": opacityZoom(z + 1.6, z + 2.2, 0, 1) },
+  }, "tni");
   daftar(map, {
     id: "tni-halo",
     type: "circle",
     source: "tni",
+    filter: FILTER_MARKAS_UTAMA,
     paint: {
       "circle-radius": ["interpolate", ["linear"], ["zoom"], 3, 7, 7, 16],
       "circle-color": warna,
@@ -88,6 +121,7 @@ function pasangTni(map: MapLibre) {
     id: "tni-titik",
     type: "circle",
     source: "tni",
+    filter: FILTER_MARKAS_UTAMA,
     paint: {
       "circle-radius": ["interpolate", ["linear"], ["zoom"], 3, ["case", ["==", ["get", "peringkat"], 1], 3.2, 2.4], 7, 6],
       "circle-color": warna,
@@ -102,6 +136,7 @@ function pasangTni(map: MapLibre) {
     type: "symbol",
     source: "tni",
     minzoom: 4.6,
+    filter: FILTER_MARKAS_UTAMA,
     layout: { ...LABEL_DASAR, "text-field": ["get", "nama"] },
     paint: { ...LABEL_PAINT, "text-opacity": opacityLod(5.0, 5.8, 1) },
   }, "tni");

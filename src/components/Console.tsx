@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Map as MapLibre } from "maplibre-gl";
 import type { GeoJSON } from "geojson";
-import { setVisibilitas, sinkronVisibilitas, setDataSource, sorotPilihan, pakaiCincin } from "@/lib/mapLayers";
+import { setVisibilitas, sinkronVisibilitas, setDataSource, sorotPilihan, pakaiCincin, ZOOM_SATUAN_BAWAH } from "@/lib/mapLayers";
 import { LAPISAN, LAPISAN_BAWAAN, type LayerId } from "@/lib/layers";
 import { bacaUrl, tampilanAwal, type Tampilan } from "@/lib/urlState";
 import { terjemah, bacaLangTersimpan, simpanLang, type Lang } from "@/lib/i18n";
@@ -110,7 +110,9 @@ export default function Console() {
       sorotPilihan(m, p && !cincin && !diKanvas ? p.lapisan : null, id || null);
       if (kanvasRef.current) kanvasRef.current.pilihan = diKanvas && p ? { jenis: p.lapisan as "satelit" | "pesawat", id } : null;
       if (p && terbang) {
-        m.flyTo({ center: [p.lon, p.lat], zoom: Math.max(m.getZoom(), p.lapisan === "satelit" ? 2.5 : 6), duration: 1600, essential: true });
+        // Kodim/Yonif (peringkat 3) baru kelihatan di zoom dekat, jadi terbang lebih dekat
+        const zoomMin = p.lapisan === "satelit" ? 2.5 : p.props.peringkat === 3 ? ZOOM_SATUAN_BAWAH + 1.2 : 6;
+        m.flyTo({ center: [p.lon, p.lat], zoom: Math.max(m.getZoom(), zoomMin), duration: 1600, essential: true });
       }
     },
     [mapRef, kanvasRef],
