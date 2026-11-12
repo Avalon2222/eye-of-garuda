@@ -5,6 +5,7 @@
  */
 
 import type { Map as MapLibre } from "maplibre-gl";
+import { FONT_MONO } from "./font";
 
 export function unduhBlob(blob: Blob, nama: string): void {
   const url = URL.createObjectURL(blob);
@@ -39,7 +40,7 @@ function gabung(map: MapLibre, overlay: HTMLCanvasElement | null, tujuan?: HTMLC
 function stempel(c: HTMLCanvasElement, teks: string): void {
   const ctx = c.getContext("2d")!;
   const skala = Math.max(1, c.width / 1200);
-  ctx.font = `${11 * skala}px 'JetBrains Mono', ui-monospace, monospace`;
+  ctx.font = `${11 * skala}px ${FONT_MONO}`;
   ctx.textBaseline = "bottom";
   ctx.textAlign = "right";
   ctx.lineWidth = 3 * skala;
