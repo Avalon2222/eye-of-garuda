@@ -14,6 +14,9 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // salinan worker MapLibre hasil scripts/salin_worker.mjs, bukan kode kita
     "public/maplibre/**",
+    // keluaran tes browser
+    "test-results/**",
+    "playwright-report/**",
   ]),
 ]);
 

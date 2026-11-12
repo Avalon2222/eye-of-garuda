@@ -18,6 +18,13 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm run lint
+      - run: npm test
       - run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+      - name: Pasang Chromium untuk Playwright
+        run: npx playwright install --with-deps chromium
+      - name: Smoke test di browser (390 px dan 1440 px)
+        run: npm run test:e2e -- --trace off
         env:
           NEXT_TELEMETRY_DISABLED: "1"
