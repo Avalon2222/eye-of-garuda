@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { devices, expect, test } from "@playwright/test";
 import { bukaKonsol, pantauCsp, tombolTanpaNama, tombolTerpotong } from "./bantu";
 
 /** Aksi header yang harus selalu bisa dijangkau, langsung atau lewat menu di layar sempit. */
@@ -99,4 +99,23 @@ test("panel detail dari tautan bersama jadi dialog dan menerima fokus", async ({
   expect(await panel.evaluate((el) => el === document.activeElement || el.contains(document.activeElement))).toBe(true);
   await panel.getByRole("button", { name: "Tutup" }).click();
   await expect(panel).toHaveCount(0);
+});
+
+test.describe("worker MapLibre (EOG-26)", () => {
+  // dobel unduh kelihatan di user agent Safari iOS (2 worker = 2 request), jadi tesnya pakai UA itu
+  test.use({ userAgent: devices["iPhone 13"].userAgent });
+
+  test("cuma diunduh sekali per kunjungan", async ({ page }) => {
+    const unduhWorker: string[] = [];
+    page.on("request", (r) => {
+      if (r.url().includes("maplibre-gl-worker")) unduhWorker.push(r.url());
+    });
+    await bukaKonsol(page);
+    // tunggu peta benar-benar jalan (worker sudah dipakai untuk memuat ubin)
+    await page.waitForFunction(() => {
+      const peta = (window as unknown as { __eog?: { loaded: () => boolean } }).__eog;
+      return Boolean(peta?.loaded());
+    }, undefined, { timeout: 30_000 });
+    expect(unduhWorker).toHaveLength(1);
+  });
 });

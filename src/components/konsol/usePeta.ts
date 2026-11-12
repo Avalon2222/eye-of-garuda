@@ -7,6 +7,7 @@ import { LAPISAN, type LayerId } from "@/lib/layers";
 import type { Lang } from "@/lib/i18n";
 import type { PelacakPesawat } from "@/lib/live/pesawat";
 import type { PelacakSatelit } from "@/lib/live/satelit";
+import { workerPetaSekali } from "@/lib/workerPeta";
 import { TAMPILAN_JAUH } from "./jenis";
 
 /** toleransi klik (px) untuk titik kecil: jari di HP butuh lebih lebar daripada kursor */
@@ -57,14 +58,15 @@ export function usePeta({ mapRef, kanvasRef, petaSiapRef, aktifRef, langRef, sat
     if (!wadahRef.current || mapRef.current) return;
     let dibatalkan = false;
     (async () => {
-      const style = await bangunStyle().catch(() => null);
+      // worker diambil barengan dengan style, jadi tidak menambah waktu tunggu
+      const [style, urlWorker] = await Promise.all([bangunStyle().catch(() => null), workerPetaSekali()]);
       if (dibatalkan || !wadahRef.current) return;
       if (!style) {
         setOnline(false);
         return;
       }
       layerSatTersembunyi.current = layerBasemapTersembunyiSaatSat(style);
-      setWorkerUrl("/maplibre/maplibre-gl-worker.mjs");
+      setWorkerUrl(urlWorker);
       const m = new MapLibre({
         container: wadahRef.current,
         style,
