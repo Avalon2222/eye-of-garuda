@@ -23,6 +23,7 @@ import { type FaseSkenario, type Aktor, posisiJalur, jejakJalur } from "./skenar
 import { lingkaran, jarakKm } from "./geo";
 import { WARNA_KATEGORI_PESAWAT, type KategoriPesawat } from "./negara";
 import { FONT_MONO } from "./font";
+import { terjemah } from "./i18n";
 
 export type JenisKanvas = "satelit" | "pesawat";
 
@@ -67,6 +68,22 @@ const FONT_BESAR = `11px ${FONT_MONO}`;
 /** satelit memudar antara dua zoom ini (di atasnya proyeksi globe tidak lagi dipakai MapLibre) */
 const ZOOM_SAT_PUDAR: [number, number] = [9.5, 11];
 const LAMA_PUDAR_MS = 450;
+/** batas label nama satelit/pesawat per frame; sisanya disembunyikan (yang dekat tengah layar menang) */
+const MAKS_LABEL = 30;
+const LAMA_PUDAR_LABEL_MS = 350;
+
+interface CalonLabel {
+  id: string;
+  teks: string;
+  x: number;
+  y: number;
+  warna: string;
+  font: string;
+  /** alpha lapisan asal (satelit/pesawat) */
+  alpha: number;
+  /** jarak kuadrat ke tengah layar */
+  d2: number;
+}
 
 interface TransformInternal {
   getProjectionDataForCustomLayer(applyGlobeMatrix: boolean): { mainMatrix: Float64Array | number[]; projectionTransition: number };
@@ -114,6 +131,9 @@ export class KanvasLive {
   private frameSebelum = 0;
   /** alpha pudar per jenis (0..1), supaya muncul/hilang lapisan halus */
   private alpha = { satelit: 0, pesawat: 0, sipri: 0 };
+  /** alpha pudar per label (id objek), supaya label tidak nongol bareng saat zoom */
+  private alphaLabel = new Map<string, number>();
+  private calonLabel: CalonLabel[] = [];
 
   satelit: PelacakSatelit | null = null;
   pesawat: PelacakPesawat | null = null;
@@ -230,6 +250,17 @@ export class KanvasLive {
   }
 
   // ---------- hit test ----------
+  /** Semua objek kanvas dalam radius (piksel), terdekat dulu. Dipakai daftar pilihan saat objek numpuk. */
+  cariSemua(x: number, y: number, radius = 14): (HitKanvas & { d2: number })[] {
+    const r2 = radius * radius;
+    const hasil: (HitKanvas & { d2: number })[] = [];
+    for (const h of this.hits) {
+      const d2 = (h.x - x) ** 2 + (h.y - y) ** 2;
+      if (d2 < r2) hasil.push({ ...h, d2 });
+    }
+    return hasil.sort((a, b) => a.d2 - b.d2);
+  }
+
   cari(x: number, y: number, radius = 14): HitKanvas | null {
     let terbaik: HitKanvas | null = null;
     let jarak = radius * radius;
@@ -265,6 +296,7 @@ export class KanvasLive {
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     ctx.globalAlpha = 1;
     this.hits = [];
+    this.calonLabel = [];
     this.terlihatSatelit = 0;
     const dt = this.frameSebelum ? Math.min(100, now - this.frameSebelum) : 16;
     this.frameSebelum = now;
@@ -274,7 +306,10 @@ export class KanvasLive {
     this.alpha.satelit = pudar(this.alpha.satelit, satTarget, dt);
     this.alpha.pesawat = pudar(this.alpha.pesawat, this.tampilPesawat && this.pesawat ? 1 : 0, dt);
     this.alpha.sipri = pudar(this.alpha.sipri, this.tampilSipri && this.busurSipri.length ? 1 : 0, dt);
-    if (this.alpha.satelit <= 0 && this.alpha.pesawat <= 0 && this.alpha.sipri <= 0 && !this.skenario) return;
+    if (this.alpha.satelit <= 0 && this.alpha.pesawat <= 0 && this.alpha.sipri <= 0 && !this.skenario) {
+      this.alphaLabel.clear();
+      return;
+    }
     const mulai = performance.now();
     ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     const p = this.proyektor();
@@ -290,6 +325,7 @@ export class KanvasLive {
       ctx.globalAlpha = this.alpha.pesawat;
       this.gambarPesawat(ctx, p, zoom, now, this.alpha.pesawat);
     }
+    this.gambarLabel(ctx, p, dt);
     ctx.globalAlpha = 1;
     if (this.skenario) this.gambarSkenario(ctx, p, zoom, now);
     ctx.globalAlpha = 1;
@@ -358,7 +394,7 @@ export class KanvasLive {
       ctx.stroke();
       this.hits.push({ jenis: "satelit", id, props: a.meta as unknown as Record<string, unknown>, lon: pos.lon, lat: pos.lat, x: t.x, y: t.y });
       if (id === idPilih) terpilih = { a, x: t.x, y: t.y };
-      else if (labelSemua || (indo && labelIndo)) this.teks(ctx, namaSatelit(a.meta), t.x + rr + 4, t.y, warna);
+      else if (labelSemua || (indo && labelIndo)) this.usulLabel(p, id, namaSatelit(a.meta), t.x + rr + 4, t.y, warna, FONT_KECIL, a2);
     }
     if (terpilih) {
       const tp: { a: SatAktif; x: number; y: number } = terpilih;
@@ -405,6 +441,8 @@ export class KanvasLive {
     const bearing = this.map.getBearing();
     const ukuran = Math.min(16, Math.max(8, 5 + zoom * 1.4));
     const idPilih = this.pilihan?.jenis === "pesawat" ? this.pilihan.id : null;
+    // jejak memudar masuk antara zoom 2,6 dan 3,4 (bukan langsung nyala semua di zoom 3)
+    const faktorJejak = Math.min(1, Math.max(0, (zoom - 2.6) / 0.8));
     ctx.font = FONT;
     ctx.textBaseline = "middle";
     ctx.textAlign = "left";
@@ -412,7 +450,7 @@ export class KanvasLive {
       const kategori = (a.props.kategori as KategoriPesawat) ?? "lain";
       const warna = WARNA_KATEGORI_PESAWAT[kategori];
       // jejak
-      if (a.jejak.length > 1 && zoom >= 3) {
+      if (a.jejak.length > 1 && faktorJejak > 0) {
         ctx.beginPath();
         let buka = false;
         let xLama = 0;
@@ -430,7 +468,7 @@ export class KanvasLive {
           xLama = t.x;
         }
         ctx.strokeStyle = warna;
-        ctx.globalAlpha = 0.4 * alpha;
+        ctx.globalAlpha = 0.4 * alpha * faktorJejak;
         ctx.lineWidth = 1.2;
         ctx.stroke();
         ctx.globalAlpha = alpha;
@@ -447,8 +485,45 @@ export class KanvasLive {
       if (id === idPilih) {
         this.cincin(ctx, t.x, t.y, now);
         this.teks(ctx, label, t.x + 16, t.y - 2, "#ffffff");
-      } else if (zoom >= 4) this.teks(ctx, label, t.x + ukuran * 0.7 + 3, t.y, warna);
+      } else if (zoom >= 4) this.usulLabel(p, id, label, t.x + ukuran * 0.7 + 3, t.y, warna, FONT, alpha);
     }
+  }
+
+  private usulLabel(p: Proyektor, id: string, teks: string, x: number, y: number, warna: string, font: string, alpha: number): void {
+    const dx = x - p.w / 2;
+    const dy = y - p.h / 2;
+    this.calonLabel.push({ id, teks, x, y, warna, font, alpha, d2: dx * dx + dy * dy });
+  }
+
+  /**
+   * Gambar label nama satelit/pesawat: maksimal MAKS_LABEL, yang paling dekat tengah layar duluan,
+   * masing-masing memudar masuk/keluar. Dulu semua label muncul serentak begitu zoom lewat ambang,
+   * jadi layar mendadak penuh tulisan.
+   */
+  private gambarLabel(ctx: CanvasRenderingContext2D, p: Proyektor, dt: number): void {
+    const calon = this.calonLabel;
+    calon.sort((a, b) => a.d2 - b.d2);
+    const langkah = dt / LAMA_PUDAR_LABEL_MS;
+    const ada = new Set<string>();
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "left";
+    for (let i = 0; i < calon.length; i++) {
+      const c = calon[i];
+      ada.add(c.id);
+      const target = i < MAKS_LABEL ? 1 : 0;
+      const lama = this.alphaLabel.get(c.id) ?? 0;
+      const baru = target > lama ? Math.min(1, lama + langkah) : Math.max(0, lama - langkah);
+      if (baru <= 0) {
+        this.alphaLabel.delete(c.id);
+        continue;
+      }
+      this.alphaLabel.set(c.id, baru);
+      if (c.x > p.w + 40 || c.y < -20 || c.y > p.h + 20) continue;
+      ctx.globalAlpha = c.alpha * baru;
+      ctx.font = c.font;
+      this.teks(ctx, c.teks, c.x, c.y, c.warna);
+    }
+    for (const id of this.alphaLabel.keys()) if (!ada.has(id)) this.alphaLabel.delete(id);
   }
 
   /** Komet kecil yang meluncur sepanjang busur SIPRI ke Indonesia: pengganti animasi dasharray MapLibre yang berat. */
@@ -780,7 +855,7 @@ export class KanvasLive {
       const cincin: [number, string, string][] = [
         [radiusKm * 0.1, "#fff7ed", "fireball"],
         [radiusKm * 0.5, "#f97316", "5 psi"],
-        [radiusKm, "#fbbf24", this.lang === "id" ? "luka bakar" : "burns"],
+        [radiusKm, "#fbbf24", terjemah(this.lang, "nuke_burns")],
       ];
       ctx.setLineDash([3, 3]);
       ctx.lineWidth = 1;

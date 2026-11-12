@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import { bukaKonsol, pantauCsp, tombolTanpaNama, tombolTerpotong } from "./bantu";
 
 /** Aksi header yang harus selalu bisa dijangkau, langsung atau lewat menu di layar sempit. */
-const AKSI_HEADER = ["Search", "Bantuan", "Data & anggaran", "Fullscreen"];
+const AKSI_HEADER = ["Search", "Help", "Data & budget", "Fullscreen"];
 
 test("konsol terbuka dan tombol header kelihatan", async ({ page }) => {
   const csp = pantauCsp(page);

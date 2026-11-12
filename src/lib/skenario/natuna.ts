@@ -19,7 +19,7 @@ export const NATUNA: Skenario = {
     id: "natuna",
     ikon: "swords",
     warna: "#ef4444",
-    judul: { id: "KRISIS LAUT NATUNA UTARA", en: "NORTH NATUNA SEA CRISIS" },
+    judul: { id: "NORTH NATUNA SEA CRISIS", en: "NORTH NATUNA SEA CRISIS" },
     lapisan: ["tni", "asing", "zee", "batas", "radius"],
     sub: {
       id: "Simulasi fiktif: kapal asing masuk ZEE, TNI merespons, eskalasi hipotetis. Untuk memahami geografi, bukan prediksi.",

@@ -33,7 +33,7 @@ function BarVertikal({ data, lang }: { data: Tabel["anggaran_indonesia"]; lang: 
         );
       })}
       <text x={pad} y={12} fontSize="9" fill="#8b95a7">
-        {lang === "id" ? "Pagu Kemhan, Rp triliun" : "MoD budget ceiling, Rp trillion"} · {lang === "id" ? "kuning = belum terealisasi" : "yellow = not yet realised"}
+        {terjemah(lang, "data_budget_axis")}
       </text>
     </svg>
   );
@@ -56,7 +56,7 @@ function BarHorizontal({ data, lang }: { data: Tabel["anggaran_kawasan"]; lang: 
           </span>
         </div>
       ))}
-      <div className="pt-1 text-[9.5px] text-dim">{lang === "id" ? "Belanja militer 2024, USD miliar · % PDB. SIPRI Milex 2024, dibulatkan." : "Military spending 2024, USD billion · % GDP. SIPRI Milex 2024, rounded."}</div>
+      <div className="pt-1 text-[9.5px] text-dim">{terjemah(lang, "data_region_note")}</div>
     </div>
   );
 }
@@ -83,18 +83,18 @@ export default function DataPanel({ lang, onTutup }: { lang: Lang; onTutup: () =
           {!t && <div className="text-dim">{terjemah(lang, "loading")}…</div>}
           {t && (
             <>
-              <div className="label-kecil mb-1">{lang === "id" ? "Anggaran pertahanan Indonesia 2015–2026" : "Indonesia defense budget 2015–2026"}</div>
+              <div className="label-kecil mb-1">{terjemah(lang, "data_budget_title")}</div>
               <BarVertikal data={t.anggaran_indonesia} lang={lang} />
-              <div className="label-kecil mb-2 mt-4">{lang === "id" ? "Perbandingan kawasan" : "Regional comparison"}</div>
+              <div className="label-kecil mb-2 mt-4">{terjemah(lang, "data_region_title")}</div>
               <BarHorizontal data={t.anggaran_kawasan} lang={lang} />
-              <div className="label-kecil mb-2 mt-4">{lang === "id" ? "Alutsista utama (perkiraan)" : "Major equipment (estimates)"}</div>
+              <div className="label-kecil mb-2 mt-4">{terjemah(lang, "data_equipment_title")}</div>
               <table className="w-full text-[11px]">
                 <thead className="text-dim">
                   <tr>
-                    <th className="hidden py-1 pr-3 text-left font-normal sm:table-cell">{lang === "id" ? "Matra" : "Branch"}</th>
-                    <th className="py-1 pr-3 text-left font-normal">Alutsista</th>
-                    <th className="py-1 pr-3 text-right font-normal">{lang === "id" ? "Jumlah" : "Qty"}</th>
-                    <th className="hidden py-1 text-left font-normal sm:table-cell">Status</th>
+                    <th className="hidden py-1 pr-3 text-left font-normal sm:table-cell">{terjemah(lang, "data_col_branch")}</th>
+                    <th className="py-1 pr-3 text-left font-normal">{terjemah(lang, "data_col_equipment")}</th>
+                    <th className="py-1 pr-3 text-right font-normal">{terjemah(lang, "data_col_qty")}</th>
+                    <th className="hidden py-1 text-left font-normal sm:table-cell">{terjemah(lang, "data_col_status")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -113,7 +113,7 @@ export default function DataPanel({ lang, onTutup }: { lang: Lang; onTutup: () =
                   ))}
                 </tbody>
               </table>
-              <p className="mt-3 text-[9.5px] text-dim">{lang === "id" ? "Sumber: Kemenkeu/Nota Keuangan, SIPRI, IISS, Wikipedia. Lihat data/SUMBER_DATA.md." : "Sources: MoF budget notes, SIPRI, IISS, Wikipedia. See data/SUMBER_DATA.md."}</p>
+              <p className="mt-3 text-[9.5px] text-dim">{terjemah(lang, "data_sources")}</p>
             </>
           )}
         </div>

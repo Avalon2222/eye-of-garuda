@@ -24,7 +24,7 @@ function jam(ms: number, zona: "Z" | "WIB"): string {
   return `${String(d.getUTCHours()).padStart(2, "0")}:${String(d.getUTCMinutes()).padStart(2, "0")}`;
 }
 
-/** Jadwal lintasan satelit militer & pengintai (LEO) di atas Indonesia, 12 jam ke depan. */
+/** Jadwal lintasan satelit strategis (LEO) di atas Indonesia, 12 jam ke depan. */
 export default function JadwalSatelit({ lang, lintasan, sekarang, dihitung, sedangHitung, lapisanAktif, onTutup, onHitung, onPilih }: Props) {
   const [tick, setTick] = useState(() => Date.now());
   const panel = useFokusPanel<HTMLDivElement>({ jebak: true });

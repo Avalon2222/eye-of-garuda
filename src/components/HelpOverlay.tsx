@@ -1,11 +1,12 @@
 "use client";
 
 import { X } from "lucide-react";
-import { terjemah, type Lang } from "@/lib/i18n";
+import { terjemah, type Lang, type KunciKamus } from "@/lib/i18n";
+import { LAPISAN } from "@/lib/layers";
 import { useFokusPanel } from "@/lib/useFokusPanel";
 import Logo from "./Logo";
 
-const PINTASAN: [string, "help_k" | "help_t" | "help_f" | "help_r" | "help_l" | "help_s" | "help_g" | "help_num" | "help_esc" | "help_q" | "help_w" | "help_c" | "help_o"][] = [
+const PINTASAN: [string, KunciKamus][] = [
   ["Ctrl K", "help_k"],
   ["T", "help_t"],
   ["W", "help_w"],
@@ -16,7 +17,7 @@ const PINTASAN: [string, "help_k" | "help_t" | "help_f" | "help_r" | "help_l" | 
   ["L", "help_l"],
   ["S", "help_s"],
   ["G", "help_g"],
-  ["1–9 0", "help_num"],
+  ["D", "help_d"],
   ["Esc", "help_esc"],
   ["?", "help_q"],
 ];
@@ -48,19 +49,7 @@ export default function HelpOverlay({ lang, onTutup, tentang, onPanduan }: { lan
           </button>
         </div>
         <div className="gulir max-h-[70vh] flex-1 overflow-y-auto px-4 py-3 text-[12px] leading-relaxed text-muted max-sm:max-h-none">
-          {lang === "id" ? (
-            <p>
-              Konsol globe interaktif untuk melihat postur pertahanan Indonesia dari luar angkasa: markas TNI, pangkalan asing di kawasan, pulau terluar,
-              ALKI, kabel bawah laut, pesawat dan helikopter militer yang memancarkan ADS-B, satelit militer dan pengintai, kapal dari AIS, pangkalan kapal selam,
-              serta analisis ZEE, radius tempur, impor senjata SIPRI, lini masa insiden, dan tiga simulasi War Room. Semua dari data publik; koordinat adalah perkiraan.
-            </p>
-          ) : (
-            <p>
-              An interactive globe console for Indonesia&apos;s defense posture seen from orbit: TNI bases, foreign bases in the region, outer islands, sea lanes,
-              undersea cables, military aircraft and helicopters broadcasting ADS-B, military and spy satellites, AIS vessels, submarine home ports, plus EEZ,
-              combat-radius, SIPRI arms-import and incident-timeline analysis, and three War Room simulations. Public data only; coordinates are approximate.
-            </p>
-          )}
+          <p>{terjemah(lang, "about_text")}</p>
           <div className="mt-4 hidden max-sm:block pointer-coarse:block">
             <div className="label-kecil mb-1.5 text-gold">{terjemah(lang, "help_touch")}</div>
             <ul className="space-y-1.5">
@@ -86,6 +75,19 @@ export default function HelpOverlay({ lang, onTutup, tentang, onPanduan }: { lan
                     </span>
                   ))}
                 </span>
+              </div>
+            ))}
+          </div>
+          <div className="label-kecil mb-1 mt-4 text-gold">{terjemah(lang, "help_layers_title")}</div>
+          <p className="mb-1.5 text-[10.5px] text-dim">{terjemah(lang, "help_layers_note")}</p>
+          <div className="grid grid-cols-1 gap-x-6 gap-y-1.5 sm:grid-cols-2" data-testid="bantuan-lapisan">
+            {LAPISAN.map((l) => (
+              <div key={l.id} className="flex items-center justify-between gap-3 border-b border-white/5 py-1">
+                <span className="flex min-w-0 items-center gap-2 text-text">
+                  <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: l.warna }} />
+                  <span className="truncate">{l.nama[lang]}</span>
+                </span>
+                <span className="kbd">{l.tombol}</span>
               </div>
             ))}
           </div>

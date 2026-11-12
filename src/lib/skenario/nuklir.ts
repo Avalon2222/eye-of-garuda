@@ -27,7 +27,7 @@ export const NUKLIR: Skenario = {
   id: "nuklir",
   ikon: "radiation",
   warna: "#fbbf24",
-  judul: { id: "NUCLEAR WAR: BAYANGAN DI ATAS NUSANTARA", en: "NUCLEAR WAR: THE SHADOW OVER THE ARCHIPELAGO" },
+  judul: { id: "NUCLEAR WAR: THE SHADOW OVER THE ARCHIPELAGO", en: "NUCLEAR WAR: THE SHADOW OVER THE ARCHIPELAGO" },
   sub: {
     id: "Simulasi fiktif: dua blok bertukar serangan nuklir terbatas di kawasan. Tidak satu pun bom jatuh di Indonesia, tetapi EMP, satelit, fallout, dan rantai pasok tetap menghantam. Untuk memahami geografi, bukan prediksi.",
     en: "Fictional simulation: two blocs trade a limited nuclear exchange in the region. No bomb falls on Indonesia, yet EMP, satellites, fallout and supply chains are all hit. To understand geography, not a prediction.",
