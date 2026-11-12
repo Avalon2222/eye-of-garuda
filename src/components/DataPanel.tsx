@@ -44,14 +44,14 @@ function BarHorizontal({ data, lang }: { data: Tabel["anggaran_kawasan"]; lang: 
   return (
     <div className="space-y-1">
       {urut.map((d) => (
-        <div key={d.negara} className="grid grid-cols-[92px_1fr_60px] items-center gap-2 text-[11px]">
+        <div key={d.negara} className="grid grid-cols-[76px_1fr_auto] items-center gap-2 text-[11px] sm:grid-cols-[92px_1fr_auto]">
           <span className={d.negara === "Indonesia" ? "text-accent" : "text-muted"}>{d.negara}</span>
           <div className="h-3 bg-white/5">
             <div className="h-full" style={{ width: `${(d.usd_miliar / maks) * 100}%`, background: d.negara === "Indonesia" ? "#ff5a3c" : "#3b82f6", opacity: d.keyakinan === "rendah" ? 0.5 : 0.85 }} />
           </div>
-          <span className="tabular-nums text-text">
+          <span className="whitespace-nowrap text-right tabular-nums text-text">
             ${d.usd_miliar}
-            <span className="text-dim">B</span> <span className="text-dim">{d.persen_pdb}%</span>
+            <span className="text-dim">B</span> <span className="inline-block w-[34px] text-dim">{d.persen_pdb}%</span>
           </span>
         </div>
       ))}
@@ -69,11 +69,11 @@ export default function DataPanel({ lang, onTutup }: { lang: Lang; onTutup: () =
       .catch(() => setT(null));
   }, []);
   return (
-    <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/50 p-3 backdrop-blur-[2px]" onClick={onTutup}>
-      <div className="glass braket muncul flex max-h-[88vh] w-[720px] max-w-full flex-col" onClick={(e) => e.stopPropagation()}>
+    <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/50 sm:p-3 sm:backdrop-blur-[2px]" onClick={onTutup}>
+      <div className="glass braket muncul lembar-hp flex max-h-[88vh] w-[720px] max-w-full flex-col" role="dialog" aria-modal="true" aria-label={terjemah(lang, "data_panel")} onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
           <div className="text-[12px] tracking-[0.25em] text-text uppercase">{terjemah(lang, "data_panel")}</div>
-          <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={onTutup}>
+          <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={onTutup} title={terjemah(lang, "close")} aria-label={terjemah(lang, "close")}>
             <X size={15} />
           </button>
         </div>
@@ -89,19 +89,24 @@ export default function DataPanel({ lang, onTutup }: { lang: Lang; onTutup: () =
               <table className="w-full text-[11px]">
                 <thead className="text-dim">
                   <tr>
-                    <th className="py-1 text-left font-normal">{lang === "id" ? "Matra" : "Branch"}</th>
-                    <th className="py-1 text-left font-normal">Alutsista</th>
-                    <th className="py-1 text-right font-normal">{lang === "id" ? "Jumlah" : "Qty"}</th>
-                    <th className="py-1 text-left font-normal">Status</th>
+                    <th className="hidden py-1 pr-3 text-left font-normal sm:table-cell">{lang === "id" ? "Matra" : "Branch"}</th>
+                    <th className="py-1 pr-3 text-left font-normal">Alutsista</th>
+                    <th className="py-1 pr-3 text-right font-normal">{lang === "id" ? "Jumlah" : "Qty"}</th>
+                    <th className="hidden py-1 text-left font-normal sm:table-cell">Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   {t.alutsista.map((a) => (
                     <tr key={a.nama} className="border-t border-white/5">
-                      <td className="py-1 text-muted">{a.matra}</td>
-                      <td className="py-1 text-text">{a.nama}</td>
-                      <td className="py-1 text-right tabular-nums text-text">{a.jumlah}</td>
-                      <td className="py-1 text-muted">{a.status}</td>
+                      <td className="hidden py-1 pr-3 align-top text-muted sm:table-cell">{a.matra}</td>
+                      <td className="py-1 pr-3 align-top text-text">
+                        {a.nama}
+                        <span className="block text-[10px] text-muted sm:hidden">
+                          {a.matra} · {a.status}
+                        </span>
+                      </td>
+                      <td className="py-1 pr-3 text-right align-top tabular-nums text-text">{a.jumlah ?? "–"}</td>
+                      <td className="hidden py-1 align-top text-muted sm:table-cell">{a.status}</td>
                     </tr>
                   ))}
                 </tbody>
