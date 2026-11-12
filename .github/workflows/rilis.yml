@@ -1,0 +1,45 @@
+name: Rilis
+
+# Tiap kali versi di package.json naik dan masuk ke main, workflow ini bikin tag + GitHub Release
+# dengan catatan rilis yang diambil dari bagian versi itu di CHANGELOG.md.
+on:
+  push:
+    branches: [main]
+    paths: [package.json, CHANGELOG.md]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rilis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Baca versi
+        id: versi
+        run: echo "tag=v$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Bikin rilis kalau tag belum ada
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.versi.outputs.tag }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "$TAG sudah dirilis, lewati"
+            exit 0
+          fi
+          versi="${TAG#v}"
+          # ambil isi bagian "## [versi]" sampai judul versi berikutnya
+          awk -v v="$versi" '
+            $0 ~ "^## \\[" v "\\]" { ambil = 1; next }
+            ambil && /^## \[/ { exit }
+            ambil { print }
+          ' CHANGELOG.md > catatan.md
+          if [ ! -s catatan.md ]; then
+            echo "::error::Bagian [$versi] belum ada di CHANGELOG.md"
+            exit 1
+          fi
+          gh release create "$TAG" --target "$GITHUB_SHA" --title "Eye of Garuda $TAG" --notes-file catatan.md --latest
