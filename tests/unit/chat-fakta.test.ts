@@ -127,6 +127,13 @@ describe("10 pertanyaan uji asisten", () => {
 });
 
 describe("fakta: kasus lain", () => {
+  it("'paling banyak' tanpa kata 'berapa' tetap dihitung, bukan dicari sebagai nama", () => {
+    const f = siapkanFakta(indeks, "Negara mana yang pangkalannya paling banyak di kawasan?", "id")!;
+    expect(f.alat).toContain("hitung");
+    expect(f.teks).toMatch(/^Jumlah pangkalan asing di data peta: \d+\./);
+    expect(f.teks).not.toContain("Pulau Banyak");
+  });
+
   it("pertanyaan umum tanpa objek tidak dipaksa punya fakta", () => {
     for (const q of ["Ini apa sih?", "Kenapa satelit ada yang lebih tinggi?", "Lapisan mana yang live?", ""]) expect(siapkanFakta(indeks, q, "id")).toBeNull();
   });
