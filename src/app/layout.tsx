@@ -1,5 +1,9 @@
 import type { Metadata, Viewport } from "next";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+// font di-host sendiri lewat next/font: tanpa request ke Google saat runtime, tanpa lompatan tata letak
+const fontMono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap", variable: "--font-jetbrains" });
 
 const URL_SITUS = "https://eye-of-garuda.vercel.app";
 
@@ -31,11 +35,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" className="h-full">
+    <html lang="id" className={`h-full ${fontMono.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <link rel="preconnect" href="https://tiles.openfreemap.org" />
       </head>
       <body className="h-full">{children}</body>
