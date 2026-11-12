@@ -2,6 +2,8 @@
 
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { POST } from "@/app/api/chat/route";
+import { siapkanFakta } from "@/lib/chat/fakta";
+import { indeksAsli } from "./bantu";
 
 const ASAL = "https://eye-of-garuda.vercel.app";
 let nomorIp = 0;
@@ -14,7 +16,7 @@ function permintaan(pesan: string, kepala: Record<string, string> = {}, lang: "i
   });
 }
 
-let badanTerakhir: { messages: { role: string; content: string }[] } | null = null;
+let badanTerakhir: { messages: { role: string; content: string }[]; tools?: unknown[] } | null = null;
 
 function pasangModel(balasan: (nomor: number) => Response) {
   let n = 0;
@@ -74,6 +76,33 @@ describe("POST /api/chat", () => {
     expect(pesanAkhir).toContain("DATA:\nPangkalan asing terdekat dari Natuna (Ranai)");
     expect(pesanAkhir).toMatch(/1\. Changi Naval Base .*: 566 km/);
     expect(console.info).toHaveBeenCalledWith("[chat]", expect.stringContaining('"model":"openai/gpt-oss-120b"'));
+  });
+
+  it("kalau fakta sudah dihitung server, model tidak ditawari alat; tanpa fakta, alat dikirim", async () => {
+    pasangModel(() => sukses("Markas TNI di Papua ada di blok DATA."));
+    await POST(permintaan("Ada berapa markas TNI di Papua?"));
+    expect(badanTerakhir!.tools).toBeUndefined();
+    pasangModel(() => sukses("Konsol ini menampilkan postur pertahanan Indonesia."));
+    await POST(permintaan("Ini apa sih?"));
+    expect(badanTerakhir!.tools).toHaveLength(4);
+  });
+
+  it("jawaban model yang melenceng dari data diganti hitungan server", async () => {
+    pasangModel(() => sukses("Pangkalan milik China di dekat Natuna tidak ada di data.\n@terbang: Natuna"));
+    const res = await POST(permintaan("Pangkalan China terdekat dari Natuna?"));
+    const data = (await res.json()) as { jawaban: string; model: string };
+    expect(data.model).toBe("data");
+    expect(data.jawaban).toMatch(/1\. Fiery Cross Reef .*: \d+ km/);
+    expect(data.jawaban).toContain("@terbang: Fiery Cross Reef");
+  });
+
+  it("baris aksi ikut hitungan server, bukan tebakan model", async () => {
+    const jumlah = siapkanFakta(indeksAsli(), "Ada berapa Lanud di Indonesia?", "id")!.wajib[0];
+    pasangModel(() => sukses(`Ada **${jumlah}** Lanud di Indonesia.\n\n@terbang: Lanud Indonesia\n@lapisan: bandara`));
+    const res = await POST(permintaan("Ada berapa Lanud di Indonesia?"));
+    const data = (await res.json()) as { jawaban: string; model: string };
+    expect(data.model).toBe("openai/gpt-oss-120b");
+    expect(data.jawaban).toBe(`Ada **${jumlah}** Lanud di Indonesia.\n@lapisan: tni`);
   });
 
   it("semua model gagal: fakta dari data tetap dikirim, tanpa pesan error internal", async () => {

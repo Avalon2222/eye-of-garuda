@@ -11,7 +11,7 @@ import { NextResponse } from "next/server";
 import { getCache } from "@vercel/functions";
 import { asalDiizinkan } from "@/lib/chat/asal";
 import { PenyimpanMemori, lewatBatas, sidikIp, type Penyimpan } from "@/lib/chat/batas";
-import { lapisanAntarmuka, siapkanFakta } from "@/lib/chat/fakta";
+import { jawabanSesuai, lapisanAntarmuka, siapkanFakta } from "@/lib/chat/fakta";
 import { daftarModel, tanyaModel, type PesanModel } from "@/lib/chat/model";
 import { muatIndeks } from "@/lib/chat/muat";
 import { pesanPengguna, promptSistem } from "@/lib/chat/prompt";
@@ -82,12 +82,16 @@ export async function POST(req: Request) {
     ...riwayat.slice(0, -1),
     { role: "user", content: pesanPengguna(lang, pertanyaan, layar, fakta?.teks ?? "") },
   ];
-  const hasil = await tanyaModel({ url: URL_API, kunci, model: daftarModel(process.env.CHAT_MODEL), pesan, indeks });
+  // kalau jawabannya sudah dihitung server, model cukup merangkai kalimat dan tidak perlu alat lagi
+  const hasil = await tanyaModel({ url: URL_API, kunci, model: daftarModel(process.env.CHAT_MODEL), pesan, indeks, tanpaAlat: Boolean(fakta) });
+  // jawaban yang tidak memuat nama atau angka kunci dari data dianggap melenceng dan tidak dipakai
+  const sesuai = !hasil.jawaban || !fakta || jawabanSesuai(hasil.jawaban, fakta.wajib);
 
   console.info(
     "[chat]",
     JSON.stringify({
       model: hasil.model ?? null,
+      sesuai,
       percobaan: hasil.percobaan,
       alat: [...(fakta?.alat ?? []).map((a) => `server:${a}`), ...hasil.alat],
       objek: indeks.length,
@@ -101,15 +105,14 @@ export async function POST(req: Request) {
   if (fakta?.terbang) aksi.push(`@terbang: ${fakta.terbang}`);
   if (fakta?.lapisan) aksi.push(`@lapisan: ${lapisanAntarmuka(fakta.lapisan)}`);
 
-  if (!hasil.jawaban) {
-    // semua model gagal, tapi hitungan dari data tetap bisa dikirim apa adanya
+  if (!hasil.jawaban || !sesuai) {
+    // semua model gagal atau jawabannya melenceng, tapi hitungan dari data tetap bisa dikirim apa adanya
     if (fakta) return NextResponse.json({ jawaban: [fakta.teks, ...aksi].join("\n"), model: "data", alat: fakta.alat });
     return galat("upstream", 502);
   }
 
-  // model kadang lupa baris aksi; lengkapi dari hasil hitungan server
+  // kalau server sudah punya fakta, baris aksi ikut hasil hitungan server, bukan tebakan model
   let jawaban = hasil.jawaban;
-  if (fakta?.terbang && !/^\s*@?(terbang|fly)\s*:/im.test(jawaban)) jawaban += `\n${aksi[0]}`;
-  if (fakta?.lapisan && !/^\s*@?(lapisan|layer)\s*:/im.test(jawaban)) jawaban += `\n@lapisan: ${lapisanAntarmuka(fakta.lapisan)}`;
+  if (fakta) jawaban = [jawaban.replace(/^\s*@?(terbang|fly|lapisan|layer)\s*:.*$/gim, "").trimEnd(), ...aksi].join("\n");
   return NextResponse.json({ jawaban, model: hasil.model, alat: [...(fakta?.alat ?? []), ...hasil.alat] });
 }
