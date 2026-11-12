@@ -41,7 +41,7 @@ export const LAPISAN: LayerDef[] = [
     id: "tni",
     tombol: "1",
     nama: { id: "Markas TNI", en: "TNI bases" },
-    deskripsi: { id: "Mabes, Kogabwilhan, Kodam, Lantamal, Koarmada, Lanud", en: "HQ, joint commands, army, navy and air force bases" },
+    deskripsi: { id: "Mabes, Kogabwilhan, Kodam, Lantamal, Koarmada, Lanud; Kodim & Yonif di zoom dekat", en: "HQ, joint commands, army, navy and air force bases; district commands & battalions up close" },
     grup: "darat",
     warna: "#ff5a3c",
     jenis: "statis",
