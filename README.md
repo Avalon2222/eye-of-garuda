@@ -131,10 +131,19 @@ adsb.lol    ──app/api/pesawat───────────▶ browser, t
   kanvas), rekaman WebM lewat MediaRecorder. Menambah skenario = satu berkas baru dan satu entri di `SKENARIO`.
 - **Jadwal lintasan.** Web Worker (`lintasan.worker.ts`) mempropagasi semua satelit LEO 12 jam ke depan dengan langkah
   60 detik dan mencatat kapan masuk/keluar kotak Indonesia, tanpa membebani thread utama.
-- **Asisten.** `app/api/chat` meneruskan pertanyaan ke API chat kompatibel OpenAI (Groq, tier gratis) dengan ringkasan
-  aplikasi sebagai system prompt (`src/lib/pengetahuan.ts`), dibatasi 30 permintaan per IP per 10 menit. Jawaban boleh
-  menyertakan baris `@terbang: <nama>` dan `@lapisan: <id>` yang diubah menjadi tombol untuk menerbangkan globe dan
-  menyalakan lapisan. Tanpa kunci, atau saat kuota habis, widget otomatis beralih ke mode FAQ tanpa AI.
+- **Asisten.** Angka di jawaban tidak ditebak model. `app/api/chat` lebih dulu menghitung sendiri dari GeoJSON di
+  `public/data` (`src/lib/chat/`): objek terdekat dari suatu tempat, jumlah per provinsi/negara/jenis, jarak dua titik,
+  dan letak objek. Hasilnya ditempel ke pertanyaan sebagai blok DATA, lalu dikirim ke API chat kompatibel OpenAI (Groq,
+  tier gratis); model juga boleh memanggil alat yang sama (`terdekat`, `hitung`, `cari_objek`, `jarak`) untuk pertanyaan
+  lanjutan. Model dicoba berurutan (`openai/gpt-oss-120b`, lalu `qwen/qwen3.8-27b`, lalu `openai/gpt-oss-20b`) dan yang
+  menjawab tampil di kepala panel serta tercatat di log server. Kalau semua model sibuk, hitungan dari data tetap
+  dikirim apa adanya; tanpa kunci, widget beralih ke mode FAQ tanpa AI. Jawaban boleh menyertakan baris
+  `@terbang: <nama>` dan `@lapisan: <id>` yang diubah menjadi tombol, dan Markdown dasar (tebal, list) dirender.
+- **Pengaman API.** `/api/chat` hanya menerima permintaan dari situs ini (cek header Origin) dan dibatasi 30 permintaan
+  per IP per 10 menit; hitungannya disimpan di Vercel Runtime Cache supaya tidak hilang saat server berganti instance.
+  Semua halaman dikirim dengan Content-Security-Policy, X-Frame-Options, dan Referrer-Policy (`src/lib/keamanan.ts`);
+  host baru yang diambil browser harus didaftarkan di sana. Galat API ke browser hanya berupa kode pendek, rinciannya
+  ada di log server.
 - **Data live tanpa redeploy.** Snapshot AIS dan katalog satelit ditulis GitHub Actions ke cabang `data`, dibaca
   browser lewat raw.githubusercontent.com. Cabang `main` tetap bersih dan Vercel tidak perlu build ulang.
 - **URL sebagai state.** Kamera, lapisan, bahasa, mode, dan pilihan disimpan di hash URL, jadi setiap tampilan bisa
@@ -158,7 +167,18 @@ tiap bulan ke cabang `data`). Untuk mencocokkan ulang koordinat markas ke OpenSt
 
 Untuk asisten mode AI, set environment variable `GROQ_API_KEY` (kunci gratis dari https://console.groq.com/keys) di
 `.env.local` atau di Vercel → Settings → Environment Variables. Tanpa kunci, asisten tetap jalan dalam mode FAQ.
-Opsional: `CHAT_API_URL` dan `CHAT_MODEL` untuk memakai penyedia lain yang kompatibel OpenAI.
+Opsional: `CHAT_API_URL` dan `CHAT_MODEL` untuk memakai penyedia atau model utama lain yang kompatibel OpenAI, dan
+`CHAT_ASAL_IZIN` (daftar origin dipisah koma) kalau asisten perlu dipanggil dari domain selain domain situs.
+
+### Tes
+
+```bash
+npm test                 # Vitest: geo, ekstrapolasi kapal, skenario, kamus ID/EN, alat data asisten, API chat
+npm run build && npm run test:e2e   # Playwright: smoke test di 390 px dan 1440 px terhadap hasil build
+```
+
+Tes unit membaca data asli di `public/data`, jadi angka yang dijawab asisten (misalnya pangkalan asing terdekat dari
+Natuna) ikut teruji setiap kali data berubah. Keduanya jalan di CI pada setiap pull request.
 
 ## Kejujuran data
 
@@ -169,7 +189,8 @@ Opsional: `CHAT_API_URL` dan `CHAT_MODEL` untuk memakai penyedia lain yang kompa
   kelas armada dari halaman publik.
 - Skenario adalah fiksi edukatif: geometri jarak dari data publik, tetapi gerakan, waktu, dan hasilnya ilustrasi.
   Skenario nuklir memakai angka efek dari literatur publik (Glasstone & Dolan, NUKEMAP) yang dibulatkan.
-- Jawaban asisten dibuat model bahasa dan bisa keliru; ia hanya tahu ringkasan aplikasi ini, bukan intelijen.
+- Jawaban asisten dibuat model bahasa dan bisa keliru. Jarak dan jumlah dihitung server dari data peta ini, tapi
+  penjelasannya tetap ringkasan, bukan intelijen.
 - Hanya pesawat militer yang memancarkan ADS-B yang terlihat; banyak jet tempur terbang gelap.
 - Cakupan AIS tipis di luar Singapura/Batam; kapal perang sering mematikan AIS.
 - Sembilan garis putus digambar ilustratif; radius tempur hanya jarak geometris dari angka publik.
