@@ -87,7 +87,7 @@ export default function TimelineStrip({ lang, data, terpilih, onPilih }: Props) 
     <div className="pointer-events-auto absolute inset-x-0 z-20 px-2 sm:left-[270px] sm:right-3 sm:bottom-[44px] lg:right-[312px] max-sm:top-[106px]">
       <div className="glass flex flex-col overflow-hidden">
         <div className="flex items-center gap-2 border-b border-white/10 px-2 py-1.5">
-          <button className={`tombol-ikon !h-6 !w-6 ${putar ? "aktif" : ""}`} onClick={() => setPutar(!putar)} title={terjemah(lang, putar ? "timeline_pause" : "timeline_play")}>
+          <button className={`tombol-ikon !h-6 !w-6 ${putar ? "aktif" : ""}`} onClick={() => setPutar(!putar)} title={terjemah(lang, putar ? "timeline_pause" : "timeline_play")} aria-label={terjemah(lang, putar ? "timeline_pause" : "timeline_play")} aria-pressed={putar}>
             {putar ? <Pause size={12} /> : <Play size={12} />}
           </button>
           <span className="w-9 text-[10px] tabular-nums text-muted">{tahunLabel(min)}</span>

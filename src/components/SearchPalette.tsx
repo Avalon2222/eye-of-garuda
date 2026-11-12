@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Search, CornerDownLeft } from "lucide-react";
 import { lapisanDariId, type LayerId } from "@/lib/layers";
 import { terjemah, type Lang } from "@/lib/i18n";
+import { useFokusPanel } from "@/lib/useFokusPanel";
 
 export interface EntriCari {
   id: string;
@@ -35,6 +36,7 @@ export default function SearchPalette({ lang, indeks, onPilih, onTutup }: Props)
   const [q, setQ] = useState("");
   const [aktif, setAktif] = useState(0);
   const input = useRef<HTMLInputElement>(null);
+  const panel = useFokusPanel<HTMLDivElement>({ jebak: true });
   useEffect(() => input.current?.focus(), []);
 
   const hasil = useMemo(() => {
@@ -65,7 +67,7 @@ export default function SearchPalette({ lang, indeks, onPilih, onTutup }: Props)
 
   return (
     <div className="absolute inset-0 z-40 flex items-start justify-center bg-black/40 pt-[12vh] backdrop-blur-[2px]" onClick={onTutup}>
-      <div className="glass braket muncul w-[560px] max-w-[94vw]" onClick={(e) => e.stopPropagation()}>
+      <div ref={panel} role="dialog" aria-modal="true" aria-label={terjemah(lang, "search")} tabIndex={-1} className="glass braket muncul w-[560px] max-w-[94vw] outline-none" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center gap-2 border-b border-white/10 px-3">
           <Search size={15} className="text-accent" />
           <input
@@ -77,6 +79,7 @@ export default function SearchPalette({ lang, indeks, onPilih, onTutup }: Props)
             }}
             onKeyDown={tekan}
             placeholder={terjemah(lang, "search_hint")}
+            aria-label={terjemah(lang, "search_hint")}
             className="h-11 flex-1 bg-transparent text-[13px] text-text outline-none placeholder:text-dim"
           />
           <span className="kbd">Esc</span>

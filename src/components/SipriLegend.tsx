@@ -16,6 +16,8 @@ export default function SipriLegend({ lang, data, onPilih }: { lang: Lang; data:
         className="glass pointer-events-auto absolute right-3 top-[140px] z-20 hidden items-center gap-2 px-3 py-1.5 text-[10px] tracking-[0.15em] uppercase text-muted hover:text-text sm:flex"
         onClick={() => setTerbuka(true)}
         title={terjemah(lang, "sipri_expand")}
+        aria-label={`${terjemah(lang, "sipri_expand")}: SIPRI ${data.periode}`}
+        aria-expanded={false}
         style={{ borderColor: "rgba(192,132,252,0.5)" }}
       >
         <ArrowRightLeft size={12} style={{ color: "#c084fc" }} /> SIPRI {data.periode} <ChevronUp size={12} />
@@ -23,7 +25,7 @@ export default function SipriLegend({ lang, data, onPilih }: { lang: Lang; data:
     );
   }
   return (
-    <div className="glass braket pointer-events-auto absolute right-3 top-[140px] z-20 hidden w-[300px] sm:block">
+    <div role="region" aria-label={`SIPRI: ${terjemah(lang, "sipri_title")}`} className="glass braket pointer-events-auto absolute right-3 top-[140px] z-20 hidden w-[300px] sm:block">
       <div className="flex items-start justify-between gap-2 border-b border-white/10 px-3 py-2">
         <div className="min-w-0">
           <div className="label-kecil text-[9px]" style={{ color: "#c084fc" }}>
@@ -35,7 +37,7 @@ export default function SipriLegend({ lang, data, onPilih }: { lang: Lang; data:
             {lang === "id" ? "Total" : "Total"} {data.total_tiv_juta.toLocaleString("en-US")} {lang === "id" ? "juta TIV" : "m TIV"}
           </div>
         </div>
-        <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={() => setTerbuka(false)} title={terjemah(lang, "sipri_collapse")}>
+        <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={() => setTerbuka(false)} title={terjemah(lang, "sipri_collapse")} aria-label={terjemah(lang, "sipri_collapse")} aria-expanded={true}>
           <ChevronDown size={14} />
         </button>
       </div>

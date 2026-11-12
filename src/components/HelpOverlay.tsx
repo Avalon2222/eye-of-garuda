@@ -2,6 +2,7 @@
 
 import { X } from "lucide-react";
 import { terjemah, type Lang } from "@/lib/i18n";
+import { useFokusPanel } from "@/lib/useFokusPanel";
 import Logo from "./Logo";
 
 const PINTASAN: [string, "help_k" | "help_t" | "help_f" | "help_r" | "help_l" | "help_s" | "help_g" | "help_num" | "help_esc" | "help_q" | "help_w" | "help_c" | "help_o"][] = [
@@ -30,9 +31,10 @@ const SENTUH: [string, "help_touch_drag" | "help_touch_pinch" | "help_touch_tilt
 ];
 
 export default function HelpOverlay({ lang, onTutup, tentang, onPanduan }: { lang: Lang; onTutup: () => void; tentang?: boolean; onPanduan?: () => void }) {
+  const panel = useFokusPanel<HTMLDivElement>({ jebak: true });
   return (
     <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/50 sm:p-3 sm:backdrop-blur-[2px]" onClick={onTutup}>
-      <div className="glass braket muncul lembar-hp flex w-[620px] max-w-full flex-col" role="dialog" aria-modal="true" aria-label={terjemah(lang, "help")} onClick={(e) => e.stopPropagation()}>
+      <div ref={panel} tabIndex={-1} className="glass braket muncul lembar-hp flex w-[620px] max-w-full flex-col outline-none" role="dialog" aria-modal="true" aria-label={terjemah(lang, "help")} onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
           <div className="flex items-center gap-3">
             <Logo size={26} className="text-accent" />
