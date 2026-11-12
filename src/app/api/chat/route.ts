@@ -10,7 +10,7 @@
 import { NextResponse } from "next/server";
 import { getCache } from "@vercel/functions";
 import { asalDiizinkan } from "@/lib/chat/asal";
-import { PenyimpanMemori, lewatBatas, sidikIp, type Penyimpan } from "@/lib/chat/batas";
+import { PenyimpanMemori, catatPermintaan, sidikIp, type Penyimpan } from "@/lib/chat/batas";
 import { jawabanSesuai, lapisanAntarmuka, siapkanFakta } from "@/lib/chat/fakta";
 import { daftarModel, tanyaModel, type PesanModel } from "@/lib/chat/model";
 import { muatIndeks } from "@/lib/chat/muat";
@@ -56,8 +56,17 @@ export async function POST(req: Request) {
   if (!kunci) return galat("no_key", 503);
 
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || "anon";
-  if (await lewatBatas(penyimpan(), `ip:${sidikIp(ip)}`, BATAS_PER_IP, JENDELA_MS)) return galat("rate_limit", 429);
+  const jatah = await catatPermintaan(penyimpan(), `ip:${sidikIp(ip)}`, BATAS_PER_IP, JENDELA_MS);
+  const res = jatah.lewat ? galat("rate_limit", 429) : await jawab(req, kunci);
+  // sisa jatah ikut dikirim supaya pembatasnya bisa dicek dari luar
+  res.headers.set("RateLimit-Limit", String(BATAS_PER_IP));
+  res.headers.set("RateLimit-Remaining", String(jatah.sisa));
+  res.headers.set("RateLimit-Reset", String(jatah.resetDetik));
+  if (jatah.lewat) res.headers.set("Retry-After", String(jatah.resetDetik));
+  return res;
+}
 
+async function jawab(req: Request, kunci: string): Promise<NextResponse> {
   let body: Permintaan;
   try {
     body = (await req.json()) as Permintaan;

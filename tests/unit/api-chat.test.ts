@@ -133,9 +133,16 @@ describe("POST /api/chat", () => {
   it("IP yang sama dibatasi 30 permintaan per 10 menit", async () => {
     pasangModel(() => sukses("ok"));
     const kepala = { "x-forwarded-for": "203.0.113.99" };
-    for (let i = 0; i < 30; i++) expect((await POST(permintaan("halo", kepala))).status).toBe(200);
+    for (let i = 0; i < 30; i++) {
+      const ok = await POST(permintaan("halo", kepala));
+      expect(ok.status).toBe(200);
+      expect(ok.headers.get("RateLimit-Remaining")).toBe(String(29 - i));
+    }
     const res = await POST(permintaan("halo", kepala));
     expect(res.status).toBe(429);
     expect(await res.json()).toEqual({ galat: "rate_limit" });
+    expect(res.headers.get("RateLimit-Limit")).toBe("30");
+    expect(res.headers.get("RateLimit-Remaining")).toBe("0");
+    expect(Number(res.headers.get("Retry-After"))).toBeGreaterThan(0);
   });
 });
