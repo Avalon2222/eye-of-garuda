@@ -3,7 +3,7 @@
  * lalu mengembalikannya dalam format yang sama dengan snapshot (kapal.json). Dicache ±45 detik supaya
  * satu koneksi melayani semua pengunjung. Kunci dibaca dari variabel lingkungan AISSTREAM_API_KEY
  * (di Vercel: Settings → Environment Variables). Tanpa kunci, rute ini membalas 503 dan browser
- * memakai snapshot 30 menit saja.
+ * memakai snapshot 30 menit saja. Kalau gagal, browser hanya menerima kode galat; rinciannya di log server.
  */
 
 import { NextResponse, connection } from "next/server";
@@ -60,8 +60,6 @@ function kelasDariTipe(tipe: number | null): string {
 
 let cache: { waktu: number; kapal: KapalLive[]; diambil: string } | null = null;
 let sedang: Promise<KapalLive[]> | null = null;
-/** pesan galat dari aisstream (mis. kunci tidak valid), ikut dikirim ke browser untuk diagnosis */
-let galatServer: string | null = null;
 
 function simak(kunci: string): Promise<KapalLive[]> {
   return new Promise((resolve, reject) => {
@@ -71,7 +69,6 @@ function simak(kunci: string): Promise<KapalLive[]> {
       return;
     }
     const kapal = new Map<number, KapalLive>();
-    galatServer = null;
     const statis = new Map<number, { tipe: number | null; tujuan: string; nama: string }>();
     let ws: WebSocket;
     try {
@@ -118,7 +115,8 @@ function simak(kunci: string): Promise<KapalLive[]> {
         return;
       }
       if (m.error) {
-        galatServer = m.error;
+        // mis. kunci tidak valid; cukup dicatat di log server
+        console.error("[kapal] aisstream:", m.error);
         return;
       }
       if (!m.MetaData?.MMSI) return;
@@ -155,7 +153,7 @@ function simak(kunci: string): Promise<KapalLive[]> {
 export async function GET() {
   await connection(); // selalu dinamis: hasil tergantung waktu dan kunci lingkungan
   const kunci = process.env.AISSTREAM_API_KEY;
-  if (!kunci) return NextResponse.json({ error: "AISSTREAM_API_KEY belum dipasang" }, { status: 503 });
+  if (!kunci) return NextResponse.json({ galat: "no_key" }, { status: 503 });
   const sekarang = Date.now();
   if (cache && sekarang - cache.waktu < CACHE_MS) {
     return NextResponse.json({ diambil: cache.diambil, durasi_detik: LAMA_SIMAK_MS / 1000, sumber: "cache", jumlah: cache.kapal.length, kapal: cache.kapal }, { headers: { "Cache-Control": "public, max-age=20, s-maxage=40" } });
@@ -170,11 +168,12 @@ export async function GET() {
     // hasil kosong hanya dicache sebentar supaya percobaan berikutnya cepat
     cache = { waktu: kapal.length ? Date.now() : Date.now() - CACHE_MS + 10_000, kapal, diambil: new Date().toISOString() };
     return NextResponse.json(
-      { diambil: cache.diambil, durasi_detik: LAMA_SIMAK_MS / 1000, sumber: "live", jumlah: kapal.length, kapal, ...(galatServer ? { galat: galatServer } : {}) },
+      { diambil: cache.diambil, durasi_detik: LAMA_SIMAK_MS / 1000, sumber: "live", jumlah: kapal.length, kapal },
       { headers: { "Cache-Control": kapal.length ? "public, max-age=20, s-maxage=40" : "no-store" } },
     );
   } catch (e) {
     if (cache) return NextResponse.json({ diambil: cache.diambil, durasi_detik: LAMA_SIMAK_MS / 1000, sumber: "cache", jumlah: cache.kapal.length, kapal: cache.kapal });
-    return NextResponse.json({ error: e instanceof Error ? e.message : "gagal" }, { status: 502 });
+    console.error("[kapal] gagal mengambil AIS live:", e instanceof Error ? e.message : e);
+    return NextResponse.json({ galat: "upstream" }, { status: 502 });
   }
 }

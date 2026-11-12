@@ -77,6 +77,8 @@ export async function GET(req: Request) {
       { headers: { "Cache-Control": "public, max-age=5, s-maxage=8" } },
     );
   } catch (e) {
-    return NextResponse.json({ error: e instanceof Error ? e.message : "gagal" }, { status: 502 });
+    // browser cukup tahu kodenya; rincian sumber yang gagal ada di log server
+    console.error("[pesawat] gagal mengambil ADS-B:", e instanceof Error ? e.message : e);
+    return NextResponse.json({ galat: "upstream" }, { status: 502 });
   }
 }
