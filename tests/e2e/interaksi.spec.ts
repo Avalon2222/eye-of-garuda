@@ -28,3 +28,18 @@ test("bantuan menampilkan semua shortcut lapisan", async ({ page }) => {
   await expect(daftar.locator(".kbd")).toHaveCount(15);
   for (const k of ["[", "]", ";", "-", "="]) await expect(daftar.locator(".kbd", { hasText: k }).first()).toBeVisible();
 });
+
+test("pencarian tetap jalan walau ubin peta belum datang", async ({ page }) => {
+  // ubin basemap ditahan, jadi peta tidak pernah 'load' selama tes ini (seperti CDN ubin yang lagi lambat)
+  await page.route(/tiles\.openfreemap\.org\/.*\.pbf/, () => undefined);
+  await bukaKonsol(page);
+  const dialog = page.getByRole("dialog", { name: "Search" });
+  await expect(async () => {
+    if (await dialog.count()) await page.keyboard.press("Escape");
+    await page.keyboard.press("Control+k");
+    await expect(dialog).toBeVisible();
+    await page.keyboard.type("lanal ranai");
+    await expect(dialog.getByRole("listitem").first()).toContainText("Lanal Ranai", { timeout: 1000 });
+  }).toPass({ timeout: 20_000 });
+  expect(await page.evaluate(() => Boolean((window as unknown as { __eog?: { loaded: () => boolean } }).__eog?.loaded()))).toBe(false);
+});
