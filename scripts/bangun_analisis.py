@@ -24,6 +24,8 @@ import requests
 from shapely.geometry import MultiPolygon, Point, Polygon, mapping, shape
 from shapely.ops import unary_union
 
+from ringkas_zee import ringkas_poligon
+
 AKAR = Path(__file__).resolve().parent.parent
 DATA = AKAR / "data"
 KELUAR = AKAR / "public" / "data"
@@ -144,7 +146,8 @@ def bangun_zee(zee) -> dict:
                 "sumber": "Flanders Marine Institute (2023), Maritime Boundaries Geodatabase v12",
                 "url": "https://www.marineregions.org/eezdetails.php?mrgid=8492",
             },
-            "geometry": bulat(zee_s),
+            # lubang kecil (pulau mungil) dibuang dan koordinat dibulatkan supaya berkasnya ringan (lihat ringkas_zee.py)
+            "geometry": mapping(ringkas_poligon(zee_s)),
         },
         {
             "type": "Feature",
