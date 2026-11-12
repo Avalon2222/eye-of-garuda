@@ -1,6 +1,6 @@
 /**
  * Kapal dari AIS: dua sumber digabung.
- *  1. Snapshot (scripts/ambil_ais.py, GitHub Actions tiap ~30 menit, cabang `data`): cakupan luas.
+ *  1. Snapshot (scripts/ambil_ais.py, GitHub Actions menyimak terus dan menulis tiap 30 menit, cabang `data`): cakupan luas.
  *  2. Live (/api/kapal, aisstream.io lewat server, tiap ±60 detik): posisi segar untuk kapal yang
  *     sedang memancar. Kalau rute live tidak tersedia (kunci belum dipasang), hanya snapshot yang dipakai.
  * Posisi diekstrapolasi dari haluan (COG) dan kecepatan (SOG) sejak waktu laporan terakhir.

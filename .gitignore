@@ -41,3 +41,6 @@ yarn-error.log*
 next-env.d.ts
 public/maplibre/
 data/sumber/zee_indonesia.json
+
+# Python
+__pycache__/

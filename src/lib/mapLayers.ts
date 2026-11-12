@@ -242,6 +242,10 @@ export const WARNA_KAPAL: Record<string, string> = {
   kargo: "#a3e635",
   penumpang: "#22d3ee",
   nelayan: "#fbbf24",
+  tunda: "#fb923c",
+  rekreasi: "#f9a8d4",
+  cepat: "#2dd4bf",
+  khusus: "#c4b5fd",
   lainnya: "#9ca3af",
 };
 

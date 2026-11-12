@@ -1,35 +1,70 @@
 name: Snapshot AIS
 
-# Menyimak aisstream.io ~4 menit lalu menyimpan posisi kapal ke cabang `data` (kapal.json).
+# Menyimak aisstream.io terus-menerus dan menyimpan posisi kapal ke cabang `data` (kapal.json) tiap 30 menit.
 # Browser membaca berkas itu lewat raw.githubusercontent.com, jadi tidak perlu deploy ulang.
+#
+# Kenapa tidak pakai cron tiap 30 menit saja: jadwal GitHub Actions sering telat berjam-jam (di repo ini
+# kenyataannya cuma jalan tiap 4-8 jam). Jadi satu run dibiarkan hidup ~5,5 jam, lalu di akhir memicu run
+# berikutnya sendiri lewat workflow_dispatch. Cron tiap 2 jam hanya cadangan untuk menyambung rantai kalau putus;
+# run cadangan langsung berhenti kalau rantainya masih hidup.
 on:
   schedule:
-    - cron: "7,37 * * * *"
+    - cron: "23 */2 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
-
-concurrency:
-  group: cabang-data
-  cancel-in-progress: false
+  actions: write
 
 jobs:
   snapshot:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 355
+    env:
+      LAMA_DETIK: 19800 # 5 jam 30 menit menyimak
+      INTERVAL_DETIK: 1800 # snapshot tiap 30 menit
     steps:
       - uses: actions/checkout@v4
+
+      - name: Cek apakah run lain masih hidup
+        id: cek
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # run lain yang masih berjalan dan belum mendekati akhir hidupnya -> run ini tidak perlu
+          batas=$(date -u -d "-$((LAMA_DETIK - 600)) seconds" +%Y-%m-%dT%H:%M:%SZ)
+          hidup=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/snapshot-ais.yml/runs?status=in_progress&per_page=10" \
+            | jq --arg saya "${GITHUB_RUN_ID}" --arg batas "${batas}" \
+            '[.workflow_runs[] | select((.id|tostring) != $saya and .run_started_at > $batas)] | length')
+          echo "run lain yang hidup: ${hidup}"
+          if [ "${hidup}" != "0" ]; then
+            echo "lewati=true" >> "$GITHUB_OUTPUT"
+            echo "Rantai snapshot masih hidup, run ini berhenti."
+          else
+            echo "lewati=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-python@v5
+        if: steps.cek.outputs.lewati == 'false'
         with:
           python-version: "3.12"
+
       - run: pip install --quiet -r scripts/requirements.txt
-      - name: Simak AIS
+        if: steps.cek.outputs.lewati == 'false'
+
+      - name: Simak AIS dan simpan tiap 30 menit
+        if: steps.cek.outputs.lewati == 'false'
         env:
           AISSTREAM_API_KEY: ${{ secrets.AISSTREAM_API_KEY }}
         run: |
           mkdir -p keluar
           curl -sf "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/data/kapal_statis.json" -o keluar/kapal_statis.json || true
-          python scripts/ambil_ais.py --durasi 240 --keluar keluar/kapal.json --statis keluar/kapal_statis.json
-      - name: Simpan ke cabang data
-        run: bash scripts/simpan_cabang_data.sh keluar/kapal.json keluar/kapal_statis.json
+          python scripts/ambil_ais.py --durasi "${LAMA_DETIK}" --interval "${INTERVAL_DETIK}" --jendela 3600 \
+            --keluar keluar/kapal.json --statis keluar/kapal_statis.json \
+            --simpan "bash scripts/simpan_cabang_data.sh keluar/kapal.json keluar/kapal_statis.json"
+
+      - name: Picu run berikutnya
+        if: steps.cek.outputs.lewati == 'false' && success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run snapshot-ais.yml --ref "${GITHUB_REF_NAME}"

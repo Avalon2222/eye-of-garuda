@@ -1,13 +1,19 @@
 #!/usr/bin/env bash
 # Menyalin berkas hasil ke cabang `data` (orphan) dan mendorongnya. Dipakai GitHub Actions.
+# Aman dipanggil berulang kali dalam satu job (worktree lama dibersihkan dulu).
 #   bash scripts/simpan_cabang_data.sh keluar/kapal.json [berkas lain...]
 set -euo pipefail
 
 git config user.name "github-actions[bot]"
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+if [ -d cabang-data ]; then
+  git worktree remove --force cabang-data 2>/dev/null || rm -rf cabang-data
+  git worktree prune
+fi
+
 if git fetch origin data 2>/dev/null; then
-  git worktree add -q cabang-data origin/data
+  git worktree add -q --detach cabang-data origin/data
   (cd cabang-data && git checkout -q -B data origin/data)
 else
   git worktree add -q --detach cabang-data
