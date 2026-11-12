@@ -1,14 +1,23 @@
 """
-koreksi_lokasi.py - Menggeser titik markas TNI dari "pusat kota" ke lokasi objek militer di OpenStreetMap.
+koreksi_lokasi.py - Menggeser titik markas TNI dari "pusat kota" ke lokasi objeknya yang sebenarnya.
 
-Memakai geocoder Photon (photon.komoot.io, data OSM). Untuk tiap markas dicoba beberapa variasi nama,
-hasil disaring: harus di Indonesia, namanya memuat kata kunci markas itu, dan jaraknya dari titik lama
-masuk akal (< 120 km). Objek bertag militer (landuse=military, barracks, naval_base) diprioritaskan.
+Tiga tahap, dari yang paling pasti:
+  1. bandara  : Lanud dan satuan udara yang bermarkas di bandara dicocokkan ke OurAirports
+                (data/sumber/ourairports_kawasan.csv) berdasarkan nama atau jarak < 4 km. presisi = "manual".
+  2. osm      : geocoder Photon (photon.komoot.io) dan Nominatim (nominatim.openstreetmap.org), keduanya data
+                OpenStreetMap. Dicari di kotak ±0,6° sekitar kota dengan beberapa variasi nama, hasil disaring:
+                namanya harus terbaca sebagai markas yang dimaksud (bukan koramil, rumah sakit, kolam renang, dll).
+                presisi = "osm".
+  3. manual   : daftar KOORDINAT_MANUAL di bawah untuk markas terkenal yang kompleksnya diketahui tapi tidak
+                punya nama rapi di OSM. presisi = "manual".
 
-    python scripts/koreksi_lokasi.py            # perbarui data/markas_tni.csv (kolom presisi diisi "osm")
+Titik yang tidak ketemu di tahap mana pun tetap "kota". Kolom lokasi_dari mencatat asal titiknya.
+
+    python scripts/koreksi_lokasi.py            # perbarui data/markas_tni.csv
     python scripts/koreksi_lokasi.py --coba     # hanya tampilkan hasil, tidak menulis
+    python scripts/koreksi_lokasi.py --semua    # cek ulang juga yang sudah presisi
 
-Photon publik dibatasi ~1 permintaan/detik, jadi skrip ini sengaja pelan.
+Geocoder publik dibatasi ~1 permintaan/detik, jadi skrip ini sengaja pelan (±10 menit untuk semua markas).
 """
 
 from __future__ import annotations
@@ -26,21 +35,48 @@ from pathlib import Path
 
 AKAR = Path(__file__).resolve().parent.parent
 BERKAS = AKAR / "data" / "markas_tni.csv"
-URL = "https://photon.komoot.io/api/"
-JEDA = 0.7
-MAKS_KM = 120.0
+BANDARA = AKAR / "data" / "sumber" / "ourairports_kawasan.csv"
+URL_PHOTON = "https://photon.komoot.io/api/"
+URL_NOMINATIM = "https://nominatim.openstreetmap.org/search"
+UA = "eye-of-garuda-data/1.0 (github.com/Avalon2222/eye-of-garuda)"
+JEDA_PHOTON = 0.8
+JEDA_NOMINATIM = 1.1
+KOTAK_DERAJAT = 0.6
+MAKS_KM = 60.0
 
-PRIORITAS_OSM = {
-    "military": 0,
-    "barracks": 0,
-    "naval_base": 0,
-    "airfield": 0,
-    "aerodrome": 0,
-    "government": 1,
-    "office": 1,
-    "administrative": 2,
-    "police": 3,
+# Markas yang kompleksnya diketahui umum tapi tidak punya nama yang bisa dicari di OSM.
+# Dicek manual lewat citra satelit / halaman resmi; dipakai hanya kalau geocoder tidak menemukan apa-apa.
+KOORDINAT_MANUAL: dict[str, tuple[float, float, str]] = {
+    "Mabes TNI Cilangkap": (-6.3390, 106.8985, "kompleks Mabes TNI Cilangkap, Jakarta Timur"),
+    "Mabes TNI AU": (-6.3345, 106.8975, "kompleks Mabes TNI AU di Cilangkap, Jakarta Timur"),
+    "Markas Kopassus": (-6.3268, 106.8585, "Mako Kopassus Cijantung, Jakarta Timur"),
+    "Divisi Infanteri 1/Kostrad": (-6.4190, 106.8355, "Cilodong, Depok"),
+    "Divisi Infanteri 2/Kostrad": (-7.8870, 112.6640, "Singosari, Malang"),
+    "Divisi Infanteri 3/Kostrad": (-5.2540, 119.5085, "Pakatto, Gowa"),
+    "Akademi Militer": (-7.4790, 110.2180, "kompleks Akmil Magelang"),
+    "Akademi Angkatan Laut": (-7.2165, 112.7200, "Bumimoro, Surabaya"),
+    "Pasmar 2": (-6.2905, 106.7975, "Kesatrian Marinir Cilandak, Jakarta Selatan"),
+    "Koarmada II": (-7.2050, 112.7340, "Ujung, Surabaya"),
+    "Lantamal V Surabaya": (-7.2075, 112.7355, "Ujung, Surabaya"),
+    "Kodam Jaya/Jayakarta": (-6.2590, 106.8675, "Jl. Mayjen Sutoyo, Cililitan, Jakarta Timur"),
 }
+
+KATA_BUANG = re.compile(
+    r"koramil|kodim|polisi militer|\bpomdam\b|ajudan|kesehatan|kesdam|keuangan|hukum|\bzeni\b|perbekalan|peralatan|"
+    r"pendidikan|rumah sakit|\brs\b|\brsal\b|\brsad\b|rumkit|\bmess\b|asrama|perumahan|komplek(s)? perumahan|koperasi|\bbank\b|"
+    r"masjid|\bgereja\b|lapangan|kolam|gudang|makam|\bpos\b|rindam|resimen|\bdodik\b|secata|secaba|\byonif\b|batalyon|\byon\b|"
+    r"brigif|\bbrigade\b|kompi|\bdenpom\b|\bbekang\b|\bzidam\b|\bpaldam\b|\bkodiklat\b|\bsatrad\b|\bskadron\b|\bwing\b|"
+    r"\bdenhanud\b|\barhanud\b|\bkavaleri\b|\barmed\b|golf|\bbintal\b|penerangan|\bhubdam\b|perhubungan|\bpendam\b|"
+    r"\bsatkomlek\b|infolahta|\bsandi\b|\bjasdam\b|\btopdam\b|\bajendam\b|\bajenrem\b|\bkumdam\b|\bkudam\b|\bitdam\b|"
+    r"\bsetum\b|\bsatpur\b|\bsatbanpur\b|\bsatjar\b|\bsatwal\b|detasemen|\bden\s|kpad|babinmin|veteran|kepolisian|\bpolda\b|"
+    r"\bpolres\b|\bpolsek\b|cadangan|\bprimkop\b|\bpuskop\b|\bsmp\b|\bsma\b|sekolah|\btk\b|\bsd\b|kantin|wisma|\bhotel\b|"
+    r"\bgor\b|stadion|\bpuskesmas\b|\bklinik\b|apotek|\bbalai\b|\btaman\b|museum|monumen|tugu|gedung pertemuan|aula|"
+    r"olahraga|pasar|\bstasiun\b|\bspbu\b|dermaga|pelabuhan|\bkantor pos\b|perpustakaan|\bgalangan\b|\bbengkel\b|"
+    r"pembekalan|angkutan|perawatan|bengkel|dis\.?jas|pehubungan|\bhalte\b|terminal|\bjalan\b|\bgang\b|\bkodamar\b|\bfasharkan\b|\bsatkat\b|\bsatkor\b|\bsatfib\b|\bsatban\b|\bdenma\b|\bsatma\b|\bpuslat\b|\bbrigif\b|\bmarinir\b.*\byon",
+    re.I,
+)
+KUNCI_OSM_OK = ("landuse", "military", "building", "office", "amenity", "aeroway", "government", "place")
+NILAI_OSM_BURUK = ("residential", "commercial", "industrial", "retail", "school", "university", "hospital", "clinic", "place_of_worship", "sports_centre", "pitch", "hamlet", "village", "neighbourhood", "suburb", "quarter")
 
 
 def jarak_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
@@ -50,135 +86,147 @@ def jarak_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     return 2 * r * math.asin(math.sqrt(a))
 
 
-def photon(q: str, lat: float, lon: float) -> list[dict]:
-    qs = urllib.parse.urlencode({"q": q, "lat": f"{lat:.4f}", "lon": f"{lon:.4f}", "limit": 8, "lang": "en"})
-    req = urllib.request.Request(URL + "?" + qs, headers={"User-Agent": "eye-of-garuda-data/1.0 (github.com/Avalon2222/eye-of-garuda)"})
+def ambil_json(url: str):
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
     try:
-        with urllib.request.urlopen(req, timeout=20) as r:
-            return json.load(r).get("features", [])
+        with urllib.request.urlopen(req, timeout=25) as r:
+            return json.load(r)
     except Exception as e:  # noqa: BLE001
-        print(f"    ! gagal {q!r}: {e}", file=sys.stderr)
-        return []
+        print(f"    ! gagal {url[:80]}: {e}", file=sys.stderr)
+        return None
 
 
-def romawi_ke_kata(s: str) -> str:
-    return s
-
-
-def kata_kunci(b: dict) -> list[str]:
-    """Token yang harus muncul di nama hasil (huruf kecil)."""
-    nama = b["nama"]
-    jenis = b["jenis"]
-    if jenis == "Korem":
-        m = re.search(r"Korem (\d{3})", nama)
-        return [m.group(1)] if m else [nama.lower()]
-    if jenis == "Kodam":
-        m = re.search(r"Kodam (Iskandar Muda|Jaya|[IVX]+)\b", nama)
-        if m:
-            k = m.group(1)
-            if k in ("Jaya",):
-                return ["jaya"]
-            if k == "Iskandar Muda":
-                return ["iskandar muda"]
-            return [k.lower()]
-        return [nama.lower()]
-    if jenis == "Lantamal":
-        m = re.search(r"Lantamal ([IVX]+)", nama)
-        return [f"lantamal {m.group(1).lower()}"] if m else [nama.lower()]
-    if jenis == "Lanal":
-        m = re.search(r"Lanal ([A-Za-z .]+)", nama)
-        kota = m.group(1).strip().lower() if m else b["kota"].lower()
-        return [kota.split()[0]]
-    if jenis == "Lanud":
-        m = re.search(r"Lanud (.+)", nama)
-        return [m.group(1).lower().split()[0]] if m else [nama.lower()]
-    if jenis == "Koarmada":
-        m = re.search(r"Koarmada ([IVX]+)", nama)
-        return [f"koarmada {m.group(1).lower()}"] if m else [nama.lower()]
-    if jenis == "Kogabwilhan":
-        m = re.search(r"Kogabwilhan ([IVX]+)", nama)
-        return [f"kogabwilhan {m.group(1).lower()}"] if m else [nama.lower()]
-    # lainnya: kata paling khas (bukan "markas"/"mabes")
-    kata = [k for k in re.split(r"[\s/]+", nama.lower()) if k not in ("markas", "mabes", "tni", "komando", "utama", "divisi", "infanteri")]
-    return kata[:1] or [nama.lower()]
-
-
-def variasi_query(b: dict) -> list[str]:
-    nama = b["nama"]
-    jenis = b["jenis"]
-    kota = b["kota"]
-    v: list[str] = []
-    if jenis == "Korem":
-        m = re.search(r"Korem (\d{3})", nama)
-        n = m.group(1) if m else ""
-        v += [f"Makorem {n}", f"Korem {n}", f"Markas Korem {n} {kota}", nama.replace("/", " ")]
-    elif jenis == "Kodam":
-        m = re.search(r"Kodam (Iskandar Muda|Jaya|[IVX]+)\b", nama)
-        n = m.group(1) if m else ""
-        v += [f"Makodam {n}", f"Kodam {n}", f"Markas Kodam {n} {kota}", nama.replace("/", " ")]
-    elif jenis == "Lantamal":
-        m = re.search(r"Lantamal ([IVX]+)", nama)
-        n = m.group(1) if m else ""
-        v += [f"Lantamal {n}", f"Mako Lantamal {n}", f"Pangkalan Utama TNI AL {kota}"]
-    elif jenis == "Lanal":
-        v += [nama.split("(")[0].strip(), f"Pangkalan TNI AL {kota}", f"Mako {nama.split('(')[0].strip()}"]
-    elif jenis == "Lanud":
-        v += [nama, f"Pangkalan Udara {nama.replace('Lanud ', '')}"]
-    elif jenis == "Koarmada":
-        v += [nama, f"Markas Komando {nama}"]
-    elif jenis == "Kogabwilhan":
-        v += [nama, f"Markas {nama}"]
-    else:
-        v += [nama, f"Markas {nama}", f"{nama} {kota}"]
-    # buang duplikat, pertahankan urutan
-    hasil: list[str] = []
-    for q in v:
-        q = re.sub(r"\s+", " ", q).strip()
-        if q and q not in hasil:
-            hasil.append(q)
+def cari_photon(q: str, lat: float, lon: float) -> list[dict]:
+    """Hasil Photon diseragamkan: {nama, lat, lon, kunci, nilai}."""
+    d = KOTAK_DERAJAT
+    qs = urllib.parse.urlencode({"q": q, "limit": 10, "lang": "en", "bbox": f"{lon - d},{lat - d},{lon + d},{lat + d}"})
+    data = ambil_json(URL_PHOTON + "?" + qs) or {}
+    time.sleep(JEDA_PHOTON)
+    hasil = []
+    for f in data.get("features", []):
+        p = f.get("properties", {})
+        if p.get("countrycode") != "ID":
+            continue
+        x, y = f["geometry"]["coordinates"]
+        hasil.append({"nama": p.get("name") or "", "lat": y, "lon": x, "kunci": p.get("osm_key", ""), "nilai": p.get("osm_value", ""), "dari": "Photon/OSM"})
     return hasil
 
 
-def nilai_kandidat(f: dict, b: dict, lat0: float, lon0: float) -> tuple[float, dict] | None:
-    p = f.get("properties", {})
-    if p.get("countrycode") not in ("ID",):
+def cari_nominatim(q: str, lat: float, lon: float) -> list[dict]:
+    d = KOTAK_DERAJAT
+    qs = urllib.parse.urlencode({"q": q, "format": "jsonv2", "countrycodes": "id", "limit": 10, "bounded": 1, "viewbox": f"{lon - d},{lat + d},{lon + d},{lat - d}"})
+    data = ambil_json(URL_NOMINATIM + "?" + qs) or []
+    time.sleep(JEDA_NOMINATIM)
+    hasil = []
+    for r in data:
+        hasil.append({"nama": r.get("name") or r.get("display_name", "").split(",")[0], "lat": float(r["lat"]), "lon": float(r["lon"]), "kunci": r.get("category", ""), "nilai": r.get("type", ""), "dari": "Nominatim/OSM"})
+    return hasil
+
+
+def angka_romawi(s: str) -> str:
+    m = re.search(r"\b([IVX]+)\b", s)
+    return m.group(1) if m else ""
+
+
+def aturan(b: dict) -> tuple[list[str], re.Pattern, list[str]]:
+    """(daftar query, pola nama yang harus cocok, token pembeda yang salah satunya harus ada [boleh kosong])."""
+    nama, jenis, kota = b["nama"], b["jenis"], b["kota"]
+    if jenis == "Korem":
+        n = re.search(r"Korem (\d{3})", nama).group(1)
+        julukan = nama.split("/")[-1].strip() if "/" in nama else ""
+        q = [f"Korem {n}", "Komando Resor Militer", "Makorem", "Korem"]
+        return q, re.compile(r"\bkorem\b|komando resor militer|makorem", re.I), [n, julukan.lower()] if julukan else [n]
+    if jenis == "Kodam":
+        m = re.search(r"Kodam (Iskandar Muda|Jaya|[IVX]+)", nama)
+        n = m.group(1) if m else ""
+        julukan = nama.split("/")[-1].strip() if "/" in nama else ""
+        q = [f"Kodam {n}", "Komando Daerah Militer", "Makodam", "Kodam"]
+        return q, re.compile(r"\bkodam\b|komando daerah militer|makodam", re.I), [x.lower() for x in (n, julukan) if x]
+    if jenis == "Lantamal":
+        n = angka_romawi(nama)
+        q = [f"Lantamal {n}", "Pangkalan Utama TNI Angkatan Laut", "Pangkalan Utama TNI AL", "Lantamal"]
+        return q, re.compile(r"\blantamal\b|pangkalan utama", re.I), [f" {n.lower()}", f" {n}"] if n else []
+    if jenis == "Lanal":
+        tempat = re.sub(r"\(.*\)", "", nama.replace("Lanal", "")).strip()
+        q = [f"Lanal {tempat}", "Pangkalan TNI Angkatan Laut", "Pangkalan TNI AL", "Lanal", "Pangkalan Angkatan Laut"]
+        return q, re.compile(r"\blanal\b|pangkalan (tni )?(al|angkatan laut)|mako lanal", re.I), []
+    if jenis == "Koarmada":
+        n = angka_romawi(nama)
+        q = [f"Koarmada {n}", "Komando Armada", "Makoarmada", "Koarmada"]
+        return q, re.compile(r"\bkoarmada\b|komando armada|makoarmada", re.I), [f" {n.lower()}", f" {n}"] if n else []
+    if jenis == "Kogabwilhan":
+        n = angka_romawi(nama)
+        q = [f"Kogabwilhan {n}", "Komando Gabungan Wilayah Pertahanan", "Kogabwilhan"]
+        return q, re.compile(r"kogabwilhan|komando gabungan wilayah", re.I), []
+    if jenis == "Divisi":
+        n = re.search(r"Divisi Infanteri (\d)", nama).group(1)
+        q = [f"Divisi Infanteri {n}", f"Divif {n}", "Makodivif", "Kostrad"]
+        return q, re.compile(r"divisi infanteri|divif|kostrad", re.I), [n]
+    if jenis == "Marinir":
+        n = re.search(r"(\d)", nama).group(1)
+        q = [f"Pasmar {n}", "Pasukan Marinir", "Kesatrian Marinir", "Marinir"]
+        return q, re.compile(r"pasmar|pasukan marinir|kesatrian marinir|\bmarinir\b", re.I), [n]
+    if jenis == "Pendidikan":
+        q = [nama, nama.replace("Akademi ", "")]
+        return q, re.compile(re.escape(nama.split()[0]), re.I), [nama.split()[-1].lower()]
+    # Komando Utama, Markas Besar, lain-lain: cari namanya langsung
+    kata = [k for k in re.split(r"[\s/]+", nama) if k.lower() not in ("markas", "mabes", "tni", "komando", "utama")]
+    q = [nama, f"Markas {nama}", " ".join(kata)]
+    return q, re.compile("|".join(re.escape(k) for k in kata) or re.escape(nama), re.I), []
+
+
+def pilih_kandidat(b: dict, lat0: float, lon0: float, kandidat: list[dict], pola: re.Pattern, pembeda: list[str]) -> dict | None:
+    cocok = []
+    for k in kandidat:
+        nama = k["nama"].lower()
+        if not nama or not pola.search(nama) or KATA_BUANG.search(nama):
+            continue
+        if k["kunci"] not in KUNCI_OSM_OK or k["nilai"] in NILAI_OSM_BURUK:
+            continue
+        d = jarak_km(lat0, lon0, k["lat"], k["lon"])
+        if d > MAKS_KM:
+            continue
+        ada_pembeda = any(p and p.lower() in nama for p in pembeda)
+        # ada angka/julukan unit lain -> bukan markas ini (mis. "Korem 044" saat mencari 032)
+        angka_lain = re.search(r"\b0\d{2}\b", nama)
+        if pembeda and angka_lain and not ada_pembeda:
+            continue
+        prio = 0 if (k["kunci"] == "military" or k["nilai"] == "military") else 1 if k["kunci"] in ("office", "government") else 2
+        skor = (0 if ada_pembeda else 1, prio, d)
+        cocok.append((skor, k, d))
+    if not cocok:
         return None
-    lon, lat = f["geometry"]["coordinates"]
-    d = jarak_km(lat0, lon0, lat, lon)
-    if d > MAKS_KM:
+    cocok.sort(key=lambda x: x[0])
+    skor, k, d = cocok[0]
+    # tanpa pembeda hanya diterima kalau cukup dekat kota (markas kota biasanya satu-satunya di kota itu)
+    if pembeda and skor[0] == 1 and d > 12:
         return None
-    nama = (p.get("name") or "").lower()
-    if not nama:
+    return {**k, "jarak_km": round(d, 1)}
+
+
+def muat_bandara() -> list[dict]:
+    with open(BANDARA, newline="", encoding="utf-8") as f:
+        return [a for a in csv.DictReader(f) if a["iso_country"] == "ID"]
+
+
+def cocokkan_bandara(b: dict, lat0: float, lon0: float, bandara: list[dict]) -> dict | None:
+    if b["matra"] != "AU" and b["jenis"] != "Komando Utama":
         return None
-    kunci = kata_kunci(b)
-    if not all(k in nama for k in kunci):
+    terdekat = None
+    for a in bandara:
+        d = jarak_km(lat0, lon0, float(a["latitude_deg"]), float(a["longitude_deg"]))
+        if d < 4 and (terdekat is None or d < terdekat[0]):
+            terdekat = (d, a)
+    if not terdekat:
         return None
-    # korem/kodam: hindari unit bawahan (koramil, kodim, polisi militer, ajudan, kesehatan)
-    if re.search(r"koramil|kodim|polisi militer|\bpomdam\b|ajudan|kesehatan|kesdam|keuangan|hukum|\bzeni\b|perbekalan|peralatan|pendidikan|rumah sakit|\brs\b|rumkit|\bmess\b|asrama|perumahan|koperasi|\bbank\b|masjid|\bgereja\b|lapangan tembak|kolam|gudang|makam|pos\b|\bpangkalan udara\b.*\bpolisi\b", nama):
-        return None
-    jenis_osm = p.get("osm_value", "")
-    kunci_osm = p.get("osm_key", "")
-    if kunci_osm not in ("landuse", "military", "building", "office", "amenity", "aeroway", "government"):
-        return None
-    if jenis_osm in ("residential", "commercial", "industrial", "retail", "school", "university", "hospital", "clinic", "place_of_worship"):
-        return None
-    # unit bawahan yang biasanya berada di kompleks terpisah: bukan markas
-    if re.search(r"rindam|resimen|\bdodik\b|secata|secaba|\byonif\b|batalyon|\byon\b|brigif|\bbrigade\b|kompi senapan|\bdenpom\b|\bbekang\b|\bzidam\b|\bpaldam\b|\bkodiklat\b|\bsatrad\b|\bskadron\b|\bwing\b|\bdenhanud\b|\barhanud\b|\bkavaleri\b|\barmed\b|lapangan golf|\bkesdam\b|\bdenkesyah\b|\bbintal\b|\bpenerangan\b|\bhubdam\b|perhubungan|\bpendam\b|\bsatkomlek\b|infolahta|\bsandi\b|\bjasdam\b|\btopdam\b|\bajendam\b|\bkumdam\b|\bkudam\b|\bitdam\b|\bsetum\b|\bsatpur\b|\bsatbanpur\b|\bsatjar\b|\bsatwal\b|detasemen|\bden\s|\bkompi\b|\bkoramil\b", nama):
-        return None
-    if re.search(r"kpad|babinmin|veteran|kepolisian|\bpolda\b|\bpolres\b|\bpolsek\b|cadangan|\bkoperasi\b|\bprimkop\b|\bpuskop\b|\bsmp\b|\bsma\b|sekolah|\btk\b|\bsd\b|kantin|\bmess\b|wisma|\bhotel\b|\bgor\b|stadion|\bpuskesmas\b|\bklinik\b|apotek|\bbalai\b|\btaman\b|museum|monumen|tugu|\bpos\b", nama):
-        return None
-    # harus terbaca sebagai markasnya sendiri, bukan unit lain
-    if not re.search(r"\bmako\b|makorem|makodam|makoarmada|markas|\bmabes\b|headquarters|^(kodam|korem|lantamal|lanal|lanud|koarmada|kogabwilhan|kostrad|kopassus|kodiklat|pangkalan|komando)\b", nama):
-        return None
-    prio = PRIORITAS_OSM.get(jenis_osm, 4)
-    # jarak ikut menentukan bila prioritas sama
-    skor = prio * 100 + min(d, 99)
-    return skor, {"lat": lat, "lon": lon, "nama_osm": p.get("name"), "osm": jenis_osm, "jarak_km": round(d, 1)}
+    d, a = terdekat
+    return {"nama": a["name"], "lat": float(a["latitude_deg"]), "lon": float(a["longitude_deg"]), "jarak_km": round(d, 1), "dari": f"OurAirports {a['ident']}"}
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--coba", action="store_true", help="hanya tampilkan, jangan tulis")
+    ap.add_argument("--semua", action="store_true", help="cek ulang juga yang sudah presisi")
     ap.add_argument("--jenis", default="", help="batasi ke jenis tertentu, mis. Korem")
     args = ap.parse_args()
 
@@ -186,39 +234,53 @@ def main() -> None:
         pembaca = csv.DictReader(f)
         kolom = list(pembaca.fieldnames or [])
         baris = list(pembaca)
-    if "presisi" not in kolom:
-        kolom.append("presisi")
+    for k in ("presisi", "lokasi_dari"):
+        if k not in kolom:
+            kolom.append(k)
+    bandara = muat_bandara()
 
-    diperbarui = 0
+    hitung = {"bandara": 0, "osm": 0, "manual": 0, "kota": 0}
     for b in baris:
         if args.jenis and b["jenis"] != args.jenis:
             continue
+        if not args.semua and b.get("presisi") in ("osm", "manual"):
+            continue
         lat0, lon0 = float(b["lat"]), float(b["lon"])
-        # bug lama: lintang positif untuk kota di belahan selatan (mis. Denpasar) -> balikkan dulu
-        if b["provinsi"] in ("Bali", "Nusa Tenggara Barat", "Nusa Tenggara Timur", "Jawa Timur", "Jawa Tengah", "DI Yogyakarta", "Jawa Barat", "DKI Jakarta", "Banten", "Lampung", "Papua", "Papua Selatan", "Papua Tengah", "Maluku") and lat0 > 0:
-            lat0 = -lat0
-        terbaik: tuple[float, dict] | None = None
-        for q in variasi_query(b):
-            for fitur in photon(q, lat0, lon0):
-                k = nilai_kandidat(fitur, b, lat0, lon0)
-                if k and (terbaik is None or k[0] < terbaik[0]):
-                    terbaik = k
-            time.sleep(JEDA)
-            if terbaik and terbaik[0] < 100:
-                break  # sudah dapat objek militer yang cocok
-        if terbaik:
-            info = terbaik[1]
-            print(f"{b['id']:>4} {b['nama']:<40} -> {info['nama_osm']!s:<48} [{info['osm']}] geser {info['jarak_km']} km")
-            b["lat"], b["lon"] = f"{info['lat']:.4f}", f"{info['lon']:.4f}"
-            b["presisi"] = "osm"
-            diperbarui += 1
-        else:
-            print(f"{b['id']:>4} {b['nama']:<40} -> (tidak ketemu, tetap perkiraan kota)")
-            b["lat"] = f"{lat0:.4f}"
-            b["presisi"] = b.get("presisi") or "kota"
-        sys.stdout.flush()
+        hasil, presisi = None, "kota"
 
-    print(f"\n{diperbarui} dari {len(baris)} markas dipindah ke titik OSM.")
+        cb = cocokkan_bandara(b, lat0, lon0, bandara)
+        if cb:
+            hasil, presisi = cb, "manual"
+            hitung["bandara"] += 1
+        else:
+            query, pola, pembeda = aturan(b)
+            for q in query:
+                kandidat = cari_photon(q, lat0, lon0) + cari_nominatim(q, lat0, lon0)
+                hasil = pilih_kandidat(b, lat0, lon0, kandidat, pola, pembeda)
+                if hasil:
+                    presisi = "osm"
+                    hitung["osm"] += 1
+                    break
+            if not hasil and b["nama"] in KOORDINAT_MANUAL:
+                la, lo, ket = KOORDINAT_MANUAL[b["nama"]]
+                hasil, presisi = {"nama": ket, "lat": la, "lon": lo, "jarak_km": round(jarak_km(lat0, lon0, la, lo), 1), "dari": "manual"}, "manual"
+                hitung["manual"] += 1
+
+        if hasil:
+            print(f"{b['id']:>4} {b['nama']:<40} -> {hasil['nama'][:46]:<46} [{hasil['dari']}] geser {hasil['jarak_km']} km", flush=True)
+            b["lat"], b["lon"] = f"{hasil['lat']:.4f}", f"{hasil['lon']:.4f}"
+            b["presisi"], b["lokasi_dari"] = presisi, hasil["dari"]
+        else:
+            hitung["kota"] += 1
+            print(f"{b['id']:>4} {b['nama']:<40} -> (tidak ketemu, tetap perkiraan kota)", flush=True)
+            b["presisi"] = b.get("presisi") or "kota"
+            b["lokasi_dari"] = b.get("lokasi_dari") or "perkiraan kota"
+
+    for b in baris:
+        if not b.get("lokasi_dari"):
+            b["lokasi_dari"] = {"osm": "Photon/OSM", "manual": "manual"}.get(b.get("presisi", ""), "perkiraan kota")
+    total = {p: sum(1 for b in baris if b.get("presisi") == p) for p in ("osm", "manual", "kota")}
+    print(f"\nTahap ini: {hitung}. Total sekarang: {total} dari {len(baris)} markas.")
     if args.coba:
         return
     with open(BERKAS, "w", newline="", encoding="utf-8") as f:
