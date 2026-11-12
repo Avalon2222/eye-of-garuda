@@ -69,7 +69,7 @@ publik tentang pertahanan Indonesia terasa hidup dan mudah dijelajahi.
 | `;` | Pangkalan kapal selam di kawasan + jumlah & kelas armada (16) | statis | halaman armada publik, Wikipedia |
 | 6 | Kapal (stream AIS live + snapshot 30 menit, posisi diekstrapolasi) | live | aisstream.io, OpenSanctions |
 | 7 | Pesawat & helikopter militer (ADS-B tiap 10 detik, kategori + negara) | live | adsb.lol, airplanes.live |
-| 8 | Satelit militer & pengintai (SGP4 di browser, kelas orbit LEO/MEO/GEO/HEO, jadwal lintasan) | live | CelesTrak, GCAT |
+| 8 | Satelit strategis: militer asing, pengintai sipil & komersial, dan satelit Indonesia (SGP4 di browser, kelas orbit LEO/MEO/GEO/HEO, jadwal lintasan) | live | CelesTrak, GCAT |
 | 9 | ZEE Indonesia & sembilan garis putus | analisis | Marine Regions |
 | 0 | Radius tempur dari tiap Lanud | analisis | angka publik |
 | - | Impor senjata 2000–2025 (busur SIPRI, diperbarui bulanan) | analisis | SIPRI Arms Transfers Database |
@@ -86,7 +86,7 @@ Rincian sumber, lisensi, dan batasan tiap lapisan ada di [`data/SUMBER_DATA.md`]
 | `W` | War Room: pilih simulasi Natuna, Cable Cut, atau Nuclear (fiktif, edukatif) |
 | `O` | Jadwal lintasan satelit di atas Indonesia 12 jam ke depan |
 | `C` | Buka / tutup Garuda AI (pojok kanan bawah) |
-| `1`–`9`, `0`, `-`, `=`, `[`, `]`, `;` | Nyalakan / matikan lapisan |
+| `1`–`9`, `0`, `-`, `=`, `[`, `]`, `;` | Nyalakan / matikan lapisan (daftar lengkapnya ada di Bantuan; tombol simbol ikut posisi keyboard US, jadi tetap jalan di keyboard lain) |
 | `S` | Peta gelap ↔ citra satelit |
 | `G` | Globe 3D ↔ datar 2D |
 | `L` | Bahasa Indonesia ↔ English |
