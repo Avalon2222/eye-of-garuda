@@ -34,7 +34,7 @@ export default function SipriLegend({ lang, data, onPilih }: { lang: Lang; data:
           </div>
           <div className="text-[12px] text-text">{terjemah(lang, "sipri_title")}</div>
           <div className="text-[10px] tabular-nums text-muted">
-            {lang === "id" ? "Total" : "Total"} {data.total_tiv_juta.toLocaleString("en-US")} {lang === "id" ? "juta TIV" : "m TIV"}
+            {terjemah(lang, "sipri_total", { n: data.total_tiv_juta.toLocaleString("en-US") })}
           </div>
         </div>
         <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={() => setTerbuka(false)} title={terjemah(lang, "sipri_collapse")} aria-label={terjemah(lang, "sipri_collapse")} aria-expanded={true}>

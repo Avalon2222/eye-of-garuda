@@ -42,8 +42,8 @@ export const FAQ: Faq[] = [
   {
     kunci: ["satelit", "satellite", "orbit", "leo", "geo", "meo"],
     jawab: {
-      id: "Lapisan satelit (tombol 8) memuat satelit militer & pengintai dari TLE CelesTrak, dipropagasi SGP4 langsung di browser. Merah = militer asing, kuning = pengintai sipil/komersial asing, hijau = Indonesia. Tinggi di atas globe dipadatkan agar LEO, MEO, GEO terlihat berbeda. Klik satelit untuk melihat kelas orbit, kecepatan, periode, dan garis orbit penuh.",
-      en: "The satellite layer (key 8) loads military & reconnaissance satellites from CelesTrak TLEs, propagated with SGP4 in your browser. Red = foreign military, amber = foreign civilian/commercial recon, green = Indonesian. Heights are compressed so LEO, MEO and GEO look different. Click a satellite for orbit class, speed, period and its full orbit line.",
+      id: "Lapisan Satelit strategis (tombol 8) memuat satelit militer, pengintai, dan satelit Indonesia dari TLE CelesTrak, dipropagasi SGP4 langsung di browser. Merah = militer asing, kuning = pengintai sipil/komersial asing, hijau = Indonesia. Tinggi di atas globe dipadatkan agar LEO, MEO, GEO terlihat berbeda. Klik satelit untuk melihat kelas orbit, kecepatan, periode, dan garis orbit penuh.",
+      en: "The Strategic satellites layer (key 8) loads military, reconnaissance and Indonesian satellites from CelesTrak TLEs, propagated with SGP4 in your browser. Red = foreign military, amber = foreign civilian/commercial recon, green = Indonesian. Heights are compressed so LEO, MEO and GEO look different. Click a satellite for orbit class, speed, period and its full orbit line.",
     },
     lapisan: "satelit",
   },
@@ -75,14 +75,14 @@ export const FAQ: Faq[] = [
   {
     kunci: ["skenario", "scenario", "simulasi", "simulation", "perang", "war", "rudal", "missile", "war room"],
     jawab: {
-      id: "Tekan W (atau ikon pedang di kanan atas) untuk War Room dengan tiga simulasi: \"Krisis Laut Natuna Utara\" (kapal, pesawat, rudal), \"Cable Cut: Selat Singapura\" (kabel putus, reroute internet, kapal reparasi), dan \"Perang nuklir dan Indonesia\" (ICBM, ledakan, EMP, fallout, dampak pangan & BBM). Tiap fase punya jarak, waktu, kesimpulan, dan saran; bisa diekspor .md/.png/video. Semuanya fiktif dan edukatif.",
+      id: "Tekan W (atau ikon pedang di kanan atas) untuk War Room dengan tiga simulasi: \"North Natuna Sea Crisis\" (kapal, pesawat, rudal), \"Cable Cut: Singapore Strait\" (kabel putus, reroute internet, kapal reparasi), dan \"Nuclear War\" (ICBM, ledakan, EMP, fallout, dampak pangan & BBM). Tiap fase punya jarak, waktu, kesimpulan, dan saran; bisa diekspor .md/.png/video. Semuanya fiktif dan edukatif.",
       en: "Press W (or the swords icon, top right) for the War Room with three simulations: \"North Natuna Sea crisis\" (ships, aircraft, missiles), \"Cable Cut: Singapore Strait\" (severed cables, internet rerouting, repair ships) and \"Nuclear exchange and Indonesia\" (ICBMs, detonations, EMP, fallout, food & fuel impact). Each phase has distances, timings, conclusions and recommendations; export as .md/.png/video. Entirely fictional and educational.",
     },
   },
   {
     kunci: ["nuklir", "nuclear", "bom", "bomb", "emp", "fallout", "icbm"],
     jawab: {
-      id: "Skenario \"Perang nuklir dan Indonesia\" (W, lalu pilih Nuclear) menggambarkan pertukaran nuklir hipotetis antara kekuatan besar di kawasan: peluncuran dari kapal selam dan silo, ledakan dengan cincin bola api/5 psi/luka bakar, EMP ketinggian tinggi yang mengganggu satelit dan jaringan listrik, awan fallout mengikuti angin, lalu dampak pangan dan BBM ke Indonesia yang tidak jadi sasaran. Fiktif, angka dari literatur publik.",
+      id: "Skenario \"Nuclear War\" (W, lalu pilih Nuclear) menggambarkan pertukaran nuklir hipotetis antara kekuatan besar di kawasan: peluncuran dari kapal selam dan silo, ledakan dengan cincin bola api/5 psi/luka bakar, EMP ketinggian tinggi yang mengganggu satelit dan jaringan listrik, awan fallout mengikuti angin, lalu dampak pangan dan BBM ke Indonesia yang tidak jadi sasaran. Fiktif, angka dari literatur publik.",
       en: "The \"Nuclear exchange and Indonesia\" scenario (W, then Nuclear) depicts a hypothetical exchange between major powers in the region: submarine and silo launches, detonations with fireball/5 psi/burn rings, a high-altitude EMP disrupting satellites and grids, fallout clouds following the wind, then food and fuel impacts on an Indonesia that was never a target. Fictional, figures from public literature.",
     },
   },
@@ -97,8 +97,8 @@ export const FAQ: Faq[] = [
   {
     kunci: ["lintasan", "pass", "lewat", "overpass", "jadwal", "schedule", "kapan satelit"],
     jawab: {
-      id: "Tekan O (atau ikon orbit di kanan atas) untuk jadwal lintasan: satelit militer & pengintai LEO mana yang sedang di atas Indonesia dan yang akan lewat 12 jam ke depan, dengan jam masuk (Z/WIB), lama, ketinggian, dan arah. Dihitung SGP4 di browser dari TLE harian. Klik baris untuk terbang ke satelitnya.",
-      en: "Press O (or the orbit icon, top right) for the pass schedule: which LEO military & recon satellites are over Indonesia now and which pass in the next 12 hours, with entry time (Z/WIB), duration, altitude and direction. Computed with SGP4 in the browser from daily TLEs. Click a row to fly to that satellite.",
+      id: "Tekan O (atau ikon orbit di kanan atas) untuk jadwal lintasan: satelit strategis LEO mana yang sedang di atas Indonesia dan yang akan lewat 12 jam ke depan, dengan jam masuk (Z/WIB), lama, ketinggian, dan arah. Dihitung SGP4 di browser dari TLE harian. Klik baris untuk terbang ke satelitnya.",
+      en: "Press O (or the orbit icon, top right) for the pass schedule: which LEO strategic satellites are over Indonesia now and which pass in the next 12 hours, with entry time (Z/WIB), duration, altitude and direction. Computed with SGP4 in the browser from daily TLEs. Click a row to fly to that satellite.",
     },
     lapisan: "satelit",
   },

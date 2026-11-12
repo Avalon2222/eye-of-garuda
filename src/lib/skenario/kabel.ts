@@ -23,7 +23,7 @@ export const KABEL_PUTUS: Skenario = {
   id: "kabel",
   ikon: "cable",
   warna: "#22d3ee",
-  judul: { id: "CABLE CUT: SELAT SINGAPURA", en: "CABLE CUT: SINGAPORE STRAIT" },
+  judul: { id: "CABLE CUT: SINGAPORE STRAIT", en: "CABLE CUT: SINGAPORE STRAIT" },
   sub: {
     id: "Simulasi fiktif: jangkar kapal memutus beberapa kabel internet sekaligus di alur tersibuk kawasan. Apa dampaknya ke Indonesia, dan berapa lama pulih?",
     en: "Fictional simulation: a dragged anchor severs several internet cables at once in the region's busiest lane. What happens to Indonesia, and how long until it recovers?",

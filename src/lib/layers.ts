@@ -158,8 +158,11 @@ export const LAPISAN: LayerDef[] = [
   {
     id: "satelit",
     tombol: "8",
-    nama: { id: "Satelit militer & pengintai", en: "Military & spy satellites" },
-    deskripsi: { id: "Dipropagasi dari TLE di browser", en: "Propagated from TLE in the browser" },
+    nama: { id: "Satelit strategis", en: "Strategic satellites" },
+    deskripsi: {
+      id: "Satelit militer asing, pengintai sipil & komersial, dan satelit Indonesia; dipropagasi dari TLE di browser",
+      en: "Foreign military, civil & commercial imaging, and Indonesian satellites; propagated from TLE in the browser",
+    },
     grup: "udara",
     warna: "#fb923c",
     jenis: "live",
@@ -214,6 +217,20 @@ export const LAPISAN: LayerDef[] = [
     fase: 3,
   },
 ];
+
+/** Tombol fisik (KeyboardEvent.code) untuk tiap pintasan lapisan. */
+const KODE_TOMBOL: Record<string, string> = { "[": "BracketLeft", "]": "BracketRight", ";": "Semicolon", "-": "Minus", "=": "Equal" };
+
+/**
+ * Cocokkan tombol yang ditekan dengan pintasan lapisan. Dicek lewat `key` (karakter) dan `code`
+ * (posisi tombol), jadi [ ] ; - = dan angka tetap jalan di keyboard non-US (AZERTY, QWERTZ, dll.).
+ */
+export function lapisanDariTombol(e: Pick<KeyboardEvent, "key" | "code">): LayerDef | undefined {
+  return (
+    LAPISAN.find((l) => l.tombol === e.key) ??
+    LAPISAN.find((l) => (/^\d$/.test(l.tombol) ? e.code === `Digit${l.tombol}` || e.code === `Numpad${l.tombol}` : e.code === KODE_TOMBOL[l.tombol]))
+  );
+}
 
 /** Lapisan untuk tampilan awal dan tombol reset: ramai tapi ringan (detail kecil baru muncul saat zoom). */
 export const LAPISAN_BAWAAN: LayerId[] = LAPISAN.filter((l) => l.aktifAwal).map((l) => l.id);

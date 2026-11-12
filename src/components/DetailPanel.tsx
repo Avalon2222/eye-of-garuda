@@ -5,6 +5,7 @@ import { lapisanDariId, type LayerId } from "@/lib/layers";
 import { terjemah, type Lang, type KunciKamus } from "@/lib/i18n";
 import { formatKoordinat } from "@/lib/geo";
 import { useFokusPanel } from "@/lib/useFokusPanel";
+import { formatEpochTle } from "@/lib/waktu";
 import type { Pilihan } from "@/lib/types";
 import { NAMA_KATEGORI_PESAWAT, type KategoriPesawat } from "@/lib/negara";
 
@@ -157,7 +158,7 @@ function barisUntuk(p: Pilihan, lang: Lang): { judul: string; sub: string; baris
       const kelas = s(pr.kelas_orbit);
       const kelasTeks = kelas === "LEO" ? t("orbit_leo") : kelas === "MEO" ? t("orbit_meo") : kelas === "GEO" ? t("orbit_geo") : kelas === "HEO" ? t("orbit_heo") : "";
       const kec = pr.kecepatan != null ? `${Number(pr.kecepatan).toFixed(2)} km/s (${Math.round(Number(pr.kecepatan) * 3600).toLocaleString("en-US")} km/h)` : "";
-      const periode = pr.periode_menit != null ? `${Number(pr.periode_menit).toFixed(1)} ${lang === "id" ? "menit" : "min"}` : "";
+      const periode = pr.periode_menit != null ? `${Number(pr.periode_menit).toFixed(1)} ${t("unit_min")}` : "";
       return {
         judul: s(pr.nama),
         sub: `${kelas ? kelas + " · " : ""}${s(pr.kelompok)} · ${s(pr.negara)}`,
@@ -174,7 +175,7 @@ function barisUntuk(p: Pilihan, lang: Lang): { judul: string; sub: string; baris
           [t("apogee_perigee"), pr.apogee != null ? `${Number(pr.apogee).toLocaleString("en-US")} / ${Number(pr.perigee).toLocaleString("en-US")} km` : ""],
           [t("eccentricity"), s(pr.eksentrisitas)],
           [t("launched"), s(pr.diluncurkan)],
-          [t("tle_epoch"), s(pr.epoch)],
+          [t("tle_epoch"), pr.epoch ? formatEpochTle(s(pr.epoch), lang) : ""],
           [t("source"), "CelesTrak (TLE) · GCAT"],
         ],
         catatan: "sat_caveat",
@@ -234,7 +235,7 @@ function barisUntuk(p: Pilihan, lang: Lang): { judul: string; sub: string; baris
           ["ICAO / IATA", [s(pr.icao), s(pr.iata)].filter(Boolean).join(" / ")],
           [t("detail_city"), s(pr.kota)],
           [t("detail_country"), s(pr.negara)],
-          [t("military_use"), pr.militer ? (lang === "id" ? "Ya (berdasarkan nama)" : "Yes (by name)") : ""],
+          [t("military_use"), pr.militer ? t("airport_military_yes") : ""],
           [t("source"), "OurAirports (public domain)"],
         ],
         url,

@@ -6,7 +6,7 @@ import type { GeoJSON } from "geojson";
 import { bangunStyle, ID_LAYER_SAT, layerBasemapTersembunyiSaatSat } from "@/lib/mapStyle";
 import { pasangSemuaLapisan, setVisibilitas, sinkronVisibilitas, setDataSource, LAYER_INTERAKTIF, sorotPilihan, pakaiCincin, sorotKabelPutus } from "@/lib/mapLayers";
 import { KanvasLive } from "@/lib/kanvasLive";
-import { LAPISAN, LAPISAN_BAWAAN, type LayerId } from "@/lib/layers";
+import { LAPISAN, LAPISAN_BAWAAN, lapisanDariTombol, type LayerId } from "@/lib/layers";
 import { bacaUrl, tulisUrl, tampilanAwal, type Tampilan } from "@/lib/urlState";
 import { terjemah, bacaLangTersimpan, simpanLang, type Lang } from "@/lib/i18n";
 import { TOUR } from "@/lib/tour";
@@ -33,11 +33,15 @@ import SkenarioOverlay, { SkenarioPicker } from "./SkenarioOverlay";
 import ChatWidget from "./ChatWidget";
 import Onboarding, { panduanSudahDilihat } from "./Onboarding";
 import JadwalSatelit from "./JadwalSatelit";
+import PilihObjek from "./PilihObjek";
+import { urutkanCalon, type CalonKlik } from "@/lib/klik";
 
 const TAMPILAN_JAUH = { center: [118, -2] as [number, number], zoom: 1.3, pitch: 0, bearing: 0 };
 const KOSONG: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
 /** toleransi klik (px) untuk titik kecil: jari di HP butuh lebih lebar daripada kursor */
 const TOLERANSI_KLIK = { mouse: 7, sentuh: 14 };
+/** maksimal baris di daftar pilihan objek yang numpuk */
+const MAKS_PILIHAN_KLIK = 6;
 
 function entriDariFitur(lapisan: LayerId, f: GeoJSON.Feature): EntriCari | null {
   const p = (f.properties ?? {}) as Record<string, unknown>;
@@ -76,6 +80,7 @@ export default function Console() {
   const [boot, setBoot] = useState(true);
   const [siap, setSiap] = useState(false);
   const [pilihan, setPilihan] = useState<Pilihan | null>(null);
+  const [pilihanKlik, setPilihanKlik] = useState<{ x: number; y: number; daftar: Pilihan[]; sisa: number } | null>(null);
   const [panel, setPanel] = useState<PanelId>("none");
   const [tour, setTour] = useState(-1);
   const [obrolan, setObrolan] = useState(false);
@@ -577,6 +582,7 @@ export default function Console() {
       });
       m.on("moveend", simpanUrl);
       // interaksi pengguna saat simulasi/briefing: hentikan dan pulihkan
+      m.on("movestart", () => setPilihanKlik(null));
       m.on("dragstart", () => {
         if (tourRef.current >= 0 || simulasiRef.current) hentikanSimulasi("interupsi");
       });
@@ -588,40 +594,47 @@ export default function Console() {
           hentikanSimulasi("interupsi");
           return;
         }
+        setPilihanKlik(null);
         const sentuh = (e.originalEvent as PointerEvent | undefined)?.pointerType === "touch" || (e.originalEvent as { sourceCapabilities?: { firesTouchEvents?: boolean } })?.sourceCapabilities?.firesTouchEvents === true;
         const r = sentuh ? TOLERANSI_KLIK.sentuh : TOLERANSI_KLIK.mouse;
-        const hit = kanvas.current?.cari(e.point.x, e.point.y, r + 6);
-        if (hit) {
-          if (hit.jenis === "satelit" && satelit.current) {
-            const sat = satelit.current.cari(Number((hit.props as { norad: number }).norad));
-            if (sat) pilih({ lapisan: "satelit", props: satelit.current.info(sat), lon: hit.lon, lat: hit.lat });
-          } else pilih({ lapisan: hit.jenis, props: hit.props, lon: hit.lon, lat: hit.lat });
-          return;
+        // kumpulkan semua objek titik di area klik: kanvas (satelit, pesawat) + layer MapLibre
+        const calon: CalonKlik[] = [];
+        for (const h of kanvas.current?.cariSemua(e.point.x, e.point.y, r + 6) ?? []) {
+          if (h.jenis === "satelit") {
+            const sat = satelit.current?.cari(Number((h.props as { norad: number }).norad));
+            if (sat && satelit.current) calon.push({ pilihan: { lapisan: "satelit", props: satelit.current.info(sat), lon: h.lon, lat: h.lat }, d2: h.d2 });
+          } else calon.push({ pilihan: { lapisan: h.jenis, props: h.props, lon: h.lon, lat: h.lat }, d2: h.d2 });
         }
         const ids = Object.keys(LAYER_INTERAKTIF).filter((id) => m.getLayer(id));
         // kotak toleransi: titik kecil (3–6 px) tetap bisa diklik tanpa harus tepat
         const kandidat = m.queryRenderedFeatures([[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]], { layers: ids });
-        if (!kandidat.length) {
-          pilih(null);
-          return;
-        }
-        // titik terdekat menang atas garis/poligon; di antara titik pilih yang paling dekat
-        let f = kandidat[0];
-        let terbaik = Infinity;
         for (const c of kandidat) {
           const g = c.geometry;
           if (g.type !== "Point") continue;
-          const q = m.project(g.coordinates as [number, number]);
-          const d = (q.x - e.point.x) ** 2 + (q.y - e.point.y) ** 2;
-          if (d < terbaik) {
-            terbaik = d;
-            f = c;
-          }
+          const [lon, lat] = g.coordinates as [number, number];
+          const q = m.project([lon, lat]);
+          const d2 = (q.x - e.point.x) ** 2 + (q.y - e.point.y) ** 2;
+          // label teks punya kotak lebar; yang dihitung tetap jarak ke titiknya
+          if (d2 > (r + 4) ** 2) continue;
+          calon.push({ pilihan: { lapisan: LAYER_INTERAKTIF[c.layer.id], props: c.properties as Record<string, unknown>, lon, lat }, d2 });
         }
-        const lapisan = LAYER_INTERAKTIF[f.layer.id];
-        const g = f.geometry;
-        const [lon, lat] = g.type === "Point" ? (g.coordinates as [number, number]) : [e.lngLat.lng, e.lngLat.lat];
-        pilih({ lapisan, props: f.properties as Record<string, unknown>, lon, lat });
+        const urut = urutkanCalon(calon);
+        if (urut.length === 1) {
+          pilih(urut[0].pilihan);
+          return;
+        }
+        if (urut.length > 1) {
+          // objek numpuk: tampilkan daftar pilihan kecil, urut prioritas (markas TNI dulu, kabel terakhir)
+          setPilihanKlik({ x: e.point.x, y: e.point.y, daftar: urut.slice(0, MAKS_PILIHAN_KLIK).map((c) => c.pilihan), sisa: Math.max(0, urut.length - MAKS_PILIHAN_KLIK) });
+          return;
+        }
+        // tidak ada titik: garis/poligon (kabel, ALKI, ZEE, ...) yang kena
+        const f = kandidat[0];
+        if (!f) {
+          pilih(null);
+          return;
+        }
+        pilih({ lapisan: LAYER_INTERAKTIF[f.layer.id], props: f.properties as Record<string, unknown>, lon: e.lngLat.lng, lat: e.lngLat.lat });
       });
       m.on("mousemove", (e: MapMouseEvent) => {
         const ids = Object.keys(LAYER_INTERAKTIF).filter((id) => m.getLayer(id));
@@ -782,7 +795,7 @@ export default function Console() {
     const sk = simulasiRef.current ? skenarioDariId(simulasiRef.current.id) : null;
     const judul = sk ? `${sk.judul[lang]} · ${terjemah(lang, "scenario_fictional")}` : "EYE OF GARUDA";
     const ok = await fotoPng(m, kanvas.current?.canvas ?? null, `eye-of-garuda-${sk?.id ?? "view"}.png`, `${judul} · eye-of-garuda.vercel.app`);
-    if (!ok) tampilkanToast("PNG gagal");
+    if (!ok) tampilkanToast(terjemah(lang, "export_png_failed"));
   }, [lang, tampilkanToast]);
 
   const toggleRekam = useCallback(async () => {
@@ -797,7 +810,7 @@ export default function Console() {
     const sk = simulasiRef.current ? skenarioDariId(simulasiRef.current.id) : null;
     perekam.current = new Perekam(m, kanvas.current?.canvas ?? null, `${sk?.judul[lang] ?? "EYE OF GARUDA"} · ${terjemah(lang, "scenario_fictional")} · eye-of-garuda.vercel.app`);
     if (perekam.current.mulai()) setMerekam(true);
-    else tampilkanToast("Browser tidak mendukung rekaman");
+    else tampilkanToast(terjemah(lang, "export_rec_unsupported"));
   }, [lang, tampilkanToast]);
 
   // keyboard
@@ -868,7 +881,7 @@ export default function Console() {
           setObrolan((o) => !o);
           break;
         default: {
-          const l = LAPISAN.find((x) => x.tombol === e.key);
+          const l = lapisanDariTombol(e);
           if (l && tersedia.has(l.id)) toggleLapisan(l.id);
         }
       }
@@ -955,6 +968,23 @@ export default function Console() {
             {terjemah(lang, "scope_world")}
           </button>
         </div>
+      )}
+
+      {pilihanKlik && !sibukLayar && (
+        <PilihObjek
+          lang={lang}
+          x={pilihanKlik.x}
+          y={pilihanKlik.y}
+          lebar={wadah.current?.clientWidth ?? window.innerWidth}
+          tinggi={wadah.current?.clientHeight ?? window.innerHeight}
+          daftar={pilihanKlik.daftar}
+          sisa={pilihanKlik.sisa}
+          onPilih={(p) => {
+            setPilihanKlik(null);
+            pilih(p);
+          }}
+          onTutup={() => setPilihanKlik(null)}
+        />
       )}
 
       {pilihan && !sibukLayar && <DetailPanel lang={lang} pilihan={pilihan} onTutup={() => pilih(null)} onTerbang={(lon, lat) => mapRef.current?.flyTo({ center: [lon, lat], zoom: Math.max(mapRef.current.getZoom(), 7), duration: 1500 })} />}

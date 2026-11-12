@@ -9,6 +9,7 @@
 
 import type { LayerId } from "./layers";
 import { jarakKm } from "./geo";
+import { terjemah } from "./i18n";
 import { NATUNA } from "./skenario/natuna";
 import { KABEL_PUTUS } from "./skenario/kabel";
 import { NUKLIR } from "./skenario/nuklir";
@@ -110,9 +111,9 @@ export function hitungAngka(a: AngkaSkenario, lang: "id" | "en"): string {
   let s = `${Math.round(km).toLocaleString("en-US")} km`;
   if (a.kecepatanKmJam) {
     const jam = km / a.kecepatanKmJam;
-    if (jam < 1.5) s += ` · ±${Math.round(jam * 60)} ${lang === "id" ? "menit" : "min"}`;
-    else if (jam < 48) s += ` · ±${jam.toFixed(1).replace(/\.0$/, "")} ${lang === "id" ? "jam" : "h"}`;
-    else s += ` · ±${(jam / 24).toFixed(1).replace(/\.0$/, "")} ${lang === "id" ? "hari" : "days"}`;
+    if (jam < 1.5) s += ` · ±${Math.round(jam * 60)} ${terjemah(lang, "unit_min")}`;
+    else if (jam < 48) s += ` · ±${jam.toFixed(1).replace(/\.0$/, "")} ${terjemah(lang, "unit_hour")}`;
+    else s += ` · ±${(jam / 24).toFixed(1).replace(/\.0$/, "")} ${terjemah(lang, "unit_days")}`;
   }
   return s;
 }
@@ -185,10 +186,10 @@ export function skenarioKeMarkdown(s: Skenario, lang: "id" | "en"): string {
       b.push("");
     }
   });
-  b.push(`## ${lang === "id" ? "Kesimpulan" : "Conclusions"}`, "");
+  b.push(`## ${terjemah(lang, "md_conclusions")}`, "");
   s.kesimpulan[lang].forEach((k, i) => b.push(`${i + 1}. ${k}`));
-  b.push("", `## ${lang === "id" ? "Saran" : "Recommendations"}`, "");
+  b.push("", `## ${terjemah(lang, "md_recommendations")}`, "");
   s.saran[lang].forEach((k, i) => b.push(`${i + 1}. ${k}`));
-  b.push("", lang === "id" ? "_Skenario fiktif dan edukatif dari Eye of Garuda (eye-of-garuda.vercel.app). Posisi pangkalan dari data publik; pergerakan, waktu, dan hasil hanya ilustrasi._" : "_Fictional, educational scenario from Eye of Garuda (eye-of-garuda.vercel.app). Base positions from public data; movements, timings and outcomes are illustrative._");
+  b.push("", terjemah(lang, "md_footer"));
   return b.join("\n");
 }
