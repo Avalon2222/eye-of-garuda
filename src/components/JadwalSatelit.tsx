@@ -34,8 +34,8 @@ export default function JadwalSatelit({ lang, lintasan, sekarang, dihitung, seda
   const diAtas = useMemo(() => (lintasan ?? []).filter((l) => l.masuk <= tick && l.keluar > tick), [lintasan, tick]);
   const jumlahSekarang = Math.max(sekarang.length, diAtas.length);
   return (
-    <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/50 p-3 backdrop-blur-[2px]" onClick={onTutup}>
-      <div className="glass braket muncul flex max-h-[82vh] w-[640px] max-w-full flex-col" onClick={(e) => e.stopPropagation()}>
+    <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/50 sm:p-3 sm:backdrop-blur-[2px]" onClick={onTutup}>
+      <div className="glass braket muncul lembar-hp flex max-h-[82vh] w-[640px] max-w-full flex-col" role="dialog" aria-modal="true" aria-label={terjemah(lang, "passes_title")} onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3">
           <div className="flex items-center gap-3">
             <Orbit size={22} className="text-accent" />
@@ -45,10 +45,10 @@ export default function JadwalSatelit({ lang, lintasan, sekarang, dihitung, seda
             </div>
           </div>
           <div className="flex gap-1">
-            <button className={`tombol-ikon !h-7 !w-7 ${sedangHitung ? "animate-spin" : ""}`} onClick={onHitung} disabled={sedangHitung || !lapisanAktif} title="refresh">
+            <button className={`tombol-ikon !h-7 !w-7 ${sedangHitung ? "animate-spin" : ""}`} onClick={onHitung} disabled={sedangHitung || !lapisanAktif} title="refresh" aria-label="refresh">
               <RefreshCw size={13} />
             </button>
-            <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={onTutup} title="Esc">
+            <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={onTutup} title="Esc" aria-label={terjemah(lang, "close")}>
               <X size={15} />
             </button>
           </div>
@@ -60,7 +60,7 @@ export default function JadwalSatelit({ lang, lintasan, sekarang, dihitung, seda
           </div>
           <div className="flex flex-1 flex-wrap gap-x-3 gap-y-0.5">
             {diAtas.slice(0, 8).map((l) => (
-              <button key={`${l.norad}-${l.masuk}`} className="truncate text-[10.5px] hover:underline" style={{ color: warnaSatelit(l.kelompok) }} onClick={() => onPilih(l.norad)}>
+              <button key={`${l.norad}-${l.masuk}`} className="sentuh truncate text-[10.5px] hover:underline" style={{ color: warnaSatelit(l.kelompok) }} onClick={() => onPilih(l.norad)}>
                 {l.nama} ({kodeNegara(l.negara)})
               </button>
             ))}
@@ -79,7 +79,13 @@ export default function JadwalSatelit({ lang, lintasan, sekarang, dihitung, seda
               <thead className="sticky top-0 bg-[#0a0f1c] text-[9px] uppercase tracking-[0.15em] text-muted">
                 <tr>
                   <th className="px-3 py-1.5 text-left font-normal">{terjemah(lang, "passes_enter")} Z / WIB</th>
-                  <th className="px-2 py-1.5 text-left font-normal">Satelit</th>
+                  <th className="px-2 py-1.5 text-left font-normal">
+                    Satelit
+                    <span className="sm:hidden">
+                      {" "}
+                      · {terjemah(lang, "passes_alt")} · {terjemah(lang, "passes_dir")}
+                    </span>
+                  </th>
                   <th className="px-2 py-1.5 text-right font-normal">{terjemah(lang, "passes_duration")}</th>
                   <th className="hidden px-2 py-1.5 text-right font-normal sm:table-cell">{terjemah(lang, "passes_alt")}</th>
                   <th className="hidden px-3 py-1.5 text-right font-normal sm:table-cell">{terjemah(lang, "passes_dir")}</th>
@@ -99,6 +105,9 @@ export default function JadwalSatelit({ lang, lintasan, sekarang, dihitung, seda
                       <td className="px-2 py-1.5">
                         <span style={{ color: warnaSatelit(l.kelompok) }}>{l.nama}</span>
                         <span className="text-muted"> ({kodeNegara(l.negara)})</span>
+                        <span className="block text-[10px] tabular-nums text-muted sm:hidden">
+                          {Math.round(l.altKm).toLocaleString("en-US")} km · {l.arah === "S→U" ? "S → N" : "N → S"}
+                        </span>
                       </td>
                       <td className="px-2 py-1.5 text-right tabular-nums text-text">{menit} min</td>
                       <td className="hidden px-2 py-1.5 text-right tabular-nums text-muted sm:table-cell">{Math.round(l.altKm).toLocaleString("en-US")} km</td>
