@@ -33,8 +33,17 @@ export function teksKoordinat(lat: number, lon: number, lang: Lang): string {
   return lang === "en" ? `${a}°${ns}, ${b}°${ew}` : `${a}° ${ns}, ${b}° ${ew}`;
 }
 
+const RE_MENYANGKAL = /\b(tidak ada data|tidak ada di data|tidak ada dalam data|tidak ditemukan|tidak tersedia|belum ada data|not in the data|not found in the data|no data (?:on|for|about)|(?:could not|couldn't|cannot|can't) find)\b/i;
+
+/** Angka ditulis sesuai bahasa: "1.018" (ID) atau "1,018" (EN). */
+function angka(n: number, lang: Lang): string {
+  return n.toLocaleString(lang === "en" ? "en-US" : "id-ID");
+}
+
 /** Benar kalau semua nama dan angka kunci dari fakta muncul di jawaban. */
 export function jawabanSesuai(jawaban: string, wajib: string[]): boolean {
+  // faktanya ada, jadi jawaban yang bilang "tidak ada di data" pasti keliru
+  if (wajib.length && RE_MENYANGKAL.test(jawaban)) return false;
   // "1.018 km" atau "1,018 km" disamakan jadi "1018"
   const rapat = normal(jawaban.replace(/(\d)[.,\s](?=\d{3}(?!\d))/g, "$1"));
   return wajib.every((w) => {
@@ -86,6 +95,7 @@ const KATA_PANGKALAN = ["pangkalan", "markas", "base", "bases"];
 const RE_TERDEKAT = /\b(terdekat|paling dekat|nearest|closest|dekat dari|dekat dengan|close to)\b/;
 const RE_JARAK = /\b(jarak|berapa km|berapa kilometer|berapa jauh|seberapa jauh|how far|distance)\b/;
 const RE_HITUNG = /\b(berapa|jumlah|how many|number of|banyaknya|total|terbanyak|paling banyak|most|tersedikit|paling sedikit|fewest)\b/;
+const RE_TERBANYAK = /\b(terbanyak|paling banyak|most)\b/;
 const RE_LETAK = /\b(di mana|dimana|where|letak|lokasi|located|apa itu|what is|siapa|tunjukkan|show me)\b/;
 
 const WILAYAH_TAMBAHAN = ["papua", "jawa", "sumatera", "kalimantan", "sulawesi", "maluku", "nusa tenggara", "kepulauan riau", "riau"];
@@ -201,25 +211,39 @@ function faktaTerdekat(indeks: ObjekPeta[], asal: Tempat, lapisan: LapisanChat, 
     const negara = operator ?? (h.negara && h.negara !== "Indonesia" ? h.negara : "");
     const pemilik = [negara, h.jenis, h.wilayah && h.wilayah !== h.negara ? h.wilayah : ""].filter(Boolean).join(", ");
     const arah = lang === "en" ? `to the ${ARAH_EN[h.arah] ?? h.arah}` : `ke arah ${h.arah}`;
-    return `${i + 1}. ${h.nama}${pemilik ? ` (${pemilik})` : ""}: ${h.km.toLocaleString("en-US")} km ${arah}`;
+    return `${i + 1}. ${h.nama}${pemilik ? ` (${pemilik})` : ""}: ${angka(h.km, lang)} km ${arah}`;
   });
   return { teks: [kepala, ...baris].join("\n"), pertama: hasil[0].nama, km: hasil[0].km };
 }
 
-function faktaHitung(indeks: ObjekPeta[], lapisan: LapisanChat, lang: Lang, saring: string | undefined, kelompok: Kelompok[]): { teks: string; total: number } {
+interface Teratas {
+  nama: string;
+  jumlah: number;
+  /** ada kelompok lain dengan jumlah yang sama */
+  seri: boolean;
+}
+
+function faktaHitung(indeks: ObjekPeta[], lapisan: LapisanChat, lang: Lang, saring: string | undefined, kelompok: Kelompok[], cariTeratas: boolean): { teks: string; total: number; teratas?: Teratas } {
   const nama = NAMA_LAPISAN_CHAT[lapisan][lang];
   const total = hitung(indeks, { lapisan, saring });
   const dengan = saring ? (lang === "en" ? ` matching "${saring}"` : ` yang cocok dengan "${saring}"`) : "";
   const baris = [lang === "en" ? `Count of ${nama}${dengan} in the map data: ${total.total}.` : `Jumlah ${nama}${dengan} di data peta: ${total.total}.`];
+  let teratas: Teratas | undefined;
   if (total.total > 0) {
     for (const k of kelompok) {
       const r = hitung(indeks, { lapisan, saring, kelompok: k });
       if (!r.rincian || r.rincian.length < 2) continue;
+      if (cariTeratas && !teratas) {
+        const urut = [...r.rincian].sort((a, b) => b[1] - a[1]);
+        teratas = { nama: urut[0][0], jumlah: urut[0][1], seri: urut[1][1] === urut[0][1] };
+        const sama = urut.filter(([, j]) => j === urut[0][1]).map(([n]) => n);
+        baris.push(lang === "en" ? `Most: ${sama.join(", ")} (${teratas.jumlah} of ${total.total}).` : `Terbanyak: ${sama.join(", ")} (${teratas.jumlah} dari ${total.total}).`);
+      }
       const label = { jenis: lang === "en" ? "By type" : "Per jenis", negara: lang === "en" ? "By country" : "Per negara", wilayah: lang === "en" ? "By region" : "Per wilayah", matra: lang === "en" ? "By service" : "Per matra" }[k];
       baris.push(`${label}: ${r.rincian.slice(0, 20).map(([n, j]) => `${n} ${j}`).join(", ")}.`);
     }
   }
-  return { teks: baris.join("\n"), total: total.total };
+  return { teks: baris.join("\n"), total: total.total, teratas };
 }
 
 /** Pisahkan "A ke B" / "between A and B" / "A from B" jadi dua tempat. */
@@ -255,8 +279,8 @@ export function siapkanFakta(indeks: ObjekPeta[], pertanyaan: string, lang: Lang
         const arah = lang === "en" ? (ARAH_EN[r.arah ?? ""] ?? r.arah) : r.arah;
         blok.push(
           lang === "en"
-            ? `Great-circle distance ${dua[0].nama} → ${dua[1].nama}: ${r.km.toLocaleString("en-US")} km (${r.mil_laut?.toLocaleString("en-US")} nautical miles), heading ${arah}.`
-            : `Jarak garis lurus ${dua[0].nama} → ${dua[1].nama}: ${r.km.toLocaleString("en-US")} km (${r.mil_laut?.toLocaleString("en-US")} mil laut), ke arah ${arah}.`,
+            ? `Great-circle distance ${dua[0].nama} → ${dua[1].nama}: ${angka(r.km, lang)} km (${r.mil_laut != null ? angka(r.mil_laut, lang) : "?"} nautical miles), heading ${arah}.`
+            : `Jarak garis lurus ${dua[0].nama} → ${dua[1].nama}: ${angka(r.km, lang)} km (${r.mil_laut != null ? angka(r.mil_laut, lang) : "?"} mil laut), ke arah ${arah}.`,
         );
         alat.push("jarak");
         wajib.push(String(r.km));
@@ -298,8 +322,9 @@ export function siapkanFakta(indeks: ObjekPeta[], pertanyaan: string, lang: Lang
       const saring = wilayah ?? negara ?? t.jenis;
       const kelompok: Kelompok[] =
         t.lapisan === "tni" ? (wilayah ? ["wilayah", "jenis"] : t.jenis ? ["wilayah"] : ["matra", "jenis"]) : t.lapisan === "asing" ? (negara ? ["wilayah", "jenis"] : ["negara"]) : t.lapisan === "batas" || t.lapisan === "kabel" || t.lapisan === "insiden" ? ["jenis"] : negara ? ["jenis"] : ["negara"];
-      const f = faktaHitung(indeks, t.lapisan, lang, saring, kelompok);
-      if (wajib.length === 0) wajib.push(String(f.total));
+      const f = faktaHitung(indeks, t.lapisan, lang, saring, kelompok, RE_TERBANYAK.test(q));
+      // "paling banyak": yang wajib disebut pemuncaknya, bukan totalnya
+      if (wajib.length === 0) wajib.push(...(f.teratas ? [...(f.teratas.seri ? [] : [f.teratas.nama]), String(f.teratas.jumlah)] : [String(f.total)]));
       blok.push(f.teks);
     }
     alat.push("hitung");
@@ -311,7 +336,7 @@ export function siapkanFakta(indeks: ObjekPeta[], pertanyaan: string, lang: Lang
     const cocok = cariObjek(indeks, kueri, { batas: 4 });
     const kuat = cocok.filter((c) => normal(kueri).split(" ").some((k) => k.length >= 4 && ` ${normal(c.nama)} `.includes(` ${k} `)));
     if (kuat.length) {
-      blok.push([lang === "en" ? "Map objects matching the question:" : "Objek peta yang cocok dengan pertanyaan:", ...kuat.map((c) => `- ${barisObjek(c, lang)}`)].join("\n"));
+      blok.push([lang === "en" ? "Map objects matching the question, best match first (the name in the data can differ from the wording of the question):" : "Objek peta yang cocok dengan pertanyaan, paling cocok di atas (nama di data bisa beda dari sebutan di pertanyaan):", ...kuat.map((c) => `- ${barisObjek(c, lang)}`)].join("\n"));
       alat.push("cari_objek");
       // kalau cuma ditanya letaknya, nama objek yang paling cocok harus disebut apa adanya
       if (blok.length === 1) wajib.push(kuat[0].nama);
