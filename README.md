@@ -210,7 +210,6 @@ Ide yang belum dikerjain, urutannya bukan janji:
 - **Asisten yang bisa menjalankan War Room** ("tunjukin kabel putus") dan menyalakan lapisan sendiri.
 - **Link share per objek:** buka tautan langsung ke satu satelit, markas, atau kapal.
 - **Install ke HP (PWA)** dan **mode presentasi** (tur muter terus tanpa UI, buat layar pajangan).
-- **Satuan lebih kecil** (Kodim, Yonif) di zoom dekat, termasuk Papua Pegunungan yang masih kosong.
 
 Riwayat perubahan ada di [`CHANGELOG.md`](CHANGELOG.md).
 
