@@ -8,8 +8,9 @@ export const SUMBER_LUAR = {
   /** fetch/XHR dari browser: gaya dan ubin peta, citra satelit, data live di cabang `data` */
   sambung: ["https://tiles.openfreemap.org", "https://server.arcgisonline.com", "https://raw.githubusercontent.com"],
   gambar: ["https://tiles.openfreemap.org", "https://server.arcgisonline.com"],
-  gaya: ["https://fonts.googleapis.com"],
-  font: ["https://fonts.gstatic.com"],
+  // font dimuat lewat next/font dari domain sendiri, jadi tidak ada host font di sini
+  gaya: [] as string[],
+  font: [] as string[],
 };
 
 export function kebijakanKonten(dev = false): string {

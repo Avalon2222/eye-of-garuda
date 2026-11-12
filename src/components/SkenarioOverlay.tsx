@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Square, SkipForward, SkipBack, RotateCcw, Swords, Cable, Radiation, ChevronDown, ChevronUp, Download, Camera, Video, X, Play } from "lucide-react";
 import { type Skenario, hitungAngka, SKENARIO, TAHAN_KESIMPULAN_MS } from "@/lib/skenario";
 import { terjemah, type Lang } from "@/lib/i18n";
+import { useFokusPanel } from "@/lib/useFokusPanel";
 
 const IKON = { swords: Swords, cable: Cable, radiation: Radiation };
 
@@ -15,15 +16,16 @@ interface PropsPilih {
 
 /** Pemilih skenario: kartu untuk tiap simulasi. */
 export function SkenarioPicker({ lang, onPilih, onTutup }: PropsPilih) {
+  const panel = useFokusPanel<HTMLDivElement>({ jebak: true });
   return (
     <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/55 p-3 backdrop-blur-[2px]" onClick={onTutup}>
-      <div className="glass braket muncul w-[760px] max-w-full" onClick={(e) => e.stopPropagation()}>
+      <div ref={panel} role="dialog" aria-modal="true" aria-label={terjemah(lang, "scenario_pick")} tabIndex={-1} className="glass braket muncul w-[760px] max-w-full outline-none" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
           <div>
             <div className="label-kecil text-accent">{terjemah(lang, "scenario")}</div>
             <div className="text-[15px] tracking-[0.2em] text-gold">{terjemah(lang, "scenario_pick")}</div>
           </div>
-          <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={onTutup} title="Esc">
+          <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={onTutup} title={`${terjemah(lang, "close")} (Esc)`} aria-label={terjemah(lang, "close")}>
             <X size={15} />
           </button>
         </div>
@@ -86,7 +88,7 @@ export default function SkenarioOverlay({ lang, skenario, fase, mulaiFase, merek
   const label = `${skenario.judul[lang]} · ${terjemah(lang, "scenario_phase")} ${fase + 1}/${skenario.fase.length}`;
   return (
     <div className="pointer-events-none absolute inset-x-0 bottom-[40px] z-30 flex justify-center px-2 sm:bottom-[72px] sm:px-3">
-      <div key={fase} className={`glass-padat braket muncul pointer-events-auto flex w-[720px] max-w-full flex-col ${kecil ? "" : "max-h-[46vh] sm:max-h-[56vh]"}`}>
+      <div key={fase} role="region" aria-live="polite" aria-label={label} className={`glass-padat braket muncul pointer-events-auto flex w-[720px] max-w-full flex-col ${kecil ? "" : "max-h-[46vh] sm:max-h-[56vh]"}`}>
         <div
           className="relative flex touch-none items-center justify-between gap-2 border-b border-white/10 px-3 py-2 sm:touch-auto sm:px-5"
           onPointerDown={(e) => {
