@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { URL_SITUS } from "@/lib/situs";
 import "./globals.css";
 
@@ -38,7 +39,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://tiles.openfreemap.org" />
       </head>
-      <body className="h-full">{children}</body>
+      <body className="h-full">
+        {children}
+        {/* Vercel Web Analytics: tanpa cookie, skripnya dari domain sendiri (/_vercel/insights).
+            Cuma dipasang di build Vercel; di lokal/CI jalur itu tidak ada. */}
+        {process.env.VERCEL ? <Analytics /> : null}
+      </body>
     </html>
   );
 }
