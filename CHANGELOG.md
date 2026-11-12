@@ -4,6 +4,16 @@ Semua perubahan penting di Eye of Garuda dicatat di sini. Formatnya mengikuti
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versinya [Semantic Versioning](https://semver.org/).
 Tiap versi baru di `package.json` otomatis jadi tag + GitHub Release lewat workflow `rilis.yml`.
 
+## [1.1.0] - 2026-11-12
+
+### Ditambah
+- **Kodim dan Yonif di lapisan markas TNI.** 356 Kodim, 105 Yonif, dan 255 Yonif TP baru muncul mulai zoom 6
+  (Kodim titik, Yonif cincin), jadi tampilan jauh tetap bersih. Papua Pegunungan yang tadinya kosong sekarang ada
+  9 satuan. Lokasi dicocokkan ke OpenStreetMap kalau ketemu, selebihnya ibu kota kabupaten (Wikidata) atau titik kota
+  markas, dan presisinya ditulis di panel detail.
+- Garuda AI ngerti "Kodim" dan "Yonif" (mis. "Kodim terdekat dari Wamena").
+- `scripts/ambil_satuan_ad.py` untuk membangun ulang datanya, bisa offline dari snapshot di `data/sumber/`.
+
 ## [1.0.0] - 2026-11-12
 
 Rilis stabil pertama. Konsolnya sudah dites di HP (360, 390, 412 px) dan desktop (1440 px), punya tes otomatis di CI,
@@ -49,4 +59,5 @@ Belum ada tag; ini ringkasan dari riwayat commit.
 - **5 Nov 2026:** versi pertama: globe MapLibre, markas TNI, pangkalan asing, ALKI, kabel, ZEE, radius tempur, impor
   senjata, lini masa insiden, katalog satelit, dan snapshot AIS.
 
+[1.1.0]: https://github.com/Avalon2222/eye-of-garuda/releases/tag/v1.1.0
 [1.0.0]: https://github.com/Avalon2222/eye-of-garuda/releases/tag/v1.0.0
