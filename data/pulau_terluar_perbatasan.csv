@@ -1,6 +1,6 @@
 id,nama,jenis,provinsi,lat,lon,berbatasan_dengan,keterangan,sumber,url_sumber
 1,Pulau Rondo,pulau_terluar,Aceh,6.0758,95.1142,India (Kep. Nicobar),Titik paling barat Indonesia; pos TNI AL,Wikipedia: Pulau Rondo,https://id.wikipedia.org/wiki/Pulau_Rondo
-2,Pulau Berhala,pulau_terluar,Sumatera Utara,3.7783,99.5058,Malaysia (Selat Malaka),Pos pengamanan TNI AL,Wikipedia: Pulau Berhala (Sumut),https://id.wikipedia.org/wiki/Pulau_Berhala_(Sumatera_Utara)
+2,Pulau Berhala,pulau_terluar,Sumatera Utara,3.7783,99.5058,Malaysia (Selat Malaka),Pos pengamanan TNI AL,Wikipedia: Pulau Berhala (Sumut),https://id.wikipedia.org/wiki/Pulau_Berhala
 3,Pulau Nipa,pulau_terluar,Kepulauan Riau,1.1550,103.6550,Singapura,Direklamasi 2004-2008 agar tidak tenggelam; titik dasar batas laut,Wikipedia: Pulau Nipa,https://id.wikipedia.org/wiki/Pulau_Nipa
 4,Pulau Sekatung,pulau_terluar,Kepulauan Riau,4.7900,108.0100,Vietnam,Pulau paling utara di Natuna,Wikipedia: Pulau Sekatung,https://id.wikipedia.org/wiki/Pulau_Sekatung
 5,Pulau Sebatik,pulau_terluar,Kalimantan Utara,4.1300,117.7500,Malaysia (Sabah),Satu pulau dibagi dua negara,Wikipedia: Pulau Sebatik,https://id.wikipedia.org/wiki/Pulau_Sebatik
@@ -14,12 +14,12 @@ id,nama,jenis,provinsi,lat,lon,berbatasan_dengan,keterangan,sumber,url_sumber
 13,Pulau Batek,pulau_terluar,Nusa Tenggara Timur,-9.2600,123.9800,Timor Leste,,Wikipedia: Pulau Batek,https://id.wikipedia.org/wiki/Pulau_Batek
 14,Pulau Selaru,pulau_terluar,Maluku,-8.1500,131.0500,Australia,Kepulauan Tanimbar; pangkalan TNI direncanakan,Wikipedia: Pulau Selaru,https://id.wikipedia.org/wiki/Pulau_Selaru
 15,PLBN Entikong,pos_perbatasan_darat,Kalimantan Barat,0.9900,110.6400,Malaysia (Sarawak),Pos Lintas Batas Negara,Wikipedia: Entikong,https://id.wikipedia.org/wiki/Entikong
-16,PLBN Aruk,pos_perbatasan_darat,Kalimantan Barat,1.5580,109.6060,Malaysia (Sarawak),Pos Lintas Batas Negara,Wikipedia: PLBN,https://id.wikipedia.org/wiki/Pos_Lintas_Batas_Negara
-17,PLBN Nanga Badau,pos_perbatasan_darat,Kalimantan Barat,0.9880,112.1600,Malaysia (Sarawak),Pos Lintas Batas Negara,Wikipedia: PLBN,https://id.wikipedia.org/wiki/Pos_Lintas_Batas_Negara
-18,PLBN Motaain,pos_perbatasan_darat,Nusa Tenggara Timur,-9.0100,124.9500,Timor Leste,Pos Lintas Batas Negara,Wikipedia: PLBN,https://id.wikipedia.org/wiki/Pos_Lintas_Batas_Negara
-19,PLBN Skouw,pos_perbatasan_darat,Papua,-2.6000,140.9500,Papua Nugini,Pos Lintas Batas Negara,Wikipedia: PLBN,https://id.wikipedia.org/wiki/Pos_Lintas_Batas_Negara
-20,PLBN Sota,pos_perbatasan_darat,Papua Selatan,-8.4300,140.9700,Papua Nugini,Pos Lintas Batas Negara,Wikipedia: PLBN,https://id.wikipedia.org/wiki/Pos_Lintas_Batas_Negara
+16,PLBN Aruk,pos_perbatasan_darat,Kalimantan Barat,1.5580,109.6060,Malaysia (Sarawak),Pos Lintas Batas Negara,Wikipedia: PLBN,https://id.wikipedia.org/wiki/Pos_lintas_batas_negara
+17,PLBN Nanga Badau,pos_perbatasan_darat,Kalimantan Barat,0.9880,112.1600,Malaysia (Sarawak),Pos Lintas Batas Negara,Wikipedia: PLBN,https://id.wikipedia.org/wiki/Pos_lintas_batas_negara
+18,PLBN Motaain,pos_perbatasan_darat,Nusa Tenggara Timur,-9.0100,124.9500,Timor Leste,Pos Lintas Batas Negara,Wikipedia: PLBN,https://id.wikipedia.org/wiki/Pos_lintas_batas_negara
+19,PLBN Skouw,pos_perbatasan_darat,Papua,-2.6000,140.9500,Papua Nugini,Pos Lintas Batas Negara,Wikipedia: PLBN,https://id.wikipedia.org/wiki/Pos_lintas_batas_negara
+20,PLBN Sota,pos_perbatasan_darat,Papua Selatan,-8.4300,140.9700,Papua Nugini,Pos Lintas Batas Negara,Wikipedia: PLBN,https://id.wikipedia.org/wiki/Pos_lintas_batas_negara
 21,Laut Natuna Utara,wilayah_rawan,Kepulauan Riau,4.5000,109.5000,China (klaim sembilan garis putus) & Vietnam,ZEE Indonesia bersinggungan klaim China; insiden kapal ikan/penjaga pantai,Wikipedia: Laut Natuna Utara,https://id.wikipedia.org/wiki/Laut_Natuna_Utara
-22,Blok Ambalat,wilayah_rawan,Kalimantan Utara,4.0000,118.5000,Malaysia,Sengketa blok migas laut sejak 2005,Wikipedia: Ambalat,https://id.wikipedia.org/wiki/Blok_Ambalat
+22,Blok Ambalat,wilayah_rawan,Kalimantan Utara,4.0000,118.5000,Malaysia,Sengketa blok migas laut sejak 2005,Wikipedia: Ambalat,https://id.wikipedia.org/wiki/Ambalat
 23,Selat Malaka,wilayah_rawan,Riau,2.5000,101.0000,Malaysia & Singapura,Jalur pelayaran tersibuk dunia; patroli bersama MALSINDO,Wikipedia: Selat Malaka,https://id.wikipedia.org/wiki/Selat_Malaka
 24,Pulau Enggano,pulau_terluar,Bengkulu,-5.3700,102.2500,India (Samudra Hindia),Pulau terluar di barat daya Sumatera,Wikipedia: Pulau Enggano,https://id.wikipedia.org/wiki/Pulau_Enggano

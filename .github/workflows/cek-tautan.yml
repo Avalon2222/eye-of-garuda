@@ -1,0 +1,19 @@
+name: Cek tautan
+
+# Tiap bulan mengecek semua tautan sumber di data/*.csv. Gagal (merah) kalau ada yang 404,
+# supaya tautan mati ketahuan tanpa harus dicek manual.
+on:
+  schedule:
+    - cron: "41 3 3 * *"
+  workflow_dispatch:
+
+jobs:
+  cek:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/cek_tautan.py
