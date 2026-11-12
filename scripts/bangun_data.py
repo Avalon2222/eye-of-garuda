@@ -163,9 +163,11 @@ def jarak_derajat(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
 def pangkalan_asing_wikidata(kurasi: list[dict]) -> list[dict]:
     """Pangkalan militer negara-negara kawasan dari Wikidata, dipakai untuk melengkapi daftar kurasi."""
     d = json.loads((DATA / "sumber" / "wikidata_militer.json").read_text(encoding="utf-8"))
+    # hasil pengecekan manual (Nov 2026): yang ditutup, bekas Perang Dunia II, duplikat, atau bukan militer dibuang
+    buang = {b["qid"] for b in baca_csv("pangkalan_asing_buang.csv")}
     hasil = []
     for f in d["fasilitas"]:
-        if f["negara"] == "Indonesia":
+        if f["negara"] == "Indonesia" or f["qid"] in buang:
             continue
         if f["jenis"] not in JENIS_WIKIDATA:
             continue
@@ -205,8 +207,8 @@ def bangun_pangkalan_asing() -> dict:
                     "operator_utama": f["negara"],
                     "tuan_rumah": f["negara"],
                     "jenis": JENIS_WIKIDATA[f["jenis"]],
-                    "status": "menurut Wikidata",
-                    "keterangan": f"{f['jenis']}" + (f"; operator: {f['operator']}" if f["operator"] else "") + ". Data Wikidata, status operasional tidak diverifikasi.",
+                    "status": "aktif (Wikidata, dicek Nov 2026)",
+                    "keterangan": f"{f['jenis']}" + (f"; operator: {f['operator']}" if f["operator"] else "") + ". Titik dari Wikidata; daftar sudah disaring manual (yang ditutup, bekas Perang Dunia II, atau duplikat dibuang).",
                     "sumber": "Wikidata",
                     "url": f"https://www.wikidata.org/wiki/{f['qid']}",
                     "kurasi": False,
