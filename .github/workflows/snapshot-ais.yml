@@ -24,7 +24,7 @@ jobs:
       LAMA_DETIK: 19800 # 5 jam 30 menit menyimak
       INTERVAL_DETIK: 1800 # snapshot tiap 30 menit
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Cek apakah run lain masih hidup
         id: cek
