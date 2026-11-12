@@ -1,11 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono } from "next/font/google";
+import { URL_SITUS } from "@/lib/situs";
 import "./globals.css";
 
 // font di-host sendiri lewat next/font: tanpa request ke Google saat runtime, tanpa lompatan tata letak
 const fontMono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap", variable: "--font-jetbrains" });
-
-const URL_SITUS = "https://eye-of-garuda.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(URL_SITUS),

@@ -38,4 +38,23 @@ test.describe("server", () => {
       expect(String(badan.galat), jalur).toMatch(/^[a-z_]+$/);
     }
   });
+
+  test("robots.txt, sitemap.xml, dan h1 ada di HTML server (EOG-28)", async ({ request }) => {
+    const robots = await request.get("/robots.txt");
+    expect(robots.ok()).toBe(true);
+    const teksRobots = await robots.text();
+    expect(teksRobots).toContain("Allow: /");
+    expect(teksRobots).toContain("Sitemap: https://eye-of-garuda.vercel.app/sitemap.xml");
+
+    const sitemap = await request.get("/sitemap.xml");
+    expect(sitemap.ok()).toBe(true);
+    expect(await sitemap.text()).toContain("<loc>https://eye-of-garuda.vercel.app</loc>");
+
+    // h1 dan viewport harus ada tanpa JavaScript, karena konsolnya sendiri cuma dirender di browser
+    const html = await (await request.get("/")).text();
+    expect(html).toMatch(/<h1[^>]*>Eye of Garuda/);
+    const viewport = html.match(/<meta name="viewport" content="([^"]+)"/)?.[1] ?? "";
+    expect(viewport).toContain("width=device-width");
+    expect(viewport).not.toContain("maximum-scale");
+  });
 });
