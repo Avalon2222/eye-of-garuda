@@ -102,9 +102,10 @@ misalnya `#v=3.9/108.9/6/-25/50&l=tni,asing,zee&sel=tni-64`.
 
 ```
 data/*.csv  ──scripts/bangun_data.py──▶  public/data/*.geojson   (statis, dibangun saat data berubah)
-OSM Photon  ──scripts/koreksi_lokasi.py▶ data/markas_tni.csv      (geocoding markas, sekali jalan)
+OSM/OurAirports ─scripts/koreksi_lokasi.py▶ data/markas_tni.csv   (geocoding markas, sekali jalan)
+data/*.csv  ──scripts/cek_tautan.py─────▶ laporan tautan mati         (bulanan, GitHub Actions)
 TLE + GCAT  ──scripts/bangun_satelit.py─▶ cabang `data`/satelit.json  (harian, GitHub Actions)
-aisstream   ──scripts/ambil_ais.py──────▶ cabang `data`/kapal.json    (tiap 30 menit, GitHub Actions)
+aisstream   ──scripts/ambil_ais.py──────▶ cabang `data`/kapal.json    (tiap 30 menit, GitHub Actions jalan terus)
 aisstream   ──app/api/kapal─────────────▶ browser, tiap 60 detik (live, kalau AISSTREAM_API_KEY ada di Vercel)
 SIPRI API   ──scripts/ambil_sipri.py────▶ cabang `data`/sipri.json    (bulanan, GitHub Actions)
 adsb.lol    ──app/api/pesawat───────────▶ browser, tiap 10 detik

@@ -1,5 +1,5 @@
 /**
- * Live AIS: membuka WebSocket ke aisstream.io selama beberapa detik, mengumpulkan posisi kapal di kawasan,
+ * Live AIS: membuka WebSocket ke aisstream.io selama ±12 detik, mengumpulkan posisi kapal di kawasan,
  * lalu mengembalikannya dalam format yang sama dengan snapshot (kapal.json). Dicache ±45 detik supaya
  * satu koneksi melayani semua pengunjung. Kunci dibaca dari variabel lingkungan AISSTREAM_API_KEY
  * (di Vercel: Settings → Environment Variables). Tanpa kunci, rute ini membalas 503 dan browser
@@ -10,8 +10,10 @@ import { NextResponse, connection } from "next/server";
 
 const URL_WS = "wss://stream.aisstream.io/v0/stream";
 const KOTAK = [[[-13.0, 92.0], [12.0, 145.0]]];
-const LAMA_SIMAK_MS = 7000;
+// 12 detik cukup untuk menangkap puluhan kapal di Selat Singapura; maxDuration di bawah menjaga batas Vercel
+const LAMA_SIMAK_MS = 12_000;
 const CACHE_MS = 45_000;
+export const maxDuration = 30;
 
 interface KapalLive {
   mmsi: number;
@@ -39,8 +41,9 @@ interface PesanAis {
   };
 }
 
+/** Jenis kapal dari kode tipe AIS. Harus sama dengan kelas_dari_tipe di scripts/ambil_ais.py. */
 function kelasDariTipe(tipe: number | null): string {
-  if (tipe == null) return "lainnya";
+  if (tipe == null || tipe <= 0) return "lainnya";
   if (tipe === 35) return "militer";
   if (tipe === 55) return "patroli";
   if (tipe === 51) return "sar";
@@ -48,6 +51,10 @@ function kelasDariTipe(tipe: number | null): string {
   if (tipe >= 80 && tipe <= 89) return "tanker";
   if (tipe >= 70 && tipe <= 79) return "kargo";
   if (tipe >= 60 && tipe <= 69) return "penumpang";
+  if (tipe === 31 || tipe === 32 || tipe === 52) return "tunda";
+  if (tipe === 36 || tipe === 37) return "rekreasi";
+  if (tipe >= 40 && tipe <= 49) return "cepat";
+  if ([33, 34, 50, 53, 54, 56, 57, 58, 59].includes(tipe)) return "khusus";
   return "lainnya";
 }
 
