@@ -41,7 +41,7 @@ test("peta dan data lapisan termuat tanpa melanggar CSP", async ({ page }) => {
   });
   await bukaKonsol(page);
   await expect(page.locator("canvas.maplibregl-canvas")).toBeVisible();
-  await page.waitForLoadState("networkidle").catch(() => undefined);
+  await page.waitForLoadState("networkidle", { timeout: 15_000 }).catch(() => undefined);
   expect(gagal).toEqual([]);
   expect(csp).toEqual([]);
 });
@@ -83,4 +83,13 @@ test("asisten merender Markdown dan menampilkan model yang dipakai", async ({ pa
   await expect(log).not.toContainText("**");
   await expect(log).not.toContainText("@terbang");
   await expect(panel.getByTestId("chat-mode")).toHaveText("AI mode · gpt-oss-120b");
+});
+
+test("panel detail dari tautan bersama jadi dialog dan menerima fokus", async ({ page }) => {
+  await bukaKonsol(page, "/#l=tni&sel=tni-64");
+  const panel = page.getByRole("dialog", { name: /Markas TNI/ });
+  await expect(panel).toBeVisible();
+  expect(await panel.evaluate((el) => el === document.activeElement || el.contains(document.activeElement))).toBe(true);
+  await panel.getByRole("button", { name: "Tutup" }).click();
+  await expect(panel).toHaveCount(0);
 });
