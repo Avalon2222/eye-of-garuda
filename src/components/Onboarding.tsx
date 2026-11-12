@@ -3,6 +3,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ChevronRight, X } from "lucide-react";
 import { terjemah, type Lang } from "@/lib/i18n";
+import { useFokusPanel } from "@/lib/useFokusPanel";
 
 export const KUNCI_ONBOARDING = "eog-panduan-v1";
 
@@ -90,6 +91,7 @@ export function tandaiPanduan(): void {
 export default function Onboarding({ lang, onSelesai }: { lang: Lang; onSelesai: () => void }) {
   const [i, setI] = useState(0);
   const [otomatis, setOtomatis] = useState(true);
+  const panel = useFokusPanel<HTMLDivElement>({ jebak: true });
   const [kotak, setKotak] = useState<DOMRect | null>(null);
   const sorotan = useRef<Element | null>(null);
   const l = LANGKAH[i];
@@ -161,7 +163,7 @@ export default function Onboarding({ lang, onSelesai }: { lang: Lang; onSelesai:
   }
 
   return (
-    <div className="pointer-events-auto absolute inset-0 z-[60]" onClick={() => !kotak && (terakhir ? selesai() : setI(i + 1))}>
+    <div ref={panel} role="dialog" aria-modal="true" aria-label={terjemah(lang, "guide_title")} tabIndex={-1} className="pointer-events-auto absolute inset-0 z-[60] outline-none" onClick={() => !kotak && (terakhir ? selesai() : setI(i + 1))}>
       {!kotak && <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />}
       <div className="glass braket muncul gulir absolute max-w-[calc(100%-24px)] overflow-y-auto px-4 py-3" style={gaya} onClick={(e) => e.stopPropagation()} key={i}>
         <div className="flex items-center justify-between gap-3">
