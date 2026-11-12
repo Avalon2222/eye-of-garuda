@@ -71,6 +71,8 @@ export interface OpsiTanya {
   pesan: PesanModel[];
   indeks: ObjekPeta[];
   ambil?: typeof fetch;
+  /** jangan tawarkan alat ke model, mis. karena jawabannya sudah dihitung server */
+  tanpaAlat?: boolean;
   /** batas waktu total, ms */
   tenggatMs?: number;
   maksToken?: number;
@@ -121,11 +123,11 @@ async function cobaModel(o: OpsiTanya, m: KonfigModel, lengkap: boolean, habis: 
     const sisa = habis - Date.now();
     if (sisa < 1500) throw new Error("tenggat");
     const badan: Record<string, unknown> = lengkap
-      ? { ...dasar, messages: pesan, max_completion_tokens: o.maksToken ?? 900, tools: DEFINISI_ALAT, tool_choice: putaran === MAKS_PUTARAN_ALAT ? "none" : "auto", ...(m.ekstra ?? {}) }
+      ? { ...dasar, messages: pesan, max_completion_tokens: o.maksToken ?? 900, ...(o.tanpaAlat ? {} : { tools: DEFINISI_ALAT, tool_choice: putaran === MAKS_PUTARAN_ALAT ? "none" : "auto" }), ...(m.ekstra ?? {}) }
       : { ...dasar, messages: pesan, max_tokens: o.maksToken ?? 900 };
     const data = await panggil(o, badan, sisa);
     const balasan = data.choices?.[0]?.message;
-    const panggilan = lengkap && putaran < MAKS_PUTARAN_ALAT ? (balasan?.tool_calls ?? []) : [];
+    const panggilan = lengkap && !o.tanpaAlat && putaran < MAKS_PUTARAN_ALAT ? (balasan?.tool_calls ?? []) : [];
     if (panggilan.length === 0) {
       const teks = bersihkan(balasan?.content ?? "");
       if (!teks) throw new Error("kosong");

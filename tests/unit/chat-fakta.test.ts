@@ -4,7 +4,7 @@
  */
 
 import { describe, expect, it } from "vitest";
-import { siapkanFakta } from "@/lib/chat/fakta";
+import { jawabanSesuai, teksKoordinat, siapkanFakta } from "@/lib/chat/fakta";
 import { jarakKm } from "@/lib/geo";
 import { bacaData, indeksAsli } from "./bantu";
 
@@ -65,7 +65,8 @@ describe("10 pertanyaan uji asisten", () => {
     expect(f.terbang).toBe(lanud.properties.nama);
     expect(f.teks.split("\n")[1]).toContain(String(lanud.properties.nama));
     expect(f.teks).toContain("Kepulauan Riau");
-    expect(f.teks).toMatch(/@ 3\.9\d*, 108\.3\d*/);
+    expect(f.teks).toMatch(/@ 3\.9\d*° LU, 108\.3\d*° BT/);
+    expect(f.wajib).toEqual([String(lanud.properties.nama)]);
   });
 
   it("4. Jarak Lanud Raden Sadjad ke Fiery Cross Reef", () => {
@@ -132,6 +133,27 @@ describe("fakta: kasus lain", () => {
     expect(f.alat).toContain("hitung");
     expect(f.teks).toMatch(/^Jumlah pangkalan asing di data peta: \d+\./);
     expect(f.teks).not.toContain("Pulau Banyak");
+  });
+
+  it("koordinat ditulis dengan belahan bumi, bukan tanda minus", () => {
+    expect(teksKoordinat(3.909, 108.384, "id")).toBe("3.909° LU, 108.384° BT");
+    expect(teksKoordinat(-12.46, 130.84, "id")).toBe("12.46° LS, 130.84° BT");
+    expect(teksKoordinat(-12.46, 130.84, "en")).toBe("12.46°S, 130.84°E");
+    expect(teksKoordinat(13.58, -144.92, "en")).toBe("13.58°N, 144.92°W");
+  });
+
+  it("jawaban model dicek terhadap nama dan angka kunci dari data", () => {
+    const f = siapkanFakta(indeks, "Pangkalan China terdekat dari Natuna?", "id")!;
+    expect(f.wajib[0]).toBe("Fiery Cross Reef");
+    expect(jawabanSesuai(`Yang terdekat **Fiery Cross Reef**, sekitar ${f.wajib[1]} km.`, f.wajib)).toBe(true);
+    // model bilang tidak ada, atau menyebut objek lain: tidak sesuai
+    expect(jawabanSesuai("Pangkalan milik China di dekat Natuna tidak ada di data.", f.wajib)).toBe(false);
+    expect(jawabanSesuai(`Yang terdekat Subi Reef, ${f.wajib[1]} km.`, f.wajib)).toBe(false);
+    // angka ribuan boleh ditulis gaya Indonesia atau Inggris, nama boleh tanpa keterangan dalam kurung
+    expect(jawabanSesuai("**Sattahip** berjarak 1.018 km.", ["Sattahip (Pangkalan AL Chuk Samet)", "1018"])).toBe(true);
+    expect(jawabanSesuai("Sattahip is 1,018 km away.", ["Sattahip (Pangkalan AL Chuk Samet)", "1018"])).toBe(true);
+    expect(jawabanSesuai("Ada 22 markas.", ["22"])).toBe(true);
+    expect(jawabanSesuai("Ada 23 markas.", ["22"])).toBe(false);
   });
 
   it("pertanyaan umum tanpa objek tidak dipaksa punya fakta", () => {
