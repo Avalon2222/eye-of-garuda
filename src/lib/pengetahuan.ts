@@ -111,10 +111,10 @@ export const FAQ: Faq[] = [
     lapisan: "kabel",
   },
   {
-    kunci: ["markas", "tni", "kodam", "lanud", "lanal", "korem", "lantamal", "base"],
+    kunci: ["markas", "tni", "kodam", "lanud", "lanal", "korem", "lantamal", "kodim", "yonif", "batalyon", "base"],
     jawab: {
-      id: "Lapisan Markas TNI (tombol 1) memuat sekitar 200 titik: Mabes, Kogabwilhan, semua Kodam dan Korem, Lantamal dan Lanal, Koarmada, Lanud, Kopassus, Kostrad, Marinir, dan lainnya. Sebagian besar titik dicocokkan ke lokasi OpenStreetMap lewat geocoder; sisanya memakai pusat kota (ditandai di panel detail). Markas besar tampil dari jauh, Korem/Lanal muncul saat zoom. Gunakan Ctrl K untuk mencari nama satuan.",
-      en: "The TNI bases layer (key 1) holds about 200 points: HQ, joint commands, all Kodam and Korem, Lantamal and Lanal, fleets, air bases, special forces, Kostrad, Marines and more. Most points are snapped to OpenStreetMap locations via a geocoder; the rest use city centres (flagged in the detail panel). Major HQs show from afar, Korem/Lanal appear as you zoom. Use Ctrl K to search a unit by name.",
+      id: "Lapisan Markas TNI (tombol 1) memuat sekitar 200 markas utama (Mabes, Kogabwilhan, semua Kodam dan Korem, Lantamal dan Lanal, Koarmada, Lanud, Kopassus, Kostrad, Marinir) plus sekitar 700 Kodim dan Yonif. Titik dicocokkan ke lokasi OpenStreetMap lewat geocoder kalau ketemu; sisanya memakai pusat kota/kabupaten (ditandai di panel detail). Markas besar tampil dari jauh, Korem/Lanal muncul saat zoom, Kodim (titik) dan Yonif (cincin) baru muncul di zoom dekat. Gunakan Ctrl K untuk mencari nama satuan.",
+      en: "The TNI bases layer (key 1) holds about 200 main bases (HQ, joint commands, all Kodam and Korem, Lantamal and Lanal, fleets, air bases, special forces, Kostrad, Marines) plus about 700 Kodim district commands and infantry battalions (Yonif). Points are snapped to OpenStreetMap locations via a geocoder when found; the rest use city or regency centres (flagged in the detail panel). Major HQs show from afar, Korem/Lanal appear as you zoom, Kodim (dots) and Yonif (rings) only show up close. Use Ctrl K to search a unit by name.",
     },
     lapisan: "tni",
   },

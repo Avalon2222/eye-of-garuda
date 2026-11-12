@@ -86,6 +86,8 @@ const PETUNJUK: PetunjukLapisan[] = [
   { lapisan: "tni", kata: ["lantamal"], jenis: "Lantamal" },
   { lapisan: "tni", kata: ["korem"], jenis: "Korem" },
   { lapisan: "tni", kata: ["kodam"], jenis: "Kodam" },
+  { lapisan: "tni", kata: ["kodim", "komando distrik militer"], jenis: "Kodim" },
+  { lapisan: "tni", kata: ["yonif", "batalyon infanteri", "batalyon", "infantry battalion", "infantry battalions"], jenis: "Yonif" },
   { lapisan: "tni", kata: ["koarmada"], jenis: "Koarmada" },
   { lapisan: "tni", kata: ["markas tni", "pangkalan tni", "tni", "kogabwilhan", "kostrad", "kopassus", "marinir", "indonesian base", "indonesian bases", "indonesian military"] },
 ];
