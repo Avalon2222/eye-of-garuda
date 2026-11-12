@@ -3,6 +3,7 @@
 [![CI](https://github.com/Avalon2222/eye-of-garuda/actions/workflows/ci.yml/badge.svg)](https://github.com/Avalon2222/eye-of-garuda/actions/workflows/ci.yml)
 [![Next.js](https://img.shields.io/badge/Next.js-16-000?logo=nextdotjs)](https://nextjs.org)
 [![MapLibre](https://img.shields.io/badge/MapLibre_GL-globe-396cb2?logo=maplibre)](https://maplibre.org)
+[![Release](https://img.shields.io/github/v/release/Avalon2222/eye-of-garuda?color=f2c66d)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 > **The archipelago never sleeps. Neither does the eye.**
@@ -13,7 +14,7 @@
 
 **Live:** https://eye-of-garuda.vercel.app
 
-![Eye of Garuda](docs/screenshots/hero.png)
+![Demo 15 detik: globe berputar, cari Lanal Ranai, lalu War Room Natuna](docs/demo.gif)
 
 <p align="center">
   <img src="docs/screenshots/natuna.png" width="49%" alt="ZEE, sembilan garis putus, dan radius tempur di sekitar Natuna" />
@@ -23,12 +24,12 @@
 ## 🇬🇧 In English
 
 **A dark, smooth, Osiris-style defense console for Indonesia, rendered on a WebGL globe.** Static entities are
-MapLibre layers (not DOM markers), so thousands of points and lines stay buttery at 60 fps. Moving objects (aircraft,
+MapLibre layers (not DOM markers), so thousands of points and lines stay smooth while you spin the globe. Moving objects (aircraft,
 satellites, scenario actors) are drawn on a separate canvas every frame: aircraft positions are extrapolated from speed
 and heading between updates, satellites are propagated from TLE with SGP4 in the browser and drawn at a height that
 scales with their orbit, so LEO, MEO and GEO look different.
 
-- **Explore** ~200 TNI bases (geocoded against OpenStreetMap), ~210 foreign bases in the region, 16 submarine home
+- **Explore** 198 TNI bases (137 pinned to OpenStreetMap or a known airfield), ~160 foreign bases in the region, 16 submarine home
   ports, 500+ airports and 600+ ports, outer islands and border posts, the three archipelagic sea lanes and 118 undersea
   cables, each with its public source. Level of detail follows the zoom: major HQs from orbit, Korem and Lanal up close.
 - **Watch** military aircraft and helicopters broadcasting ADS-B (labelled by country, e.g. `RCH123 (USA)`), ~900
@@ -45,7 +46,7 @@ scales with their orbit, so LEO, MEO and GEO look different.
   A short onboarding guide runs on the first visit.
 
 Built with Next.js 16, TypeScript, Tailwind 4, MapLibre GL (globe projection), satellite.js. Data prepared with Python.
-Deployed on Vercel. Bilingual (ID/EN), keyboard-driven, works on phones.
+Deployed on Vercel. Bilingual (ID/EN), keyboard-driven, and tested on phones (360, 390, 412 px) as well as desktop.
 *The rest of this README is in Indonesian.*
 
 ## Mengapa
@@ -60,7 +61,7 @@ publik tentang pertahanan Indonesia terasa hidup dan mudah dijelajahi.
 | # | Lapisan | Jenis | Sumber singkat |
 |---|---|---|---|
 | 1 | Markas TNI: Mabes, Kogabwilhan, semua Kodam & Korem, Lantamal & Lanal, Koarmada, Lanud, Kopassus, Kostrad, Marinir (~200) | statis | Wikipedia, Wikidata, OurAirports |
-| 2 | Pangkalan asing di kawasan: AS, Australia, China, India, tetangga (~210) | statis | Wikidata, Wikipedia, CSIS AMTI |
+| 2 | Pangkalan asing di kawasan: AS, Australia, China, India, tetangga (~160) | statis | Wikidata, Wikipedia, CSIS AMTI |
 | `[` | Bandara besar/sedang di kawasan + lapangan udara militer (507) | statis | OurAirports |
 | 3 | Pulau terluar, PLBN, wilayah rawan | statis | Keppres 6/2017, Wikipedia |
 | 4 | ALKI I/II/III | statis | PP 37/2002 (ilustratif) |
@@ -182,9 +183,10 @@ Natuna) ikut teruji setiap kali data berubah. Keduanya jalan di CI pada setiap p
 
 ## Kejujuran data
 
-- Hanya data publik. Koordinat adalah perkiraan lokasi umum, bukan data operasional. Sebagian besar markas TNI sudah
-  dicocokkan ke titik OpenStreetMap (kolom `presisi=osm`); sisanya masih pusat kota (`presisi=kota`). Pangkalan asing
-  dari Wikidata belum diverifikasi satu per satu (kolom `kurasi` membedakannya).
+- Hanya data publik. Koordinat adalah perkiraan lokasi umum, bukan data operasional. 137 dari 198 markas TNI sudah
+  di titik yang tepat: 105 dari OpenStreetMap (`presisi=osm`) dan 32 dari bandara/koordinat manual (`presisi=manual`);
+  61 sisanya masih pusat kota (`presisi=kota`). Pangkalan asing dari Wikidata belum diverifikasi satu per satu (kolom
+  `kurasi` membedakannya), yang sudah tutup atau duplikat dibuang lewat `data/pangkalan_asing_buang.csv`.
 - Kapal selam tidak bisa dilacak live oleh siapa pun dengan data publik. Lapisannya hanya pangkalan induk, jumlah, dan
   kelas armada dari halaman publik.
 - Skenario adalah fiksi edukatif: geometri jarak dari data publik, tetapi gerakan, waktu, dan hasilnya ilustrasi.
@@ -198,8 +200,16 @@ Natuna) ikut teruji setiap kali data berubah. Keduanya jalan di CI pada setiap p
 
 ## Rencana berikutnya
 
-- Histori snapshot (siapa yang lewat Selat Malaka minggu ini).
-- Lapisan cahaya malam (VIIRS) untuk melihat aktivitas pelabuhan dan pangkalan.
+Ide yang belum dikerjain, urutannya bukan janji:
+
+- **Weekly ship history:** slider "siapa yang lewat Selat Malaka minggu ini" dari snapshot AIS harian.
+- **Nightlights (VIIRS):** lapisan cahaya malam untuk melihat aktivitas pelabuhan dan pangkalan dari orbit.
+- **Asisten yang bisa menjalankan War Room** ("tunjukin kabel putus") dan menyalakan lapisan sendiri.
+- **Link share per objek:** buka tautan langsung ke satu satelit, markas, atau kapal.
+- **Install ke HP (PWA)** dan **mode presentasi** (tur muter terus tanpa UI, buat layar pajangan).
+- **Satuan lebih kecil** (Kodim, Yonif) di zoom dekat, termasuk Papua Pegunungan yang masih kosong.
+
+Riwayat perubahan ada di [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Lisensi
 
