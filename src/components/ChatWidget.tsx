@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { X, SendHorizontal, Sparkles, LocateFixed, Layers } from "lucide-react";
 import Logo from "./Logo";
+import TeksMarkdown from "./TeksMarkdown";
 import { terjemah, type Lang } from "@/lib/i18n";
 import { LAPISAN, lapisanDariId, type LayerId } from "@/lib/layers";
 import { jawabFaq } from "@/lib/pengetahuan";
@@ -110,6 +111,8 @@ export default function ChatWidget({ lang, terbuka, onToggle, indeks, aktif, jum
   const [teks, setTeks] = useState("");
   const [sibuk, setSibuk] = useState(false);
   const [mode, setMode] = useState<Mode>("ai");
+  /** model yang menjawab terakhir; "data" berarti jawaban dihitung server tanpa model bahasa */
+  const [model, setModel] = useState<string | null>(null);
   const daftar = useRef<HTMLDivElement>(null);
   const input = useRef<HTMLInputElement>(null);
 
@@ -172,29 +175,24 @@ export default function ChatWidget({ lang, terbuka, onToggle, indeks, aktif, jum
         return;
       }
       try {
-        const petunjuk = petunjukEntitas(indeks, t);
-        const ctx =
-          konteks +
-          (petunjuk.length
-            ? (lang === "en" ? " Matching map objects: " : " Objek peta yang cocok: ") +
-              petunjuk.map((e) => `"${e.nama}" [${lapisanDariId(e.lapisan)?.nama[lang] ?? e.lapisan}${e.sub ? `, ${e.sub}` : ""}]`).join("; ")
-            : "");
+        // objek yang cocok dengan pertanyaan dicari di server (lihat src/lib/chat), browser cukup kirim keadaan layar
         const res = await fetch("/api/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             lang,
-            konteks: ctx,
+            konteks,
             messages: riwayatBaru.slice(-8).map((m) => ({ role: m.peran, content: m.teks })),
           }),
         });
-        if (res.status === 503 || res.status === 429 || res.status === 502) {
+        if (res.status === 503 || res.status === 429 || res.status === 502 || res.status === 403) {
           setMode("faq");
           jawabFaqLokal();
           return;
         }
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = (await res.json()) as { jawaban: string };
+        const data = (await res.json()) as { jawaban: string; model?: string };
+        setModel(data.model ?? null);
         const { teks: bersih, terbang, lapisan } = pisahkanAksi(data.jawaban, indeks);
         setPesan((p) => [...p, { peran: "assistant", teks: bersih || data.jawaban, terbang, lapisan }]);
       } catch {
@@ -216,6 +214,7 @@ export default function ChatWidget({ lang, terbuka, onToggle, indeks, aktif, jum
         onClick={onToggle}
         title={`${terjemah(lang, "chat_button")} (C)`}
         aria-label={terjemah(lang, "chat_button")}
+        aria-expanded={terbuka}
       >
         <span className="tombol-ai-logo">
           <Logo size={22} />
@@ -229,21 +228,23 @@ export default function ChatWidget({ lang, terbuka, onToggle, indeks, aktif, jum
       </button>
 
       {terbuka && (
-        <section className="glass braket muncul pointer-events-auto absolute bottom-[92px] !bg-[rgba(5,8,15,0.9)] right-2 z-30 flex h-[460px] max-h-[calc(100%-150px)] w-[360px] max-w-[calc(100%-16px)] flex-col sm:right-3 max-sm:bottom-[148px] max-sm:max-h-[55vh]">
+        <section role="dialog" aria-label={terjemah(lang, "chat_title")} className="glass braket muncul pointer-events-auto absolute bottom-[92px] !bg-[rgba(5,8,15,0.9)] right-2 z-30 flex h-[460px] max-h-[calc(100%-150px)] w-[360px] max-w-[calc(100%-16px)] flex-col sm:right-3 max-sm:bottom-[148px] max-sm:max-h-[55vh]">
           <div className="flex items-center justify-between gap-2 border-b border-white/10 px-3 py-2">
             <div className="flex min-w-0 items-center gap-2">
               <Logo size={20} className="shrink-0 text-accent" />
               <div className="min-w-0">
                 <div className="label-kecil truncate text-text">{terjemah(lang, "chat_title")}</div>
-                <div className="truncate text-[9.5px] tracking-[0.12em] text-muted">{mode === "ai" ? terjemah(lang, "chat_mode_ai") : terjemah(lang, "chat_mode_faq")}</div>
+                <div className="truncate text-[9.5px] tracking-[0.12em] text-muted" data-testid="chat-mode">
+                  {mode === "faq" ? terjemah(lang, "chat_mode_faq") : model === "data" ? terjemah(lang, "chat_mode_data") : model ? `AI mode · ${model.split("/").pop()}` : terjemah(lang, "chat_mode_ai")}
+                </div>
               </div>
             </div>
-            <button className="tombol-ikon !h-7 !w-7" onClick={onToggle} title={terjemah(lang, "close")}>
+            <button className="tombol-ikon !h-7 !w-7" onClick={onToggle} title={terjemah(lang, "close")} aria-label={terjemah(lang, "close")}>
               <X size={13} />
             </button>
           </div>
 
-          <div ref={daftar} className="gulir flex-1 space-y-2.5 overflow-y-auto px-3 py-3">
+          <div ref={daftar} role="log" aria-live="polite" className="gulir flex-1 space-y-2.5 overflow-y-auto px-3 py-3">
             {pesan.length === 0 && (
               <div className="space-y-2">
                 <p className="text-[11.5px] leading-relaxed text-muted">{terjemah(lang, "chat_intro")}</p>
@@ -259,11 +260,11 @@ export default function ChatWidget({ lang, terbuka, onToggle, indeks, aktif, jum
             {pesan.map((m, i) => (
               <div key={i} className={`flex ${m.peran === "user" ? "justify-end" : "justify-start"}`}>
                 <div
-                  className={`max-w-[88%] whitespace-pre-wrap px-2.5 py-1.5 text-[11.5px] leading-relaxed ${
-                    m.peran === "user" ? "border border-accent/40 bg-accent/10 text-text" : "border border-white/10 bg-white/[0.04] text-text"
+                  className={`max-w-[88%] px-2.5 py-1.5 text-[11.5px] leading-relaxed ${
+                    m.peran === "user" ? "whitespace-pre-wrap border border-accent/40 bg-accent/10 text-text" : "border border-white/10 bg-white/[0.04] text-text"
                   }`}
                 >
-                  {m.teks}
+                  {m.peran === "user" ? m.teks : <TeksMarkdown teks={m.teks} />}
                   {(m.terbang || m.lapisan) && (
                     <div className="mt-1.5 flex flex-wrap gap-1.5">
                       {m.lapisan && !aktif.has(m.lapisan) && (
@@ -305,10 +306,11 @@ export default function ChatWidget({ lang, terbuka, onToggle, indeks, aktif, jum
                 if (e.key === "Escape") onToggle();
               }}
               placeholder={terjemah(lang, "chat_placeholder")}
+              aria-label={terjemah(lang, "chat_placeholder")}
               maxLength={500}
               className="h-8 min-w-0 flex-1 border border-white/10 bg-black/30 px-2.5 text-[12px] text-text outline-none placeholder:text-muted/70 focus:border-accent/60"
             />
-            <button type="submit" className="tombol-ikon !h-8 !w-8" disabled={sibuk || !teks.trim()} title={terjemah(lang, "chat_send")}>
+            <button type="submit" className="tombol-ikon !h-8 !w-8" disabled={sibuk || !teks.trim()} title={terjemah(lang, "chat_send")} aria-label={terjemah(lang, "chat_send")}>
               <SendHorizontal size={14} />
             </button>
           </form>

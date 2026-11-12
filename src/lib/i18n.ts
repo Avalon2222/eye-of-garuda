@@ -64,6 +64,7 @@ const KAMUS = {
   chat_hint: { id: "AI helper · tanya apa saja, bisa terbangkan globe", en: "AI helper · ask anything, it can fly the globe" },
   chat_mode_ai: { id: "AI mode · tanya apa saja tentang konsol ini", en: "AI mode · ask anything about this console" },
   chat_mode_faq: { id: "FAQ mode (AI sedang tidak tersedia)", en: "FAQ mode (AI currently unavailable)" },
+  chat_mode_data: { id: "Data mode (AI sibuk, dihitung langsung dari data)", en: "Data mode (AI busy, computed straight from the data)" },
   chat_intro: {
     id: "Tanya soal lapisan, sumber data, cara pakai, atau minta diantar ke suatu markas, pulau, atau pangkalan. Jawaban bisa membawa globe terbang ke tempatnya.",
     en: "Ask about layers, data sources, how to use the console, or ask to be taken to a base, island or outpost. Answers can fly the globe there.",
@@ -246,6 +247,7 @@ const KAMUS = {
   guide_done: { id: "Selesai", en: "Done" },
   guide_auto: { id: "Lanjut otomatis", en: "Auto-advance" },
   // satelit: jadwal lintasan
+  passes_refresh: { id: "Hitung ulang jadwal", en: "Recalculate schedule" },
   passes_title: { id: "Satellite passes over Indonesia", en: "Satellite passes over Indonesia" },
   passes_sub: { id: "12 jam ke depan · satelit militer & pengintai LEO · dihitung dari TLE di browser", en: "Next 12 hours · LEO military & spy satellites · computed from TLE in the browser" },
   passes_now: { id: "Di atas Indonesia sekarang", en: "Over Indonesia now" },
@@ -295,3 +297,6 @@ export function simpanLang(lang: Lang): void {
     /* abaikan */
   }
 }
+
+/** Semua kunci kamus, dipakai tes kelengkapan terjemahan. */
+export const KUNCI_KAMUS = Object.keys(KAMUS) as KunciKamus[];
