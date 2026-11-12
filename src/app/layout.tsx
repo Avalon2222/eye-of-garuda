@@ -29,7 +29,7 @@ export const viewport: Viewport = {
   themeColor: "#05080f",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
+  // sengaja tanpa maximumScale: halaman boleh di-pinch-zoom (aksesibilitas); peta tetap menangani pinch-nya sendiri
   viewportFit: "cover",
 };
 

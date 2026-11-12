@@ -442,6 +442,13 @@ button {
     padding-block: 16px;
     margin-block: -16px;
   }
+  /* halaman boleh di-zoom (EOG-40); kolom teks minimal 16 px supaya Safari iOS gak auto-zoom saat diketik */
+  input:not([type]),
+  input[type="text"],
+  input[type="search"],
+  textarea {
+    font-size: 16px !important;
+  }
 }
 
 /* panel modal di HP jadi lembar layar penuh yang padat (tanpa backdrop-filter bertumpuk, aman di Safari iOS) */
