@@ -212,7 +212,7 @@ export default function ChatWidget({ lang, terbuka, onToggle, indeks, aktif, jum
       {/* tombol Garuda AI: pil dengan logo + label supaya jelas ini asisten AI, bukan sekadar ikon chat */}
       <button
         data-tour="chat"
-        className={`tombol-ai pointer-events-auto absolute bottom-[44px] right-2 z-30 sm:right-3 max-sm:bottom-[88px] ${terbuka ? "aktif" : ""} ${pilihan && !terbuka ? "max-sm:hidden" : ""}`}
+        className={`tombol-ai pointer-events-auto absolute bottom-[44px] right-2 z-30 sm:right-3 max-sm:bottom-[96px] ${terbuka ? "aktif" : ""} ${pilihan && !terbuka ? "max-sm:hidden" : ""}`}
         onClick={onToggle}
         title={`${terjemah(lang, "chat_button")} (C)`}
         aria-label={terjemah(lang, "chat_button")}
@@ -229,7 +229,7 @@ export default function ChatWidget({ lang, terbuka, onToggle, indeks, aktif, jum
       </button>
 
       {terbuka && (
-        <section className="glass braket muncul pointer-events-auto absolute bottom-[92px] !bg-[rgba(5,8,15,0.9)] right-2 z-30 flex h-[460px] max-h-[calc(100%-150px)] w-[360px] max-w-[calc(100%-16px)] flex-col sm:right-3 max-sm:bottom-[136px] max-sm:max-h-[55vh]">
+        <section className="glass braket muncul pointer-events-auto absolute bottom-[92px] !bg-[rgba(5,8,15,0.9)] right-2 z-30 flex h-[460px] max-h-[calc(100%-150px)] w-[360px] max-w-[calc(100%-16px)] flex-col sm:right-3 max-sm:bottom-[148px] max-sm:max-h-[55vh]">
           <div className="flex items-center justify-between gap-2 border-b border-white/10 px-3 py-2">
             <div className="flex min-w-0 items-center gap-2">
               <Logo size={20} className="shrink-0 text-accent" />

@@ -84,7 +84,7 @@ export default function TimelineStrip({ lang, data, terpilih, onPilih }: Props) 
   const tahunLabel = (b: number) => `${Math.floor(b / 12)}`;
 
   return (
-    <div className="pointer-events-auto absolute inset-x-0 z-20 px-2 sm:left-[270px] sm:right-3 sm:bottom-[44px] max-sm:top-[100px]">
+    <div className="pointer-events-auto absolute inset-x-0 z-20 px-2 sm:left-[270px] sm:right-3 sm:bottom-[44px] lg:right-[312px] max-sm:top-[106px]">
       <div className="glass flex flex-col overflow-hidden">
         <div className="flex items-center gap-2 border-b border-white/10 px-2 py-1.5">
           <button className={`tombol-ikon !h-6 !w-6 ${putar ? "aktif" : ""}`} onClick={() => setPutar(!putar)} title={terjemah(lang, putar ? "timeline_pause" : "timeline_play")}>

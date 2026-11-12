@@ -40,11 +40,13 @@ const LANGKAH: Langkah[] = [
   },
   {
     sasaran: "mode",
+    cadangan: "menu",
     judul: { id: "3D / 2D, MAP / SAT, bahasa", en: "3D / 2D, MAP / SAT, language" },
     teks: { id: "Ganti globe ke peta datar, peta gelap ke citra satelit, dan bahasa Indonesia/Inggris.", en: "Switch globe to flat map, dark map to satellite imagery, and Indonesian/English." },
   },
   {
     sasaran: "alat",
+    cadangan: "menu",
     judul: { id: "Tools", en: "Tools" },
     teks: {
       id: "Reset ke Indonesia, cari objek (Ctrl K), Briefing sinematik, War Room (3 simulasi: Natuna, Cable Cut, Nuclear), jadwal lintasan satelit, data & anggaran, share link, fullscreen, bantuan.",
@@ -131,7 +133,9 @@ export default function Onboarding({ lang, onSelesai }: { lang: Lang; onSelesai:
   }, [i, otomatis]);
 
   // posisi kartu: di bawah/atas/samping elemen yang disorot, kalau tidak di tengah
-  let gaya: React.CSSProperties = { left: "50%", top: "50%", transform: "translate(-50%, -50%)" };
+  // tengah layar tanpa transform: animasi "muncul" menimpa transform, jadi kartu dulu bisa melenceng keluar layar
+  const tengah: React.CSSProperties = { inset: 0, margin: "auto", height: "fit-content", width: "min(380px, calc(100% - 24px))", maxHeight: "calc(100% - 24px)" };
+  let gaya: React.CSSProperties = tengah;
   if (kotak && typeof window !== "undefined") {
     const W = window.innerWidth;
     const H = window.innerHeight;
@@ -140,7 +144,12 @@ export default function Onboarding({ lang, onSelesai }: { lang: Lang; onSelesai:
     if (kecil) {
       // HP: kartu selalu di bawah atau di atas, tidak menutup elemen
       const diBawah = kotak.bottom + 16 + 200 < H;
-      gaya = diBawah ? { left: 12, right: 12, top: kotak.bottom + 12 } : { left: 12, right: 12, bottom: H - kotak.top + 12 };
+      const diAtas = kotak.top - 16 - 200 > 0;
+      gaya = diBawah
+        ? { left: 12, right: 12, top: kotak.bottom + 12, maxHeight: H - kotak.bottom - 24 }
+        : diAtas
+          ? { left: 12, right: 12, bottom: H - kotak.top + 12, maxHeight: kotak.top - 24 }
+          : tengah;
     } else if (kotak.left > W / 2 && kotak.right - kotak.left < W / 2) {
       // elemen di kanan: kartu di kiri elemen
       gaya = { right: W - kotak.left + 16, top: Math.min(Math.max(12, kotak.top), H - 240), width: lebar };
@@ -154,19 +163,19 @@ export default function Onboarding({ lang, onSelesai }: { lang: Lang; onSelesai:
   return (
     <div className="pointer-events-auto absolute inset-0 z-[60]" onClick={() => !kotak && (terakhir ? selesai() : setI(i + 1))}>
       {!kotak && <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />}
-      <div className="glass braket muncul absolute max-w-[calc(100%-24px)] px-4 py-3" style={gaya} onClick={(e) => e.stopPropagation()} key={i}>
+      <div className="glass braket muncul gulir absolute max-w-[calc(100%-24px)] overflow-y-auto px-4 py-3" style={gaya} onClick={(e) => e.stopPropagation()} key={i}>
         <div className="flex items-center justify-between gap-3">
           <div className="label-kecil text-gold">
             {terjemah(lang, "guide_title")} <span className="text-dim">({i + 1}/{LANGKAH.length})</span>
           </div>
-          <button className="tombol-ikon !h-6 !w-6 !border-0" onClick={selesai} title={terjemah(lang, "guide_skip")}>
+          <button className="tombol-ikon !h-6 !w-6 !border-0" onClick={selesai} title={terjemah(lang, "guide_skip")} aria-label={terjemah(lang, "guide_skip")}>
             <X size={13} />
           </button>
         </div>
         <div className="mt-1 text-[14px] tracking-[0.15em] text-text">{l.judul[lang]}</div>
         <p className="mt-1 text-[11.5px] leading-relaxed text-muted">{l.teks[lang]}</p>
         <div className="mt-3 flex items-center gap-2">
-          <label className="flex cursor-pointer items-center gap-1.5 text-[10px] text-dim">
+          <label className="sentuh flex cursor-pointer items-center gap-1.5 text-[10px] text-dim">
             <input type="checkbox" checked={otomatis} onChange={(e) => setOtomatis(e.target.checked)} className="accent-[#f2c66d]" /> {terjemah(lang, "guide_auto")}
           </label>
           <span className="flex-1" />
