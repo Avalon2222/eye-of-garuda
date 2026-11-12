@@ -85,6 +85,11 @@ describe("10 pertanyaan uji asisten", () => {
     const [negara, n] = [...hitungan.entries()].sort((p, q) => q[1] - p[1])[0];
     expect(f.teks).toContain(`: ${asing.length}.`);
     expect(f.teks).toContain(`Per negara: ${negara} ${n},`);
+    expect(f.teks).toContain(`Terbanyak: ${negara} (${n} dari ${asing.length}).`);
+    // yang dicek di jawaban model pemuncaknya, bukan total seluruh kawasan
+    expect(f.wajib).toEqual([negara, String(n)]);
+    expect(jawabanSesuai(`**${negara}** paling banyak, ${n} pangkalan.`, f.wajib)).toBe(true);
+    expect(jawabanSesuai(`China paling banyak, ${n} pangkalan.`, f.wajib)).toBe(false);
   });
 
   it("6. Ada berapa Lanud di Indonesia", () => {
@@ -128,6 +133,21 @@ describe("10 pertanyaan uji asisten", () => {
 });
 
 describe("fakta: kasus lain", () => {
+  it("angka ribuan ditulis sesuai bahasa", () => {
+    const id = siapkanFakta(indeks, "Pangkalan kapal selam terdekat dari Selat Malaka?", "id")!;
+    const en = siapkanFakta(indeks, "Nearest submarine base to the Malacca Strait?", "en")!;
+    expect(id.teks).toMatch(/: \d\.\d{3} km ke arah/);
+    expect(en.teks).toMatch(/: \d,\d{3} km to the/);
+  });
+
+  it("'terbanyak' per provinsi: pemuncak ditulis dan seri tidak dipaksa satu nama", () => {
+    const f = siapkanFakta(indeks, "Provinsi mana yang Lanud-nya terbanyak?", "id")!;
+    expect(f.teks).toMatch(/Terbanyak: [A-Z][^(]+ \(\d+ dari \d+\)\./);
+    expect(f.wajib.length).toBeGreaterThan(0);
+    const biasa = siapkanFakta(indeks, "Ada berapa Lanud di Indonesia?", "id")!;
+    expect(biasa.teks).not.toContain("Terbanyak:");
+  });
+
   it("'paling banyak' tanpa kata 'berapa' tetap dihitung, bukan dicari sebagai nama", () => {
     const f = siapkanFakta(indeks, "Negara mana yang pangkalannya paling banyak di kawasan?", "id")!;
     expect(f.alat).toContain("hitung");
@@ -152,6 +172,9 @@ describe("fakta: kasus lain", () => {
     // angka ribuan boleh ditulis gaya Indonesia atau Inggris, nama boleh tanpa keterangan dalam kurung
     expect(jawabanSesuai("**Sattahip** berjarak 1.018 km.", ["Sattahip (Pangkalan AL Chuk Samet)", "1018"])).toBe(true);
     expect(jawabanSesuai("Sattahip is 1,018 km away.", ["Sattahip (Pangkalan AL Chuk Samet)", "1018"])).toBe(true);
+    expect(jawabanSesuai("Tidak ada data Lanud Ranai. Mungkin maksudnya Lanud Raden Sadjad.", ["Lanud Raden Sadjad"])).toBe(false);
+    expect(jawabanSesuai("I couldn't find Lanud Ranai; did you mean Lanud Raden Sadjad?", ["Lanud Raden Sadjad"])).toBe(false);
+    expect(jawabanSesuai("Lanud Ranai itu Lanud Raden Sadjad di Natuna.", ["Lanud Raden Sadjad"])).toBe(true);
     expect(jawabanSesuai("Ada 22 markas.", ["22"])).toBe(true);
     expect(jawabanSesuai("Ada 23 markas.", ["22"])).toBe(false);
   });
