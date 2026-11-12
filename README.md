@@ -29,9 +29,10 @@ satellites, scenario actors) are drawn on a separate canvas every frame: aircraf
 and heading between updates, satellites are propagated from TLE with SGP4 in the browser and drawn at a height that
 scales with their orbit, so LEO, MEO and GEO look different.
 
-- **Explore** 198 TNI bases (137 pinned to OpenStreetMap or a known airfield), ~160 foreign bases in the region, 16 submarine home
+- **Explore** 198 TNI bases (137 pinned to OpenStreetMap or a known airfield) plus 716 Kodim and infantry battalions
+  up close, ~160 foreign bases in the region, 16 submarine home
   ports, 500+ airports and 600+ ports, outer islands and border posts, the three archipelagic sea lanes and 118 undersea
-  cables, each with its public source. Level of detail follows the zoom: major HQs from orbit, Korem and Lanal up close.
+  cables, each with its public source. Level of detail follows the zoom: major HQs from orbit, Korem and Lanal closer in, Kodim and Yonif at city level.
 - **Watch** military aircraft and helicopters broadcasting ADS-B (labelled by country, e.g. `RCH123 (USA)`), ~900
   military and reconnaissance satellites overhead with a pass schedule for Indonesia (`O`), and AIS ships merged from a
   live stream and a 30-minute snapshot.
@@ -60,7 +61,7 @@ publik tentang pertahanan Indonesia terasa hidup dan mudah dijelajahi.
 
 | # | Lapisan | Jenis | Sumber singkat |
 |---|---|---|---|
-| 1 | Markas TNI: Mabes, Kogabwilhan, semua Kodam & Korem, Lantamal & Lanal, Koarmada, Lanud, Kopassus, Kostrad, Marinir (~200) | statis | Wikipedia, Wikidata, OurAirports |
+| 1 | Markas TNI: Mabes, Kogabwilhan, semua Kodam & Korem, Lantamal & Lanal, Koarmada, Lanud, Kopassus, Kostrad, Marinir (~200), plus Kodim & Yonif di zoom dekat (716) | statis | Wikipedia, Wikidata, OurAirports, OpenStreetMap |
 | 2 | Pangkalan asing di kawasan: AS, Australia, China, India, tetangga (~160) | statis | Wikidata, Wikipedia, CSIS AMTI |
 | `[` | Bandara besar/sedang di kawasan + lapangan udara militer (507) | statis | OurAirports |
 | 3 | Pulau terluar, PLBN, wilayah rawan | statis | Keppres 6/2017, Wikipedia |
@@ -104,6 +105,7 @@ misalnya `#v=3.9/108.9/6/-25/50&l=tni,asing,zee&sel=tni-64`.
 ```
 data/*.csv  ──scripts/bangun_data.py──▶  public/data/*.geojson   (statis, dibangun saat data berubah)
 OSM/OurAirports ─scripts/koreksi_lokasi.py▶ data/markas_tni.csv   (geocoding markas, sekali jalan)
+Wikipedia + OSM ─scripts/ambil_satuan_ad.py▶ data/markas_tni_satuan.csv (Kodim & Yonif, sekali jalan)
 data/*.csv  ──scripts/cek_tautan.py─────▶ laporan tautan mati         (bulanan, GitHub Actions)
 TLE + GCAT  ──scripts/bangun_satelit.py─▶ cabang `data`/satelit.json  (harian, GitHub Actions)
 aisstream   ──scripts/ambil_ais.py──────▶ cabang `data`/kapal.json    (tiap 30 menit, GitHub Actions jalan terus)
@@ -123,7 +125,8 @@ adsb.lol    ──app/api/pesawat───────────▶ browser, t
   diekstrapolasi linier; garis orbit penuh satu periode digambar untuk satelit yang dipilih. Ketinggian visual
   dipadatkan (LEO rendah, GEO jauh) supaya tetap terlihat pada zoom berapa pun.
 - **Level of detail.** Tiap titik punya `peringkat`: markas besar, Kodam, Koarmada, dan Lanud utama tampil dari zoom
-  jauh, Korem/Lanal/pelabuhan kecil memudar masuk saat zoom mendekat. Satelit memudar saat zoom kota, busur SIPRI
+  jauh, Korem/Lanal/pelabuhan kecil memudar masuk saat zoom mendekat, Kodim (titik) dan Yonif (cincin) baru dirender
+  mulai zoom 6 supaya gak numpuk dan gak ikut kena klik dari jauh. Satelit memudar saat zoom kota, busur SIPRI
   memudar saat zoom dekat, jadi tampilan jauh tetap ramai tapi tidak berantakan.
 - **Skenario.** `src/lib/skenario/*.ts` mendefinisikan fase, kamera, aktor (kapal, pesawat, kapal selam, rudal, ICBM,
   ledakan, EMP, awan fallout, kabel putus), garis reroute, lingkaran jangkauan, dan angka jarak/waktu yang dihitung dari
