@@ -4,6 +4,7 @@ import { X, ExternalLink, Crosshair } from "lucide-react";
 import { lapisanDariId, type LayerId } from "@/lib/layers";
 import { terjemah, type Lang, type KunciKamus } from "@/lib/i18n";
 import { formatKoordinat } from "@/lib/geo";
+import { useFokusPanel } from "@/lib/useFokusPanel";
 import type { Pilihan } from "@/lib/types";
 import { NAMA_KATEGORI_PESAWAT, type KategoriPesawat } from "@/lib/negara";
 
@@ -264,8 +265,9 @@ interface Props {
 export default function DetailPanel({ lang, pilihan, onTutup, onTerbang }: Props) {
   const def = lapisanDariId(pilihan.lapisan);
   const d = barisUntuk(pilihan, lang);
+  const panel = useFokusPanel<HTMLElement>({ sopan: true });
   return (
-    <section className="glass braket geser-kanan pointer-events-auto absolute right-2 top-[120px] z-20 flex max-h-[calc(100%-180px)] w-[calc(100%-16px)] flex-col sm:right-3 sm:top-[132px] sm:w-[340px] max-sm:top-auto max-sm:bottom-[88px] max-sm:max-h-[48vh]">
+    <section ref={panel} role="dialog" aria-label={`${def?.nama[lang] ?? ""}: ${d.judul}`} tabIndex={-1} className="glass braket geser-kanan pointer-events-auto absolute right-2 top-[120px] z-20 flex max-h-[calc(100%-180px)] w-[calc(100%-16px)] flex-col sm:right-3 sm:top-[132px] sm:w-[340px] max-sm:top-auto max-sm:bottom-[88px] max-sm:max-h-[48vh] outline-none">
       <div className="flex items-start gap-3 border-b border-white/10 px-3 py-2.5">
         <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: def?.warna }} />
         <div className="min-w-0 flex-1">
@@ -275,7 +277,7 @@ export default function DetailPanel({ lang, pilihan, onTutup, onTerbang }: Props
           <h2 className="truncate text-[14px] font-semibold text-text">{d.judul}</h2>
           {d.sub && <div className="truncate text-[11px] text-muted">{d.sub}</div>}
         </div>
-        <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={onTutup} title="Esc">
+        <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={onTutup} title={`${terjemah(lang, "close")} (Esc)`} aria-label={terjemah(lang, "close")}>
           <X size={15} />
         </button>
       </div>

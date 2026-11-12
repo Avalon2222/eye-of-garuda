@@ -62,7 +62,7 @@ export default function LayerRail({ lang, aktif, jumlah, onToggle, tersedia }: P
               <Layers size={12} /> {terjemah(lang, "layers")}
             </span>
           )}
-          <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={() => setTerbuka(!terbuka)} title={terjemah(lang, "layers")}>
+          <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={() => setTerbuka(!terbuka)} title={terjemah(lang, "layers")} aria-label={terjemah(lang, "layers")} aria-expanded={terbuka}>
             {terbuka ? <ChevronLeft size={14} /> : <Layers size={14} />}
           </button>
         </div>
@@ -80,6 +80,8 @@ export default function LayerRail({ lang, aktif, jumlah, onToggle, tersedia }: P
                     onClick={() => onToggle(l.id)}
                     disabled={!ada}
                     title={`${l.nama[lang]} [${l.tombol}]`}
+                    aria-label={l.nama[lang]}
+                    aria-pressed={on}
                     className={`group flex w-full items-center gap-2 px-2 py-1.5 text-left transition-colors ${on ? "bg-white/[0.05]" : "hover:bg-white/[0.03]"} ${ada ? "" : "opacity-40"}`}
                   >
                     <span
@@ -122,6 +124,7 @@ export function LayerChips({ lang, aktif, onToggle, tersedia }: Omit<Props, "jum
           <button
             key={l.id}
             onClick={() => onToggle(l.id)}
+            aria-pressed={on}
             className="glass sentuh flex shrink-0 items-center gap-1.5 px-2.5 py-1.5 text-[11px]"
             style={{ borderColor: on ? l.warna : undefined, color: on ? l.warna : "#8b95a7" }}
           >

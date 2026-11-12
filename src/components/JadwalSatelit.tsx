@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { X, Orbit, RefreshCw } from "lucide-react";
 import { terjemah, type Lang } from "@/lib/i18n";
+import { useFokusPanel } from "@/lib/useFokusPanel";
 import { warnaSatelit, kodeNegara } from "@/lib/live/satelit";
 import type { Lintasan } from "@/lib/live/lintasan";
 
@@ -26,6 +27,7 @@ function jam(ms: number, zona: "Z" | "WIB"): string {
 /** Jadwal lintasan satelit militer & pengintai (LEO) di atas Indonesia, 12 jam ke depan. */
 export default function JadwalSatelit({ lang, lintasan, sekarang, dihitung, sedangHitung, lapisanAktif, onTutup, onHitung, onPilih }: Props) {
   const [tick, setTick] = useState(() => Date.now());
+  const panel = useFokusPanel<HTMLDivElement>({ jebak: true });
   useEffect(() => {
     const id = setInterval(() => setTick(Date.now()), 30_000);
     return () => clearInterval(id);
@@ -35,7 +37,7 @@ export default function JadwalSatelit({ lang, lintasan, sekarang, dihitung, seda
   const jumlahSekarang = Math.max(sekarang.length, diAtas.length);
   return (
     <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/50 sm:p-3 sm:backdrop-blur-[2px]" onClick={onTutup}>
-      <div className="glass braket muncul lembar-hp flex max-h-[82vh] w-[640px] max-w-full flex-col" role="dialog" aria-modal="true" aria-label={terjemah(lang, "passes_title")} onClick={(e) => e.stopPropagation()}>
+      <div ref={panel} tabIndex={-1} className="glass braket muncul lembar-hp flex max-h-[82vh] w-[640px] max-w-full flex-col outline-none" role="dialog" aria-modal="true" aria-label={terjemah(lang, "passes_title")} onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3">
           <div className="flex items-center gap-3">
             <Orbit size={22} className="text-accent" />
@@ -45,10 +47,10 @@ export default function JadwalSatelit({ lang, lintasan, sekarang, dihitung, seda
             </div>
           </div>
           <div className="flex gap-1">
-            <button className={`tombol-ikon !h-7 !w-7 ${sedangHitung ? "animate-spin" : ""}`} onClick={onHitung} disabled={sedangHitung || !lapisanAktif} title="refresh" aria-label="refresh">
+            <button className={`tombol-ikon !h-7 !w-7 ${sedangHitung ? "animate-spin" : ""}`} onClick={onHitung} disabled={sedangHitung || !lapisanAktif} title={terjemah(lang, "passes_refresh")} aria-label={terjemah(lang, "passes_refresh")}>
               <RefreshCw size={13} />
             </button>
-            <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={onTutup} title="Esc" aria-label={terjemah(lang, "close")}>
+            <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={onTutup} title={`${terjemah(lang, "close")} (Esc)`} aria-label={terjemah(lang, "close")}>
               <X size={15} />
             </button>
           </div>

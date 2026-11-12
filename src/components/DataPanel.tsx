@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { terjemah, type Lang } from "@/lib/i18n";
+import { useFokusPanel } from "@/lib/useFokusPanel";
 
 interface Tabel {
   anggaran_indonesia: { tahun: number; rp_triliun: number; persen_pdb: number; keyakinan: string; catatan: string; sumber: string }[];
@@ -62,6 +63,7 @@ function BarHorizontal({ data, lang }: { data: Tabel["anggaran_kawasan"]; lang: 
 
 export default function DataPanel({ lang, onTutup }: { lang: Lang; onTutup: () => void }) {
   const [t, setT] = useState<Tabel | null>(null);
+  const panel = useFokusPanel<HTMLDivElement>({ jebak: true });
   useEffect(() => {
     fetch("/data/tabel.json")
       .then((r) => r.json())
@@ -70,7 +72,7 @@ export default function DataPanel({ lang, onTutup }: { lang: Lang; onTutup: () =
   }, []);
   return (
     <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/50 sm:p-3 sm:backdrop-blur-[2px]" onClick={onTutup}>
-      <div className="glass braket muncul lembar-hp flex max-h-[88vh] w-[720px] max-w-full flex-col" role="dialog" aria-modal="true" aria-label={terjemah(lang, "data_panel")} onClick={(e) => e.stopPropagation()}>
+      <div ref={panel} tabIndex={-1} className="glass braket muncul lembar-hp flex max-h-[88vh] w-[720px] max-w-full flex-col outline-none" role="dialog" aria-modal="true" aria-label={terjemah(lang, "data_panel")} onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
           <div className="text-[12px] tracking-[0.25em] text-text uppercase">{terjemah(lang, "data_panel")}</div>
           <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={onTutup} title={terjemah(lang, "close")} aria-label={terjemah(lang, "close")}>
