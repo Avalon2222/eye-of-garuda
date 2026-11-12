@@ -122,7 +122,7 @@ export function LayerChips({ lang, aktif, onToggle, tersedia }: Omit<Props, "jum
           <button
             key={l.id}
             onClick={() => onToggle(l.id)}
-            className="glass flex shrink-0 items-center gap-1.5 px-2.5 py-1.5 text-[11px]"
+            className="glass sentuh flex shrink-0 items-center gap-1.5 px-2.5 py-1.5 text-[11px]"
             style={{ borderColor: on ? l.warna : undefined, color: on ? l.warna : "#8b95a7" }}
           >
             <Ikon size={13} /> {l.nama[lang]}

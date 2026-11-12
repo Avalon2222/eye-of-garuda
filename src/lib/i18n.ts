@@ -227,6 +227,18 @@ const KAMUS = {
   help_esc: { id: "Tutup panel", en: "Close panels" },
   help_o: { id: "Jadwal lintasan satelit", en: "Satellite pass schedule" },
   help_replay_guide: { id: "Ulangi panduan antarmuka", en: "Replay the interface guide" },
+  // bantuan untuk layar sentuh + menu header di HP
+  help_touch: { id: "Cara pakai di layar sentuh", en: "Using a touch screen" },
+  help_touch_drag: { id: "Geser satu jari untuk memutar globe", en: "Drag with one finger to spin the globe" },
+  help_touch_pinch: { id: "Cubit dua jari untuk zoom, putar dua jari untuk rotasi", en: "Pinch to zoom, twist two fingers to rotate" },
+  help_touch_tilt: { id: "Geser dua jari ke atas/bawah untuk memiringkan peta", en: "Slide two fingers up/down to tilt the map" },
+  help_touch_tap: { id: "Ketuk titik, garis, satelit, atau pesawat untuk detail", en: "Tap a point, line, satellite or aircraft for details" },
+  help_touch_chips: { id: "Geser deretan chip di bawah untuk nyalakan/matikan lapisan", en: "Swipe the chip row at the bottom to toggle layers" },
+  help_touch_menu: { id: "Tombol ⋮ di kanan atas berisi semua alat lain", en: "The ⋮ button at the top right holds every other tool" },
+  help_keys_title: { id: "Keyboard shortcuts", en: "Keyboard shortcuts" },
+  menu_more: { id: "Menu lainnya", en: "More tools" },
+  menu_projection: { id: "Globe 3D / peta 2D", en: "3D globe / 2D map" },
+  menu_basemap: { id: "Peta gelap / citra satelit", en: "Dark map / satellite imagery" },
   // onboarding
   guide_title: { id: "Panduan singkat", en: "Quick guide" },
   guide_next: { id: "Lanjut", en: "Next" },
