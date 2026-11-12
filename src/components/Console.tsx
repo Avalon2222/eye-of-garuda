@@ -7,7 +7,7 @@ import { bangunStyle, ID_LAYER_SAT, layerBasemapTersembunyiSaatSat } from "@/lib
 import { pasangSemuaLapisan, setVisibilitas, sinkronVisibilitas, setDataSource, LAYER_INTERAKTIF, sorotPilihan, pakaiCincin, sorotKabelPutus } from "@/lib/mapLayers";
 import { KanvasLive } from "@/lib/kanvasLive";
 import { LAPISAN, LAPISAN_BAWAAN, type LayerId } from "@/lib/layers";
-import { bacaUrl, tulisUrl, TAMPILAN_AWAL, type Tampilan } from "@/lib/urlState";
+import { bacaUrl, tulisUrl, tampilanAwal, type Tampilan } from "@/lib/urlState";
 import { terjemah, bacaLangTersimpan, simpanLang, type Lang } from "@/lib/i18n";
 import { TOUR } from "@/lib/tour";
 import { PelacakPesawat, type CakupanPesawat } from "@/lib/live/pesawat";
@@ -15,7 +15,7 @@ import { PelacakSatelit } from "@/lib/live/satelit";
 import { PelacakKapal } from "@/lib/live/kapal";
 import { PenjadwalLintasan, type Lintasan } from "@/lib/live/lintasan";
 import { muatAnalisis, type DataSipri } from "@/lib/analisis";
-import { SKENARIO, skenarioDariId, skenarioKeMarkdown, TAHAN_KESIMPULAN_MS } from "@/lib/skenario";
+import { skenarioDariId, skenarioKeMarkdown, TAHAN_KESIMPULAN_MS } from "@/lib/skenario";
 import { fotoPng, unduhTeks, unduhBlob, bisaMerekam, Perekam } from "@/lib/ekspor";
 import type { Pilihan, PanelId, StatusLive } from "@/lib/types";
 import BootScreen from "./BootScreen";
@@ -370,7 +370,8 @@ export default function Console() {
         if (alasan === "interupsi") tampilkanToast(terjemah(langRef.current, "scenario_interrupted"));
       }
       if (alasan === "selesai" && m) {
-        m.flyTo({ center: [TAMPILAN_AWAL.lon, TAMPILAN_AWAL.lat], zoom: TAMPILAN_AWAL.zoom, pitch: 0, bearing: 0, duration: 2600, essential: true });
+        const awal = tampilanAwal();
+        m.flyTo({ center: [awal.lon, awal.lat], zoom: awal.zoom, pitch: 0, bearing: 0, duration: 2600, essential: true });
       } else if (alasan === "stop" && m && tampilanSebelum.current) {
         const t = tampilanSebelum.current;
         m.flyTo({ center: [t.lon, t.lat], zoom: t.zoom, pitch: t.pitch, bearing: t.bearing, duration: 2000, essential: true });
@@ -433,7 +434,7 @@ export default function Console() {
       duration: f.kamera.durasi,
       essential: true,
       curve: 1.2,
-      padding: kecil ? { top: 70, bottom: Math.round(window.innerHeight * 0.4), left: 0, right: 0 } : { top: 0, bottom: 0, left: 0, right: 0 },
+      padding: kecil ? { top: 120, bottom: Math.round(window.innerHeight * 0.4), left: 0, right: 0 } : { top: 0, bottom: 0, left: 0, right: 0 },
     });
     if (k) k.skenario = { fase: f, mulai: Date.now() + Math.min(1200, f.kamera.durasi * 0.4) };
     const terakhir = simulasi.fase >= sk.fase.length - 1;
@@ -521,6 +522,25 @@ export default function Console() {
       });
       mapRef.current = m;
       (window as unknown as { __eog?: MapLibre }).__eog = m;
+      // sprite OpenFreeMap tidak punya "circle-11" (titik kota); buat sendiri supaya tidak ada warning di console
+      m.setMissingStyleImageResolver((id) => {
+        if (m.hasImage(id)) return;
+        const n = id === "circle-11" ? 11 : 1;
+        const data = new Uint8Array(n * n * 4);
+        if (n > 1) {
+          const c = (n - 1) / 2;
+          for (let y = 0; y < n; y++)
+            for (let x = 0; x < n; x++) {
+              const d = Math.hypot(x - c, y - c);
+              const i = (y * n + x) * 4;
+              data[i] = 0x8b;
+              data[i + 1] = 0x95;
+              data[i + 2] = 0xa7;
+              data[i + 3] = d <= c - 1.5 ? 230 : d <= c ? 120 : 0;
+            }
+        }
+        m.addImage(id, { width: n, height: n, data });
+      });
       m.on("load", () => {
         petaSudahLoad.current = true;
         pasangSemuaLapisan(m);
@@ -631,7 +651,7 @@ export default function Console() {
     if (!bootRef.current) return;
     setBoot(false);
     const m = mapRef.current;
-    const t: Tampilan = awalUrl.tampilan ?? TAMPILAN_AWAL;
+    const t: Tampilan = awalUrl.tampilan ?? tampilanAwal();
     const terbang = () => {
       mapRef.current?.flyTo({ center: [t.lon, t.lat], zoom: t.zoom, bearing: t.bearing, pitch: t.pitch, duration: 4200, essential: true, curve: 1.3 });
     };
@@ -679,7 +699,6 @@ export default function Console() {
       if (m) terapkanSat(m, !s);
       return !s;
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toggleDatar = useCallback(() => {
@@ -708,7 +727,8 @@ export default function Console() {
     const bawaan = new Set(LAPISAN_BAWAAN);
     setAktif(bawaan);
     for (const id of bawaan) if (LAPISAN.find((l) => l.id === id)?.jenis === "live") mulaiLive(id);
-    mapRef.current?.flyTo({ center: [TAMPILAN_AWAL.lon, TAMPILAN_AWAL.lat], zoom: TAMPILAN_AWAL.zoom, pitch: 0, bearing: 0, duration: 2500, essential: true });
+    const awal = tampilanAwal();
+    mapRef.current?.flyTo({ center: [awal.lon, awal.lat], zoom: awal.zoom, pitch: 0, bearing: 0, duration: 2500, essential: true });
   }, [pilih, hentikanSimulasi, mulaiLive]);
 
   const bagikan = useCallback(async () => {
@@ -917,10 +937,10 @@ export default function Console() {
       />
 
       <LayerRail lang={lang} aktif={aktif} jumlah={jumlah} onToggle={toggleLapisan} tersedia={tersedia} />
-      <LayerChips lang={lang} aktif={aktif} onToggle={toggleLapisan} tersedia={tersedia} />
+      {!sibukLayar && <LayerChips lang={lang} aktif={aktif} onToggle={toggleLapisan} tersedia={tersedia} />}
 
       {/* jam untuk layar kecil */}
-      <div className="glass pointer-events-auto absolute left-2 top-[62px] z-20 px-2 py-1 md:hidden">
+      <div className="glass pointer-events-auto absolute left-2 top-[66px] z-20 px-2 py-1 md:hidden">
         <JamZulu lang={lang} />
       </div>
 

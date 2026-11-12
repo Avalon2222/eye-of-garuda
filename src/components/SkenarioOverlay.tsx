@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Square, SkipForward, SkipBack, RotateCcw, Swords, Cable, Radiation, ChevronDown, ChevronUp, Download, Camera, Video, X, Play } from "lucide-react";
 import { type Skenario, hitungAngka, SKENARIO, TAHAN_KESIMPULAN_MS } from "@/lib/skenario";
 import { terjemah, type Lang } from "@/lib/i18n";
@@ -68,10 +68,11 @@ interface Props {
 }
 
 export default function SkenarioOverlay({ lang, skenario, fase, mulaiFase, merekam, bisaRekam, onStop, onLanjut, onMundur, onUlang, onEksporMd, onEksporPng, onRekam }: Props) {
-  // dilipat hanya berlaku untuk fase saat tombol ditekan (di HP); fase baru membuka panel lagi di desktop
-  const [lipat, setLipat] = useState<{ fase: number; kecil: boolean; hp: boolean } | null>(null);
-  const kecil = Boolean(lipat?.kecil && (lipat.fase === fase || lipat.hp));
-  const setKecil = (k: boolean) => setLipat({ fase, kecil: k, hp: typeof window !== "undefined" && window.innerWidth < 640 });
+  // di HP panel defaultnya terlipat jadi satu baris supaya aksi di peta tidak ketutup; bisa ditarik ke atas
+  const [hp] = useState(() => typeof window !== "undefined" && window.innerWidth <= 640);
+  const [lipatHp, setLipatHp] = useState(true);
+  const kecil = hp && lipatHp;
+  const tarik = useRef<number | null>(null);
   const [sisa, setSisa] = useState(TAHAN_KESIMPULAN_MS);
   const f = skenario.fase[fase];
   const terakhir = fase === skenario.fase.length - 1;
@@ -82,40 +83,70 @@ export default function SkenarioOverlay({ lang, skenario, fase, mulaiFase, merek
   }, [terakhir, mulaiFase]);
   if (!f) return null;
   const Ikon = IKON[skenario.ikon];
-  const kelasKaca = "glass-tipis sm:glass";
+  const label = `${skenario.judul[lang]} · ${terjemah(lang, "scenario_phase")} ${fase + 1}/${skenario.fase.length}`;
   return (
-    <div className="pointer-events-none absolute inset-x-0 bottom-[60px] z-30 flex justify-center px-2 sm:bottom-[72px] sm:px-3">
-      <div key={fase} className={`${kelasKaca} braket muncul pointer-events-auto flex w-[720px] max-w-full flex-col ${kecil ? "max-h-[46px]" : "max-h-[46vh] sm:max-h-[56vh]"}`}>
-        <div className="flex items-center justify-between gap-2 border-b border-white/10 px-3 py-2 sm:px-5">
-          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+    <div className="pointer-events-none absolute inset-x-0 bottom-[40px] z-30 flex justify-center px-2 sm:bottom-[72px] sm:px-3">
+      <div key={fase} className={`glass-padat braket muncul pointer-events-auto flex w-[720px] max-w-full flex-col ${kecil ? "" : "max-h-[46vh] sm:max-h-[56vh]"}`}>
+        <div
+          className="relative flex touch-none items-center justify-between gap-2 border-b border-white/10 px-3 py-2 sm:touch-auto sm:px-5"
+          onPointerDown={(e) => {
+            if (hp) tarik.current = e.clientY;
+          }}
+          onPointerUp={(e) => {
+            if (tarik.current === null) return;
+            const dy = e.clientY - tarik.current;
+            tarik.current = null;
+            if (dy < -24) setLipatHp(false);
+            else if (dy > 24) setLipatHp(true);
+          }}
+          onPointerCancel={() => (tarik.current = null)}
+        >
+          {hp && <span className="absolute left-1/2 top-1 h-[3px] w-8 -translate-x-1/2 rounded-full bg-white/25" aria-hidden />}
+          <button
+            className="sentuh flex min-w-0 flex-1 items-center gap-2 text-left sm:pointer-events-none sm:gap-3"
+            onClick={() => hp && setLipatHp(!lipatHp)}
+            aria-label={terjemah(lang, kecil ? "scenario_expand" : "scenario_minimize")}
+            aria-expanded={!kecil}
+            tabIndex={hp ? 0 : -1}
+          >
             <span className="hidden shrink-0 border border-warn/70 px-1.5 py-0.5 text-[9px] tracking-[0.2em] text-warn sm:inline">{terjemah(lang, "scenario_fictional")}</span>
-            <div className="label-kecil teks-bayang truncate" style={{ color: skenario.warna }}>
-              <Ikon size={11} className="mr-1 inline-block" />
-              {skenario.judul[lang]} · {terjemah(lang, "scenario_phase")} {fase + 1}/{skenario.fase.length}
-            </div>
+            {kecil ? (
+              <span className="min-w-0">
+                <span className="block truncate text-[12px] tracking-[0.18em] text-gold">{f.judul[lang]}</span>
+                <span className="block truncate text-[9.5px] uppercase tracking-[0.15em]" style={{ color: skenario.warna }}>
+                  <Ikon size={10} className="mr-1 inline-block" />
+                  {terjemah(lang, "scenario_phase")} {fase + 1}/{skenario.fase.length}
+                </span>
+              </span>
+            ) : (
+              <span className="label-kecil truncate" style={{ color: skenario.warna }}>
+                <Ikon size={11} className="mr-1 inline-block" />
+                {label}
+              </span>
+            )}
             {merekam && (
               <span className="flex shrink-0 items-center gap-1 border border-red-500/70 px-1.5 py-0.5 text-[9px] tracking-[0.2em] text-red-400">
                 <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-red-500" /> {terjemah(lang, "export_recording")}
               </span>
             )}
-          </div>
+          </button>
           <div className="flex shrink-0 gap-1">
-            <button className="tombol-ikon !h-7 !w-7 sm:hidden" onClick={() => setKecil(!kecil)} title={terjemah(lang, kecil ? "scenario_expand" : "scenario_minimize")}>
-              {kecil ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
+            <button className="tombol-ikon !h-7 !w-7 sm:hidden" onClick={() => setLipatHp(!lipatHp)} title={terjemah(lang, kecil ? "scenario_expand" : "scenario_minimize")} aria-label={terjemah(lang, kecil ? "scenario_expand" : "scenario_minimize")}>
+              {kecil ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
             </button>
-            <button className="tombol-ikon !h-7 !w-7" onClick={onMundur} disabled={fase === 0} title={terjemah(lang, "scenario_prev")}>
+            <button className="tombol-ikon !h-7 !w-7" onClick={onMundur} disabled={fase === 0} title={terjemah(lang, "scenario_prev")} aria-label={terjemah(lang, "scenario_prev")}>
               <SkipBack size={13} />
             </button>
             {terakhir ? (
-              <button className="tombol-ikon !h-7 !w-7" onClick={onUlang} title={terjemah(lang, "scenario_replay")}>
+              <button className="tombol-ikon !h-7 !w-7" onClick={onUlang} title={terjemah(lang, "scenario_replay")} aria-label={terjemah(lang, "scenario_replay")}>
                 <RotateCcw size={13} />
               </button>
             ) : (
-              <button className="tombol-ikon !h-7 !w-7" onClick={onLanjut} title={terjemah(lang, "scenario_next")}>
+              <button className="tombol-ikon !h-7 !w-7" onClick={onLanjut} title={terjemah(lang, "scenario_next")} aria-label={terjemah(lang, "scenario_next")}>
                 <SkipForward size={13} />
               </button>
             )}
-            <button className="tombol-ikon !h-7 !w-7" onClick={onStop} title={terjemah(lang, "scenario_stop")}>
+            <button className="tombol-ikon !h-7 !w-7" onClick={onStop} title={terjemah(lang, "scenario_stop")} aria-label={terjemah(lang, "scenario_stop")}>
               <Square size={13} />
             </button>
           </div>
@@ -123,14 +154,14 @@ export default function SkenarioOverlay({ lang, skenario, fase, mulaiFase, merek
         {!kecil && (
           <>
             <div className="gulir overflow-y-auto px-3 py-2.5 sm:px-5 sm:py-3">
-              <div className="teks-bayang text-[15px] tracking-[0.22em] text-gold sm:text-[18px] sm:tracking-[0.25em]">{f.judul[lang]}</div>
-              <p className="teks-bayang mt-1 text-[12px] leading-relaxed text-text sm:text-[12.5px]">{f.teks[lang]}</p>
+              <div className="text-[15px] tracking-[0.22em] text-gold sm:text-[18px] sm:tracking-[0.25em]">{f.judul[lang]}</div>
+              <p className="mt-1 text-[12px] leading-relaxed text-text sm:text-[12.5px]">{f.teks[lang]}</p>
               {f.angka && f.angka.length > 0 && (
                 <dl className="mt-2.5 grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-2">
                   {f.angka.map((a) => (
                     <div key={a.label.en} className="flex items-baseline justify-between gap-3 border-b border-white/5 py-0.5 text-[11px]">
-                      <dt className="teks-bayang text-muted">{a.label[lang]}</dt>
-                      <dd className="teks-bayang shrink-0 tabular-nums text-text">{hitungAngka(a, lang)}</dd>
+                      <dt className="text-muted">{a.label[lang]}</dt>
+                      <dd className="shrink-0 tabular-nums text-text">{hitungAngka(a, lang)}</dd>
                     </div>
                   ))}
                 </dl>
@@ -149,7 +180,7 @@ export default function SkenarioOverlay({ lang, skenario, fase, mulaiFase, merek
                 <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <div className="label-kecil mb-1 text-gold">{terjemah(lang, "conclusions")}</div>
-                    <ol className="teks-bayang list-decimal space-y-1 pl-4 text-[11.5px] leading-snug text-text">
+                    <ol className="list-decimal space-y-1 pl-4 text-[11.5px] leading-snug text-text">
                       {skenario.kesimpulan[lang].map((k) => (
                         <li key={k}>{k}</li>
                       ))}
@@ -157,7 +188,7 @@ export default function SkenarioOverlay({ lang, skenario, fase, mulaiFase, merek
                   </div>
                   <div>
                     <div className="label-kecil mb-1 text-accent">{terjemah(lang, "recommendations")}</div>
-                    <ol className="teks-bayang list-decimal space-y-1 pl-4 text-[11.5px] leading-snug text-text">
+                    <ol className="list-decimal space-y-1 pl-4 text-[11.5px] leading-snug text-text">
                       {skenario.saran[lang].map((k) => (
                         <li key={k}>{k}</li>
                       ))}

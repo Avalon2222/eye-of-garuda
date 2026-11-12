@@ -25,6 +25,15 @@ export interface StatusUrl {
 
 export const TAMPILAN_AWAL: Tampilan = { lat: -2.5, lon: 118, zoom: 3.6, bearing: 0, pitch: 0 };
 
+/**
+ * Tampilan awal yang pas dengan layar: Indonesia (95°–141° BT, ±46°) selebar layar.
+ * Di desktop tetap zoom 3.6; di HP zoom diturunkan supaya Sabang sampai Merauke kelihatan semua.
+ */
+export function tampilanAwal(lebar: number = typeof window === "undefined" ? 1440 : window.innerWidth): Tampilan {
+  const zoomPas = Math.log2((lebar * 0.96 * 360) / 46 / 512);
+  return { ...TAMPILAN_AWAL, zoom: Math.min(TAMPILAN_AWAL.zoom, Math.round(zoomPas * 100) / 100) };
+}
+
 export function bacaUrl(): StatusUrl {
   if (typeof window === "undefined") return {};
   const hash = window.location.hash.replace(/^#/, "");
