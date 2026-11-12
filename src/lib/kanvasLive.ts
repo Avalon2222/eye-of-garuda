@@ -22,6 +22,7 @@ import { PelacakPesawat } from "./live/pesawat";
 import { type FaseSkenario, type Aktor, posisiJalur, jejakJalur } from "./skenario";
 import { lingkaran, jarakKm } from "./geo";
 import { WARNA_KATEGORI_PESAWAT, type KategoriPesawat } from "./negara";
+import { FONT_MONO } from "./font";
 
 export type JenisKanvas = "satelit" | "pesawat";
 
@@ -60,9 +61,9 @@ interface TitikLayar {
 
 const R_BUMI = 6371.0088;
 const RAD = Math.PI / 180;
-const FONT = "10px 'JetBrains Mono', ui-monospace, monospace";
-const FONT_KECIL = "9px 'JetBrains Mono', ui-monospace, monospace";
-const FONT_BESAR = "11px 'JetBrains Mono', ui-monospace, monospace";
+const FONT = `10px ${FONT_MONO}`;
+const FONT_KECIL = `9px ${FONT_MONO}`;
+const FONT_BESAR = `11px ${FONT_MONO}`;
 /** satelit memudar antara dua zoom ini (di atasnya proyeksi globe tidak lagi dipakai MapLibre) */
 const ZOOM_SAT_PUDAR: [number, number] = [9.5, 11];
 const LAMA_PUDAR_MS = 450;
@@ -295,6 +296,12 @@ export class KanvasLive {
     this.lamaGambarMs = performance.now() - mulai;
   }
 
+  /** Geser label tepi lingkaran supaya tidak nabrak header/jam di atas layar (terutama di HP). */
+  private posisiAman(p: Proyektor, x: number, y: number): [number, number] {
+    const atas = p.w <= 640 ? 116 : 72;
+    return [Math.min(p.w - 70, Math.max(70, x)), Math.max(atas, y)];
+  }
+
   private gambarSatelit(ctx: CanvasRenderingContext2D, p: Proyektor, zoom: number, now: number, alpha: number): void {
     const s = this.satelit!;
     s.perbaruiSebagian(now, 16);
@@ -303,6 +310,8 @@ export class KanvasLive {
     const r = Math.min(4, Math.max(1.8, 1.2 + zoom * 0.45));
     const labelSemua = zoom >= 4.3;
     const labelIndo = zoom >= 2.2;
+    // zoom jauh (tampilan awal di HP): satelit asing diredupkan supaya cincin titiknya tidak menutupi Indonesia
+    const redup = 0.35 + 0.65 * Math.min(1, Math.max(0, (zoom - 2) / 2));
     const idPilih = this.pilihan?.jenis === "satelit" ? this.pilihan.id : null;
     let terpilih: { a: SatAktif; x: number; y: number } | null = null;
 
@@ -332,13 +341,14 @@ export class KanvasLive {
       const id = `satelit-${a.meta.norad}`;
       const indo = a.meta.kelompok === "Indonesia";
       const rr = indo ? r + 0.8 : r;
+      const a2 = indo || id === idPilih ? alpha : alpha * redup;
       // cahaya
       ctx.beginPath();
       ctx.arc(t.x, t.y, rr + 3, 0, Math.PI * 2);
       ctx.fillStyle = warna;
-      ctx.globalAlpha = 0.16 * alpha;
+      ctx.globalAlpha = 0.16 * a2 * a2;
       ctx.fill();
-      ctx.globalAlpha = alpha;
+      ctx.globalAlpha = a2;
       ctx.beginPath();
       ctx.arc(t.x, t.y, rr, 0, Math.PI * 2);
       ctx.fillStyle = warna;
@@ -548,7 +558,8 @@ export class KanvasLive {
       const utara = lingkaran(l.pusat[0], l.pusat[1], l.radiusKm, 4)[0];
       if (this.proyeksi(p, utara[0], utara[1], 0, t) && t.terlihat) {
         ctx.textAlign = "center";
-        this.teks(ctx, l.label[lang], t.x, t.y - 8, l.warna);
+        const [lx, ly] = this.posisiAman(p, t.x, t.y - 8);
+        this.teks(ctx, l.label[lang], lx, ly, l.warna);
         ctx.textAlign = "left";
       }
     }
@@ -860,7 +871,8 @@ export class KanvasLive {
       ctx.textAlign = "center";
       ctx.font = FONT;
       ctx.globalAlpha = 1;
-      this.teks(ctx, `EMP ±${Math.round(radiusKm).toLocaleString("en-US")} km`, t.x, t.y - 8, "#7dd3fc");
+      const [lx, ly] = this.posisiAman(p, t.x, t.y - 8);
+      this.teks(ctx, `EMP ±${Math.round(radiusKm).toLocaleString("en-US")} km`, lx, ly, "#7dd3fc");
       ctx.textAlign = "left";
     }
     ctx.restore();

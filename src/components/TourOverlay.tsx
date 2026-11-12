@@ -8,7 +8,7 @@ export default function TourOverlay({ lang, langkah, onStop, onLanjut }: { lang:
   const l = TOUR[langkah];
   if (!l) return null;
   return (
-    <div className="pointer-events-none absolute inset-x-0 bottom-[60px] z-30 flex justify-center px-3 sm:bottom-[72px]">
+    <div className="pointer-events-none absolute inset-x-0 bottom-[40px] z-30 flex justify-center px-2 sm:bottom-[72px] sm:px-3">
       <div key={langkah} className="glass braket muncul pointer-events-auto w-[640px] max-w-full px-5 py-4">
         <div className="flex items-center justify-between gap-3">
           <div className="label-kecil text-accent">
