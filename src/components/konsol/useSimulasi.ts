@@ -29,13 +29,15 @@ interface Opsi {
   tampilkanToast: (t: string) => void;
   /** dipanggil saat simulasi berhenti supaya rekaman yang masih jalan ikut disimpan */
   hentikanRekam: (idSimulasi: string) => void;
+  /** legenda SIPRI dibuka lagi setiap simulasi/briefing berakhir */
+  setSipriTerbuka: Dispatch<SetStateAction<boolean>>;
 }
 
 /**
  * Simulasi War Room dan briefing (tour): keduanya "meminjam" layar. Lapisan dan kamera pengguna
  * disimpan dulu, lalu dipulihkan saat selesai, dihentikan, atau diinterupsi oleh interaksi.
  */
-export function useSimulasi({ mapRef, kanvasRef, aktifRef, lapisanSebelumRef, setAktif, tersedia, langRef, mulaiLive, pilih, setPanel, setObrolan, tampilkanToast, hentikanRekam }: Opsi) {
+export function useSimulasi({ mapRef, kanvasRef, aktifRef, lapisanSebelumRef, setAktif, tersedia, langRef, mulaiLive, pilih, setPanel, setObrolan, tampilkanToast, hentikanRekam, setSipriTerbuka }: Opsi) {
   const [simulasi, setSimulasi] = useState<StatusSimulasi | null>(null);
   const [tour, setTour] = useState(-1);
   const [pilihSkenario, setPilihSkenario] = useState(false);
@@ -46,6 +48,7 @@ export function useSimulasi({ mapRef, kanvasRef, aktifRef, lapisanSebelumRef, se
   const hentikanSimulasi = useCallback(
     (alasan: AlasanBerhenti) => {
       const m = mapRef.current;
+      if (simulasiRef.current || tourRef.current >= 0) setSipriTerbuka(true);
       if (simulasiRef.current) {
         hentikanRekam(simulasiRef.current.id);
         setSimulasi(null);
@@ -69,7 +72,7 @@ export function useSimulasi({ mapRef, kanvasRef, aktifRef, lapisanSebelumRef, se
       }
       tampilanSebelumRef.current = null;
     },
-    [mapRef, kanvasRef, simulasiRef, tourRef, langRef, lapisanSebelumRef, setAktif, tampilkanToast, hentikanRekam],
+    [mapRef, kanvasRef, simulasiRef, tourRef, langRef, lapisanSebelumRef, setAktif, tampilkanToast, hentikanRekam, setSipriTerbuka],
   );
 
   const simpanKeadaan = useCallback(() => {

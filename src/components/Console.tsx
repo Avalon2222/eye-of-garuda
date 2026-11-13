@@ -58,6 +58,7 @@ export default function Console() {
   const [pilihanKlik, setPilihanKlik] = useState<PilihanKlik | null>(null);
   const [panel, setPanel] = useState<PanelId>("none");
   const [obrolan, setObrolan] = useState(false);
+  const [sipriTerbuka, setSipriTerbuka] = useState(true);
   const [panduan, setPanduan] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
 
@@ -120,7 +121,7 @@ export default function Console() {
 
   // ---------- simulasi, briefing, ekspor, jadwal ----------
   const ekspor = useEkspor({ mapRef, kanvasRef, lang, tampilkanToast });
-  const sim = useSimulasi({ mapRef, kanvasRef, aktifRef, lapisanSebelumRef, setAktif, tersedia, langRef, mulaiLive, pilih, setPanel, setObrolan, tampilkanToast, hentikanRekam: ekspor.hentikanRekam });
+  const sim = useSimulasi({ mapRef, kanvasRef, aktifRef, lapisanSebelumRef, setAktif, tersedia, langRef, mulaiLive, pilih, setPanel, setObrolan, tampilkanToast, hentikanRekam: ekspor.hentikanRekam, setSipriTerbuka });
   const { simulasi, setSimulasi, simulasiRef, tour, setTour, tourRef, pilihSkenario, setPilihSkenario, hentikanSimulasi, sibuk } = sim;
 
   const simpanUrl = useUrl({ mapRef, bootRef, simulasiRef, tourRef, aktifRef, pilihanRef, aktif, pilihan, lang, sat, datar });
@@ -395,6 +396,8 @@ export default function Console() {
         <SipriLegend
           lang={lang}
           data={sipri}
+          terbuka={sipriTerbuka}
+          setTerbuka={setSipriTerbuka}
           onPilih={(negara) => {
             const e = indeks.find((x) => x.lapisan === "sipri" && x.props.negara === negara);
             if (e) pilih({ lapisan: e.lapisan, props: e.props, lon: e.lon, lat: e.lat }, false);
