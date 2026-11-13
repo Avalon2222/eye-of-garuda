@@ -1,13 +1,27 @@
 "use client";
 
-import { useState } from "react";
 import { ChevronDown, ChevronUp, ArrowRightLeft } from "lucide-react";
 import type { DataSipri } from "@/lib/analisis";
 import { terjemah, type Lang } from "@/lib/i18n";
 
-/** Legenda SIPRI: bisa dilipat jadi tab kecil di kanan bawah dan dibuka lagi selama lapisan SIPRI menyala. */
-export default function SipriLegend({ lang, data, onPilih }: { lang: Lang; data: DataSipri; onPilih: (negara: string) => void }) {
-  const [terbuka, setTerbuka] = useState(true);
+/**
+ * Legenda SIPRI: bisa dilipat jadi tab kecil dan dibuka lagi selama lapisan SIPRI menyala.
+ * Status buka/tutup dipegang Console, jadi tetap tertutup walau legenda sempat disembunyikan
+ * (panel detail, asisten, simulasi) dan baru terbuka lagi lewat tombol atau setelah simulasi/briefing.
+ */
+export default function SipriLegend({
+  lang,
+  data,
+  terbuka,
+  setTerbuka,
+  onPilih,
+}: {
+  lang: Lang;
+  data: DataSipri;
+  terbuka: boolean;
+  setTerbuka: (buka: boolean) => void;
+  onPilih: (negara: string) => void;
+}) {
   const urut = [...data.pemasok].sort((a, b) => b.tiv_juta - a.tiv_juta);
   const maks = urut[0]?.tiv_juta ?? 1;
   if (!terbuka) {
