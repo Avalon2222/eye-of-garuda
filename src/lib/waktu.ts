@@ -25,6 +25,7 @@ export function formatTanggal(d: Date, lang: Lang): string {
 
 /** "3 jam lalu", "1 hari lalu", "2 days ago". */
 export function formatUmur(ms: number, lang: Lang): string {
+  if (!Number.isFinite(ms)) return "-"; // jangan tampil "NaN menit lalu"
   const menit = Math.max(0, Math.round(ms / 60_000));
   if (menit < 60) return terjemah(lang, "age_min", { n: menit });
   const jam = Math.round(menit / 60);
