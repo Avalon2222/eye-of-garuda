@@ -59,6 +59,7 @@ export function kakiKeMeter(kaki: number): number {
 }
 
 export function formatKoordinat(lon: number, lat: number): string {
+  if (!Number.isFinite(lon) || !Number.isFinite(lat)) return "-";
   const ns = lat >= 0 ? "N" : "S";
   const ew = lon >= 0 ? "E" : "W";
   return `${Math.abs(lat).toFixed(3)}°${ns} ${Math.abs(lon).toFixed(3)}°${ew}`;

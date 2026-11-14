@@ -84,3 +84,10 @@ describe("konversi dan format", () => {
     expect(formatKoordinat(-77.0365, 38.8977)).toBe("38.898°N 77.037°W");
   });
 });
+
+describe("formatKoordinat tanpa angka", () => {
+  it("koordinat NaN atau tak hingga jadi strip", () => {
+    expect(formatKoordinat(Number.NaN, -6.2)).toBe("-");
+    expect(formatKoordinat(106.8, Number.POSITIVE_INFINITY)).toBe("-");
+  });
+});
