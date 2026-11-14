@@ -11,8 +11,10 @@ export function tanggalEpochTle(epoch: string): Date | null {
   if (!m) return null;
   const yy = Number(m[1]);
   const hari = Number(m[2]);
-  if (!Number.isFinite(hari) || hari < 1 || hari >= 367) return null;
   const tahun = yy < 57 ? 2000 + yy : 1900 + yy;
+  // Hari ke-366 hanya ada di tahun kabisat; di tahun biasa angka itu meluber ke 1 Januari tahun berikutnya.
+  const kabisat = (tahun % 4 === 0 && tahun % 100 !== 0) || tahun % 400 === 0;
+  if (!Number.isFinite(hari) || hari < 1 || hari >= (kabisat ? 367 : 366)) return null;
   return new Date(Date.UTC(tahun, 0, 1) + (hari - 1) * 86_400_000);
 }
 
