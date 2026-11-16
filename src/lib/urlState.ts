@@ -34,6 +34,10 @@ export function tampilanAwal(lebar: number = typeof window === "undefined" ? 144
   return { ...TAMPILAN_AWAL, zoom: Math.min(TAMPILAN_AWAL.zoom, Math.round(zoomPas * 100) / 100) };
 }
 
+function jepit(x: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, x));
+}
+
 export function bacaUrl(): StatusUrl {
   if (typeof window === "undefined") return {};
   return uraiHash(window.location.hash);
@@ -48,8 +52,16 @@ export function uraiHash(hashMentah: string): StatusUrl {
   const v = p.get("v");
   if (v) {
     const [lat, lon, zoom, bearing, pitch] = v.split("/").map(Number);
-    if ([lat, lon, zoom].every((x) => Number.isFinite(x))) {
-      s.tampilan = { lat, lon, zoom, bearing: bearing || 0, pitch: pitch || 0 };
+    // Link yang diketik tangan bisa berisi lat 200 atau zoom 99; MapLibre melempar error untuk lat di
+    // luar ±90, jadi tampilan seperti itu diabaikan dan zoom/pitch dijepit ke rentang peta.
+    if ([lat, lon, zoom].every((x) => Number.isFinite(x)) && Math.abs(lat) <= 90 && Math.abs(lon) <= 180) {
+      s.tampilan = {
+        lat,
+        lon,
+        zoom: jepit(zoom, 0, 22),
+        bearing: bearing || 0,
+        pitch: jepit(pitch || 0, 0, 85),
+      };
     }
   }
   const l = p.get("l");
