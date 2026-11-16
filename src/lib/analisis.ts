@@ -56,7 +56,8 @@ async function ambilJson<T>(url: string): Promise<T | null> {
 
 /** Busur SIPRI: garis (untuk MapLibre + sorot) dan titik label. Koordinat busur juga dipakai kanvas untuk "komet". */
 export function bangunBusurSipri(d: DataSipri): { garis: GeoJSON.FeatureCollection; titik: GeoJSON.FeatureCollection } {
-  const maks = Math.max(...d.pemasok.map((p) => p.tiv_juta));
+  // Kalau semua TIV nol (mis. data sementara), pembagi nol membuat tebal garis NaN dan garisnya hilang.
+  const maks = Math.max(0, ...d.pemasok.map((p) => p.tiv_juta)) || 1;
   const garis: GeoJSON.Feature[] = d.pemasok.map((p) => ({
     type: "Feature",
     properties: {
