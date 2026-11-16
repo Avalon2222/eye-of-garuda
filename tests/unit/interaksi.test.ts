@@ -23,6 +23,11 @@ describe("pencarian (EOG-17)", () => {
     expect(cariEntri("natuna", indeks).map((e) => e.lapisan)).toEqual(["batas", "tni", "insiden", "pelabuhan", "kabel", "bandara"]);
   });
 
+  it("kata kunci kosong tetap mengikuti batas maks", () => {
+    expect(cariEntri("", indeks, 3)).toHaveLength(3);
+    expect(cariEntri("   ", indeks)).toHaveLength(indeks.length);
+  });
+
   it("nama persis selalu paling atas, termasuk tanpa keterangan dalam kurung", () => {
     expect(cariEntri("natuna port", indeks)[0].nama).toBe("Natuna Port");
     expect(cariEntri("Lanal Ranai", indeks)[0].nama).toBe("Lanal Ranai (Natuna)");

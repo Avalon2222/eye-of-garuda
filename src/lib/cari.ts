@@ -58,7 +58,8 @@ export function skorCari(q: string, e: Pick<EntriCari, "nama" | "sub" | "lapisan
 
 /** Hasil pencarian terurut (dipakai palet dan tes). */
 export function cariEntri(q: string, indeks: EntriCari[], maks = 14): EntriCari[] {
-  if (!rapikan(q)) return indeks.slice(0, 12);
+  // Tanpa kata kunci: tampilkan beberapa entri awal, tetapi tetap hormati batas `maks` dari pemanggil.
+  if (!rapikan(q)) return indeks.slice(0, Math.min(12, maks));
   return indeks
     .map((e) => ({ e, s: skorCari(q, e) }))
     .filter((x) => x.s > 0)
