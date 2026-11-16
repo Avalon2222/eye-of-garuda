@@ -67,6 +67,16 @@ describe("lingkaran dan busur", () => {
     expect(b[24][1]).toBeCloseTo(48.86, 4);
   });
 
+  it("busur yang melintasi garis tanggal tetap bersambung", () => {
+    const b = busur(-77.0, 38.9, 106.8, -6.2, 64); // Washington -> Jakarta, lewat Pasifik
+    for (let i = 1; i < b.length; i++) expect(Math.abs(b[i][0] - b[i - 1][0])).toBeLessThan(90);
+    expect(b[64][0]).toBeCloseTo(106.8, 4);
+    expect(b[64][1]).toBeCloseTo(-6.2, 4);
+    // titik asal sama tempatnya, hanya ditulis dengan bujur yang digeser 360 derajat
+    expect((((b[0][0] + 180) % 360) + 360) % 360 - 180).toBeCloseTo(-77.0, 4);
+    expect(b[0][1]).toBeCloseTo(38.9, 4);
+  });
+
   it("busur dua titik yang sama tidak menghasilkan NaN", () => {
     const b = busur(110, -7, 110, -7);
     expect(b.flat().every(Number.isFinite)).toBe(true);

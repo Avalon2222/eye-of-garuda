@@ -47,6 +47,13 @@ export function busur(lon1: number, lat1: number, lon2: number, lat2: number, n 
     const z = A * Math.sin(la1) + B * Math.sin(la2);
     out.push([Math.atan2(y, x) * DEG, Math.atan2(z, Math.sqrt(x * x + y * y)) * DEG]);
   }
+  // Busur yang melintasi garis tanggal (mis. Washington -> Jakarta lewat Pasifik) meloncat dari 180 ke -180,
+  // dan MapLibre lalu menggambarnya memutari separuh bumi. Bujur dibuat bersambung dari titik tujuan ke
+  // belakang, sehingga tujuan tetap persis di koordinatnya dan asal boleh di luar -180..180.
+  for (let i = out.length - 2; i >= 0; i--) {
+    while (out[i][0] - out[i + 1][0] > 180) out[i][0] -= 360;
+    while (out[i][0] - out[i + 1][0] < -180) out[i][0] += 360;
+  }
   return out;
 }
 
