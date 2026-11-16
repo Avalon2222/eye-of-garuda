@@ -92,6 +92,7 @@ describe("konversi dan format", () => {
   it("koordinat diberi tanda belahan bumi", () => {
     expect(formatKoordinat(106.8456, -6.2088)).toBe("6.209°S 106.846°E");
     expect(formatKoordinat(-77.0365, 38.8977)).toBe("38.898°N 77.037°W");
+    expect(formatKoordinat(-0.0001, -0.0004)).toBe("0.000°N 0.000°E");
   });
 });
 

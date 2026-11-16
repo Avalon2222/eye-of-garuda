@@ -67,7 +67,10 @@ export function kakiKeMeter(kaki: number): number {
 
 export function formatKoordinat(lon: number, lat: number): string {
   if (!Number.isFinite(lon) || !Number.isFinite(lat)) return "-";
-  const ns = lat >= 0 ? "N" : "S";
-  const ew = lon >= 0 ? "E" : "W";
-  return `${Math.abs(lat).toFixed(3)}°${ns} ${Math.abs(lon).toFixed(3)}°${ew}`;
+  // Arah dipilih dari angka yang sudah dibulatkan, supaya -0.0001 tampil "0.000°N", bukan "0.000°S".
+  const la = Math.abs(lat).toFixed(3);
+  const lo = Math.abs(lon).toFixed(3);
+  const ns = lat >= 0 || Number(la) === 0 ? "N" : "S";
+  const ew = lon >= 0 || Number(lo) === 0 ? "E" : "W";
+  return `${la}°${ns} ${lo}°${ew}`;
 }
