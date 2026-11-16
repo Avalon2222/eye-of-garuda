@@ -36,7 +36,12 @@ export function tampilanAwal(lebar: number = typeof window === "undefined" ? 144
 
 export function bacaUrl(): StatusUrl {
   if (typeof window === "undefined") return {};
-  const hash = window.location.hash.replace(/^#/, "");
+  return uraiHash(window.location.hash);
+}
+
+/** Urai isi hash (dengan atau tanpa "#") jadi StatusUrl. Terpisah dari `window` supaya bisa dites. */
+export function uraiHash(hashMentah: string): StatusUrl {
+  const hash = hashMentah.replace(/^#/, "");
   if (!hash) return {};
   const p = new URLSearchParams(hash);
   const s: StatusUrl = {};
