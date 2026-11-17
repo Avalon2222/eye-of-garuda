@@ -8,7 +8,9 @@ export type Potongan = { t: "teks" | "tebal" | "miring" | "kode"; isi: string } 
 
 export type Blok = { t: "p"; isi: Potongan[] } | { t: "ul" | "ol"; butir: Potongan[][] };
 
-const RE_INLINE = /\*\*([^*\n]+?)\*\*|__([^_\n]+?)__|`([^`\n]+?)`|\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)|\*([^*\s][^*\n]*?)\*|(https?:\/\/[^\s<>()]*[^\s<>().,;:!?])/g;
+// URL boleh memuat satu tingkat kurung berpasangan, seperti tautan Wikipedia ".../KRI_Nanggala_(402)".
+const RE_INLINE =
+  /\*\*([^*\n]+?)\*\*|__([^_\n]+?)__|`([^`\n]+?)`|\[([^\]\n]+)\]\((https?:\/\/(?:[^\s()]|\([^\s()]*\))+)\)|\*([^*\s][^*\n]*?)\*|(https?:\/\/(?:[^\s<>()]|\([^\s<>()]*\))*(?:[^\s<>().,;:!?]|\([^\s<>()]*\)))/g;
 
 export function uraiInline(teks: string): Potongan[] {
   const hasil: Potongan[] = [];

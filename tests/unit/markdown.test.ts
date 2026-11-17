@@ -48,4 +48,28 @@ describe("Markdown ringan untuk jawaban asisten", () => {
     expect(uraiMarkdown("")).toEqual([]);
     expect(uraiMarkdown("\n\n")).toEqual([]);
   });
+
+  it("URL dengan kurung berpasangan (Wikipedia) tidak terpotong", () => {
+    const url = "https://en.wikipedia.org/wiki/KRI_Nanggala_(402)";
+    expect(uraiInline(`Sumber: [Wikipedia](${url}).`)).toEqual([
+      { t: "teks", isi: "Sumber: " },
+      { t: "tautan", isi: "Wikipedia", url },
+      { t: "teks", isi: "." },
+    ]);
+    expect(uraiInline(`Lihat ${url}.`)).toEqual([
+      { t: "teks", isi: "Lihat " },
+      { t: "tautan", isi: url, url },
+      { t: "teks", isi: "." },
+    ]);
+    const tengah = "https://en.wikipedia.org/wiki/Cocos_(Keeling)_Island_International_Airport";
+    expect(uraiInline(tengah)).toEqual([{ t: "tautan", isi: tengah, url: tengah }]);
+  });
+
+  it("URL polos di dalam kurung tidak menelan kurung tutup", () => {
+    expect(uraiInline("(lihat https://contoh.org/a)")).toEqual([
+      { t: "teks", isi: "(lihat " },
+      { t: "tautan", isi: "https://contoh.org/a", url: "https://contoh.org/a" },
+      { t: "teks", isi: ")" },
+    ]);
+  });
 });
