@@ -32,12 +32,10 @@ export function lingkaran(lon: number, lat: number, radiusKm: number, n = 72): [
   return ring;
 }
 
-/** Busur melengkung (great-circle dengan sedikit "angkat") antara dua titik, untuk animasi arc. */
-export function busur(lon1: number, lat1: number, lon2: number, lat2: number, n = 48): [number, number][] {
+/** Titik-titik great-circle mentah (bujur -180..180) dari titik 1 ke titik 2; d = sudut pusat (radian). */
+function titikGreatCircle(lon1: number, lat1: number, lon2: number, lat2: number, d: number, n: number): [number, number][] {
   const la1 = lat1 * RAD, lo1 = lon1 * RAD, la2 = lat2 * RAD, lo2 = lon2 * RAD;
-  const d = 2 * Math.asin(Math.sqrt(Math.sin((la2 - la1) / 2) ** 2 + Math.cos(la1) * Math.cos(la2) * Math.sin((lo2 - lo1) / 2) ** 2));
   const out: [number, number][] = [];
-  if (d === 0) return [[lon1, lat1], [lon2, lat2]];
   for (let i = 0; i <= n; i++) {
     const f = i / n;
     const A = Math.sin((1 - f) * d) / Math.sin(d);
@@ -46,6 +44,31 @@ export function busur(lon1: number, lat1: number, lon2: number, lat2: number, n 
     const y = A * Math.cos(la1) * Math.sin(lo1) + B * Math.cos(la2) * Math.sin(lo2);
     const z = A * Math.sin(la1) + B * Math.sin(la2);
     out.push([Math.atan2(y, x) * DEG, Math.atan2(z, Math.sqrt(x * x + y * y)) * DEG]);
+  }
+  return out;
+}
+
+/** Busur melengkung (great-circle dengan sedikit "angkat") antara dua titik, untuk animasi arc. */
+export function busur(lon1: number, lat1: number, lon2: number, lat2: number, n = 48): [number, number][] {
+  const la1 = lat1 * RAD, lo1 = lon1 * RAD, la2 = lat2 * RAD, lo2 = lon2 * RAD;
+  const d = 2 * Math.asin(Math.sqrt(Math.sin((la2 - la1) / 2) ** 2 + Math.cos(la1) * Math.cos(la2) * Math.sin((lo2 - lo1) / 2) ** 2));
+  if (d === 0) return [[lon1, lat1], [lon2, lat2]];
+  let out: [number, number][];
+  if (Math.sin(d) < 1e-6) {
+    // Titik yang (hampir) berseberangan: sin(d) ~ 0 membuat rumus interpolasi membagi dengan nol, dan
+    // titik-titiknya menumpuk di satu tempat. Busur dipecah lewat titik tengah sejauh d/2 dari asal.
+    const arah = Math.atan2(
+      Math.sin(lo2 - lo1) * Math.cos(la2),
+      Math.cos(la1) * Math.sin(la2) - Math.sin(la1) * Math.cos(la2) * Math.cos(lo2 - lo1),
+    ) * DEG;
+    const [lonT, latT] = titikTujuan(lon1, lat1, arah, (d / 2) * R_BUMI_KM);
+    const n1 = Math.floor(n / 2);
+    out = [
+      ...titikGreatCircle(lon1, lat1, lonT, latT, d / 2, n1),
+      ...titikGreatCircle(lonT, latT, lon2, lat2, d / 2, n - n1).slice(1),
+    ];
+  } else {
+    out = titikGreatCircle(lon1, lat1, lon2, lat2, d, n);
   }
   // Busur yang melintasi garis tanggal (mis. Washington -> Jakarta lewat Pasifik) meloncat dari 180 ke -180,
   // dan MapLibre lalu menggambarnya memutari separuh bumi. Bujur dibuat bersambung dari titik tujuan ke

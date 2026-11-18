@@ -77,6 +77,20 @@ describe("lingkaran dan busur", () => {
     expect(b[0][1]).toBeCloseTo(38.9, 4);
   });
 
+  it.each([
+    [0, 0, 180, 0],
+    [106.8, -6.2, -73.2, 6.2], // Jakarta -> antipodanya
+    [106.8, -6.2, -73.2000001, 6.2],
+  ])("busur ke titik antipoda tetap rata dan sampai tujuan (%s, %s -> %s, %s)", (lon1, lat1, lon2, lat2) => {
+    const n = 8;
+    const b = busur(lon1, lat1, lon2, lat2, n);
+    expect(b).toHaveLength(n + 1);
+    const total = jarakKm(lon1, lat1, lon2, lat2);
+    // tiap titik maju sama jauh di sepanjang busur, tidak menumpuk di satu tempat
+    b.forEach(([lon, lat], i) => expect(jarakKm(lon1, lat1, lon, lat)).toBeCloseTo((total * i) / n, -1));
+    expect(jarakKm(lon2, lat2, ...b[n])).toBeLessThan(0.001);
+  });
+
   it("busur dua titik yang sama tidak menghasilkan NaN", () => {
     const b = busur(110, -7, 110, -7);
     expect(b.flat().every(Number.isFinite)).toBe(true);
