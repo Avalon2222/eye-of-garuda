@@ -33,7 +33,10 @@ export interface CalonKlik {
 
 /** Kunci unik objek: satu objek bisa kena di beberapa layer MapLibre (titik + label). */
 export function kunciObjek(p: Pilihan): string {
-  return `${p.lapisan}:${String(p.props.id ?? p.props.nama ?? `${p.lon},${p.lat}`)}`;
+  // id/nama kosong ("" dari GeoJSON) dianggap tidak ada; kalau tidak, semua objek tanpa id di satu lapisan
+  // mendapat kunci yang sama dan hanya satu yang bisa dipilih.
+  const isi = (v: unknown) => (v == null || String(v).trim() === "" ? null : String(v));
+  return `${p.lapisan}:${isi(p.props.id) ?? isi(p.props.nama) ?? `${p.lon},${p.lat}`}`;
 }
 
 /** Buang duplikat, urutkan menurut prioritas lapisan lalu jarak. */

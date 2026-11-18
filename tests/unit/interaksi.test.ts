@@ -51,6 +51,11 @@ describe("klik objek yang numpuk (EOG-02)", () => {
   it("objek yang sama dari dua layer (titik + label) cuma muncul sekali", () => {
     expect(urutkanCalon([calon("tni", "x", 5), calon("tni", "x", 2)])).toHaveLength(1);
   });
+
+  it("objek dengan id kosong dibedakan lewat namanya", () => {
+    const tanpaId = (nama: string, d2: number): CalonKlik => ({ pilihan: { lapisan: "kabel", props: { id: "", nama }, lon: 0, lat: 0 }, d2 });
+    expect(urutkanCalon([tanpaId("SEA-ME-WE 5", 1), tanpaId("IGG", 2)]).map((c) => c.pilihan.props.nama)).toEqual(["SEA-ME-WE 5", "IGG"]);
+  });
 });
 
 describe("shortcut lapisan (EOG-37)", () => {
