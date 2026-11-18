@@ -41,6 +41,16 @@ export interface SnapshotAis {
 export const URL_SNAPSHOT_RAW = "https://raw.githubusercontent.com/Avalon2222/eye-of-garuda/data/kapal.json";
 const MAKS_EKSTRAPOLASI_MENIT = 90;
 
+/** COG AIS dalam derajat; 360 berarti "tidak tersedia" dan dijadikan null (sama seperti snapshot). */
+export function nilaiCog(v: number | null | undefined): number | null {
+  return typeof v === "number" && Number.isFinite(v) && v >= 0 && v < 360 ? v : null;
+}
+
+/** SOG AIS dalam knot; 102,3 berarti "tidak tersedia" dan dijadikan null (sama seperti snapshot). */
+export function nilaiSog(v: number | null | undefined): number | null {
+  return typeof v === "number" && Number.isFinite(v) && v >= 0 && v < 102.3 ? v : null;
+}
+
 export class PelacakKapal {
   snapshot: SnapshotAis | null = null;
   live: SnapshotAis | null = null;
