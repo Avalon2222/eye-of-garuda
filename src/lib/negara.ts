@@ -210,8 +210,21 @@ const MID: Record<string, string> = {
   "710": "BRA", "720": "BOL", "725": "CHL", "730": "COL", "735": "ECU", "760": "PER", "770": "URY", "775": "VEN",
 };
 
+/**
+ * Posisi MID di dalam MMSI (ITU-R M.585). Kapal biasa memakai 3 digit awal, tetapi beberapa jenis stasiun
+ * memberi awalan dulu: 98/99 (kapal kecil milik kapal induk, alat bantu navigasi), 8 (VHF genggam),
+ * 0/00 (grup kapal, stasiun pantai), dan 111 (pesawat SAR).
+ */
+function midDariMmsi(teks: string): string {
+  if (teks.length !== 9) return teks.slice(0, 3);
+  if (teks.startsWith("111")) return teks.slice(3, 6);
+  if (teks.startsWith("00") || teks.startsWith("98") || teks.startsWith("99")) return teks.slice(2, 5);
+  if (teks.startsWith("0") || teks.startsWith("8")) return teks.slice(1, 4);
+  return teks.slice(0, 3);
+}
+
 export function negaraDariMmsi(mmsi: number | string): Negara | null {
-  const kode = MID[String(mmsi).slice(0, 3)];
+  const kode = MID[midDariMmsi(String(mmsi).trim())];
   if (!kode) return null;
   return NEGARA[kode] ?? N(kode, kode);
 }

@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { jarakKm } from "@/lib/geo";
 import { PelacakKapal, nilaiCog, nilaiSog, type KapalSnapshot, type SnapshotAis } from "@/lib/live/kapal";
+import { negaraDariMmsi } from "@/lib/negara";
 
 const T0 = Date.parse("2026-11-12T00:00:00Z");
 const MENIT = 60_000;
@@ -168,5 +169,18 @@ describe("nilai AIS untuk rute live", () => {
     expect(nilaiSog(102.3)).toBeNull();
     expect(nilaiSog(-1)).toBeNull();
     expect(nilaiSog(Number.NaN)).toBeNull();
+  });
+});
+
+describe("negara dari MMSI", () => {
+  it.each([
+    [525123456, "IDN"], // kapal biasa
+    [985251234, "IDN"], // kapal kecil milik kapal induk
+    [995631234, "SGP"], // alat bantu navigasi
+    [853312345, "MYS"], // VHF genggam
+    ["005251234", "IDN"], // stasiun pantai
+    [111525123, "IDN"], // pesawat SAR
+  ])("%s -> %s", (mmsi, kode) => {
+    expect(negaraDariMmsi(mmsi)?.kode).toBe(kode);
   });
 });
