@@ -62,6 +62,13 @@ describe("ekstrapolasi posisi kapal", () => {
     for (const mmsi of [1, 2, 3]) expect(p.posisi(p.cari(mmsi)!, T0 + 30 * MENIT)).toEqual([105, 0]);
   });
 
+  it("COG 360 dan SOG 102,3 (kode AIS 'tidak tersedia') tidak menggeser kapal", async () => {
+    pasangFetch({ "kapal.json": snapshot([kapal({ mmsi: 1, cog: 360 }), kapal({ mmsi: 2, sog: 102.3 })]) });
+    const p = new PelacakKapal();
+    await p.muat();
+    for (const mmsi of [1, 2]) expect(p.posisi(p.cari(mmsi)!, T0 + 30 * MENIT)).toEqual([105, 0]);
+  });
+
   it("ekstrapolasi berhenti di 90 menit supaya data basi tidak melantur", async () => {
     pasangFetch({ "kapal.json": snapshot([kapal({})]) });
     const p = new PelacakKapal();

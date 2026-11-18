@@ -135,7 +135,9 @@ export class PelacakKapal {
 
   posisi(k: KapalSnapshot, t: number): [number, number] {
     const t0 = this.waktuMs.get(k.mmsi) ?? t;
-    if (k.sog == null || k.cog == null || k.sog < 0.5) return [k.lon, k.lat];
+    // AIS memakai COG 360 dan SOG 102,3 sebagai "tidak tersedia". Data live dari /api/kapal belum disaring
+    // seperti snapshot, jadi tanpa cek ini kapal bisa digeser ke utara dengan kecepatan 190 km/jam.
+    if (k.sog == null || k.cog == null || k.sog < 0.5 || k.sog >= 102.3 || k.cog >= 360) return [k.lon, k.lat];
     const menit = Math.min(MAKS_EKSTRAPOLASI_MENIT, Math.max(0, (t - t0) / 60000));
     return titikTujuan(k.lon, k.lat, k.cog, k.sog * 1.852 * (menit / 60));
   }
