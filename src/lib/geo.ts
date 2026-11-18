@@ -19,10 +19,8 @@ export function titikTujuan(lon: number, lat: number, bearingDeg: number, jarak:
   const lo1 = lon * RAD;
   const la2 = Math.asin(Math.sin(la1) * Math.cos(d) + Math.cos(la1) * Math.sin(d) * Math.cos(b));
   const lo2 = lo1 + Math.atan2(Math.sin(b) * Math.sin(d) * Math.cos(la1), Math.cos(d) - Math.sin(la1) * Math.sin(la2));
-  let lonOut = lo2 * DEG;
-  if (lonOut > 180) lonOut -= 360;
-  if (lonOut < -180) lonOut += 360;
-  return [lonOut, la2 * DEG];
+  // Satu kali +-360 tidak cukup kalau bujur asal sudah di luar -180..180 (mis. 725 dari salinan dunia).
+  return [bungkusBujur(lo2 * DEG), la2 * DEG];
 }
 
 /** Poligon lingkaran geodesik (GeoJSON ring) berjari-jari `radiusKm`. */

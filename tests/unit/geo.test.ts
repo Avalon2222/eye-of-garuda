@@ -47,6 +47,12 @@ describe("titikTujuan", () => {
     expect(lon).toBeLessThan(-179);
     expect(lon).toBeGreaterThanOrEqual(-180);
   });
+
+  it("bujur asal di luar -180..180 tetap menghasilkan bujur normal", () => {
+    const [lon, lat] = titikTujuan(106.8 + 720, -6.2, 0, 10);
+    expect(lon).toBeCloseTo(106.8, 6);
+    expect(jarakKm(106.8, -6.2, lon, lat)).toBeCloseTo(10, 3);
+  });
 });
 
 describe("lingkaran dan busur", () => {
