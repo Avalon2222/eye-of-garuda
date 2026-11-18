@@ -7,6 +7,7 @@
  */
 
 import { NextResponse, connection } from "next/server";
+import { nilaiCog, nilaiSog } from "@/lib/live/kapal";
 
 const URL_WS = "wss://stream.aisstream.io/v0/stream";
 const KOTAK = [[[-13.0, 92.0], [12.0, 145.0]]];
@@ -136,8 +137,8 @@ function simak(kunci: string): Promise<KapalLive[]> {
         nama: (m.MetaData.ShipName ?? "").trim(),
         lat,
         lon,
-        cog: pos?.Cog ?? null,
-        sog: pos?.Sog ?? null,
+        cog: nilaiCog(pos?.Cog),
+        sog: nilaiSog(pos?.Sog),
         heading,
         tipe: null,
         kelas: "lainnya",

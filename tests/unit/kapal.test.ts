@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { jarakKm } from "@/lib/geo";
-import { PelacakKapal, type KapalSnapshot, type SnapshotAis } from "@/lib/live/kapal";
+import { PelacakKapal, nilaiCog, nilaiSog, type KapalSnapshot, type SnapshotAis } from "@/lib/live/kapal";
 
 const T0 = Date.parse("2026-11-12T00:00:00Z");
 const MENIT = 60_000;
@@ -156,5 +156,17 @@ describe("gabungan snapshot dan live", () => {
     expect(props.label).toBe("KM UJI (IDN)");
     expect(props.sumber).toBe("snapshot");
     expect(p.umurMenit(T0 + 30 * MENIT)).toBe(30);
+  });
+});
+
+describe("nilai AIS untuk rute live", () => {
+  it("COG 360 dan SOG 102,3 jadi null seperti di snapshot", () => {
+    expect(nilaiCog(359.9)).toBe(359.9);
+    expect(nilaiCog(360)).toBeNull();
+    expect(nilaiCog(undefined)).toBeNull();
+    expect(nilaiSog(12.4)).toBe(12.4);
+    expect(nilaiSog(102.3)).toBeNull();
+    expect(nilaiSog(-1)).toBeNull();
+    expect(nilaiSog(Number.NaN)).toBeNull();
   });
 });
