@@ -52,6 +52,9 @@ export interface PesawatTampil {
 const LAMA_KOREKSI_MS = 1500;
 const HAPUS_SETELAH_MS = 150_000;
 const MAKS_JEJAK = 40;
+// Kalau /api/pesawat gagal terus (mis. jaringan putus), fix tidak diperbarui dan pesawat tidak pernah dihapus.
+// Tanpa batas ini ekstrapolasi berjalan tanpa akhir dan pesawat melantur ratusan km dari posisi sebenarnya.
+const MAKS_EKSTRAPOLASI_MS = HAPUS_SETELAH_MS;
 
 export class PelacakPesawat {
   private status = new Map<string, StatusPesawat>();
@@ -74,7 +77,7 @@ export class PelacakPesawat {
 
   private prediksi(s: StatusPesawat, t: number): [number, number] {
     if (s.gs == null || s.track == null || s.gs < 20) return [s.lon, s.lat];
-    const jam = Math.max(0, t - s.dilihat) / 3_600_000;
+    const jam = Math.min(MAKS_EKSTRAPOLASI_MS, Math.max(0, t - s.dilihat)) / 3_600_000;
     return titikTujuan(s.lon, s.lat, s.track, s.gs * 1.852 * jam);
   }
 
