@@ -51,7 +51,8 @@ export function uraiHash(hashMentah: string): StatusUrl {
   const s: StatusUrl = {};
   const v = p.get("v");
   if (v) {
-    const [lat, lon, zoom, bearing, pitch] = v.split("/").map(Number);
+    // Number("") bernilai 0, jadi "v=-6//5" diam-diam terbaca bujur 0. Bagian kosong dianggap tidak valid.
+    const [lat, lon, zoom, bearing, pitch] = v.split("/").map((x) => (x.trim() === "" ? NaN : Number(x)));
     // Link yang diketik tangan bisa berisi lat 200 atau zoom 99; MapLibre melempar error untuk lat di
     // luar ±90, jadi tampilan seperti itu diabaikan dan zoom/pitch dijepit ke rentang peta.
     if ([lat, lon, zoom].every((x) => Number.isFinite(x)) && Math.abs(lat) <= 90 && Math.abs(lon) <= 180) {
