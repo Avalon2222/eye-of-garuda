@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { R_BUMI_KM, busur, formatKoordinat, jarakKm, kakiKeMeter, knotKeKmJam, lingkaran, titikTujuan } from "@/lib/geo";
+import { R_BUMI_KM, bungkusBujur, busur, formatKoordinat, jarakKm, kakiKeMeter, knotKeKmJam, lingkaran, titikTujuan } from "@/lib/geo";
 
 const JAKARTA: [number, number] = [106.8456, -6.2088];
 const SURABAYA: [number, number] = [112.7521, -7.2575];
@@ -107,6 +107,15 @@ describe("konversi dan format", () => {
     expect(formatKoordinat(106.8456, -6.2088)).toBe("6.209°S 106.846°E");
     expect(formatKoordinat(-77.0365, 38.8977)).toBe("38.898°N 77.037°W");
     expect(formatKoordinat(-0.0001, -0.0004)).toBe("0.000°N 0.000°E");
+  });
+
+  it("bujur dari salinan dunia (peta 2D) dibungkus ke -180..180", () => {
+    expect(formatKoordinat(466.8456, -6.2088)).toBe("6.209°S 106.846°E");
+    expect(formatKoordinat(-253.1544, -6.2088)).toBe("6.209°S 106.846°E");
+    expect(bungkusBujur(180)).toBe(180);
+    expect(bungkusBujur(-180)).toBe(-180);
+    expect(bungkusBujur(540)).toBe(180);
+    expect(bungkusBujur(-190)).toBeCloseTo(170, 9);
   });
 });
 
