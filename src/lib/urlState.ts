@@ -38,6 +38,13 @@ function jepit(x: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, x));
 }
 
+/** Bearing ke rentang -180..180; Infinity atau NaN dari link ketik tangan jadi 0 (utara). */
+function normalBearing(b: number): number {
+  if (!Number.isFinite(b)) return 0;
+  const n = ((((b + 180) % 360) + 360) % 360) - 180;
+  return n === -180 ? 180 : n;
+}
+
 export function bacaUrl(): StatusUrl {
   if (typeof window === "undefined") return {};
   return uraiHash(window.location.hash);
@@ -60,7 +67,7 @@ export function uraiHash(hashMentah: string): StatusUrl {
         lat,
         lon,
         zoom: jepit(zoom, 0, 22),
-        bearing: bearing || 0,
+        bearing: normalBearing(bearing),
         pitch: jepit(pitch || 0, 0, 85),
       };
     }

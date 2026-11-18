@@ -30,6 +30,13 @@ describe("uraiHash", () => {
     expect(uraiHash("v=-6/106/5//").tampilan).toEqual({ lat: -6, lon: 106, zoom: 5, bearing: 0, pitch: 0 });
   });
 
+  it("bearing tak hingga jadi 0 dan bearing besar dibungkus ke -180..180", () => {
+    expect(uraiHash("v=-6/106/5/Infinity/0").tampilan?.bearing).toBe(0);
+    expect(uraiHash("v=-6/106/5/370/0").tampilan?.bearing).toBe(10);
+    expect(uraiHash("v=-6/106/5/-190/0").tampilan?.bearing).toBe(170);
+    expect(uraiHash("v=-6/106/5/180/0").tampilan?.bearing).toBe(180);
+  });
+
   it("menjepit zoom dan pitch ke rentang peta", () => {
     const t = uraiHash("v=-6/106/99/0/120").tampilan;
     expect(t?.zoom).toBe(22);
