@@ -37,6 +37,10 @@ describe("uraiHash", () => {
     expect(uraiHash("v=-6/106/5/180/0").tampilan?.bearing).toBe(180);
   });
 
+  it("daftar lapisan dirapikan dari spasi dan duplikat", () => {
+    expect(uraiHash("l=tni, asing,tni,,").lapisan).toEqual(["tni", "asing"]);
+  });
+
   it("menjepit zoom dan pitch ke rentang peta", () => {
     const t = uraiHash("v=-6/106/99/0/120").tampilan;
     expect(t?.zoom).toBe(22);

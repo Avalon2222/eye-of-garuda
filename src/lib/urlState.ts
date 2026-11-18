@@ -73,7 +73,8 @@ export function uraiHash(hashMentah: string): StatusUrl {
     }
   }
   const l = p.get("l");
-  if (l !== null) s.lapisan = l.split(",").filter(Boolean) as LayerId[];
+  // "tni, asing" (spasi setelah koma) dan "tni,tni" dari link yang diedit tangan tetap terbaca rapi.
+  if (l !== null) s.lapisan = [...new Set(l.split(",").map((x) => x.trim()).filter(Boolean))] as LayerId[];
   const lang = p.get("lang");
   if (lang === "en" || lang === "id") s.lang = lang;
   if (p.get("sat") === "1") s.sat = true;
