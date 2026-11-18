@@ -23,6 +23,13 @@ describe("uraiHash", () => {
     expect(uraiHash("v=abc/106/5").tampilan).toBeUndefined();
   });
 
+  it("bagian v yang kosong tidak terbaca sebagai 0", () => {
+    expect(uraiHash("v=-6//5").tampilan).toBeUndefined();
+    expect(uraiHash("v=/106/5").tampilan).toBeUndefined();
+    expect(uraiHash("v=-6/106/ ").tampilan).toBeUndefined();
+    expect(uraiHash("v=-6/106/5//").tampilan).toEqual({ lat: -6, lon: 106, zoom: 5, bearing: 0, pitch: 0 });
+  });
+
   it("menjepit zoom dan pitch ke rentang peta", () => {
     const t = uraiHash("v=-6/106/99/0/120").tampilan;
     expect(t?.zoom).toBe(22);
