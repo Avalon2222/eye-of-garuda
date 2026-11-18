@@ -88,8 +88,16 @@ export function kakiKeMeter(kaki: number): number {
   return kaki * 0.3048;
 }
 
+/** Bujur ke rentang -180..180. Klik di salinan dunia (mode peta 2D) memberi bujur seperti 466,85. */
+export function bungkusBujur(lon: number): number {
+  if (lon >= -180 && lon <= 180) return lon; // jangan sentuh angka yang sudah benar (hindari galat pembulatan)
+  const b = ((((lon + 180) % 360) + 360) % 360) - 180;
+  return b === -180 && lon > 0 ? 180 : b;
+}
+
 export function formatKoordinat(lon: number, lat: number): string {
   if (!Number.isFinite(lon) || !Number.isFinite(lat)) return "-";
+  lon = bungkusBujur(lon);
   // Arah dipilih dari angka yang sudah dibulatkan, supaya -0.0001 tampil "0.000°N", bukan "0.000°S".
   const la = Math.abs(lat).toFixed(3);
   const lo = Math.abs(lon).toFixed(3);
