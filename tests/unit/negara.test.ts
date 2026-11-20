@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { kategoriPesawat } from "@/lib/negara";
+import { kategoriPesawat, negaraDariHex } from "@/lib/negara";
 
 describe("kategoriPesawat", () => {
   it("helikopter dan pesawat sipil tidak salah masuk pembom", () => {
@@ -44,5 +44,16 @@ describe("kategoriPesawat: kode latih pendek", () => {
 
   it("kode latih asli tetap dikenali", () => {
     for (const t of ["T1", "T2", "T4", "T6", "T6A", "T7", "T7A", "T38", "KT1"]) expect(kategoriPesawat(t)).toBe("latih");
+  });
+});
+
+describe("negaraDariHex", () => {
+  it("hex Indonesia dikenali, spasi tepi diabaikan", () => {
+    expect(negaraDariHex("8a0123")?.kode).toBe("IDN");
+    expect(negaraDariHex(" 8A0123 ")?.kode).toBe("IDN");
+  });
+
+  it("hex rusak atau kepanjangan tidak ditebak dari potongan awalnya", () => {
+    for (const h of ["8a00zz", "0x8a0000", "~8a0000", "8a01234", ""]) expect(negaraDariHex(h)).toBeNull();
   });
 });
