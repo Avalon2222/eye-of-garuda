@@ -90,3 +90,12 @@ describe("epoch TLE (EOG-36)", () => {
     expect(formatEpochTle("aneh", "id", sekarang)).toBe("aneh");
   });
 });
+
+describe("pencarian: entri tanpa nama atau keterangan", () => {
+  it("nama/sub null tidak membuat pencarian error", () => {
+    const rusak = { ...entri("tni", "x"), nama: null, sub: undefined } as unknown as EntriCari;
+    const indeks = [rusak, entri("tni", "Lanal Ranai (Natuna)", "Lanal"), { ...entri("kabel", "Natuna Cable"), sub: null } as unknown as EntriCari];
+    expect(cariEntri("natuna", indeks).map((e) => e.nama)).toEqual(["Lanal Ranai (Natuna)", "Natuna Cable"]);
+    expect(skorCari("natuna", rusak)).toBe(0);
+  });
+});
