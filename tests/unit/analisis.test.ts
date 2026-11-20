@@ -24,4 +24,14 @@ describe("bangunBusurSipri", () => {
     const { garis } = bangunBusurSipri(data([0, 0]));
     for (const f of garis.features) expect(f.properties?.tebal).toBe(1);
   });
+
+  it("TIV kosong (null) tidak menggagalkan lapisan", () => {
+    const d = data([100, 0]);
+    (d.pemasok[1] as { tiv_juta: unknown }).tiv_juta = null;
+    const { garis } = bangunBusurSipri(d);
+    expect(garis.features[1].properties?.tebal).toBe(1);
+    expect(garis.features[1].properties?.tiv).toBe(0);
+    expect(garis.features[1].properties?.sub).toContain("? juta TIV");
+    expect(garis.features[0].properties?.tebal).toBeCloseTo(10, 6);
+  });
 });
