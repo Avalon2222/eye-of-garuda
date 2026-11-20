@@ -34,4 +34,15 @@ describe("bangunBusurSipri", () => {
     expect(garis.features[1].properties?.sub).toContain("? juta TIV");
     expect(garis.features[0].properties?.tebal).toBeCloseTo(10, 6);
   });
+
+  it("pemasok tanpa koordinat dilewati, sisanya tetap tergambar", () => {
+    const d = data([100, 50, 20]);
+    (d.pemasok[1] as { lat: unknown }).lat = null;
+    const { garis, titik } = bangunBusurSipri(d);
+    expect(garis.features.map((f) => f.properties?.negara)).toEqual(["N0", "N2"]);
+    expect(titik.features).toHaveLength(2);
+    for (const f of garis.features) {
+      for (const [x, y] of (f.geometry as GeoJSON.LineString).coordinates) expect(Number.isFinite(x) && Number.isFinite(y)).toBe(true);
+    }
+  });
 });
