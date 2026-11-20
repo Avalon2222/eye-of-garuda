@@ -24,3 +24,15 @@ describe("kategoriPesawat: kode tempur pendek", () => {
     for (const t of ["F5", "F5E", "F4", "F16", "SU30"]) expect(kategoriPesawat(t)).toBe("tempur");
   });
 });
+
+describe("kategoriPesawat: kode intai pendek", () => {
+  it("pesawat sipil berawalan E7, E2, P1, P3, dan U2 bukan pesawat intai", () => {
+    for (const t of ["E75L", "E290", "P180", "P32R", "U206"]) expect(kategoriPesawat(t)).not.toBe("intai");
+  });
+
+  it("kode intai asli tetap dikenali", () => {
+    for (const t of ["P8", "P8A", "P3", "P3C", "E7", "E2", "E2C", "E2D", "U2", "P1", "RQ4", "E3CF"]) {
+      expect(kategoriPesawat(t)).toBe("intai");
+    }
+  });
+});
