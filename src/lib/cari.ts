@@ -23,8 +23,9 @@ const GRUP_CARI: Partial<Record<LayerId, number>> = {
   insiden: 2,
 };
 
-function rapikan(t: string): string {
-  return t
+function rapikan(t: string | null | undefined): string {
+  // Fitur GeoJSON tanpa nama/sub (null) jangan sampai membuat seluruh pencarian error.
+  return String(t ?? "")
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -63,7 +64,7 @@ export function cariEntri(q: string, indeks: EntriCari[], maks = 14): EntriCari[
   return indeks
     .map((e) => ({ e, s: skorCari(q, e) }))
     .filter((x) => x.s > 0)
-    .sort((a, b) => b.s - a.s || a.e.nama.length - b.e.nama.length || a.e.nama.localeCompare(b.e.nama))
+    .sort((a, b) => b.s - a.s || (a.e.nama ?? "").length - (b.e.nama ?? "").length || (a.e.nama ?? "").localeCompare(b.e.nama ?? ""))
     .slice(0, maks)
     .map((x) => x.e);
 }
