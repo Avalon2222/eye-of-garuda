@@ -56,19 +56,21 @@ async function ambilJson<T>(url: string): Promise<T | null> {
 
 /** Busur SIPRI: garis (untuk MapLibre + sorot) dan titik label. Koordinat busur juga dipakai kanvas untuk "komet". */
 export function bangunBusurSipri(d: DataSipri): { garis: GeoJSON.FeatureCollection; titik: GeoJSON.FeatureCollection } {
+  // TIV kosong (null) di JSON sumber dianggap 0: null.toLocaleString() membuat seluruh lapisan gagal dibangun.
+  const tivDari = (p: PemasokSipri) => (Number.isFinite(p.tiv_juta) ? p.tiv_juta : 0);
   // Kalau semua TIV nol (mis. data sementara), pembagi nol membuat tebal garis NaN dan garisnya hilang.
-  const maks = Math.max(0, ...d.pemasok.map((p) => p.tiv_juta)) || 1;
+  const maks = Math.max(0, ...d.pemasok.map(tivDari)) || 1;
   const garis: GeoJSON.Feature[] = d.pemasok.map((p) => ({
     type: "Feature",
     properties: {
       id: `sipri-${p.negara}`,
       nama: `${p.negara} → Indonesia`,
-      sub: `${p.tiv_juta.toLocaleString("en-US")} juta TIV · ${p.persen}% (${d.periode})`,
+      sub: `${Number.isFinite(p.tiv_juta) ? p.tiv_juta.toLocaleString("en-US") : "?"} juta TIV · ${p.persen}% (${d.periode})`,
       negara: p.negara,
-      tiv: p.tiv_juta,
+      tiv: tivDari(p),
       persen: p.persen,
       tahun_puncak: p.tahun_puncak ?? null,
-      tebal: 1 + (9 * p.tiv_juta) / maks,
+      tebal: 1 + (9 * tivDari(p)) / maks,
       keterangan: `${p.contoh}. ${d.catatan}`,
       sumber: p.sumber,
       url: p.url,
