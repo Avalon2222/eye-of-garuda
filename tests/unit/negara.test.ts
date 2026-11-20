@@ -36,3 +36,13 @@ describe("kategoriPesawat: kode intai pendek", () => {
     }
   });
 });
+
+describe("kategoriPesawat: kode latih pendek", () => {
+  it("Tupolev T154, T134, T204 bukan pesawat latih", () => {
+    for (const t of ["T154", "T134", "T204"]) expect(kategoriPesawat(t)).not.toBe("latih");
+  });
+
+  it("kode latih asli tetap dikenali", () => {
+    for (const t of ["T1", "T2", "T4", "T6", "T6A", "T7", "T7A", "T38", "KT1"]) expect(kategoriPesawat(t)).toBe("latih");
+  });
+});

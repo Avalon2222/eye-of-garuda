@@ -248,7 +248,8 @@ const TIPE: Record<KategoriPesawat, RegExp> = {
   // Kode pendek dikunci di akhir ($): "H6" jangan menelan H60/H64 (Black Hawk, Apache), "B1"/"B21" jangan menelan
   // B190 (Beech 1900) atau B212 (Bell 212).
   pembom: /^(B52|B1[A-Z]?$|B2[A-Z]?$|B21$|TU95|TU16|TU22|TU14|H6[A-Z]?$|H20$)/,
-  latih: /^(T38|TEX2|T6|T6A|HAWK|HAW|T45|T50|FA50|T7|T7A|PC9|PC21|PC7|T1|T4|T2|KT1|M346|M339|M311|L39|L159|JL8|JL9|JL10|EMB3|TUCA|SF26|G120|TB30|ALX|C101|CM17|T34|T44|T35|A29|YAK1|YAK5|L29)/,
+  // T1/T2/T4/T6/T7 dikunci di akhir ($) supaya T154, T134, dan T204 (Tupolev) tidak terbaca sebagai pesawat latih.
+  latih: /^(T38|TEX2|T6[A-Z]?$|HAWK|HAW|T45|T50|FA50|T7[A-Z]?$|PC9|PC21|PC7|T1$|T4$|T2$|KT1|M346|M339|M311|L39|L159|JL8|JL9|JL10|EMB3|TUCA|SF26|G120|TB30|ALX|C101|CM17|T34|T44|T35|A29|YAK1|YAK5|L29)/,
   lain: /^$/,
 };
 
