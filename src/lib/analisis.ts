@@ -59,8 +59,10 @@ export function bangunBusurSipri(d: DataSipri): { garis: GeoJSON.FeatureCollecti
   // TIV kosong (null) di JSON sumber dianggap 0: null.toLocaleString() membuat seluruh lapisan gagal dibangun.
   const tivDari = (p: PemasokSipri) => (Number.isFinite(p.tiv_juta) ? p.tiv_juta : 0);
   // Kalau semua TIV nol (mis. data sementara), pembagi nol membuat tebal garis NaN dan garisnya hilang.
-  const maks = Math.max(0, ...d.pemasok.map(tivDari)) || 1;
-  const garis: GeoJSON.Feature[] = d.pemasok.map((p) => ({
+  // Pemasok tanpa koordinat dilewati: busur dari NaN menghasilkan geometri rusak yang ditolak MapLibre.
+  const pemasok = d.pemasok.filter((p) => Number.isFinite(p.lon) && Number.isFinite(p.lat));
+  const maks = Math.max(0, ...pemasok.map(tivDari)) || 1;
+  const garis: GeoJSON.Feature[] = pemasok.map((p) => ({
     type: "Feature",
     properties: {
       id: `sipri-${p.negara}`,
@@ -77,7 +79,7 @@ export function bangunBusurSipri(d: DataSipri): { garis: GeoJSON.FeatureCollecti
     },
     geometry: { type: "LineString", coordinates: busur(p.lon, p.lat, d.tujuan.lon, d.tujuan.lat, 64) },
   }));
-  const titik: GeoJSON.Feature[] = d.pemasok.map((p) => ({
+  const titik: GeoJSON.Feature[] = pemasok.map((p) => ({
     type: "Feature",
     properties: { id: `sipri-titik-${p.negara}`, label: `${p.negara} ${p.persen}%`, negara: p.negara },
     geometry: { type: "Point", coordinates: [p.lon, p.lat] },
