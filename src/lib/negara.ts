@@ -173,7 +173,10 @@ const BLOK_ICAO: [number, number, string][] = ([
 ] as [number, number, string][]).sort((a, b) => a[0] - b[0]);
 
 export function negaraDariHex(hex: string): Negara | null {
-  const n = parseInt(hex, 16);
+  // parseInt berhenti diam-diam di huruf pertama yang bukan hex ("8a00zz" -> 0x8a00), jadi formatnya dicek dulu.
+  const teks = String(hex ?? "").trim();
+  if (!/^[0-9a-f]{1,6}$/i.test(teks)) return null;
+  const n = parseInt(teks, 16);
   if (!Number.isFinite(n)) return null;
   let lo = 0;
   let hi = BLOK_ICAO.length - 1;
