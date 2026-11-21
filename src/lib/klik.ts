@@ -42,6 +42,9 @@ export function kunciObjek(p: Pilihan): string {
 /** Buang duplikat, urutkan menurut prioritas lapisan lalu jarak. */
 export function urutkanCalon(calon: CalonKlik[]): CalonKlik[] {
   const terdekat = new Map<string, CalonKlik>();
+  // Jarak NaN (titik tanpa koordinat layar) dianggap paling jauh: NaN di pembanding membuat
+  // urutan sort tidak menentu dan salinan yang lebih dekat bisa kalah oleh salinan NaN.
+  calon = calon.map((c) => (Number.isNaN(c.d2) ? { ...c, d2: Infinity } : c));
   for (const c of calon) {
     const k = kunciObjek(c.pilihan);
     const lama = terdekat.get(k);
