@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronDown, ChevronUp, ArrowRightLeft } from "lucide-react";
-import { barisLegendaSipri, type DataSipri } from "@/lib/analisis";
+import { barisLegendaSipri, formatTiv, type DataSipri } from "@/lib/analisis";
 import { terjemah, type Lang } from "@/lib/i18n";
 
 /**
@@ -47,7 +47,7 @@ export default function SipriLegend({
           </div>
           <div className="text-[12px] text-text">{terjemah(lang, "sipri_title")}</div>
           <div className="text-[10px] tabular-nums text-muted">
-            {terjemah(lang, "sipri_total", { n: data.total_tiv_juta.toLocaleString("en-US") })}
+            {terjemah(lang, "sipri_total", { n: formatTiv(data.total_tiv_juta) })}
           </div>
         </div>
         <button className="tombol-ikon !h-7 !w-7 !border-0" onClick={() => setTerbuka(false)} title={terjemah(lang, "sipri_collapse")} aria-label={terjemah(lang, "sipri_collapse")} aria-expanded={true}>
