@@ -58,6 +58,12 @@ describe("klik objek yang numpuk (EOG-02)", () => {
     expect(urutkanCalon([calon("tni", "x", 5), calon("tni", "x", 2)])).toHaveLength(1);
   });
 
+  it("jarak NaN dianggap paling jauh, tidak mengacak urutan", () => {
+    expect(urutkanCalon([calon("tni", "x", Number.NaN), calon("tni", "x", 3)])[0].d2).toBe(3);
+    const hasil = urutkanCalon([calon("tni", "a", Number.NaN), calon("tni", "b", 9), calon("tni", "c", 1)]);
+    expect(hasil.map((c) => c.pilihan.props.id)).toEqual(["c", "b", "a"]);
+  });
+
   it("objek dengan id kosong dibedakan lewat namanya", () => {
     const tanpaId = (nama: string, d2: number): CalonKlik => ({ pilihan: { lapisan: "kabel", props: { id: "", nama }, lon: 0, lat: 0 }, d2 });
     expect(urutkanCalon([tanpaId("SEA-ME-WE 5", 1), tanpaId("IGG", 2)]).map((c) => c.pilihan.props.nama)).toEqual(["SEA-ME-WE 5", "IGG"]);
