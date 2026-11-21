@@ -59,6 +59,8 @@ export function skorCari(q: string, e: Pick<EntriCari, "nama" | "sub" | "lapisan
 
 /** Hasil pencarian terurut (dipakai palet dan tes). */
 export function cariEntri(q: string, indeks: EntriCari[], maks = 14): EntriCari[] {
+  // slice(0, -1) berarti "semua kecuali yang terakhir", jadi maks negatif atau NaN dianggap 0.
+  maks = Number.isFinite(maks) ? Math.max(0, Math.floor(maks)) : 0;
   // Tanpa kata kunci: tampilkan beberapa entri awal, tetapi tetap hormati batas `maks` dari pemanggil.
   if (!rapikan(q)) return indeks.slice(0, Math.min(12, maks));
   return indeks
