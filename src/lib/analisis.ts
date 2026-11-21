@@ -54,6 +54,17 @@ async function ambilJson<T>(url: string): Promise<T | null> {
   }
 }
 
+/**
+ * Baris legenda SIPRI: pemasok terurut dari TIV terbesar, dengan lebar batang 0..100 (%).
+ * TIV kosong (null) dianggap 0 dan ditaruh paling bawah; kalau semua nol, batangnya 0%, bukan NaN%.
+ */
+export function barisLegendaSipri(d: DataSipri): { pemasok: PemasokSipri; lebar: number }[] {
+  const tiv = (p: PemasokSipri) => (Number.isFinite(p.tiv_juta) ? p.tiv_juta : 0);
+  const urut = [...d.pemasok].sort((a, b) => tiv(b) - tiv(a));
+  const maks = urut.length ? tiv(urut[0]) : 0;
+  return urut.map((p) => ({ pemasok: p, lebar: maks > 0 ? (tiv(p) / maks) * 100 : 0 }));
+}
+
 /** Busur SIPRI: garis (untuk MapLibre + sorot) dan titik label. Koordinat busur juga dipakai kanvas untuk "komet". */
 export function bangunBusurSipri(d: DataSipri): { garis: GeoJSON.FeatureCollection; titik: GeoJSON.FeatureCollection } {
   // TIV kosong (null) di JSON sumber dianggap 0: null.toLocaleString() membuat seluruh lapisan gagal dibangun.

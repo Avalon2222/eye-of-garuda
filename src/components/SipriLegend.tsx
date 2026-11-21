@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronDown, ChevronUp, ArrowRightLeft } from "lucide-react";
-import type { DataSipri } from "@/lib/analisis";
+import { barisLegendaSipri, type DataSipri } from "@/lib/analisis";
 import { terjemah, type Lang } from "@/lib/i18n";
 
 /**
@@ -22,8 +22,7 @@ export default function SipriLegend({
   setTerbuka: (buka: boolean) => void;
   onPilih: (negara: string) => void;
 }) {
-  const urut = [...data.pemasok].sort((a, b) => b.tiv_juta - a.tiv_juta);
-  const maks = urut[0]?.tiv_juta ?? 1;
+  const urut = barisLegendaSipri(data);
   if (!terbuka) {
     return (
       <button
@@ -56,11 +55,11 @@ export default function SipriLegend({
         </button>
       </div>
       <div className="gulir max-h-[34vh] overflow-y-auto px-3 py-2">
-        {urut.map((p) => (
+        {urut.map(({ pemasok: p, lebar }) => (
           <button key={p.negara} onClick={() => onPilih(p.negara)} className="grid w-full grid-cols-[96px_1fr_44px] items-center gap-2 py-[3px] text-left text-[11px] hover:bg-white/[0.04]" title={p.tahun_puncak ? `${terjemah(lang, "sipri_peak")} ${p.tahun_puncak}` : undefined}>
             <span className="truncate text-muted">{lang === "en" && p.negara_en ? p.negara_en : p.negara}</span>
             <span className="h-2 bg-white/5">
-              <span className="block h-full" style={{ width: `${(p.tiv_juta / maks) * 100}%`, background: "#c084fc", opacity: 0.8 }} />
+              <span className="block h-full" style={{ width: `${lebar}%`, background: "#c084fc", opacity: 0.8 }} />
             </span>
             <span className="text-right tabular-nums text-text">{p.persen}%</span>
           </button>
