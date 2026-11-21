@@ -28,6 +28,12 @@ describe("pencarian (EOG-17)", () => {
     expect(cariEntri("   ", indeks)).toHaveLength(indeks.length);
   });
 
+  it("maks negatif tidak mengembalikan hampir semua entri", () => {
+    expect(cariEntri("natuna", indeks, -1)).toEqual([]);
+    expect(cariEntri("", indeks, -2)).toEqual([]);
+    expect(cariEntri("natuna", indeks, 2.7)).toHaveLength(2);
+  });
+
   it("nama persis selalu paling atas, termasuk tanpa keterangan dalam kurung", () => {
     expect(cariEntri("natuna port", indeks)[0].nama).toBe("Natuna Port");
     expect(cariEntri("Lanal Ranai", indeks)[0].nama).toBe("Lanal Ranai (Natuna)");
