@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { bangunBusurSipri, type DataSipri } from "@/lib/analisis";
+import { bangunBusurSipri, barisLegendaSipri, type DataSipri } from "@/lib/analisis";
 
 function data(tiv: number[]): DataSipri {
   return {
@@ -44,5 +44,25 @@ describe("bangunBusurSipri", () => {
     for (const f of garis.features) {
       for (const [x, y] of (f.geometry as GeoJSON.LineString).coordinates) expect(Number.isFinite(x) && Number.isFinite(y)).toBe(true);
     }
+  });
+});
+
+describe("barisLegendaSipri", () => {
+  it("urut dari TIV terbesar dengan lebar batang relatif", () => {
+    const baris = barisLegendaSipri(data([50, 100]));
+    expect(baris.map((b) => b.pemasok.negara)).toEqual(["N1", "N0"]);
+    expect(baris.map((b) => b.lebar)).toEqual([100, 50]);
+  });
+
+  it("TIV kosong ditaruh paling bawah dan lebarnya 0, bukan NaN", () => {
+    const d = data([0, 80, 40]);
+    (d.pemasok[0] as { tiv_juta: unknown }).tiv_juta = null;
+    const baris = barisLegendaSipri(d);
+    expect(baris.map((b) => b.pemasok.negara)).toEqual(["N1", "N2", "N0"]);
+    expect(baris.map((b) => b.lebar)).toEqual([100, 50, 0]);
+  });
+
+  it("semua TIV nol tidak membuat lebar NaN", () => {
+    for (const b of barisLegendaSipri(data([0, 0]))) expect(b.lebar).toBe(0);
   });
 });
