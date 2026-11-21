@@ -48,6 +48,11 @@ describe("uraiHash", () => {
     expect(uraiHash("v=-6/106/-3").tampilan?.zoom).toBe(0);
   });
 
+  it("pilihan objek dirapikan dari spasi, dan pilihan kosong diabaikan", () => {
+    expect(uraiHash("sel=%20tni-12%20").pilih).toBe("tni-12");
+    expect(uraiHash("sel=%20%20").pilih).toBeUndefined();
+  });
+
   it("bahasa tidak dikenal diabaikan dan l kosong berarti tanpa lapisan", () => {
     const s = uraiHash("lang=fr&l=");
     expect(s.lang).toBeUndefined();

@@ -79,7 +79,8 @@ export function uraiHash(hashMentah: string): StatusUrl {
   if (lang === "en" || lang === "id") s.lang = lang;
   if (p.get("sat") === "1") s.sat = true;
   if (p.get("2d") === "1") s.datar = true;
-  const sel = p.get("sel");
+  // "sel=tni-12 " dari link yang disalin bersama spasi tetap memilih objek yang sama.
+  const sel = p.get("sel")?.trim();
   if (sel) s.pilih = sel;
   return s;
 }
