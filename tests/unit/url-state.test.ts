@@ -53,6 +53,11 @@ describe("uraiHash", () => {
     expect(uraiHash("sel=%20%20").pilih).toBeUndefined();
   });
 
+  it("bahasa tidak peka huruf besar dan spasi", () => {
+    expect(uraiHash("lang=EN").lang).toBe("en");
+    expect(uraiHash("lang=%20Id%20").lang).toBe("id");
+  });
+
   it("bahasa tidak dikenal diabaikan dan l kosong berarti tanpa lapisan", () => {
     const s = uraiHash("lang=fr&l=");
     expect(s.lang).toBeUndefined();
