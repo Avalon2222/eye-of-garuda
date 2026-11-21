@@ -35,6 +35,15 @@ describe("bangunBusurSipri", () => {
     expect(garis.features[0].properties?.tebal).toBeCloseTo(10, 6);
   });
 
+  it("persen kosong tidak tampil sebagai null%", () => {
+    const d = data([100, 50]);
+    (d.pemasok[1] as { persen: unknown }).persen = null;
+    const { garis, titik } = bangunBusurSipri(d);
+    expect(titik.features[1].properties?.label).toBe("N1");
+    expect(titik.features[0].properties?.label).toBe("N0 0%");
+    expect(garis.features[1].properties?.sub).not.toContain("null");
+  });
+
   it("pemasok tanpa koordinat dilewati, sisanya tetap tergambar", () => {
     const d = data([100, 50, 20]);
     (d.pemasok[1] as { lat: unknown }).lat = null;
