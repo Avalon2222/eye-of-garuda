@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { bangunBusurSipri, barisLegendaSipri, type DataSipri } from "@/lib/analisis";
+import { bangunBusurSipri, barisLegendaSipri, formatTiv, type DataSipri } from "@/lib/analisis";
 
 function data(tiv: number[]): DataSipri {
   return {
@@ -64,5 +64,14 @@ describe("barisLegendaSipri", () => {
 
   it("semua TIV nol tidak membuat lebar NaN", () => {
     for (const b of barisLegendaSipri(data([0, 0]))) expect(b.lebar).toBe(0);
+  });
+});
+
+describe("formatTiv", () => {
+  it("angka diberi pemisah ribuan, kosong jadi tanda tanya", () => {
+    expect(formatTiv(12345)).toBe("12,345");
+    expect(formatTiv(null)).toBe("?");
+    expect(formatTiv(undefined)).toBe("?");
+    expect(formatTiv(Number.NaN)).toBe("?");
   });
 });

@@ -54,6 +54,11 @@ async function ambilJson<T>(url: string): Promise<T | null> {
   }
 }
 
+/** "1,234" untuk angka TIV; "?" kalau kosong (null), supaya toLocaleString tidak membuat panel error. */
+export function formatTiv(n: number | null | undefined): string {
+  return typeof n === "number" && Number.isFinite(n) ? n.toLocaleString("en-US") : "?";
+}
+
 /**
  * Baris legenda SIPRI: pemasok terurut dari TIV terbesar, dengan lebar batang 0..100 (%).
  * TIV kosong (null) dianggap 0 dan ditaruh paling bawah; kalau semua nol, batangnya 0%, bukan NaN%.
@@ -78,7 +83,7 @@ export function bangunBusurSipri(d: DataSipri): { garis: GeoJSON.FeatureCollecti
     properties: {
       id: `sipri-${p.negara}`,
       nama: `${p.negara} → Indonesia`,
-      sub: `${Number.isFinite(p.tiv_juta) ? p.tiv_juta.toLocaleString("en-US") : "?"} juta TIV · ${p.persen}% (${d.periode})`,
+      sub: `${formatTiv(p.tiv_juta)} juta TIV · ${p.persen}% (${d.periode})`,
       negara: p.negara,
       tiv: tivDari(p),
       persen: p.persen,
