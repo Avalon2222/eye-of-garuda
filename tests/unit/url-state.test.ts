@@ -41,6 +41,10 @@ describe("uraiHash", () => {
     expect(uraiHash("l=tni, asing,tni,,").lapisan).toEqual(["tni", "asing"]);
   });
 
+  it("id lapisan yang tidak dikenal dibuang", () => {
+    expect(uraiHash("l=tni,radar,asing,TNI").lapisan).toEqual(["tni", "asing"]);
+  });
+
   it("menjepit zoom dan pitch ke rentang peta", () => {
     const t = uraiHash("v=-6/106/99/0/120").tampilan;
     expect(t?.zoom).toBe(22);
