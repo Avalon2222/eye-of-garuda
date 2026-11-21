@@ -78,12 +78,14 @@ export function bangunBusurSipri(d: DataSipri): { garis: GeoJSON.FeatureCollecti
   // Pemasok tanpa koordinat dilewati: busur dari NaN menghasilkan geometri rusak yang ditolak MapLibre.
   const pemasok = d.pemasok.filter((p) => Number.isFinite(p.lon) && Number.isFinite(p.lat));
   const maks = Math.max(0, ...pemasok.map(tivDari)) || 1;
+  // Persen kosong tidak boleh tampil sebagai "null%" di label peta.
+  const persenTeks = (p: PemasokSipri) => (Number.isFinite(p.persen) ? `${p.persen}%` : "?%");
   const garis: GeoJSON.Feature[] = pemasok.map((p) => ({
     type: "Feature",
     properties: {
       id: `sipri-${p.negara}`,
       nama: `${p.negara} → Indonesia`,
-      sub: `${formatTiv(p.tiv_juta)} juta TIV · ${p.persen}% (${d.periode})`,
+      sub: `${formatTiv(p.tiv_juta)} juta TIV · ${persenTeks(p)} (${d.periode})`,
       negara: p.negara,
       tiv: tivDari(p),
       persen: p.persen,
@@ -97,7 +99,7 @@ export function bangunBusurSipri(d: DataSipri): { garis: GeoJSON.FeatureCollecti
   }));
   const titik: GeoJSON.Feature[] = pemasok.map((p) => ({
     type: "Feature",
-    properties: { id: `sipri-titik-${p.negara}`, label: `${p.negara} ${p.persen}%`, negara: p.negara },
+    properties: { id: `sipri-titik-${p.negara}`, label: Number.isFinite(p.persen) ? `${p.negara} ${p.persen}%` : p.negara, negara: p.negara },
     geometry: { type: "Point", coordinates: [p.lon, p.lat] },
   }));
   return { garis: { type: "FeatureCollection", features: garis }, titik: { type: "FeatureCollection", features: titik } };
