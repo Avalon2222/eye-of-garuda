@@ -82,8 +82,9 @@ export function uraiHash(hashMentah: string): StatusUrl {
   // "lang=EN" atau "lang=en " dari link ketik tangan tetap dikenali.
   const lang = p.get("lang")?.trim().toLowerCase();
   if (lang === "en" || lang === "id") s.lang = lang;
-  if (p.get("sat") === "1") s.sat = true;
-  if (p.get("2d") === "1") s.datar = true;
+  // "sat=1 " (spasi ikut tersalin) tetap dibaca seperti lang dan sel.
+  if (p.get("sat")?.trim() === "1") s.sat = true;
+  if (p.get("2d")?.trim() === "1") s.datar = true;
   // "sel=tni-12 " dari link yang disalin bersama spasi tetap memilih objek yang sama.
   const sel = p.get("sel")?.trim();
   if (sel) s.pilih = sel;
