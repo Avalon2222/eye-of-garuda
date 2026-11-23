@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { tampilanAwal, uraiHash, TAMPILAN_AWAL } from "@/lib/urlState";
+import { tampilanPeta } from "@/components/konsol/jenis";
 
 describe("uraiHash", () => {
   it("membaca tampilan, lapisan, bahasa, dan pilihan", () => {
@@ -73,5 +74,20 @@ describe("tampilanAwal", () => {
   it("desktop tetap zoom bawaan, HP diperkecil", () => {
     expect(tampilanAwal(1440).zoom).toBe(TAMPILAN_AWAL.zoom);
     expect(tampilanAwal(360).zoom).toBeLessThan(TAMPILAN_AWAL.zoom);
+  });
+});
+
+describe("tampilanPeta", () => {
+  it("bujur dari salinan dunia dibungkus supaya link tetap terbaca", () => {
+    const peta = {
+      getCenter: () => ({ lng: 466.85, lat: -6.2 }),
+      getZoom: () => 5,
+      getBearing: () => 0,
+      getPitch: () => 0,
+    } as unknown as Parameters<typeof tampilanPeta>[0];
+    const t = tampilanPeta(peta);
+    expect(t.lon).toBeCloseTo(106.85, 6);
+    const hash = `v=${t.lat}/${t.lon}/${t.zoom}`;
+    expect(uraiHash(hash).tampilan?.lon).toBeCloseTo(106.85, 6);
   });
 });
