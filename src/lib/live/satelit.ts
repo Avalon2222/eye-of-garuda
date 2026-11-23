@@ -92,8 +92,10 @@ const KODE_NEGARA: Record<string, string> = {
   Internasional: "INT",
 };
 
-export function kodeNegara(negara: string): string {
-  if (KODE_NEGARA[negara]) return KODE_NEGARA[negara];
+export function kodeNegara(negara: string | null | undefined): string {
+  // Katalog dari skrip bisa memuat negara kosong (null); .replace() pada null membuat lapisan satelit gagal.
+  if (typeof negara !== "string") return "???";
+  if (Object.hasOwn(KODE_NEGARA, negara)) return KODE_NEGARA[negara];
   const bersih = negara.replace(/[^A-Za-z ]/g, "").trim();
   if (!bersih) return "???";
   const kata = bersih.split(/\s+/);
@@ -103,7 +105,8 @@ export function kodeNegara(negara: string): string {
 
 /** Nama tampilan: "NAMA (USA)" */
 export function namaSatelit(m: MetaSatelit): string {
-  return `${m.nama.replace(/\s*\(.*?\)\s*$/, "")} (${kodeNegara(m.negara)})`;
+  const nama = typeof m.nama === "string" && m.nama.trim() ? m.nama.replace(/\s*\(.*?\)\s*$/, "") : `NORAD ${m.norad}`;
+  return `${nama} (${kodeNegara(m.negara)})`;
 }
 
 export function kelasOrbit(altKm: number, ecc: number, inklinasiDeg: number): KelasOrbit {
