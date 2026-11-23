@@ -73,3 +73,11 @@ describe("Markdown ringan untuk jawaban asisten", () => {
     ]);
   });
 });
+
+describe("judul kosong", () => {
+  it("baris '## ' atau '# ****' tidak menghasilkan blok kosong", () => {
+    expect(uraiMarkdown("## \nIsi")).toEqual([{ t: "p", isi: [{ t: "teks", isi: "Isi" }] }]);
+    expect(uraiMarkdown("# ****")).toEqual([]);
+    expect(uraiMarkdown("### **Ringkasan** ")).toEqual([{ t: "p", isi: [{ t: "tebal", isi: "Ringkasan" }] }]);
+  });
+});
