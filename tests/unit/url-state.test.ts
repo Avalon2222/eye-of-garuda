@@ -91,3 +91,12 @@ describe("tampilanPeta", () => {
     expect(uraiHash(hash).tampilan?.lon).toBeCloseTo(106.85, 6);
   });
 });
+
+describe("uraiHash sat dan 2d", () => {
+  it("spasi di sekitar nilai tidak membuat pilihan hilang", () => {
+    const s = uraiHash("v=-6/106/5&sat=1%20&2d=%201");
+    expect(s.sat).toBe(true);
+    expect(s.datar).toBe(true);
+    expect(uraiHash("sat=0").sat).toBeUndefined();
+  });
+});
