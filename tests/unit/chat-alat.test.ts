@@ -143,3 +143,15 @@ describe("jalankanAlat (dipanggil model)", () => {
     expect(jalankanAlat(indeks, "hapus_semua", {})).toEqual({ galat: "alat_tidak_dikenal" });
   });
 });
+
+describe("batas jumlah hasil alat", () => {
+  const indeks = indeksAsli();
+  it("jumlah NaN memakai bawaan 5, bukan seluruh lapisan", () => {
+    expect(terdekat(indeks, { dari: "Natuna", lapisan: "tni", jumlah: Number.NaN }).hasil).toHaveLength(5);
+    expect(cariObjek(indeks, "Lanud", { batas: Number.NaN })).toHaveLength(5);
+  });
+  it("jumlah pecahan dibulatkan ke bawah di kedua alat", () => {
+    expect(terdekat(indeks, { dari: "Natuna", lapisan: "tni", jumlah: 2.5 }).hasil).toHaveLength(2);
+    expect(cariObjek(indeks, "Lanud", { batas: 2.5 })).toHaveLength(2);
+  });
+});

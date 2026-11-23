@@ -134,9 +134,17 @@ function ringkas(o: ObjekPeta): HasilCari {
   };
 }
 
+/**
+ * Batas jumlah hasil 1..10 (bawaan 5). NaN dulu lolos dari min/max: `terdekat` lalu mengembalikan
+ * seluruh lapisan, dan 2,5 memberi 3 hasil di `terdekat` tetapi 2 di `cariObjek`.
+ */
+function jumlahHasil(n: number | undefined): number {
+  return n != null && Number.isFinite(n) ? Math.min(10, Math.max(1, Math.floor(n))) : 5;
+}
+
 /** Cari objek menurut nama (boleh sebagian). Hasil terbaik dulu. */
 export function cariObjek(indeks: ObjekPeta[], kueri: string, opsi: { lapisan?: LapisanChat; batas?: number } = {}): HasilCari[] {
-  const batas = Math.min(10, Math.max(1, opsi.batas ?? 5));
+  const batas = jumlahHasil(opsi.batas);
   const semua = nilaiNama(indeks, kueri, opsi.lapisan);
   // kalau ada yang cocok penuh, yang cocok sebagian tidak ikut supaya tidak menyesatkan
   const lengkap = semua.filter((x) => x.lengkap);
@@ -225,7 +233,7 @@ function saringObjek(o: ObjekPeta, negara?: string, kecualiNegara?: string, jeni
 export function terdekat(indeks: ObjekPeta[], opsi: OpsiTerdekat): HasilTerdekat {
   const asal = selesaikanTempat(indeks, opsi.dari);
   if (!asal) return { dari: null, galat: "tempat_tidak_dikenal", hasil: [] };
-  const jumlah = Math.min(10, Math.max(1, opsi.jumlah ?? 5));
+  const jumlah = jumlahHasil(opsi.jumlah);
   const daftar: { o: ObjekPeta; km: number }[] = [];
   for (const o of indeks) {
     if (o.lapisan !== opsi.lapisan || o.lon == null || o.lat == null) continue;
