@@ -25,6 +25,9 @@ export function titikTujuan(lon: number, lat: number, bearingDeg: number, jarak:
 
 /** Poligon lingkaran geodesik (GeoJSON ring) berjari-jari `radiusKm`. */
 export function lingkaran(lon: number, lat: number, radiusKm: number, n = 72): [number, number][] {
+  // n = 0 membuat sudut 0/0 (NaN), dan n pecahan (mis. 7,5) berhenti sebelum 360 derajat sehingga ring
+  // tidak tertutup. Poligon butuh minimal 3 sisi.
+  n = Number.isFinite(n) ? Math.max(3, Math.round(n)) : 72;
   const ring: [number, number][] = [];
   for (let i = 0; i <= n; i++) ring.push(titikTujuan(lon, lat, (360 * i) / n, radiusKm));
   return ring;
