@@ -51,6 +51,8 @@ function titikGreatCircle(lon1: number, lat1: number, lon2: number, lat2: number
 
 /** Busur melengkung (great-circle dengan sedikit "angkat") antara dua titik, untuk animasi arc. */
 export function busur(lon1: number, lat1: number, lon2: number, lat2: number, n = 48): [number, number][] {
+  // n = 0 membuat f = 0/0 (NaN), dan n pecahan membuat busur berhenti sebelum titik tujuan.
+  n = Number.isFinite(n) ? Math.max(1, Math.round(n)) : 48;
   const la1 = lat1 * RAD, lo1 = lon1 * RAD, la2 = lat2 * RAD, lo2 = lon2 * RAD;
   const d = 2 * Math.asin(Math.sqrt(Math.sin((la2 - la1) / 2) ** 2 + Math.cos(la1) * Math.cos(la2) * Math.sin((lo2 - lo1) / 2) ** 2));
   if (d === 0) return [[lon1, lat1], [lon2, lat2]];

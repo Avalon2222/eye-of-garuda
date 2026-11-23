@@ -144,3 +144,15 @@ describe("lingkaran dengan jumlah titik tidak wajar", () => {
     }
   });
 });
+
+describe("busur dengan jumlah titik tidak wajar", () => {
+  it("n nol, pecahan, atau NaN tetap berakhir tepat di tujuan tanpa NaN", () => {
+    for (const n of [0, 2.5, 10.4, Number.NaN]) {
+      const b = busur(JAKARTA[0], JAKARTA[1], SURABAYA[0], SURABAYA[1], n);
+      expect(b.flat().every(Number.isFinite)).toBe(true);
+      const akhir = b[b.length - 1];
+      expect(akhir[0]).toBeCloseTo(SURABAYA[0], 6);
+      expect(akhir[1]).toBeCloseTo(SURABAYA[1], 6);
+    }
+  });
+});
