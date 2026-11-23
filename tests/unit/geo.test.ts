@@ -131,3 +131,16 @@ describe("formatKoordinat tanpa angka", () => {
     expect(formatKoordinat(106.8, Number.POSITIVE_INFINITY)).toBe("-");
   });
 });
+
+describe("lingkaran dengan jumlah titik tidak wajar", () => {
+  it("n nol, pecahan, atau NaN tetap menghasilkan ring tertutup tanpa NaN", () => {
+    for (const n of [0, 2, 7.5, Number.NaN]) {
+      const ring = lingkaran(106.8, -6.2, 100, n);
+      expect(ring.length).toBeGreaterThanOrEqual(4);
+      expect(ring.flat().every(Number.isFinite)).toBe(true);
+      const [awal, akhir] = [ring[0], ring[ring.length - 1]];
+      expect(akhir[0]).toBeCloseTo(awal[0], 6);
+      expect(akhir[1]).toBeCloseTo(awal[1], 6);
+    }
+  });
+});
