@@ -60,7 +60,9 @@ export function uraiMarkdown(teks: string): Blok[] {
     const judul = baris.match(RE_JUDUL);
     if (judul) {
       tutup();
-      blok.push({ t: "p", isi: [{ t: "tebal", isi: judul[1].replace(/\*\*/g, "") }] });
+      // "## " tanpa isi (atau hanya "**") jangan jadi paragraf tebal kosong.
+      const isiJudul = judul[1].replace(/\*\*/g, "").trim();
+      if (isiJudul) blok.push({ t: "p", isi: [{ t: "tebal", isi: isiJudul }] });
       continue;
     }
     paragraf.push(baris.trim());
