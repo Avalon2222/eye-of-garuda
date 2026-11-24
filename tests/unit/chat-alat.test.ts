@@ -129,6 +129,11 @@ describe("alat hitung, cari, jarak", () => {
   it("arah kompas titik yang sama bukan utara", () => {
     expect(arahKompas(106.8, -6.2, 106.8, -6.2)).toBe("-");
   });
+
+  it("arah kompas koordinat kosong jadi teks kosong", () => {
+    expect(arahKompas(Number.NaN, 0, 110, 5)).toBe("");
+    expect(arahKompas(110, 0, 115, Number.POSITIVE_INFINITY)).toBe("");
+  });
 });
 
 describe("jalankanAlat (dipanggil model)", () => {
