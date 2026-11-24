@@ -8,6 +8,7 @@
 import { cariObjek, hitung, jarak, selesaikanTempat, terdekat, type HasilCari, type Kelompok, type Tempat } from "./alat";
 import { NAMA_LAPISAN_CHAT, normal, normalNegara, type LapisanChat, type ObjekPeta } from "./indeks";
 import { GAZETIR } from "./tempat";
+import { bungkusBujur } from "../geo";
 
 type Lang = "id" | "en";
 
@@ -28,6 +29,8 @@ export interface Fakta {
 export function teksKoordinat(lat: number, lon: number, lang: Lang): string {
   // NaN dulu tertulis "NaN° LS, NaN° BB" dan ikut dikirim ke model sebagai fakta.
   if (!Number.isFinite(lat) || !Number.isFinite(lon)) return "?";
+  // Klik di salinan dunia (peta 2D) memberi bujur seperti 466.85; tanpa ini tertulis "466.85° BT".
+  lon = bungkusBujur(lon);
   // Empat desimal (~11 m) sudah cukup; angka mentah seperti 0.1 + 0.2 = 0.30000000000000004 membingungkan model.
   const a = Number(Math.abs(lat).toFixed(4));
   const b = Number(Math.abs(lon).toFixed(4));
