@@ -125,6 +125,10 @@ describe("alat hitung, cari, jarak", () => {
     expect(arahKompas(110, 0, 115, 0)).toBe("timur");
     expect(arahKompas(110, 0, 105, -5)).toBe("barat daya");
   });
+
+  it("arah kompas titik yang sama bukan utara", () => {
+    expect(arahKompas(106.8, -6.2, 106.8, -6.2)).toBe("-");
+  });
 });
 
 describe("jalankanAlat (dipanggil model)", () => {

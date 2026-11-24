@@ -41,6 +41,8 @@ const ARAH = ["utara", "timur laut", "timur", "tenggara", "selatan", "barat daya
 
 /** Arah mata angin dari titik 1 ke titik 2. */
 export function arahKompas(lon1: number, lat1: number, lon2: number, lat2: number): string {
+  // Titik yang sama tidak punya arah; atan2(0, 0) = 0 dulu keliru dijawab "utara".
+  if (lon1 === lon2 && lat1 === lat2) return "-";
   const r = Math.PI / 180;
   const y = Math.sin((lon2 - lon1) * r) * Math.cos(lat2 * r);
   const x = Math.cos(lat1 * r) * Math.sin(lat2 * r) - Math.sin(lat1 * r) * Math.cos(lat2 * r) * Math.cos((lon2 - lon1) * r);
