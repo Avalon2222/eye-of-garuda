@@ -30,8 +30,9 @@ export function teksKoordinat(lat: number, lon: number, lang: Lang): string {
   if (!Number.isFinite(lat) || !Number.isFinite(lon)) return "?";
   const ns = lat >= 0 ? (lang === "en" ? "N" : "LU") : lang === "en" ? "S" : "LS";
   const ew = lon >= 0 ? (lang === "en" ? "E" : "BT") : lang === "en" ? "W" : "BB";
-  const a = Math.abs(lat);
-  const b = Math.abs(lon);
+  // Empat desimal (~11 m) sudah cukup; angka mentah seperti 0.1 + 0.2 = 0.30000000000000004 membingungkan model.
+  const a = Number(Math.abs(lat).toFixed(4));
+  const b = Number(Math.abs(lon).toFixed(4));
   return lang === "en" ? `${a}°${ns}, ${b}°${ew}` : `${a}° ${ns}, ${b}° ${ew}`;
 }
 
