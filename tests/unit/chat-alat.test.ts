@@ -27,6 +27,11 @@ describe("indeks objek", () => {
     expect(hasil[0]).toMatchObject({ nama: "Lanud Uji", lon: 110, lat: -7, negara: "Indonesia" });
   });
 
+  it("koordinat tak hingga dianggap tanpa koordinat", () => {
+    const hasil = bangunIndeks({ tni: { features: [{ properties: { nama: "Lanud Rusak" }, geometry: { type: "Point", coordinates: [Number.POSITIVE_INFINITY, -7] } }] }, asing: {} });
+    expect(hasil[0]).toMatchObject({ lon: null, lat: null });
+  });
+
   it("normalisasi nama dan negara", () => {
     expect(normal("Lanal Ranai (Natuna)")).toBe("lanal ranai natuna");
     expect(cocokNegara("Amerika Serikat", "USA")).toBe(true);
