@@ -139,7 +139,8 @@ function titik(f: FiturMentah): [number | null, number | null] {
   const g = f.geometry;
   if (g?.type === "Point" && Array.isArray(g.coordinates)) {
     const [lon, lat] = g.coordinates as number[];
-    if (typeof lon === "number" && typeof lat === "number") return [lon, lat];
+    // 1e999 di GeoJSON terbaca Infinity; jaraknya NaN dan merusak urutan di alat terdekat.
+    if (Number.isFinite(lon) && Number.isFinite(lat)) return [lon, lat];
   }
   return [null, null];
 }
