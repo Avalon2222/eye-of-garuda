@@ -176,6 +176,11 @@ describe("fakta: kasus lain", () => {
     expect(teksKoordinat(-0.00001, 108.4, "en")).toBe("0°N, 108.4°E");
   });
 
+  it("bujur dari salinan dunia dibungkus ke -180..180", () => {
+    expect(teksKoordinat(3.909, 468.384, "id")).toBe("3.909° LU, 108.384° BT");
+    expect(teksKoordinat(13.58, 215.08, "en")).toBe("13.58°N, 144.92°W");
+  });
+
   it("jawaban model dicek terhadap nama dan angka kunci dari data", () => {
     const f = siapkanFakta(indeks, "Pangkalan China terdekat dari Natuna?", "id")!;
     expect(f.wajib[0]).toBe("Fiery Cross Reef");
