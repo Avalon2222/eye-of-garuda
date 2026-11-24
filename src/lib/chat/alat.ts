@@ -163,8 +163,9 @@ export function cariObjek(indeks: ObjekPeta[], kueri: string, opsi: { lapisan?: 
 export function selesaikanTempat(indeks: ObjekPeta[], teks: string, opsi: { ketat?: boolean } = {}): Tempat | null {
   const mentah = teks.trim();
   if (!mentah) return null;
-  // tanda "+" di depan angka juga sah ("+3.9, 108.4"), seperti yang sering tersalin dari aplikasi peta
-  const k = mentah.match(/^\s*([+-]?\d{1,2}(?:\.\d+)?)\s*[,;]\s*([+-]?\d{1,3}(?:\.\d+)?)\s*$/);
+  // tanda "+" di depan angka juga sah ("+3.9, 108.4"), seperti yang sering tersalin dari aplikasi peta.
+  // Pemisahnya koma, titik koma, atau cukup spasi ("3.9 108.4").
+  const k = mentah.match(/^\s*([+-]?\d{1,2}(?:\.\d+)?)(?:\s*[,;]\s*|\s+)([+-]?\d{1,3}(?:\.\d+)?)\s*$/);
   if (k) {
     const lat = Number(k[1]);
     const lon = Number(k[2]);
