@@ -26,6 +26,8 @@ export interface Fakta {
 
 /** Koordinat dengan belahan bumi yang ditulis jelas, supaya model tidak salah membaca tanda minus. */
 export function teksKoordinat(lat: number, lon: number, lang: Lang): string {
+  // NaN dulu tertulis "NaN° LS, NaN° BB" dan ikut dikirim ke model sebagai fakta.
+  if (!Number.isFinite(lat) || !Number.isFinite(lon)) return "?";
   const ns = lat >= 0 ? (lang === "en" ? "N" : "LU") : lang === "en" ? "S" : "LS";
   const ew = lon >= 0 ? (lang === "en" ? "E" : "BT") : lang === "en" ? "W" : "BB";
   const a = Math.abs(lat);
