@@ -282,7 +282,9 @@ export class PelacakSatelit {
       misi: a.meta.misi,
       operator: a.meta.operator,
       diluncurkan: a.meta.diluncurkan,
-      kelas_orbit: kelasOrbit(alt, ecc, ink),
+      // Tanpa posisi terkini alt bernilai 0, dan satelit GEO dulu tertulis "LEO".
+      // Pakai ketinggian rata-rata dari elemen orbit (apogee + perigee) / 2.
+      kelas_orbit: kelasOrbit(pos ? alt : (apogee + perigee) / 2, ecc, ink),
       alt: Math.round(alt),
       kecepatan: pos ? Number(pos.kecepatan.toFixed(2)) : null,
       periode_menit: Number(periode.toFixed(1)),
