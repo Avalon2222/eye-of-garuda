@@ -167,6 +167,10 @@ describe("fakta: kasus lain", () => {
     expect(teksKoordinat(3.909, Number.POSITIVE_INFINITY, "en")).toBe("?");
   });
 
+  it("koordinat dibulatkan ke empat desimal", () => {
+    expect(teksKoordinat(0.1 + 0.2, 108.123456789, "id")).toBe("0.3° LU, 108.1235° BT");
+  });
+
   it("jawaban model dicek terhadap nama dan angka kunci dari data", () => {
     const f = siapkanFakta(indeks, "Pangkalan China terdekat dari Natuna?", "id")!;
     expect(f.wajib[0]).toBe("Fiery Cross Reef");
