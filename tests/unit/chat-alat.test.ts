@@ -43,6 +43,12 @@ describe("indeks objek", () => {
 });
 
 describe("selesaikanTempat", () => {
+  it("koordinat bertanda plus tetap dikenali", () => {
+    expect(selesaikanTempat(indeks, "+3.9, +108.4")).toMatchObject({ lat: 3.9, lon: 108.4, asal: "koordinat" });
+    expect(selesaikanTempat(indeks, "-6.2, +106.8")).toMatchObject({ lat: -6.2, lon: 106.8, asal: "koordinat" });
+    expect(selesaikanTempat(indeks, "+3.9, 108.4")?.nama).toBe("3.9, 108.4");
+  });
+
   it("mengenali tempat umum, objek di peta, dan koordinat", () => {
     expect(selesaikanTempat(indeks, "Natuna")).toMatchObject({ asal: "tempat" });
     expect(selesaikanTempat(indeks, "Selat Malaka")?.asal).toBe("tempat");
