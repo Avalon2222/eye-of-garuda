@@ -37,3 +37,11 @@ describe("namaSatelit dengan nama hanya keterangan", () => {
     expect(namaSatelit(meta({ nama: "COSMOS 2558 (USA)" }))).toMatch(/^COSMOS 2558 \(/);
   });
 });
+
+describe("kodeNegara dengan spasi sisa", () => {
+  it("nama negara dari katalog dengan spasi tetap memakai kode resmi", () => {
+    expect(kodeNegara("Korea Selatan ")).toBe("KOR");
+    expect(kodeNegara("  Uni  Emirat Arab")).toBe("UAE");
+    expect(kodeNegara("Arab Saudi")).toBe("SAU");
+  });
+});

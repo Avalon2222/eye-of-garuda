@@ -95,6 +95,9 @@ const KODE_NEGARA: Record<string, string> = {
 export function kodeNegara(negara: string | null | undefined): string {
   // Katalog dari skrip bisa memuat negara kosong (null); .replace() pada null membuat lapisan satelit gagal.
   if (typeof negara !== "string") return "???";
+  // Spasi sisa ("Korea Selatan ") dan spasi ganda dari katalog dirapikan dulu; tanpa ini
+  // negaranya tidak ditemukan di tabel dan kodenya ditebak dari inisial ("KSO", bukan "KOR").
+  negara = negara.trim().replace(/\s+/g, " ");
   if (Object.hasOwn(KODE_NEGARA, negara)) return KODE_NEGARA[negara];
   const bersih = negara.replace(/[^A-Za-z ]/g, "").trim();
   if (!bersih) return "???";
