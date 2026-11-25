@@ -29,3 +29,11 @@ describe("info satelit tanpa posisi terkini", () => {
     expect(new PelacakSatelit().info(a).kelas_orbit).toBe("GEO");
   });
 });
+
+describe("namaSatelit dengan nama hanya keterangan", () => {
+  it("nama yang hanya berisi kurung jatuh ke nomor NORAD", () => {
+    expect(namaSatelit(meta({ nama: "(TBA)", negara: "Rusia" }))).toMatch(/^NORAD 25544 \(/);
+    expect(namaSatelit(meta({ nama: "  (USA 326)  " }))).toMatch(/^NORAD 25544 \(/);
+    expect(namaSatelit(meta({ nama: "COSMOS 2558 (USA)" }))).toMatch(/^COSMOS 2558 \(/);
+  });
+});
