@@ -128,3 +128,13 @@ describe("angka dan ekspor skenario", () => {
     }
   });
 });
+
+describe("posisiJalur di ujung jalur", () => {
+  it("haluan saat tiba tetap searah jalur, bukan berbalik ke utara", () => {
+    const timur: [number, number][] = [[100, 0], [110, 0]];
+    expect(posisiJalur(timur, 1).haluan).toBeCloseTo(90, 0);
+    expect(posisiJalur(timur, 0.99).haluan).toBeCloseTo(90, 0);
+    const selatan: [number, number][] = [[106, 5], [106, -5]];
+    expect(posisiJalur(selatan, 1).haluan).toBeCloseTo(180, 0);
+  });
+});
