@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { arahKompas, cariObjek, hitung, jalankanAlat, jarak, selesaikanTempat, terdekat } from "@/lib/chat/alat";
-import { LAPISAN_CHAT, bangunIndeks, cocokNegara, normal } from "@/lib/chat/indeks";
+import { LAPISAN_CHAT, bangunIndeks, cocokNegara, normal, normalNegara } from "@/lib/chat/indeks";
 import { jarakKm } from "@/lib/geo";
 import { LAPISAN } from "@/lib/layers";
 import { bacaData, indeksAsli } from "./bantu";
@@ -192,5 +192,14 @@ describe("jalankanAlat dengan angka kosong", () => {
     expect(spasi.hasil).toHaveLength(5);
     const cari = jalankanAlat(indeks, "cari_objek", { kueri: "Lanal", batas: "" }) as { jumlah: number };
     expect(cari.jumlah).toBe(5);
+  });
+});
+
+describe("normalNegara dengan nama properti bawaan", () => {
+  it("constructor/toString tidak terbaca sebagai fungsi", () => {
+    expect(normalNegara("constructor")).toBe("constructor");
+    expect(normalNegara("toString")).toBe("tostring");
+    expect(cocokNegara("Amerika Serikat", "constructor")).toBe(false);
+    expect(cocokNegara("Guam (AS)", "AS")).toBe(true);
   });
 });

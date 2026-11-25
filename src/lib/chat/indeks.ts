@@ -110,9 +110,13 @@ const ALIAS_NEGARA: Record<string, string> = {
   indonesian: "indonesia",
 };
 
+/** Alias satu nama; Object.hasOwn supaya "constructor" atau "toString" tidak mengembalikan fungsi bawaan objek. */
+function alias(n: string): string {
+  return Object.hasOwn(ALIAS_NEGARA, n) ? ALIAS_NEGARA[n] : n;
+}
+
 export function normalNegara(teks: string): string {
-  const n = normal(teks);
-  return ALIAS_NEGARA[n] ?? n;
+  return alias(normal(teks));
 }
 
 /** Cocokkan nama negara dengan toleran: "AS" cocok dengan "Amerika Serikat (+ Inggris)", "Guam (AS)", dst. */
@@ -125,7 +129,7 @@ export function cocokNegara(nilai: string, dicari: string): boolean {
   // alias per kata, supaya "Guam (AS)" terbaca "guam amerika serikat"
   const kata = n
     .split(" ")
-    .map((k) => ALIAS_NEGARA[k] ?? k)
+    .map(alias)
     .join(" ");
   return ` ${kata} `.includes(` ${cari} `);
 }
