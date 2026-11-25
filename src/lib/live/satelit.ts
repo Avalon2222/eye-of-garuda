@@ -105,7 +105,10 @@ export function kodeNegara(negara: string | null | undefined): string {
 
 /** Nama tampilan: "NAMA (USA)" */
 export function namaSatelit(m: MetaSatelit): string {
-  const nama = typeof m.nama === "string" && m.nama.trim() ? m.nama.replace(/\s*\(.*?\)\s*$/, "") : `NORAD ${m.norad}`;
+  // Nama yang isinya hanya keterangan dalam kurung ("(TBA)") jadi kosong setelah kurungnya dibuang;
+  // pakai nomor NORAD, bukan label " (USA)" tanpa nama.
+  const bersih = typeof m.nama === "string" ? m.nama.replace(/\s*\(.*?\)\s*$/, "").trim() : "";
+  const nama = bersih || `NORAD ${m.norad}`;
   return `${nama} (${kodeNegara(m.negara)})`;
 }
 
