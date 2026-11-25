@@ -203,3 +203,13 @@ describe("normalNegara dengan nama properti bawaan", () => {
     expect(cocokNegara("Guam (AS)", "AS")).toBe(true);
   });
 });
+
+describe("hitung dengan saringan tanda baca saja", () => {
+  it("saringan kosong setelah dinormalkan tidak dilaporkan", () => {
+    const semua = hitung(indeks, { lapisan: "tni" });
+    const r = hitung(indeks, { lapisan: "tni", saring: "?!" });
+    expect(r.total).toBe(semua.total);
+    expect(r.saring).toBeUndefined();
+    expect(hitung(indeks, { lapisan: "tni", saring: "Papua" }).saring).toBe("Papua");
+  });
+});
