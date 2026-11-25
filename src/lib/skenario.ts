@@ -149,8 +149,11 @@ export function posisiJalur(jalur: [number, number][], f: number): { lon: number
     if (sisa <= seg[i] || i === seg.length - 1) {
       const fs = seg[i] > 0 ? Math.min(1, sisa / seg[i]) : 1;
       const p = slerp(jalur[i], jalur[i + 1], fs);
-      const q = slerp(jalur[i], jalur[i + 1], Math.min(1, fs + 0.02));
-      const haluan = haluanDeg(p, q);
+      // Di ujung segmen titik "sedikit di depan" sama dengan p, dan haluan dua titik yang sama = 0 (utara):
+      // aktor yang tiba lalu tinggal di tujuan dulu berputar menghadap utara. Pakai titik sedikit di belakang.
+      const haluan = fs + 0.02 <= 1
+        ? haluanDeg(p, slerp(jalur[i], jalur[i + 1], fs + 0.02))
+        : haluanDeg(slerp(jalur[i], jalur[i + 1], fs - 0.02), p);
       return { lon: p[0], lat: p[1], haluan };
     }
     sisa -= seg[i];
