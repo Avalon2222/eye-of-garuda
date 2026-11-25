@@ -290,7 +290,9 @@ export function hitung(indeks: ObjekPeta[], opsi: OpsiHitung): HasilHitung {
     return ` ${normal(`${o.wilayah} ${o.kota} ${o.jenis} ${o.matra} ${o.nama}`)} `.includes(` ${s}`);
   });
   const hasil: HasilHitung = { lapisan: opsi.lapisan, total: cocok.length };
-  if (opsi.saring) hasil.saring = opsi.saring;
+  // Saringan yang habis setelah dinormalkan ("?", "-") tidak menyaring apa pun; jangan dilaporkan ke model
+  // seolah-olah total ini hasil saringan.
+  if (s) hasil.saring = opsi.saring;
   if (opsi.kelompok) {
     const peta = new Map<string, number>();
     for (const o of cocok) {
