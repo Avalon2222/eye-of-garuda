@@ -55,7 +55,10 @@ export function jawabanSesuai(jawaban: string, wajib: string[]): boolean {
   const rapat = normal(jawaban.replace(/(\d)[.,\s](?=\d{3}(?!\d))/g, "$1"));
   return wajib.every((w) => {
     const dicari = /^[\d.,]+$/.test(w) ? w.replace(/[.,]/g, "") : normal(w.replace(/\(.*?\)/g, " "));
-    return !dicari || ` ${rapat} `.includes(/^\d+$/.test(dicari) ? dicari : ` ${dicari} `);
+    if (!dicari) return true;
+    // Angka dicocokkan utuh: fakta "12 km" tidak boleh dianggap muncul di jawaban "120 km" atau "2012".
+    if (/^\d+$/.test(dicari)) return new RegExp(`(?<!\\d)${dicari}(?!\\d)`).test(rapat);
+    return ` ${rapat} `.includes(` ${dicari} `);
   });
 }
 
