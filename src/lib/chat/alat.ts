@@ -403,7 +403,8 @@ function str(v: unknown): string | undefined {
   return typeof v === "string" && v.trim() ? v.trim().slice(0, 120) : undefined;
 }
 function angka(v: unknown): number | undefined {
-  const n = typeof v === "string" ? Number(v) : v;
+  // Number("") dan Number("  ") bernilai 0, jadi jumlah kosong dari model dulu dibaca 1 hasil, bukan bawaan 5.
+  const n = typeof v === "string" ? (v.trim() ? Number(v) : undefined) : v;
   return typeof n === "number" && Number.isFinite(n) ? n : undefined;
 }
 

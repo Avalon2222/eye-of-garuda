@@ -181,3 +181,16 @@ describe("batas jumlah hasil alat", () => {
     expect(cariObjek(indeks, "Lanud", { batas: 2.5 })).toHaveLength(2);
   });
 });
+
+describe("jalankanAlat dengan angka kosong", () => {
+  it("jumlah/batas berupa teks kosong memakai bawaan 5, bukan 1", () => {
+    const bawaan = jalankanAlat(indeks, "terdekat", { dari: "Natuna", lapisan: "tni" }) as { hasil: unknown[] };
+    const kosong = jalankanAlat(indeks, "terdekat", { dari: "Natuna", lapisan: "tni", jumlah: "" }) as { hasil: unknown[] };
+    const spasi = jalankanAlat(indeks, "terdekat", { dari: "Natuna", lapisan: "tni", jumlah: "  " }) as { hasil: unknown[] };
+    expect(bawaan.hasil).toHaveLength(5);
+    expect(kosong.hasil).toHaveLength(5);
+    expect(spasi.hasil).toHaveLength(5);
+    const cari = jalankanAlat(indeks, "cari_objek", { kueri: "Lanal", batas: "" }) as { jumlah: number };
+    expect(cari.jumlah).toBe(5);
+  });
+});
