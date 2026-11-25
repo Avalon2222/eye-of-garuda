@@ -220,3 +220,13 @@ describe("fakta: kasus lain", () => {
     for (const baris of f.teks.split("\n").slice(1)) expect(baris).toMatch(/AS|Amerika Serikat/);
   });
 });
+
+describe("jawabanSesuai angka utuh", () => {
+  it("angka fakta tidak cocok dengan angka lain yang memuatnya", () => {
+    expect(jawabanSesuai("Jaraknya sekitar 120 km.", ["12"])).toBe(false);
+    expect(jawabanSesuai("Dibangun tahun 2012.", ["12"])).toBe(false);
+    expect(jawabanSesuai("Jaraknya sekitar 12 km.", ["12"])).toBe(true);
+    expect(jawabanSesuai("Jaraknya 12km.", ["12"])).toBe(true);
+    expect(jawabanSesuai("Sattahip is 1,018 km away.", ["1018"])).toBe(true);
+  });
+});
