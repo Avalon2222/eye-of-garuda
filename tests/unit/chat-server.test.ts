@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { asalDiizinkan } from "@/lib/chat/asal";
-import { PenyimpanMemori, lewatBatas, sidikIp } from "@/lib/chat/batas";
+import { PenyimpanMemori, catatPermintaan, lewatBatas, sidikIp } from "@/lib/chat/batas";
 import { DEFINISI_ALAT } from "@/lib/chat/alat";
 import { MODEL_BAWAAN, daftarModel, tanyaModel, type PesanModel } from "@/lib/chat/model";
 import { pesanPengguna, promptSistem } from "@/lib/chat/prompt";
@@ -208,5 +208,19 @@ describe("tanyaModel", () => {
     expect(daftarModel(undefined)).toBe(MODEL_BAWAAN);
     expect(daftarModel("model/baru").map((m) => m.id)).toEqual(["model/baru", ...MODEL_BAWAAN.map((m) => m.id)]);
     expect(daftarModel("qwen/qwen3.8-27b").map((m) => m.id)).toEqual(["qwen/qwen3.8-27b", "openai/gpt-oss-120b", "openai/gpt-oss-20b"]);
+  });
+});
+
+describe("hitungan batas laju yang rusak", () => {
+  it("n atau mulai bukan angka hingga dianggap jendela baru", async () => {
+    const kini = 1_000_000;
+    for (const rusak of [{ mulai: kini, n: Number.NaN }, { mulai: kini, n: Number.POSITIVE_INFINITY }, { mulai: Number.NaN, n: 3 }]) {
+      const p = new PenyimpanMemori();
+      await p.set("k", rusak);
+      const s = await catatPermintaan(p, "k", 5, 60_000, kini);
+      expect(s.sisa).toBe(4);
+      expect(s.lewat).toBe(false);
+      expect(await p.get("k")).toEqual({ mulai: kini, n: 1 });
+    }
   });
 });

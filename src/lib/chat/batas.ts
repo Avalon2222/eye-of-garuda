@@ -17,7 +17,9 @@ interface Hitungan {
 }
 
 function isHitungan(v: unknown): v is Hitungan {
-  return !!v && typeof v === "object" && typeof (v as Hitungan).mulai === "number" && typeof (v as Hitungan).n === "number";
+  // NaN dan Infinity juga bertipe number: hitungan rusak seperti itu membuat n + 1 > batas selalu false
+  // (pembatas tidak pernah aktif) dan sisa jatah dilaporkan NaN. Anggap rusak, mulai jendela baru.
+  return !!v && typeof v === "object" && Number.isFinite((v as Hitungan).mulai) && Number.isFinite((v as Hitungan).n);
 }
 
 /** IP tidak disimpan mentah, cukup sidik pendeknya. */
