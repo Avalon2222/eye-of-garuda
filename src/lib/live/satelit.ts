@@ -115,8 +115,10 @@ export function namaSatelit(m: MetaSatelit): string {
   return `${nama} (${kodeNegara(m.negara)})`;
 }
 
-export function kelasOrbit(altKm: number, ecc: number, inklinasiDeg: number): KelasOrbit {
+export function kelasOrbit(altKm: number, ecc: number, inklinasiDeg: number): KelasOrbit | "" {
   if (ecc > 0.25) return "HEO";
+  // Ketinggian NaN (elemen orbit rusak atau satelit sudah jatuh) dulu lolos semua cek dan tertulis "MEO".
+  if (!Number.isFinite(altKm)) return "";
   if (altKm < 2000) return "LEO";
   if (altKm > 35000 && altKm < 36600 && inklinasiDeg < 20) return "GEO";
   if (altKm >= 35000 && altKm < 36600) return "GEO";
