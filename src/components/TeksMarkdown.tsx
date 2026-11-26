@@ -33,7 +33,7 @@ export default function TeksMarkdown({ teks }: { teks: string }) {
           );
         const Daftar = b.t;
         return (
-          <Daftar key={i} className={`space-y-0.5 pl-4 ${b.t === "ul" ? "list-disc" : "list-decimal"}`}>
+          <Daftar key={i} start={b.t === "ol" ? b.mulai : undefined} className={`space-y-0.5 pl-4 ${b.t === "ul" ? "list-disc" : "list-decimal"}`}>
             {b.butir.map((butir, j) => (
               <li key={j}>
                 <Inline isi={butir} />
