@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+import type { GeoJSON } from "geojson";
 import { jarakKm } from "@/lib/geo";
 import { PelacakKapal, nilaiCog, nilaiSog, type KapalSnapshot, type SnapshotAis } from "@/lib/live/kapal";
 import { negaraDariMmsi } from "@/lib/negara";
@@ -182,5 +183,17 @@ describe("negara dari MMSI", () => {
     [111525123, "IDN"], // pesawat SAR
   ])("%s -> %s", (mmsi, kode) => {
     expect(negaraDariMmsi(mmsi)?.kode).toBe(kode);
+  });
+});
+
+describe("waktu laporan kapal yang rusak", () => {
+  it("kapal tetap di posisi terakhirnya, bukan NaN", async () => {
+    pasangFetch({ "kapal.json": snapshot([kapal({ waktu: "bukan-waktu" }), kapal({ mmsi: 2, waktu: "" })]) });
+    const p = new PelacakKapal();
+    await p.muat();
+    expect(p.posisi(p.cari(525000001)!, T0 + 30 * MENIT)).toEqual([105, 0]);
+    expect(p.posisi(p.cari(2)!, T0 + 30 * MENIT)).toEqual([105, 0]);
+    const titik = p.hitung(T0).features.map((f) => (f.geometry as GeoJSON.Point).coordinates);
+    expect(titik.flat().every(Number.isFinite)).toBe(true);
   });
 });
