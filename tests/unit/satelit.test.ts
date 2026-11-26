@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { twoline2satrec } from "satellite.js";
-import { PelacakSatelit, kodeNegara, namaSatelit, type MetaSatelit, type SatAktif } from "@/lib/live/satelit";
+import { PelacakSatelit, kelasOrbit, kodeNegara, namaSatelit, type MetaSatelit, type SatAktif } from "@/lib/live/satelit";
 
 const meta = (ubah: Partial<MetaSatelit>): MetaSatelit => ({
   norad: 25544, nama: "ISS (ZARYA)", negara: "Rusia", kelompok: "", misi: "", operator: "", diluncurkan: "", l1: "", l2: "", ...ubah,
@@ -43,5 +43,17 @@ describe("kodeNegara dengan spasi sisa", () => {
     expect(kodeNegara("Korea Selatan ")).toBe("KOR");
     expect(kodeNegara("  Uni  Emirat Arab")).toBe("UAE");
     expect(kodeNegara("Arab Saudi")).toBe("SAU");
+  });
+});
+
+describe("kelasOrbit dengan ketinggian tidak diketahui", () => {
+  it("NaN atau tak hingga tidak ditebak sebagai MEO", () => {
+    expect(kelasOrbit(Number.NaN, 0.001, 50)).toBe("");
+    expect(kelasOrbit(Number.POSITIVE_INFINITY, 0.001, 50)).toBe("");
+    // Eksentrisitas tinggi tetap HEO walau ketinggian tidak ada; nilai normal tidak berubah.
+    expect(kelasOrbit(Number.NaN, 0.7, 63)).toBe("HEO");
+    expect(kelasOrbit(550, 0.001, 53)).toBe("LEO");
+    expect(kelasOrbit(20200, 0.01, 55)).toBe("MEO");
+    expect(kelasOrbit(35786, 0.0002, 0.1)).toBe("GEO");
   });
 });
