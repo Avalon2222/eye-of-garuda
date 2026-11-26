@@ -90,7 +90,10 @@ export class PelacakPesawat {
 
   perbarui(fixes: FixPesawat[], t: number): void {
     const terlihat = new Set<string>();
-    for (const f of fixes) {
+    for (let f of fixes) {
+      // Waktu fix yang rusak (NaN) dulu membuat posisi ekstrapolasinya NaN dan pesawatnya tidak pernah
+      // dihapus (t - NaN > batas selalu salah). Anggap fix itu dilihat saat diterima.
+      if (!Number.isFinite(f.dilihat)) f = { ...f, dilihat: t };
       terlihat.add(f.hex);
       const lama = this.status.get(f.hex);
       if (!lama) {

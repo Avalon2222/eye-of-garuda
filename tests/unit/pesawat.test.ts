@@ -38,3 +38,15 @@ describe("ekstrapolasi posisi pesawat", () => {
     expect(jarakKm(110, 0, satuJam.lon, satuJam.lat)).toBeLessThan(40);
   });
 });
+
+describe("waktu fix pesawat yang rusak", () => {
+  it("posisi tetap angka dan pesawat tetap dihapus setelah lama tidak terlihat", () => {
+    const p = new PelacakPesawat();
+    p.perbarui([fix({ dilihat: Number.NaN })], T0);
+    const [d] = p.daftar(T0 + 60_000);
+    expect(Number.isFinite(d.lon) && Number.isFinite(d.lat)).toBe(true);
+    expect(jarakKm(110, 0, d.lon, d.lat)).toBeCloseTo(450 * 1.852 / 60, 1);
+    p.perbarui([], T0 + 10 * 60_000);
+    expect(p.jumlah).toBe(0);
+  });
+});
