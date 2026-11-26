@@ -213,3 +213,18 @@ describe("umur data kapal", () => {
     expect(p.umurMenit(T0 + 30 * MENIT)).toBe(30);
   });
 });
+
+describe("koordinat kapal yang rusak", () => {
+  it("posisi live rusak tidak menimpa posisi snapshot", async () => {
+    const lama = kapal({ lat: 1, lon: 104 });
+    const rusak = kapal({ lat: Number.NaN, lon: 104, waktu: new Date(T0 + 5 * MENIT).toISOString() });
+    pasangFetch({ "kapal.json": snapshot([lama, kapal({ mmsi: 2, lat: 95, lon: 104 })]), "/api/kapal": snapshot([rusak], T0 + 5 * MENIT) });
+    const p = new PelacakKapal();
+    await p.muat();
+    await p.muatLive();
+    const k = p.cari(525000001)!;
+    expect([k.lon, k.lat]).toEqual([104, 1]);
+    expect(k.sumber).toBe("snapshot");
+    expect(p.cari(2)).toBeUndefined();   // lat 95 dari snapshot juga dibuang
+  });
+});
