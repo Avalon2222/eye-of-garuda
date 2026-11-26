@@ -6,7 +6,8 @@
 
 export type Potongan = { t: "teks" | "tebal" | "miring" | "kode"; isi: string } | { t: "tautan"; isi: string; url: string };
 
-export type Blok = { t: "p"; isi: Potongan[] } | { t: "ul" | "ol"; butir: Potongan[][] };
+// `mulai` hanya diisi kalau daftar bernomor tidak dimulai dari 1 ("3. ..." setelah paragraf penjelas).
+export type Blok = { t: "p"; isi: Potongan[] } | { t: "ul"; butir: Potongan[][] } | { t: "ol"; butir: Potongan[][]; mulai?: number };
 
 // URL boleh memuat satu tingkat kurung berpasangan, seperti tautan Wikipedia ".../KRI_Nanggala_(402)".
 const RE_INLINE =
@@ -31,7 +32,7 @@ export function uraiInline(teks: string): Potongan[] {
 }
 
 const RE_POIN = /^\s*[-*•]\s+(.*)$/;
-const RE_NOMOR = /^\s*\d{1,2}[.)]\s+(.*)$/;
+const RE_NOMOR = /^\s*(\d{1,2})[.)]\s+(.*)$/;
 const RE_JUDUL = /^\s*#{1,6}\s+(.*)$/;
 
 export function uraiMarkdown(teks: string): Blok[] {
@@ -46,11 +47,18 @@ export function uraiMarkdown(teks: string): Blok[] {
     const nomor = poin ? null : baris.match(RE_NOMOR);
     if (poin || nomor) {
       tutup();
-      const jenis = poin ? "ul" : "ol";
-      const isi = uraiInline((poin ?? nomor)![1]);
+      const isi = uraiInline(poin ? poin[1] : nomor![2]);
       const terakhir = blok[blok.length - 1];
-      if (terakhir && terakhir.t === jenis) terakhir.butir.push(isi);
-      else blok.push({ t: jenis, butir: [isi] });
+      if (poin) {
+        if (terakhir && terakhir.t === "ul") terakhir.butir.push(isi);
+        else blok.push({ t: "ul", butir: [isi] });
+      } else if (terakhir && terakhir.t === "ol") {
+        terakhir.butir.push(isi);
+      } else {
+        // Daftar yang dipotong paragraf ("1. ..." lalu teks lalu "2. ...") dulu mulai lagi dari 1.
+        const mulai = Number(nomor![1]);
+        blok.push(mulai === 1 ? { t: "ol", butir: [isi] } : { t: "ol", butir: [isi], mulai });
+      }
       continue;
     }
     if (!baris.trim()) {

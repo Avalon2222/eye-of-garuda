@@ -81,3 +81,13 @@ describe("judul kosong", () => {
     expect(uraiMarkdown("### **Ringkasan** ")).toEqual([{ t: "p", isi: [{ t: "tebal", isi: "Ringkasan" }] }]);
   });
 });
+
+describe("Daftar bernomor yang tidak mulai dari 1", () => {
+  it("nomor awal disimpan supaya tampil sesuai teks", () => {
+    const blok = uraiMarkdown("1. Changi\n\nCatatan singkat.\n\n2. Paya Lebar\n3. Tengah");
+    expect(blok.map((b) => b.t)).toEqual(["ol", "p", "ol"]);
+    expect(blok[0]).not.toHaveProperty("mulai");
+    expect(blok[2]).toMatchObject({ t: "ol", mulai: 2 });
+    expect(blok[2].t === "ol" && blok[2].butir.length).toBe(2);
+  });
+});
