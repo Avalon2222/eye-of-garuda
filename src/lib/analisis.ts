@@ -105,6 +105,20 @@ export function bangunBusurSipri(d: DataSipri): { garis: GeoJSON.FeatureCollecti
   return { garis: { type: "FeatureCollection", features: garis }, titik: { type: "FeatureCollection", features: titik } };
 }
 
+/** Data SIPRI yang bisa digambar: punya daftar pemasok dan koordinat tujuan yang berupa angka. */
+function sipriSah(d: DataSipri | null): d is DataSipri {
+  return !!d && Array.isArray(d.pemasok) && d.pemasok.length > 0 && Number.isFinite(d.tujuan?.lon) && Number.isFinite(d.tujuan?.lat);
+}
+
+/**
+ * Pilih versi cabang `data` kalau isinya sah, kalau tidak versi lokal. Dulu hanya `pemasok` yang dicek,
+ * jadi berkas tanpa `tujuan` membuat bangunBusurSipri error dan semua lapisan analisis gagal dimuat.
+ */
+export function pilihSipri(raw: DataSipri | null, lokal: DataSipri | null): DataSipri | null {
+  if (sipriSah(raw)) return raw;
+  return sipriSah(lokal) ? lokal : null;
+}
+
 export async function muatAnalisis(m: MapLibre): Promise<HasilAnalisis> {
   const hasil: HasilAnalisis = { fitur: {}, sipri: null };
   const [zee, radius, sipriRaw, sipriLokal, insiden] = await Promise.all([
@@ -114,7 +128,7 @@ export async function muatAnalisis(m: MapLibre): Promise<HasilAnalisis> {
     ambilJson<DataSipri>("/data/sipri.json"),
     ambilJson<GeoJSON.FeatureCollection>("/data/insiden.json"),
   ]);
-  const sipri = sipriRaw && Array.isArray(sipriRaw.pemasok) && sipriRaw.pemasok.length ? sipriRaw : sipriLokal;
+  const sipri = pilihSipri(sipriRaw, sipriLokal);
   if (zee) {
     setDataSource(m, "zee", zee);
     hasil.fitur.zee = zee;

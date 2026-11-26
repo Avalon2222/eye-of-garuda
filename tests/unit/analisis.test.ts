@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { bangunBusurSipri, barisLegendaSipri, formatTiv, type DataSipri } from "@/lib/analisis";
+import { bangunBusurSipri, barisLegendaSipri, formatTiv, pilihSipri, type DataSipri } from "@/lib/analisis";
 
 function data(tiv: number[]): DataSipri {
   return {
@@ -82,5 +82,21 @@ describe("formatTiv", () => {
     expect(formatTiv(null)).toBe("?");
     expect(formatTiv(undefined)).toBe("?");
     expect(formatTiv(Number.NaN)).toBe("?");
+  });
+});
+
+describe("pilihSipri", () => {
+  it("berkas cabang data tanpa tujuan jatuh ke versi lokal, bukan menggagalkan lapisan", () => {
+    const lokal = data([100]);
+    const rusak = { ...data([50]), tujuan: undefined } as unknown as DataSipri;
+    const pilih = pilihSipri(rusak, lokal);
+    expect(pilih).toBe(lokal);
+    expect(() => bangunBusurSipri(pilih!)).not.toThrow();
+  });
+
+  it("versi cabang data yang sah tetap diutamakan", () => {
+    const raw = data([70]);
+    expect(pilihSipri(raw, data([100]))).toBe(raw);
+    expect(pilihSipri({ ...raw, pemasok: [] }, null)).toBeNull();
   });
 });
