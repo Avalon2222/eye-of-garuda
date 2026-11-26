@@ -51,6 +51,11 @@ export function nilaiSog(v: number | null | undefined): number | null {
   return typeof v === "number" && Number.isFinite(v) && v >= 0 && v < 102.3 ? v : null;
 }
 
+/** Koordinat yang bisa digambar: angka hingga, lintang ±90 dan bujur ±180. */
+function koordinatSah(k: Pick<KapalSnapshot, "lat" | "lon">): boolean {
+  return Number.isFinite(k.lat) && Number.isFinite(k.lon) && Math.abs(k.lat) <= 90 && Math.abs(k.lon) <= 180;
+}
+
 export class PelacakKapal {
   snapshot: SnapshotAis | null = null;
   live: SnapshotAis | null = null;
@@ -101,9 +106,12 @@ export class PelacakKapal {
     this.gabungan.clear();
     this.waktuMs.clear();
     for (const k of this.snapshot?.kapal ?? []) {
+      if (!koordinatSah(k)) continue;
       this.gabungan.set(k.mmsi, { ...k, sumber: "snapshot" });
     }
     for (const k of this.live?.kapal ?? []) {
+      // Posisi live yang rusak (null, NaN, lat 91) tidak boleh menimpa posisi snapshot yang masih benar.
+      if (!koordinatSah(k)) continue;
       const lama = this.gabungan.get(k.mmsi);
       this.gabungan.set(k.mmsi, {
         ...(lama ?? {}),
