@@ -148,6 +148,8 @@ export class PelacakKapal {
     // AIS memakai COG 360 dan SOG 102,3 sebagai "tidak tersedia". Data live dari /api/kapal belum disaring
     // seperti snapshot, jadi tanpa cek ini kapal bisa digeser ke utara dengan kecepatan 190 km/jam.
     if (k.sog == null || k.cog == null || k.sog < 0.5 || k.sog >= 102.3 || k.cog >= 360) return [k.lon, k.lat];
+    // Waktu laporan rusak membuat Date.parse NaN; dulu ekstrapolasinya ikut NaN dan kapal hilang dari peta.
+    if (!Number.isFinite(t0)) return [k.lon, k.lat];
     const menit = Math.min(MAKS_EKSTRAPOLASI_MENIT, Math.max(0, (t - t0) / 60000));
     return titikTujuan(k.lon, k.lat, k.cog, k.sog * 1.852 * (menit / 60));
   }
