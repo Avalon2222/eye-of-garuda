@@ -136,7 +136,10 @@ export class PelacakKapal {
   umurMenit(t: number): number | null {
     const acuan = this.live?.diambil ?? this.snapshot?.diambil;
     if (!acuan || this.gabungan.size === 0) return null;
-    return Math.max(0, Math.round((t - Date.parse(acuan)) / 60000));
+    // "diambil" yang rusak dulu tampil sebagai "NaN menit lalu" di panel status.
+    const ms = Date.parse(acuan);
+    if (!Number.isFinite(ms)) return null;
+    return Math.max(0, Math.round((t - ms) / 60000));
   }
 
   cari(mmsi: number): KapalSnapshot | undefined {
