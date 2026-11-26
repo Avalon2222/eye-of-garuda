@@ -197,3 +197,19 @@ describe("waktu laporan kapal yang rusak", () => {
     expect(titik.flat().every(Number.isFinite)).toBe(true);
   });
 });
+
+describe("umur data kapal", () => {
+  it("waktu diambil yang rusak memberi null, bukan NaN", async () => {
+    pasangFetch({ "kapal.json": { ...snapshot([kapal({})]), diambil: "kemarin" } });
+    const p = new PelacakKapal();
+    await p.muat();
+    expect(p.umurMenit(T0 + 30 * MENIT)).toBeNull();
+  });
+
+  it("waktu diambil yang benar tetap dihitung", async () => {
+    pasangFetch({ "kapal.json": snapshot([kapal({})]) });
+    const p = new PelacakKapal();
+    await p.muat();
+    expect(p.umurMenit(T0 + 30 * MENIT)).toBe(30);
+  });
+});
