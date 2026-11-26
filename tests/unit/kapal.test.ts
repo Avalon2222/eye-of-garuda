@@ -228,3 +228,17 @@ describe("koordinat kapal yang rusak", () => {
     expect(p.cari(2)).toBeUndefined();   // lat 95 dari snapshot juga dibuang
   });
 });
+
+describe("laporan live yang lebih tua dari snapshot", () => {
+  it("posisi snapshot yang lebih baru dipertahankan", async () => {
+    const baru = kapal({ lat: 1, lon: 104, waktu: new Date(T0 + 20 * MENIT).toISOString() });
+    const basi = kapal({ lat: 2, lon: 103, waktu: new Date(T0 + 5 * MENIT).toISOString() });
+    pasangFetch({ "kapal.json": snapshot([baru], T0 + 20 * MENIT), "/api/kapal": snapshot([basi], T0 + 25 * MENIT) });
+    const p = new PelacakKapal();
+    await p.muat();
+    await p.muatLive();
+    const k = p.cari(525000001)!;
+    expect([k.lon, k.lat]).toEqual([104, 1]);
+    expect(k.sumber).toBe("snapshot");
+  });
+});

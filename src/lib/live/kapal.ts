@@ -113,6 +113,9 @@ export class PelacakKapal {
       // Posisi live yang rusak (null, NaN, lat 91) tidak boleh menimpa posisi snapshot yang masih benar.
       if (!koordinatSah(k)) continue;
       const lama = this.gabungan.get(k.mmsi);
+      // Laporan live bisa lebih tua dari snapshot (cache rute live, kapal berhenti memancar); dulu posisi
+      // basi itu menimpa posisi snapshot yang lebih baru dan kapal melompat mundur.
+      if (lama && Date.parse(lama.waktu) > Date.parse(k.waktu)) continue;
       this.gabungan.set(k.mmsi, {
         ...(lama ?? {}),
         ...k,
