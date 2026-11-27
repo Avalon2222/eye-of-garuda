@@ -224,3 +224,19 @@ describe("hitungan batas laju yang rusak", () => {
     }
   });
 });
+
+describe("hitungan batas laju dari masa depan", () => {
+  it("mulai yang jauh di depan jam sekarang dianggap jendela baru", async () => {
+    const kini = 1_000_000;
+    const jendela = 60_000;
+    const p = new PenyimpanMemori();
+    await p.set("k", { mulai: kini + 365 * 86_400_000, n: 99 });
+    const s = await catatPermintaan(p, "k", 5, jendela, kini);
+    expect(s.lewat).toBe(false);
+    expect(s.sisa).toBe(4);
+    expect(s.resetDetik).toBe(60);
+    // selisih jam kecil antar-server tetap melanjutkan hitungan
+    await p.set("k", { mulai: kini + 2_000, n: 2 });
+    expect((await catatPermintaan(p, "k", 5, jendela, kini)).sisa).toBe(2);
+  });
+});
