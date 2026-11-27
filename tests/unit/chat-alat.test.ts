@@ -224,3 +224,11 @@ describe("lapisan dari model", () => {
     expect(cari.hasil.every((h) => h.lapisan === "tni")).toBe(true);
   });
 });
+
+describe("kelompok hitung dari model", () => {
+  it("huruf besar dan spasi di nama kelompok tetap dikenali", () => {
+    const biasa = jalankanAlat(indeks, "hitung", { lapisan: "tni", kelompok: "matra" }) as { rincian?: unknown[] };
+    expect(biasa.rincian?.length).toBeGreaterThan(0);
+    expect(jalankanAlat(indeks, "hitung", { lapisan: "tni", kelompok: " Matra " })).toEqual(biasa);
+  });
+});

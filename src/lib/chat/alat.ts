@@ -429,7 +429,9 @@ export function jalankanAlat(indeks: ObjekPeta[], nama: string, argumen: unknown
     case "hitung": {
       const lapisan = lapisanDari(a.lapisan);
       if (!lapisan) return { galat: "argumen_salah" };
-      const kelompok = a.kelompok === "jenis" || a.kelompok === "negara" || a.kelompok === "wilayah" || a.kelompok === "matra" ? a.kelompok : undefined;
+      // "Matra" atau "wilayah " dari model dulu diam-diam diabaikan, sehingga jawaban tanpa rincian.
+      const k = typeof a.kelompok === "string" ? a.kelompok.trim().toLowerCase() : a.kelompok;
+      const kelompok = k === "jenis" || k === "negara" || k === "wilayah" || k === "matra" ? k : undefined;
       return hitung(indeks, { lapisan, kelompok, saring: str(a.saring) });
     }
     case "cari_objek": {
