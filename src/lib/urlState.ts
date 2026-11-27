@@ -32,8 +32,11 @@ export const TAMPILAN_AWAL: Tampilan = { lat: -2.5, lon: 118, zoom: 3.6, bearing
  * Di desktop tetap zoom 3.6; di HP zoom diturunkan supaya Sabang sampai Merauke kelihatan semua.
  */
 export function tampilanAwal(lebar: number = typeof window === "undefined" ? 1440 : window.innerWidth): Tampilan {
+  // innerWidth 0 (iframe tersembunyi, tab latar belakang) membuat log2(0) = -Infinity, dan MapLibre menolak
+  // zoom tak hingga. Lebar yang tidak masuk akal memakai zoom bawaan; zoom tidak pernah di bawah 0.
+  if (!Number.isFinite(lebar) || lebar <= 0) return { ...TAMPILAN_AWAL };
   const zoomPas = Math.log2((lebar * 0.96 * 360) / 46 / 512);
-  return { ...TAMPILAN_AWAL, zoom: Math.min(TAMPILAN_AWAL.zoom, Math.round(zoomPas * 100) / 100) };
+  return { ...TAMPILAN_AWAL, zoom: Math.max(0, Math.min(TAMPILAN_AWAL.zoom, Math.round(zoomPas * 100) / 100)) };
 }
 
 function jepit(x: number, min: number, max: number): number {
