@@ -149,11 +149,11 @@ export class PelacakKapal {
 
   /** Menit sejak data terbaru (live bila ada, kalau tidak snapshot). */
   umurMenit(t: number): number | null {
-    const acuan = this.live?.diambil ?? this.snapshot?.diambil;
-    if (!acuan || this.gabungan.size === 0) return null;
-    // "diambil" yang rusak dulu tampil sebagai "NaN menit lalu" di panel status.
-    const ms = Date.parse(acuan);
-    if (!Number.isFinite(ms)) return null;
+    if (this.gabungan.size === 0) return null;
+    // "diambil" yang rusak dulu tampil sebagai "NaN menit lalu" di panel status. Kalau waktu live rusak,
+    // waktu snapshot yang masih benar dipakai, bukan langsung menyerah.
+    const ms = [this.live?.diambil, this.snapshot?.diambil].map((v) => (v ? Date.parse(v) : NaN)).find(Number.isFinite);
+    if (ms === undefined) return null;
     return Math.max(0, Math.round((t - ms) / 60000));
   }
 

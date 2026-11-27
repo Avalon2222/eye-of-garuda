@@ -255,3 +255,13 @@ describe("MMSI dobel di snapshot", () => {
     expect([k.lon, k.lat]).toEqual([104, 1]);
   });
 });
+
+describe("umur data saat waktu live rusak", () => {
+  it("memakai waktu snapshot yang masih benar", async () => {
+    pasangFetch({ "kapal.json": snapshot([kapal({})]), "/api/kapal": { ...snapshot([kapal({ mmsi: 3 })]), diambil: "" } });
+    const p = new PelacakKapal();
+    await p.muat();
+    await p.muatLive();
+    expect(p.umurMenit(T0 + 30 * MENIT)).toBe(30);
+  });
+});
