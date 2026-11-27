@@ -232,3 +232,10 @@ describe("kelompok hitung dari model", () => {
     expect(jalankanAlat(indeks, "hitung", { lapisan: "tni", kelompok: " Matra " })).toEqual(biasa);
   });
 });
+
+describe("koordinat dengan tanda derajat", () => {
+  it("3.9°, 108.4° dibaca sebagai koordinat", () => {
+    expect(selesaikanTempat(indeks, "3.9°, 108.4°")).toMatchObject({ lat: 3.9, lon: 108.4, asal: "koordinat" });
+    expect(selesaikanTempat(indeks, "-6.2° 106.8°")).toMatchObject({ lat: -6.2, lon: 106.8, asal: "koordinat" });
+  });
+});
