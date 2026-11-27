@@ -43,7 +43,10 @@ export interface StatusBatas {
 export async function catatPermintaan(penyimpan: Penyimpan, kunci: string, batas: number, jendelaMs: number, kini = Date.now()): Promise<StatusBatas> {
   try {
     const lama = await penyimpan.get(kunci);
-    const h: Hitungan = isHitungan(lama) && kini - lama.mulai < jendelaMs ? { mulai: lama.mulai, n: lama.n + 1 } : { mulai: kini, n: 1 };
+    // `mulai` jauh di masa depan (jam server yang sempat salah, atau data rusak) dulu membuat jendelanya
+    // tidak pernah berakhir: kunci itu tertahan terus. Selisih jam kecil antar-instance tetap dihitung.
+    const sah = isHitungan(lama) && kini - lama.mulai < jendelaMs && lama.mulai - kini < jendelaMs;
+    const h: Hitungan = sah ? { mulai: lama.mulai, n: lama.n + 1 } : { mulai: kini, n: 1 };
     const resetDetik = Math.max(1, Math.ceil((h.mulai + jendelaMs - kini) / 1000));
     await penyimpan.set(kunci, h, { ttl: resetDetik });
     return { lewat: h.n > batas, sisa: Math.max(0, batas - h.n), resetDetik };
