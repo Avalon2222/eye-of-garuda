@@ -75,6 +75,15 @@ describe("tampilanAwal", () => {
     expect(tampilanAwal(1440).zoom).toBe(TAMPILAN_AWAL.zoom);
     expect(tampilanAwal(360).zoom).toBeLessThan(TAMPILAN_AWAL.zoom);
   });
+
+  it("lebar layar 0 atau NaN tidak menghasilkan zoom tak hingga", () => {
+    for (const lebar of [0, -10, NaN, 1]) {
+      const z = tampilanAwal(lebar).zoom;
+      expect(Number.isFinite(z)).toBe(true);
+      expect(z).toBeGreaterThanOrEqual(0);
+    }
+    expect(tampilanAwal(0).zoom).toBe(TAMPILAN_AWAL.zoom);
+  });
 });
 
 describe("tampilanPeta", () => {
