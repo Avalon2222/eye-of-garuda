@@ -213,3 +213,14 @@ describe("hitung dengan saringan tanda baca saja", () => {
     expect(hitung(indeks, { lapisan: "tni", saring: "Papua" }).saring).toBe("Papua");
   });
 });
+
+describe("lapisan dari model", () => {
+  it("huruf besar dan spasi di nama lapisan tetap dikenali", () => {
+    const biasa = jalankanAlat(indeks, "terdekat", { dari: "Natuna", lapisan: "tni" });
+    expect(jalankanAlat(indeks, "terdekat", { dari: "Natuna", lapisan: " TNI " })).toEqual(biasa);
+    expect(jalankanAlat(indeks, "hitung", { lapisan: "Kabel" })).toEqual(jalankanAlat(indeks, "hitung", { lapisan: "kabel" }));
+    const cari = jalankanAlat(indeks, "cari_objek", { kueri: "Ranai", lapisan: "TNI" }) as { hasil: { lapisan: string }[] };
+    expect(cari.hasil.length).toBeGreaterThan(0);
+    expect(cari.hasil.every((h) => h.lapisan === "tni")).toBe(true);
+  });
+});

@@ -37,6 +37,12 @@ function isLapisan(v: unknown): v is LapisanChat {
   return typeof v === "string" && (LAPISAN_CHAT as readonly string[]).includes(v);
 }
 
+/** Lapisan dari model: "TNI" atau " tni " dulu ditolak sebagai argumen salah, padahal maksudnya jelas. */
+function lapisanDari(v: unknown): LapisanChat | undefined {
+  const t = typeof v === "string" ? v.trim().toLowerCase() : v;
+  return isLapisan(t) ? t : undefined;
+}
+
 const ARAH = ["utara", "timur laut", "timur", "tenggara", "selatan", "barat daya", "barat", "barat laut"];
 
 /** Arah mata angin dari titik 1 ke titik 2. */
@@ -416,18 +422,20 @@ export function jalankanAlat(indeks: ObjekPeta[], nama: string, argumen: unknown
   switch (nama) {
     case "terdekat": {
       const dari = str(a.dari);
-      if (!dari || !isLapisan(a.lapisan)) return { galat: "argumen_salah" };
-      return terdekat(indeks, { dari, lapisan: a.lapisan, jumlah: angka(a.jumlah), negara: str(a.negara), kecualiNegara: str(a.kecuali_negara), jenis: str(a.jenis) });
+      const lapisan = lapisanDari(a.lapisan);
+      if (!dari || !lapisan) return { galat: "argumen_salah" };
+      return terdekat(indeks, { dari, lapisan, jumlah: angka(a.jumlah), negara: str(a.negara), kecualiNegara: str(a.kecuali_negara), jenis: str(a.jenis) });
     }
     case "hitung": {
-      if (!isLapisan(a.lapisan)) return { galat: "argumen_salah" };
+      const lapisan = lapisanDari(a.lapisan);
+      if (!lapisan) return { galat: "argumen_salah" };
       const kelompok = a.kelompok === "jenis" || a.kelompok === "negara" || a.kelompok === "wilayah" || a.kelompok === "matra" ? a.kelompok : undefined;
-      return hitung(indeks, { lapisan: a.lapisan, kelompok, saring: str(a.saring) });
+      return hitung(indeks, { lapisan, kelompok, saring: str(a.saring) });
     }
     case "cari_objek": {
       const kueri = str(a.kueri);
       if (!kueri) return { galat: "argumen_salah" };
-      const hasil = cariObjek(indeks, kueri, { lapisan: isLapisan(a.lapisan) ? a.lapisan : undefined, batas: angka(a.batas) });
+      const hasil = cariObjek(indeks, kueri, { lapisan: lapisanDari(a.lapisan), batas: angka(a.batas) });
       return { jumlah: hasil.length, hasil };
     }
     case "jarak": {
