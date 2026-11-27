@@ -94,6 +94,9 @@ export class PelacakPesawat {
       // Waktu fix yang rusak (NaN) dulu membuat posisi ekstrapolasinya NaN dan pesawatnya tidak pernah
       // dihapus (t - NaN > batas selalu salah). Anggap fix itu dilihat saat diterima.
       if (!Number.isFinite(f.dilihat)) f = { ...f, dilihat: t };
+      // Fix tanpa posisi yang sah (null, NaN, lintang 91) dulu ikut disimpan: pesawat baru tampil di NaN,
+      // dan pesawat lama melompat ke titik rusak itu lalu jejaknya ikut rusak. Fix seperti itu dilewati.
+      if (!Number.isFinite(f.lat) || !Number.isFinite(f.lon) || Math.abs(f.lat) > 90 || Math.abs(f.lon) > 180) continue;
       terlihat.add(f.hex);
       const lama = this.status.get(f.hex);
       if (!lama) {

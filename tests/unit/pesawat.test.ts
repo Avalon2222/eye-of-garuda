@@ -50,3 +50,15 @@ describe("waktu fix pesawat yang rusak", () => {
     expect(p.jumlah).toBe(0);
   });
 });
+
+describe("posisi fix pesawat yang rusak", () => {
+  it("fix tanpa koordinat sah dilewati, posisi lama dipertahankan", () => {
+    const p = new PelacakPesawat();
+    p.perbarui([fix(), fix({ hex: "ae9999", lat: Number.NaN })], T0);
+    expect(p.jumlah).toBe(1);
+    p.perbarui([fix({ lat: 95, lon: 110, dilihat: T0 + 10_000 })], T0 + 10_000);
+    const s = p.cari("ae1234")!;
+    expect(s.lat).toBe(0);
+    expect(s.jejak.every(([lon, lat]) => Number.isFinite(lon) && Math.abs(lat) <= 90)).toBe(true);
+  });
+});
