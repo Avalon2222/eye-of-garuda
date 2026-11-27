@@ -107,6 +107,10 @@ export class PelacakKapal {
     this.waktuMs.clear();
     for (const k of this.snapshot?.kapal ?? []) {
       if (!koordinatSah(k)) continue;
+      // Snapshot bisa memuat satu MMSI dua kali (dua laporan dalam jendela 30 menit). Yang dipakai laporan
+      // terbaru, bukan yang kebetulan tertulis terakhir; kalau tidak, kapal bisa tampil di posisi lamanya.
+      const lama = this.gabungan.get(k.mmsi);
+      if (lama && Date.parse(lama.waktu) > Date.parse(k.waktu)) continue;
       this.gabungan.set(k.mmsi, { ...k, sumber: "snapshot" });
     }
     for (const k of this.live?.kapal ?? []) {

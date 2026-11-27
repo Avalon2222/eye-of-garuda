@@ -242,3 +242,16 @@ describe("laporan live yang lebih tua dari snapshot", () => {
     expect(k.sumber).toBe("snapshot");
   });
 });
+
+describe("MMSI dobel di snapshot", () => {
+  it("laporan terbaru yang dipakai, bukan baris terakhir", async () => {
+    const baru = kapal({ lat: 1, lon: 104, waktu: new Date(T0 + 20 * MENIT).toISOString() });
+    const lama = kapal({ lat: 2, lon: 103, waktu: new Date(T0 + 5 * MENIT).toISOString() });
+    pasangFetch({ "kapal.json": snapshot([baru, lama], T0 + 25 * MENIT) });
+    const p = new PelacakKapal();
+    await p.muat();
+    expect(p.jumlah).toBe(1);
+    const k = p.cari(525000001)!;
+    expect([k.lon, k.lat]).toEqual([104, 1]);
+  });
+});
