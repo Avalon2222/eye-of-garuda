@@ -91,3 +91,13 @@ describe("Daftar bernomor yang tidak mulai dari 1", () => {
     expect(blok[2].t === "ol" && blok[2].butir.length).toBe(2);
   });
 });
+
+describe("butir daftar kosong", () => {
+  it("butir_kosong_dilewati: '- ' dan '2. ' tanpa isi tidak jadi butir", () => {
+    const blok = uraiMarkdown("- satu\n- \n-   \n- dua\n\n1. a\n2. \n3. c");
+    expect(blok).toHaveLength(2);
+    expect(blok[0].t === "ul" && blok[0].butir).toHaveLength(2);
+    expect(blok[1].t === "ol" && blok[1].butir).toHaveLength(2);
+    expect(uraiMarkdown("- ")).toEqual([]);
+  });
+});
