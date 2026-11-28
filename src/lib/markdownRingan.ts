@@ -47,6 +47,8 @@ export function uraiMarkdown(teks: string): Blok[] {
     const nomor = poin ? null : baris.match(RE_NOMOR);
     if (poin || nomor) {
       tutup();
+      // "- " atau "1. " tanpa isi (model berhenti di tengah daftar) jangan jadi butir kosong.
+      if (!(poin ? poin[1] : nomor![2]).trim()) continue;
       const isi = uraiInline(poin ? poin[1] : nomor![2]);
       const terakhir = blok[blok.length - 1];
       if (poin) {
