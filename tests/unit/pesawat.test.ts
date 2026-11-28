@@ -86,3 +86,14 @@ describe("callsign berisi spasi saja", () => {
     expect(p.hitung(T0).titik.features.find((f) => f.properties?.hex === "ae0001")?.properties?.callsign).toBe("N123");
   });
 });
+
+describe("hex kosong atau beda huruf", () => {
+  it("hex_kosong_dilewati: fix tanpa hex tidak jadi pesawat, hex huruf besar menyatu dengan huruf kecil", () => {
+    const p = new PelacakPesawat();
+    p.perbarui([fix({ hex: "" }), fix({ hex: "   " }), fix({ hex: undefined as unknown as string }), fix({ hex: "ae1234" })], T0);
+    expect(p.jumlah).toBe(1);
+    p.perbarui([fix({ hex: "AE1234 ", lon: 111 })], T0 + 10_000);
+    expect(p.jumlah).toBe(1);
+    expect(p.cari("ae1234")?.lon).toBe(111);
+  });
+});
