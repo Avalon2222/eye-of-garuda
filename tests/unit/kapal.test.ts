@@ -265,3 +265,15 @@ describe("umur data saat waktu live rusak", () => {
     expect(p.umurMenit(T0 + 30 * MENIT)).toBe(30);
   });
 });
+
+describe("nama kapal berisi spasi atau padding @", () => {
+  it("nama_spasi_pakai_mmsi: label jatuh ke MMSI, padding @ dibuang", async () => {
+    pasangFetch({ "kapal.json": snapshot([kapal({ mmsi: 525000001, nama: "     " }), kapal({ mmsi: 525000002, nama: "KM UJI@@@@" })]) });
+    const p = new PelacakKapal();
+    await p.muat();
+    const props = Object.fromEntries(p.hitung(T0).features.map((f) => [f.properties?.mmsi, f.properties]));
+    expect(props[525000001]?.nama).toBe("525000001");
+    expect(props[525000001]?.label).toBe("525000001 (IDN)");
+    expect(props[525000002]?.nama).toBe("KM UJI");
+  });
+});
