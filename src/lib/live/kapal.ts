@@ -177,7 +177,8 @@ export class PelacakKapal {
     for (const k of this.gabungan.values()) {
       const [lon, lat] = this.posisi(k, t);
       const kode = negaraDariMmsi(k.mmsi)?.kode ?? "";
-      const nama = k.nama || String(k.mmsi);
+      // Nama AIS yang hanya berisi spasi (atau padding "@") dulu lolos sebagai nama dan labelnya kosong.
+      const nama = (k.nama ?? "").replace(/@/g, "").trim() || String(k.mmsi);
       fitur.push({
         type: "Feature",
         properties: {
