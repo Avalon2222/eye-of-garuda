@@ -62,3 +62,15 @@ describe("posisi fix pesawat yang rusak", () => {
     expect(s.jejak.every(([lon, lat]) => Number.isFinite(lon) && Math.abs(lat) <= 90)).toBe(true);
   });
 });
+
+describe("kecepatan atau haluan NaN", () => {
+  it("gs_track_nan_tidak_ekstrapolasi: pesawat tetap di posisi fix, bukan NaN", () => {
+    const p = new PelacakPesawat();
+    p.perbarui([fix({ hex: "a1", gs: NaN }), fix({ hex: "a2", track: NaN })], T0);
+    for (const d of p.daftar(T0 + 60_000)) {
+      expect(d.lon).toBe(110);
+      expect(d.lat).toBe(0);
+    }
+    expect(p.daftar(T0 + 60_000)).toHaveLength(2);
+  });
+});
