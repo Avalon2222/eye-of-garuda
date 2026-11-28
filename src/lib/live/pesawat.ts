@@ -56,6 +56,11 @@ const MAKS_JEJAK = 40;
 // Tanpa batas ini ekstrapolasi berjalan tanpa akhir dan pesawat melantur ratusan km dari posisi sebenarnya.
 const MAKS_EKSTRAPOLASI_MS = HAPUS_SETELAH_MS;
 
+/** Label pesawat: callsign, lalu registrasi, lalu hex. Callsign ADS-B sering diisi spasi saja ("        "). */
+function labelPesawat(s: Pick<FixPesawat, "callsign" | "reg" | "hex">): string {
+  return (s.callsign ?? "").trim() || (s.reg ?? "").trim() || s.hex.toUpperCase();
+}
+
 export class PelacakPesawat {
   private status = new Map<string, StatusPesawat>();
   terakhirAmbil = 0;
@@ -150,7 +155,7 @@ export class PelacakPesawat {
     const hasil: PesawatTampil[] = [];
     for (const s of this.status.values()) {
       const [lon, lat] = this.posisiTampil(s, t);
-      const callsign = s.callsign || s.reg || s.hex.toUpperCase();
+      const callsign = labelPesawat(s);
       hasil.push({
         hex: s.hex,
         callsign,
@@ -204,7 +209,7 @@ export class PelacakPesawat {
         properties: {
           id: `pesawat-${s.hex}`,
           hex: s.hex,
-          callsign: s.callsign || s.reg || s.hex.toUpperCase(),
+          callsign: labelPesawat(s),
           reg: s.reg,
           tipe: s.tipe,
           alt: s.alt,

@@ -74,3 +74,15 @@ describe("kecepatan atau haluan NaN", () => {
     expect(p.daftar(T0 + 60_000)).toHaveLength(2);
   });
 });
+
+describe("callsign berisi spasi saja", () => {
+  it("callsign_spasi_pakai_reg: label jatuh ke registrasi, lalu hex", () => {
+    const p = new PelacakPesawat();
+    p.perbarui([fix({ hex: "ae0001", callsign: "        ", reg: "N123" }), fix({ hex: "ae0002", callsign: "   ", reg: "" })], T0);
+    const d = p.daftar(T0);
+    expect(d.find((x) => x.hex === "ae0001")?.callsign).toBe("N123");
+    expect(d.find((x) => x.hex === "ae0002")?.callsign).toBe("AE0002");
+    expect(d.find((x) => x.hex === "ae0002")?.props.label).toBe("AE0002 (USA)");
+    expect(p.hitung(T0).titik.features.find((f) => f.properties?.hex === "ae0001")?.properties?.callsign).toBe("N123");
+  });
+});
