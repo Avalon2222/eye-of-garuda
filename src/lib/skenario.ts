@@ -144,7 +144,8 @@ export function posisiJalur(jalur: [number, number][], f: number): { lon: number
     total += d;
   }
   if (total < 1e-6) return { lon: jalur[0][0], lat: jalur[0][1], haluan: 0 };
-  let sisa = Math.min(1, Math.max(0, f)) * total;
+  // Fraksi NaN (pembagian 0/0 di pemanggil) dulu lolos penjepit dan menghasilkan posisi NaN; anggap awal jalur.
+  let sisa = (Number.isFinite(f) ? Math.min(1, Math.max(0, f)) : 0) * total;
   for (let i = 0; i < seg.length; i++) {
     if (sisa <= seg[i] || i === seg.length - 1) {
       const fs = seg[i] > 0 ? Math.min(1, sisa / seg[i]) : 1;
@@ -171,6 +172,8 @@ export function haluanDeg(a: [number, number], b: [number, number]): number {
 
 /** Titik-titik jalur yang sudah dilalui sampai fraksi f (untuk jejak). */
 export function jejakJalur(jalur: [number, number][], f: number, n = 40): [number, number][] {
+  // n = 0 membuat f * i / n = NaN di setiap titik; n pecahan membuat jumlah titik tidak pasti.
+  n = Number.isFinite(n) ? Math.max(1, Math.round(n)) : 40;
   const hasil: [number, number][] = [];
   for (let i = 0; i <= n; i++) {
     const p = posisiJalur(jalur, (f * i) / n);
