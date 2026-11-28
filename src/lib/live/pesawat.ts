@@ -76,7 +76,8 @@ export class PelacakPesawat {
   }
 
   private prediksi(s: StatusPesawat, t: number): [number, number] {
-    if (s.gs == null || s.track == null || s.gs < 20) return [s.lon, s.lat];
+    // gs/track NaN (kolom kosong di feed) lolos cek null, lalu titikTujuan menghasilkan NaN dan pesawat hilang.
+    if (s.gs == null || s.track == null || !Number.isFinite(s.gs) || !Number.isFinite(s.track) || s.gs < 20) return [s.lon, s.lat];
     const jam = Math.min(MAKS_EKSTRAPOLASI_MS, Math.max(0, t - s.dilihat)) / 3_600_000;
     return titikTujuan(s.lon, s.lat, s.track, s.gs * 1.852 * jam);
   }
