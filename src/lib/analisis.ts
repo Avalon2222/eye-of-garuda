@@ -91,7 +91,8 @@ export function bangunBusurSipri(d: DataSipri): { garis: GeoJSON.FeatureCollecti
       persen: p.persen,
       tahun_puncak: p.tahun_puncak ?? null,
       tebal: 1 + (9 * tivDari(p)) / maks,
-      keterangan: `${p.contoh}. ${d.catatan}`,
+      // contoh/catatan kosong (null di JSON) dulu tampil sebagai "undefined. null" di panel.
+      keterangan: [p.contoh, d.catatan].filter((t) => typeof t === "string" && t.trim()).join(". "),
       sumber: p.sumber,
       url: p.url,
     },

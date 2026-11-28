@@ -100,3 +100,17 @@ describe("pilihSipri", () => {
     expect(pilihSipri({ ...raw, pemasok: [] }, null)).toBeNull();
   });
 });
+
+describe("keterangan busur SIPRI", () => {
+  it("keterangan_tanpa_undefined: contoh atau catatan kosong tidak tampil sebagai 'undefined'/'null'", () => {
+    const d = data([100, 50]);
+    (d.pemasok[0] as unknown as { contoh?: string }).contoh = undefined;
+    (d as unknown as { catatan: string | null }).catatan = null;
+    d.pemasok[1].contoh = "Fregat Martadinata";
+    const { garis } = bangunBusurSipri(d);
+    const ket = garis.features.map((f) => String(f.properties?.keterangan));
+    expect(ket[0]).toBe("");
+    expect(ket[1]).toBe("Fregat Martadinata");
+    for (const k of ket) expect(k).not.toMatch(/undefined|null/);
+  });
+});
