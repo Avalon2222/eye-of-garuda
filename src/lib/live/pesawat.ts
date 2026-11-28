@@ -103,6 +103,10 @@ export class PelacakPesawat {
       // Fix tanpa posisi yang sah (null, NaN, lintang 91) dulu ikut disimpan: pesawat baru tampil di NaN,
       // dan pesawat lama melompat ke titik rusak itu lalu jejaknya ikut rusak. Fix seperti itu dilewati.
       if (!Number.isFinite(f.lat) || !Number.isFinite(f.lon) || Math.abs(f.lat) > 90 || Math.abs(f.lon) > 180) continue;
+      // Fix tanpa hex (kolom kosong di feed) dulu tersimpan sebagai pesawat "" atau "undefined" yang tidak
+      // bisa dirujuk, dan beberapa fix seperti itu saling menimpa. Hex juga disamakan huruf kecilnya.
+      if (typeof f.hex !== "string" || !f.hex.trim()) continue;
+      if (f.hex !== f.hex.trim().toLowerCase()) f = { ...f, hex: f.hex.trim().toLowerCase() };
       terlihat.add(f.hex);
       const lama = this.status.get(f.hex);
       if (!lama) {
