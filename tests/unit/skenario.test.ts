@@ -138,3 +138,22 @@ describe("posisiJalur di ujung jalur", () => {
     expect(posisiJalur(selatan, 1).haluan).toBeCloseTo(180, 0);
   });
 });
+
+describe("fraksi dan jumlah titik yang rusak", () => {
+  const A: [number, number] = [105, 0];
+  const B: [number, number] = [115, 0];
+
+  it("fraksi_nan_dianggap_awal: posisiJalur dengan NaN berada di awal jalur dan jejakJalur n=0 tetap hingga", () => {
+    const p = posisiJalur([A, B], NaN);
+    expect(p.lon).toBeCloseTo(105, 6);
+    expect(p.lat).toBeCloseTo(0, 6);
+    for (const n of [0, NaN, 2.5]) {
+      const jejak = jejakJalur([A, B], 0.5, n);
+      expect(jejak.length).toBeGreaterThanOrEqual(2);
+      for (const [lon, lat] of jejak) {
+        expect(Number.isFinite(lon)).toBe(true);
+        expect(Number.isFinite(lat)).toBe(true);
+      }
+    }
+  });
+});
