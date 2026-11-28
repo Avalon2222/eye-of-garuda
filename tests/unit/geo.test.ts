@@ -156,3 +156,16 @@ describe("busur dengan jumlah titik tidak wajar", () => {
     }
   });
 });
+
+describe("lingkaran dengan radius rusak", () => {
+  it("radius_rusak_jadi_titik: NaN, negatif, dan tak hingga menghasilkan ring di titik pusat", () => {
+    for (const r of [NaN, -50, Infinity, -Infinity]) {
+      const ring = lingkaran(110, -5, r, 8);
+      expect(ring).toHaveLength(9);
+      for (const [lon, lat] of ring) {
+        expect(lon).toBeCloseTo(110, 6);
+        expect(lat).toBeCloseTo(-5, 6);
+      }
+    }
+  });
+});

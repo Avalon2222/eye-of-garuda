@@ -28,6 +28,9 @@ export function lingkaran(lon: number, lat: number, radiusKm: number, n = 72): [
   // n = 0 membuat sudut 0/0 (NaN), dan n pecahan (mis. 7,5) berhenti sebelum 360 derajat sehingga ring
   // tidak tertutup. Poligon butuh minimal 3 sisi.
   n = Number.isFinite(n) ? Math.max(3, Math.round(n)) : 72;
+  // Radius NaN/negatif (properti radius_km kosong di GeoJSON) membuat ring berisi NaN yang ditolak MapLibre;
+  // anggap 0 km supaya lingkaran mengecil ke titik pusatnya, bukan menghilangkan seluruh lapisan.
+  radiusKm = Number.isFinite(radiusKm) && radiusKm > 0 ? radiusKm : 0;
   const ring: [number, number][] = [];
   for (let i = 0; i <= n; i++) ring.push(titikTujuan(lon, lat, (360 * i) / n, radiusKm));
   return ring;
